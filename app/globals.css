@@ -56,7 +56,7 @@ a.work-row { color: inherit; }
 .project-reading { display: flex; flex-direction: column; height: calc(100dvh - var(--top-edge) - 26px); }
 .project-reading > header, .project-reading > .project-copy, .project-reading > .project-links, .project-reading > .project-media-tabs { flex-shrink: 0; }
 .pdf-reader { display: flex; flex-direction: column; width: 100%; flex: 1; min-height: 180px; }
-.pdf-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px; padding-bottom: 12px; flex-shrink: 0; }
+.pdf-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px 14px; padding-bottom: 12px; flex-shrink: 0; }
 .pdf-toolbar a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .pdf-pages { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; background: var(--paper); scrollbar-width: none; padding: 16px; }
 .pdf-pages::-webkit-scrollbar, .viewer::-webkit-scrollbar { display: none; }
@@ -64,6 +64,11 @@ a.work-row { color: inherit; }
 .pdf-page { flex-shrink: 0; background: white; box-shadow: 0 1px 3px #00000012; }
 .pdf-status { padding: 16px; margin: 0; }
 .pdf-status a { text-decoration: underline; }
+@media (min-width: 801px) {
+  .project-reading .pdf-reader { width: 50vw; margin-left: calc(50vw - 48vw - 30px); }
+  .project-reading .pdf-pages { padding: 0; }
+  .project-reading .pdf-toolbar { padding-right: var(--edge); }
+}
 .project-media { position: relative; width: min(79%, 760px); aspect-ratio: 16 / 10; overflow: hidden; }
 .project-media img { object-fit: contain; object-position: left center; }
 .project-gallery { display: flex; flex-direction: column; gap: 18px; padding-bottom: 40px; }

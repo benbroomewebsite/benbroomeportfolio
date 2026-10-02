@@ -32,7 +32,6 @@ export default function PdfReader({ source, label }: { source: string; label: st
 
   return <section className="pdf-reader" aria-label={`${label} PDF reader`}>
     <div className="pdf-toolbar">
-      <span aria-live="polite">{pages ? `${pages} ${pages === 1 ? 'page' : 'pages'}` : 'PDF'}</span>
       <a href={`${documentUrl}&download=1`}>Download</a>
     </div>
     <div className="pdf-pages" ref={setScrollRoot} tabIndex={0} aria-label="Document pages">

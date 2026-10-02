@@ -192,10 +192,10 @@ function Project({ work, expanded }: { work: Work; expanded: boolean }) {
       {links.map((link) => <a key={link.href} href={link.href} target={link.href.startsWith('/') ? undefined : '_blank'} rel={link.href.startsWith('/') ? undefined : 'noreferrer'}>↳ {link.label}</a>)}
     </div>}
     {!expanded && pdfFirst && <div className="project-links"><Link href={`/work/${work.slug}`} scroll={false}>↳ Read PDF</Link></div>}
-    {expanded && pdfs.length > 0 && <nav className="project-media-tabs" aria-label="Project media">
+    {expanded && pdfs.length > 0 && (showImages || pdfs.length > 1) && <nav className="project-media-tabs" aria-label="Project media">
       {showImages && <button aria-pressed={documentIndex === null} onClick={() => setDocumentIndex(null)}>Images</button>}
-      {pdfs.map((file, index) => <button key={file.href} aria-pressed={documentIndex === index} onClick={() => setDocumentIndex(index)}>
-        {work.category === 'Selected Writing' && pdfs.length === 1 ? 'PDF' : file.label.replace(/^Download\s+/i, '').replace(/\.pdf$/i, '') || 'PDF'}
+      {pdfs.filter((_, index) => pdfs.length > 1 || documentIndex !== index).map((file) => <button key={file.href} aria-pressed={documentIndex === pdfs.indexOf(file)} onClick={() => setDocumentIndex(pdfs.indexOf(file))}>
+        {pdfs.length === 1 ? 'Read' : file.label.replace(/^Download\s+/i, '').replace(/\.pdf$/i, '') || 'Read'}
       </button>)}
     </nav>}
     {document && <PdfReader key={document.href} source={document.href} label={work.title} />}
