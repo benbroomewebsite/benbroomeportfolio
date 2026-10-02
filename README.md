@@ -1,5 +1,46 @@
 # benbroomeportfolio
 
+## Portfolio media
+
+Original project folders are retained in `source-media/` and excluded from Git.
+`lib/works.json` contains the project entries; `lib/media-map.json` maps their
+media to the existing `benbroome-portfolio-media` R2 bucket. Rooms of Neighbours
+is one exhibition with gallery sections for each artist. Talks have their own
+filter. New entries use the supplied month/date, newest first within each year;
+the existing archive keeps its curated sequence where precise dates are unknown.
+
+To rebuild the new project media (Pillow, PyMuPDF, requests and ffmpeg required):
+
+```powershell
+python scripts/import_new_media.py
+python scripts/prepare_reading_pdf.py
+node node_modules/wrangler/bin/wrangler.js whoami
+python scripts/sync_r2_media.py
+```
+
+The importer leaves source files intact, produces 2400px WebP images and
+H.264/AAC MP4 videos, and retains original photos, videos and PDFs in R2.
+`lib/new-media-manifest.json` records every original source file, object key,
+size and SHA-256 hash. `r2-staging/verification-report.json` records public
+object verification by hash, byte length and Content-Type. The sync is resumable,
+repairs missing or mismatched objects, and does not delete anything from R2.
+
+PDFs open inside the right-hand document reader, with automatically sized pages,
+scrolling, selectable text and downloads. Exhibition entries keep their
+image galleries and offer a document switch for press releases. PDF.js assets
+are prepared automatically on install, before development and before builds;
+`/api/document` streams registered R2 PDFs with byte-range support.
+The oversized Arcane scan has a smaller reading copy recorded in
+`lib/pdf-reading-map.json`; its Download control still returns the original PDF.
+
+```powershell
+python scripts/sync_r2_media.py --verify-only
+```
+
+If rebuilding the legacy Squarespace archive, run `assemble_portfolio.py` and
+`build_r2_staging.py` **before** `import_new_media.py`; the legacy assembly replaces
+the project data. The uploader excludes manifests and verification files.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
 
 ## Built with v0

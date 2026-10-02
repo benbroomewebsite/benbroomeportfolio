@@ -1,15 +1,26 @@
-# v0 sandbox internal files
-__v0_runtime_loader.js
-__v0_devtools.tsx
-__v0_jsx-dev-runtime.ts
-.snowflake/
-.v0-trash/
-.vercel/
-
-# Environment variables
-.env*.local
-
-# Common ignores
-node_modules
+node_modules/
 .next/
+*.tsbuildinfo
+.dist/
+.vercel/
+*.log
+.env*
+!.env.example
 .DS_Store
+Thumbs.db
+
+# Local design references and source media. Production media lives in R2.
+Helvetica Roman/
+Screenshot 2026-09-14 151955.png
+carouselimages/
+CLAUDE.md
+
+# Canonical Squarespace source archives, retained locally for the later R2 upload.
+benbroome-squarespace-images/
+benbroome-squarespace-migration/
+r2-staging/
+source-media/
+public/pdfjs/
+public/work/
+public/carousel-hires/
+public/files/

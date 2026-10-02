@@ -1,0 +1,13 @@
+{
+  "objects": [
+    {
+      "object_key": "documents/reading/8d220d86d01a217f-v1.pdf",
+      "sha256": "e88384fc3cf2ca01df40ebb9771c4c8d37c0f7eb46a97c401c9ebf961183c7dd",
+      "bytes": 5652210,
+      "kind": "reading-pdf"
+    }
+  ],
+  "source_sha256": "8d220d86d01a217f804ed653291f5dbdcc92f2966ddd975082d8456e48f00e07",
+  "source_href": "/originals/arcane-magazine-intervention/8d220d86d01a217f-20241228103812085.pdf",
+  "pages": 6
+}
