@@ -1,4 +1,4 @@
-export const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://benbroomeportfolio.vercel.app')
+export const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ben-broome-prototype.vercel.app')
 export const siteName = 'Ben Broome'
 export const siteDescription = 'Selected exhibitions, writing, performances, and research by curator Ben Broome.'
 export const absoluteUrl = (path: string) => new URL(path, siteUrl).toString()

@@ -51,6 +51,12 @@ This repository is linked to a [v0](https://v0.app) project. You can continue de
 
 ## Getting Started
 
+## Prototype deployment
+
+The prototype is hosted at https://ben-broome-prototype.vercel.app on the Vercel project `ben-broome-prototype`. Vercel deploys updates pushed to `main` automatically. Feature branches get preview deployments. The existing benbroome.co.uk domain is not connected to this prototype.
+
+## Local development
+
 First, run the development server:
 
 ```bash
