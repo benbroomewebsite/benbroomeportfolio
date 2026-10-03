@@ -1,0 +1,128 @@
+{
+  "exhibition-ladjidiaby": {
+    "sortDate": "2026-04-01",
+    "sources": ["https://www.lafayetteanticipations.com/en/exposition/ladji-diaby"],
+    "note": "Venue exhibition opening, 1 April–19 July 2026."
+  },
+  "exhibition-themagicpencil": {
+    "sortDate": "2025-10-04",
+    "sources": ["https://www.benbroome.co.uk/s/nihaal-faizal-the-magic-pencil-press-release.pdf"],
+    "note": "Original press release: 4 October–1 November 2025."
+  },
+  "exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8": {
+    "sortDate": "2025-03-08",
+    "sources": ["https://derouillon.com/exhibitions/ben-broome-galerie-derouillon"],
+    "note": "Gallery exhibition opening, 8 March–5 April 2025."
+  },
+  "exhibition-racheal-crowthergebrauchsmusik-galerie-noah-klink": {
+    "sortDate": "2025-01-24",
+    "sources": ["https://www.benbroome.co.uk/s/Gebrauchsmusik_PressRelease_eng-2.pdf"],
+    "note": "Original press release: 24 January–1 March 2025."
+  },
+  "exhibition-david-l-johnson-from-the-street-i-can-see-the-moon": {
+    "sortDate": "2024-08-10",
+    "sources": ["https://www.benbroome.co.uk/s/David-L-Johnson-From-the-Street-I-Can-See-the-Moon-1.pdf"],
+    "note": "Original London press release: 10 August–14 September 2024. Do not use the separate Noah Klink presentation."
+  },
+  "exhibition-claudia-comte-home-sweet-home": {
+    "sortDate": "2024-04",
+    "sources": ["https://www.frieze.com/event/claudia-comte-home-sweet-home-curated-ben-broome", "https://vistamare.com/cs-claudia-comte-home-sweet-home-vistamare-milano-10-04-2024/?lang=en"],
+    "note": "April agreed by both sources; preview/public opening differ between 10 and 11 April, so retain month precision."
+  },
+  "exhibition-gala-prudent-concerto-of-the-periphery": {
+    "sortDate": "2023-11-11",
+    "sources": ["https://numeroventi.it/Fall-Residency-Program"],
+    "note": "Venue dates the culminating exhibition to 11 November. The residency started 15 October; use the exhibition opening."
+  },
+  "exhibition-jesus-hilario-reyes-waywardly-in-low-tide": {
+    "sortDate": "2023-07-28",
+    "sources": ["https://www.frieze.com/event/curated-ben-broome-stephanie-brossard-notre-dame-des-laves-jesus-hilario-reyes-waywardly-low", "https://www.benbroome.co.uk/s/Jesus-Hilario-Reyes-Waywardly-In-Low-Tide-PR.pdf"],
+    "note": "Dated venue listing and original press release agree on 28 July–12 August. A later Frieze brochure's October caption conflicts; prefer the event listing."
+  },
+  "exhibition-stephanie-brossard-notre-dame-des-laves": {
+    "sortDate": "2023-07-28",
+    "sources": ["https://www.frieze.com/event/curated-ben-broome-stephanie-brossard-notre-dame-des-laves-jesus-hilario-reyes-waywardly-low"],
+    "note": "Venue exhibition opening, 28 July–12 August 2023."
+  },
+  "exhibition-christelle-oyiri-hyperfate": {
+    "sortDate": "2023-05-12",
+    "sources": ["https://www.benbroome.co.uk/s/Christelle-Oyiri-HYPERFATE.pdf", "https://www.gathering.london/artists/christelle-oyiri"],
+    "note": "Press release gives 12–24 May; artist's gallery CV confirms the 2023 London exhibition."
+  },
+  "exhibition-lenard-giller-revisions": {
+    "sortDate": "2023-04-28",
+    "sources": ["https://www.benbroome.co.uk/s/Revisions-press-release.pdf", "https://curamagazine.com/digital/revisions/"],
+    "note": "Original press release and curator interview: 28 April–5 May 2023."
+  },
+  "exhibition-newyork2022": {
+    "sortDate": "2022-09-10",
+    "sources": ["https://gladstonegallery.com/exhibit/real-corporeal/"],
+    "note": "Gallery public exhibition dates: 10 September–15 October 2022; opening-night coverage mentions 9 September."
+  },
+  "exhibition-drawing-a-blank-parasol-unit": {
+    "sortDate": "2022-02-17",
+    "sources": ["https://www.anothermag.com/design-living/13851/brilliant-things-to-do-in-february-films-exhibitions-food-and-more", "https://novembre.global/magazine/drawing-a-blank-seen-and-told-by-octavia-buergel"],
+    "note": "Opening on 17 February confirmed by contemporary listing and first-hand report."
+  },
+  "exhibition-paris2020": {
+    "sortDate": "2020-09",
+    "sources": ["https://purple.fr/diary/purple-night-drawing-a-blank-opening-in-paris/", "https://magazine.032c.com/magazine/drawingablank"],
+    "note": "Contemporary opening report and first-hand account place the exhibition in September 2020. No verified opening day."
+  },
+  "exhibition-london2019": {
+    "sortDate": "2019-05-09",
+    "sources": ["https://models.com/oftheminute/tonight-in-london-drawing-a-blank-assembles-the-next-wave-of-artists-in-one-place/", "https://10magazine.com/drawing-a-blank-exhibition-ben-broome-london-soho/"],
+    "note": "Contemporary event listings: 9–12 May 2019, Charing Cross Road."
+  },
+  "exhibition-newyork2018": {
+    "sortDate": "2018-06-14",
+    "sources": ["https://www.dazeddigital.com/art-photography/article/40277/1/art-exhibitions-to-leave-the-house-for-this-month-june-2018"],
+    "note": "Contemporary exhibition listing: 14–24 June 2018."
+  },
+  "klein": {
+    "sortDate": "2025-10-12",
+    "sources": ["https://ra.co/events/2278721"],
+    "note": "Promoter event listing for Klein & The Twins at Crystal Palace Bowl."
+  },
+  "showmethebody": {
+    "sortDate": "2025-08-14",
+    "sources": ["https://www.ticketswap.com/event/show-me-the-body/d16d13da-9a9c-49ce-b1a3-f8b4e38086cd"],
+    "note": "Ticket event listing for Southwark Park Bandstand."
+  },
+  "chassol": {
+    "sortDate": "2022-09-24",
+    "sources": ["https://news.artnet.com/art-world/in-pictures-see-the-visceral-pleasures-of-real-corporeal-debuting-arthur-jafas-newest-work-alongside-art-by-the-next-big-things-2182689"],
+    "note": "Contemporary report explicitly dates the Gladstone performance to 24 September."
+  },
+  "slauson-malone": {
+    "sortDate": "2022-09-26",
+    "sources": ["https://news.artnet.com/art-world/in-pictures-see-the-visceral-pleasures-of-real-corporeal-debuting-arthur-jafas-newest-work-alongside-art-by-the-next-big-things-2182689"],
+    "note": "Contemporary report explicitly dates the Gladstone performance to 26 September."
+  },
+  "slausonmalonelondon": {
+    "sortDate": "2022-02-23",
+    "sources": ["https://novembre.global/magazine/drawing-a-blank-seen-and-told-by-octavia-buergel", "https://www.emalin.co.uk/artists/jasper-marsalis"],
+    "note": "First-hand report dates Slauson Malone for Cello, Guitar and LEDs at 14 Wharf Road to 23 February. Artist gallery CV confirms this London engagement."
+  },
+  "drawingablankparis": {
+    "sortDate": "2020-09",
+    "sources": ["https://purple.fr/diary/purple-night-drawing-a-blank-opening-in-paris/", "https://magazine.032c.com/magazine/drawingablank"],
+    "note": "Month of the Paris exhibition's accompanying performance programme, matched to the listed performers. Individual performance days remain unverified."
+  },
+  "drawing-a-blank-parasol-unit-1-1": {
+    "sortDate": "2018-06",
+    "sources": ["https://www.dazeddigital.com/art-photography/article/40277/1/art-exhibitions-to-leave-the-house-for-this-month-june-2018", "https://10magazine.com/drawing-a-blank-exhibition-ben-broome-london-soho/"],
+    "note": "Month of the New York 2018 exhibition programme. The retrospective curator interview confirms Princess Nokia and Onyx Collective performed in Harlem. Individual days remain unverified."
+  },
+  "drawing-a-blank-parasol-unit-1": {
+    "sortDate": "2019-05",
+    "publication": "London",
+    "sources": ["https://10magazine.com/drawing-a-blank-exhibition-ben-broome-london-soho/", "https://system-magazine.com/editorial/system-selects/ben-broome-drawing-a-blank-art-exhibition-interview"],
+    "note": "Corrects imported Parasol Unit/2022 attribution. The Onyx Collective, Pretty Sick, Fatima, Sporting Life, Slauson Malone and Gully Type programme belongs to London, May 2019. Original page title also has a conflicting 2018 year."
+  },
+  "drawing-a-blank-parasol-unit": {
+    "sortDate": "2022-02-17",
+    "sources": ["https://novembre.global/magazine/drawing-a-blank-seen-and-told-by-octavia-buergel"],
+    "note": "Distinct opening-night performance record for Christelle Oyiri, Chassol, Obongjayar and Lewis Ofman; the contemporary report confirms all four performed on 17 February."
+  }
+}

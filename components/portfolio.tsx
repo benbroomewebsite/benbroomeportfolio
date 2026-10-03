@@ -1,57 +1,40 @@
 'use client'
 
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { aboutParagraphs, carouselImages, type Work, type WorkCategory, works } from '@/lib/works'
-import mediaMap from '@/lib/media-map.json'
+import { mediaHref } from '@/lib/media'
+import { Project } from '@/components/project'
 
 const filters: Array<'All' | WorkCategory> = ['All', 'Exhibition', 'Selected Writing', 'Performance', 'Talk', 'Artist Grant', 'Press']
-const PdfReader = dynamic(() => import('@/components/pdf-reader'), {
-  ssr: false,
-  loading: () => <p className="pdf-status" role="status">Loading document reader…</p>,
-})
 
-function mediaHref(href: string) {
-  const mediaBase = (process.env.NEXT_PUBLIC_MEDIA_BASE_URL || 'https://pub-77bd6b0eb2e9483f9b0201fc3bb527e7.r2.dev').replace(/\/$/, '')
-  const objectKey = (mediaMap as Record<string, string>)[href]
-  return mediaBase && objectKey
-    ? `${mediaBase}/${objectKey.split('/').map(encodeURIComponent).join('/')}`
-    : href
-}
-
-export function Portfolio({ selectedSlug }: { selectedSlug?: string }) {
-  const router = useRouter()
+export function Portfolio() {
   const archiveRef = useRef<HTMLElement>(null)
-  const selectedWork = selectedSlug ? works.find((work) => work.slug === selectedSlug) ?? null : null
   const [hovered, setHovered] = useState<Work | null>(null)
   const [filter, setFilter] = useState<'All' | WorkCategory>('All')
   const visibleWorks = filter === 'All' ? works : works.filter((work) => work.category === filter)
-  const activeWork = selectedWork ?? hovered
-  const expanded = Boolean(selectedWork && activeWork?.slug === selectedWork.slug)
 
   useLayoutEffect(() => {
-    const savedScroll = window.sessionStorage.getItem('archive-scroll-top')
-    if (savedScroll && archiveRef.current) archiveRef.current.scrollTop = Number(savedScroll)
     const savedFilter = window.sessionStorage.getItem('archive-filter')
     if (filters.includes(savedFilter as 'All' | WorkCategory)) setFilter(savedFilter as 'All' | WorkCategory)
+    const frame = requestAnimationFrame(() => {
+      if (archiveRef.current) archiveRef.current.scrollTop = Number(window.sessionStorage.getItem('archive-scroll-top') ?? 0)
+      window.scrollTo(0, Number(window.sessionStorage.getItem('archive-window-scroll') ?? 0))
+    })
+    return () => cancelAnimationFrame(frame)
   }, [])
 
-  useEffect(() => {
-    const closePreview = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setHovered(null)
-        if (selectedSlug) router.push('/', { scroll: false })
-      }
-    }
-    window.addEventListener('keydown', closePreview)
-    return () => window.removeEventListener('keydown', closePreview)
-  }, [router, selectedSlug])
+  const previewWork = (work: Work) => {
+    if (window.matchMedia('(hover: hover) and (min-width: 801px)').matches) setHovered(work)
+  }
+  const savePosition = () => {
+    if (archiveRef.current) window.sessionStorage.setItem('archive-scroll-top', String(archiveRef.current.scrollTop))
+    window.sessionStorage.setItem('archive-window-scroll', String(window.scrollY))
+  }
 
   return <main className="site-shell">
-    {!selectedSlug && <h1 className="sr-only">Ben Broome — Curator, writer and organiser</h1>}
+    <h1 className="sr-only">Ben Broome — Curator, writer and organiser</h1>
     <section ref={archiveRef} className="archive" aria-label="Selected work">
       <header className="identity">
         <Link href="/" onMouseEnter={() => setHovered(null)}>
@@ -83,19 +66,12 @@ export function Portfolio({ selectedSlug }: { selectedSlug?: string }) {
           return <Link
             key={work.slug}
             href={`/work/${work.slug}`}
-            scroll={false}
-            className={`work-row${selectedWork?.slug === work.slug ? ' selected' : ''}`}
-            aria-current={selectedWork?.slug === work.slug ? 'page' : undefined}
-            onMouseEnter={() => setHovered(work)}
+            className="work-row"
+            onMouseEnter={() => previewWork(work)}
             onMouseLeave={() => setHovered(null)}
-            onFocus={() => setHovered(work)}
+            onFocus={() => previewWork(work)}
             onBlur={() => setHovered(null)}
-            onClick={(event) => {
-              event.preventDefault()
-              setHovered(null)
-              if (archiveRef.current) window.sessionStorage.setItem('archive-scroll-top', String(archiveRef.current.scrollTop))
-              router.push(`/work/${work.slug}`, { scroll: false })
-            }}
+            onClick={savePosition}
           >{row}</Link>
         })}
       </div>
@@ -109,8 +85,8 @@ export function Portfolio({ selectedSlug }: { selectedSlug?: string }) {
     </section>
 
     <section className="viewer" aria-live="polite">
-      {activeWork
-        ? <Project key={`${activeWork.slug}-${expanded ? 'full' : 'preview'}`} work={activeWork} expanded={expanded} />
+      {hovered
+        ? <Project key={hovered.slug} work={hovered} expanded={false} />
         : <About />}
     </section>
   </main>
@@ -161,71 +137,4 @@ function About() {
       />}
     </button>}
   </article>
-}
-
-function Project({ work, expanded }: { work: Work; expanded: boolean }) {
-  const pdfs = work.files.filter((file) => /\.pdf(?:$|[?#])/i.test(file.href))
-  const galleryImages = work.images.filter((image) => !/\.pdf$/i.test(image.originalName ?? ''))
-  const pdfFirst = pdfs.length > 0 && (work.category === 'Selected Writing' || work.category === 'Talk' || galleryImages.length === 0)
-  const [documentIndex, setDocumentIndex] = useState<number | null>(pdfFirst ? 0 : null)
-  const document = expanded && documentIndex !== null ? pdfs[documentIndex] : undefined
-  const showImages = galleryImages.length > 0 && !(pdfs.length > 0 && work.category === 'Selected Writing')
-  const preview = galleryImages[0]
-  const paragraphs = work.description ? work.description.split(/\n\n+/) : []
-  const writingHref = work.files[0]?.href ? mediaHref(work.files[0].href) : work.externalHref
-  const links = work.category === 'Selected Writing'
-    ? (!pdfs.length && writingHref ? [{ label: 'Read', href: writingHref }] : [])
-    : [
-        ...work.files.filter((file) => !pdfs.includes(file)).map((file) => ({ label: file.label.replace(/\.pdf$/i, '') || 'File', href: mediaHref(file.href) })),
-        ...(work.externalHref ? [{ label: 'Link', href: work.externalHref }] : []),
-      ]
-
-  return <article className={`project${expanded ? ' project-full' : ''}${document ? ' project-reading' : ''}`}>
-    <header>
-      <h1>{work.title}</h1>
-      <p>{[work.type, work.publication, work.date].filter(Boolean).join(' · ')}</p>
-    </header>
-    {expanded && paragraphs.length > 0 && <div className="project-copy">
-      {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-    </div>}
-    {links.length > 0 && <div className="project-links">
-      {links.map((link) => <a key={link.href} href={link.href} target={link.href.startsWith('/') ? undefined : '_blank'} rel={link.href.startsWith('/') ? undefined : 'noreferrer'}>↳ {link.label}</a>)}
-    </div>}
-    {!expanded && pdfFirst && <div className="project-links"><Link href={`/work/${work.slug}`} scroll={false}>↳ Read PDF</Link></div>}
-    {expanded && pdfs.length > 0 && (showImages || pdfs.length > 1) && <nav className="project-media-tabs" aria-label="Project media">
-      {showImages && <button aria-pressed={documentIndex === null} onClick={() => setDocumentIndex(null)}>Images</button>}
-      {pdfs.filter((_, index) => pdfs.length > 1 || documentIndex !== index).map((file) => <button key={file.href} aria-pressed={documentIndex === pdfs.indexOf(file)} onClick={() => setDocumentIndex(pdfs.indexOf(file))}>
-        {pdfs.length === 1 ? 'Read' : file.label.replace(/^Download\s+/i, '').replace(/\.pdf$/i, '') || 'Read'}
-      </button>)}
-    </nav>}
-    {document && <PdfReader key={document.href} source={document.href} label={work.title} />}
-    {!expanded && !pdfFirst && preview && <div className="project-media">
-      <Image src={mediaHref(preview.src)} alt={preview.alt} fill sizes="(max-width: 800px) 100vw, 40vw" priority />
-    </div>}
-    {expanded && !document && showImages && <div className="project-gallery">
-      {[...new Set(galleryImages.map((image) => image.group ?? ''))].map((group) => <section className="gallery-group" key={group}>
-        {group && <h2>{group}</h2>}
-        {galleryImages.filter((image) => (image.group ?? '') === group).map((image) => <Image
-          key={image.src}
-          src={mediaHref(image.src)}
-          alt={image.alt}
-          width={image.width ?? 1600}
-          height={image.height ?? 1200}
-          sizes="(max-width: 800px) 100vw, 52vw"
-        />)}
-        {(work.videos ?? []).filter((video) => video.group === group).map((video) => <Video key={video.src} video={video} />)}
-      </section>)}
-    </div>}
-    {expanded && !document && (work.videos ?? []).filter((video) => !video.group).map((video) => <Video key={video.src} video={video} />)}
-  </article>
-}
-
-function Video({ video }: { video: NonNullable<Work['videos']>[number] }) {
-  return <figure className="project-video">
-    <video controls playsInline preload="metadata" aria-label={video.label}>
-      <source src={mediaHref(video.src)} type="video/mp4" />
-      <a href={mediaHref(video.src)}>Download video</a>
-    </video>
-    <figcaption>{video.label}</figcaption>
-  </figure>
 }

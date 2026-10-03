@@ -110,11 +110,19 @@ def main() -> None:
         for image in work.get("images", [])
         if image.get("src")
     }
+    original_sources = {
+        image["src"]: MIGRATION / "media" / "images" / Path(image.get("originalName", "")).name
+        for work in works.get("works", [])
+        for image in work.get("images", [])
+        if image.get("src") and image.get("originalName")
+    }
     app_paths.update(
         f"/carousel-hires/{path.name}" for path in (ROOT / "public" / "carousel-hires").glob("*") if path.is_file()
     )
     for public_path in sorted(app_paths):
         source = ROOT / "public" / public_path.lstrip("/")
+        if not source.is_file() and public_path in original_sources:
+            source = original_sources[public_path]
         if source.is_file():
             key = by_hash.get(f"image:{digest(source)}")
             if key:

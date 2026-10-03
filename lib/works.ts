@@ -1,4 +1,6 @@
 import data from './works.json'
+import researchedDates from './date-research.json'
+import projectResources from './project-resources.json'
 
 export type WorkCategory = 'Exhibition' | 'Selected Writing' | 'Performance' | 'Talk' | 'Artist Grant' | 'Press'
 
@@ -31,6 +33,7 @@ export type Work = {
   videos?: WorkVideo[]
   sortDate?: string
   files: WorkFile[]
+  links: WorkFile[]
   externalHref: string | null
   featuredImage: string
   order: number
@@ -38,6 +41,9 @@ export type Work = {
 }
 
 type RawWork = Work & { sourceSlug?: string; sourceUrl?: string; preserveTitle?: boolean }
+type ResearchedDate = { sortDate: string; publication?: string; sources: string[]; note: string }
+const dateResearch = researchedDates as Record<string, ResearchedDate>
+const resources = projectResources as Record<string, { files: WorkFile[]; links: WorkFile[] }>
 
 export const aboutParagraphs = [
   'Ben Broome (b. 1994) is a London-based curator with a focus on artists working at the convergence of mediums: musical performance and performance art, film and video art.',
@@ -58,6 +64,7 @@ function cleanDescription(work: RawWork) {
     .filter((line) => {
       if (!line) return false
       if (/^download /i.test(line)) return false
+      if (resources[work.slug]?.links.some((link) => link.label === line)) return false
       const lower = line.toLowerCase()
       if (lower === work.title.toLowerCase()) return false
       return ![...otherTitles].some((title) => title !== work.title.toLowerCase() && (lower === title || lower.startsWith(`${title},`)))
@@ -66,6 +73,7 @@ function cleanDescription(work: RawWork) {
 }
 
 function filesFor(work: RawWork) {
+  if (resources[work.slug]) return resources[work.slug].files
   if (work.sortDate) return work.files ?? []
   if (work.category === 'Selected Writing' || work.category === 'Press') return work.files ?? []
   const tokens = work.title
@@ -87,6 +95,7 @@ const MONTH_PATTERN = MONTHS.join('|')
 const MONTH_YEAR_RE = new RegExp(`(${MONTH_PATTERN})\\s+(\\d{4})`, 'i')
 
 function sortDateFor(work: RawWork): string | undefined {
+  if (dateResearch[work.slug]) return dateResearch[work.slug].sortDate
   if (work.sortDate) return work.sortDate
   const match = `${work.date} ${work.title}`.match(MONTH_YEAR_RE)
   if (!match || Number(match[2]) !== work.year) return undefined
@@ -113,8 +122,8 @@ function cleanTitle(work: RawWork): string {
     .replace(/\s+([,.;:!?])/g, '$1')
 }
 
-function cleanDate(work: RawWork): string {
-  if (work.sortDate) return new Date(`${work.sortDate.length === 7 ? `${work.sortDate}-01` : work.sortDate}T12:00:00Z`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' })
+function cleanDate(work: RawWork, sortDate: string | undefined): string {
+  if (sortDate) return new Date(`${sortDate.length === 7 ? `${sortDate}-01` : sortDate}T12:00:00Z`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' })
   return work.year ? String(work.year) : ''
 }
 
@@ -155,39 +164,26 @@ function interleaveByYear(items: Work[]): Work[] {
   })
 }
 
-function groupGladstonePerformances(items: Work[]): Work[] {
-  const chassolIndex = items.findIndex((work) => work.slug === 'chassol')
-  if (chassolIndex < 0) return items
-
-  const reordered = [...items]
-  const [chassol] = reordered.splice(chassolIndex, 1)
-  const firstGladstonePerformance = reordered.findIndex((work) =>
-    work.category === 'Performance' && work.publication === 'Gladstone',
-  )
-  if (firstGladstonePerformance < 0) return items
-
-  reordered.splice(firstGladstonePerformance, 0, chassol)
-  return reordered
-}
-
 function normalize(work: RawWork): Work {
   const writing = work.category === 'Selected Writing'
   const press = work.category === 'Press'
   const title = cleanTitle(work)
   const slug = writing && !work.preserveTitle ? slugify(title) : work.slug
+  const sortDate = sortDateFor(work)
   return {
     slug,
     legacySlug: slug !== work.slug ? work.slug : undefined,
     title,
     type: writing && !work.preserveTitle ? 'Writing' : work.type,
-    publication: work.publication,
-    date: cleanDate(work),
-    year: work.year,
+    publication: dateResearch[work.slug]?.publication ?? work.publication,
+    date: cleanDate(work, sortDate),
+    year: sortDate ? Number(sortDate.slice(0, 4)) : work.year,
     description: cleanDescription(work),
     images: press ? [] : work.images,
     videos: work.videos ?? [],
-    sortDate: sortDateFor(work),
+    sortDate,
     files: filesFor(work),
+    links: resources[work.slug]?.links ?? [],
     externalHref: work.externalHref,
     featuredImage: press ? '' : work.featuredImage,
     order: work.order,
@@ -195,12 +191,8 @@ function normalize(work: RawWork): Work {
   }
 }
 
-export const works: Work[] = groupGladstonePerformances(
-  interleaveByYear(
-    (data.works as RawWork[])
-      .filter((work) => work.slug !== 'drawing-a-blank-parasol-unit')
-      .map(normalize),
-  ),
+export const works: Work[] = interleaveByYear(
+  (data.works as RawWork[]).map(normalize),
 )
 
 export const getWork = (slug: string) => works.find((work) => work.slug === slug)

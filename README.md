@@ -6,8 +6,21 @@ Original project folders are retained in `source-media/` and excluded from Git.
 `lib/works.json` contains the project entries; `lib/media-map.json` maps their
 media to the existing `benbroome-portfolio-media` R2 bucket. Rooms of Neighbours
 is one exhibition with gallery sections for each artist. Talks have their own
-filter. New entries use the supplied month/date, newest first within each year;
-the existing archive keeps its curated sequence where precise dates are unknown.
+filter. Projects are newest first within each year using supplied and researched
+dates. Year-only records follow the precisely dated records in that year.
+
+The desktop index previews one image on hover or keyboard focus. Clicking opens
+a dedicated project page with its complete gallery, videos, documents and links.
+On phones, projects open directly with a clear Back to index link; the index
+filter and scroll position are restored when returning.
+
+`lib/date-research.json` stores verified dates, source URLs and any qualifications
+separately from imported records. `docs/date-audit.md` lists the unresolved dates
+and conflicting metadata. `lib/project-resources.json` restores the legacy
+projects' own press releases and links, excluding neighbouring listing content.
+
+Run `pnpm check` to validate chronology, date provenance, project URLs and all
+registered media references before deployment.
 
 To rebuild the new project media (Pillow, PyMuPDF, requests and ffmpeg required):
 

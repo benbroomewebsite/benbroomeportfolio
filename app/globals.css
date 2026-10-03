@@ -82,6 +82,13 @@ a.work-row { color: inherit; }
 .gallery-controls button { padding: 0; background: var(--white); }
 .gallery-controls span { background: var(--white); box-shadow: 2px 0 0 var(--white), -2px 0 0 var(--white); }
 .bio-return { margin-top: 18px; }
+.project-page { display: grid; grid-template-columns: var(--split) 1fr; height: 100dvh; }
+.project-navigation { padding: var(--top-edge) var(--edge); }
+.index-return { display: inline-block; margin-top: 12px; background: var(--white); }
+.index-return:hover { text-decoration: underline; text-underline-offset: 3px; }
+.project-content { min-width: 0; height: 100dvh; overflow: auto; scrollbar-width: none; padding: var(--top-edge) var(--edge) 26px 30px; }
+.project-content::-webkit-scrollbar { display: none; }
+.project-content .project-gallery img, .project-content .project-video { width: 100%; }
 @media (max-width: 800px) {
   :root { --edge: 14px; --top-edge: 18px; }
   html, body { height: auto; overflow: auto; }
@@ -98,5 +105,9 @@ a.work-row { color: inherit; }
   .project-media, .project-gallery img, .project-video { width: 100%; }
   .project-reading { height: auto; }
   .project-reading .pdf-reader { flex: none; height: 75svh; min-height: 360px; }
+  .project-page { display: block; height: auto; }
+  .project-navigation { padding: var(--top-edge) var(--edge) 22px; }
+  .project-content { height: auto; overflow: visible; padding: 0 var(--edge) 70px; }
+  .project-content .project h1 { overflow-wrap: anywhere; }
 }
 @media (prefers-reduced-motion: reduce) { .carousel img { transition: none; } }

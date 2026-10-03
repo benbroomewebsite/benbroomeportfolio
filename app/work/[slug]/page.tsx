@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound, permanentRedirect } from 'next/navigation'
-import { Portfolio } from '@/components/portfolio'
+import { ProjectPage } from '@/components/project'
 import mediaMap from '@/lib/media-map.json'
 import { absoluteUrl, mediaBaseUrl } from '@/lib/site'
 import { getWorkByAnySlug, works } from '@/lib/works'
@@ -37,12 +37,12 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
     '@type': work.category === 'Selected Writing' ? 'Article' : 'CreativeWork',
     name: work.title, url: absoluteUrl(`/work/${work.slug}`),
     creator: { '@type': 'Person', name: 'Ben Broome', url: absoluteUrl('/') },
-    dateCreated: work.year ? String(work.year) : undefined,
+    dateCreated: work.sortDate ?? (work.year ? String(work.year) : undefined),
     description: work.description || [work.type, work.publication, work.date].filter(Boolean).join(' · '),
     image: work.images.map((image) => mediaUrl(image.src)),
   }
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-    <Portfolio selectedSlug={work.slug} />
+    <ProjectPage work={work} />
   </>
 }
