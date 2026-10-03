@@ -5299,7 +5299,7 @@
       "description": "Flash Art : Jef Geys“You don 't see what you think you see”- Wiels / Brussels - April 2024",
       "images": [],
       "files": [],
-      "externalHref": null,
+      "externalHref": "https://flash---art.com/2024/04/jef-geys/",
       "featuredImage": "",
       "order": 64,
       "category": "Selected Writing",
@@ -5487,10 +5487,18 @@
       "date": "2022",
       "year": 2022,
       "description": "System Magazine : Rag-trade Medicis - January 2022",
-      "images": [],
+      "images": [
+        {
+          "src": "/work/writing-system-magazine-rag-trade-medicis-january-2022/001.jpg",
+          "alt": "Rag-trade Medicis, System Magazine",
+          "originalName": "Rag-Trade-Medicis.jpg",
+          "width": 1500,
+          "height": 2057
+        }
+      ],
       "files": [],
       "externalHref": null,
-      "featuredImage": "",
+      "featuredImage": "/work/writing-system-magazine-rag-trade-medicis-january-2022/001.jpg",
       "order": 74,
       "category": "Selected Writing",
       "sourceUrl": "https://www.benbroome.co.uk/writing"

@@ -11,8 +11,9 @@ dates. Year-only records follow the precisely dated records in that year.
 
 The desktop index previews one image on hover or keyboard focus. Clicking opens
 a dedicated project page with its complete gallery, videos, documents and links.
-On phones, projects open directly with a clear Back to index link; the index
-filter and scroll position are restored when returning.
+On phones the index stacks each entry (title, venue or publication, date, type)
+and projects open directly with a Back to index link at the top and bottom; the
+index filter and scroll position are restored when returning.
 
 `lib/date-research.json` stores verified dates, source URLs and any qualifications
 separately from imported records. `docs/date-audit.md` lists the unresolved dates
@@ -54,40 +55,20 @@ If rebuilding the legacy Squarespace archive, run `assemble_portfolio.py` and
 `build_r2_staging.py` **before** `import_new_media.py`; the legacy assembly replaces
 the project data. The uploader excludes manifests and verification files.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
-
-## Built with v0
-
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
-
-[Continue working on v0 →](https://v0.app/chat/projects/prj_SfhdNREA74fxjIDH7O5CVCkoYdVR)
-
-## Getting Started
-
 ## Prototype deployment
 
 The prototype is hosted at https://ben-broome-prototype.vercel.app on the Vercel project `ben-broome-prototype`. Vercel deploys updates pushed to `main` automatically. Feature branches get preview deployments. The existing benbroome.co.uk domain is not connected to this prototype.
 
 ## Local development
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
+```powershell
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. `pnpm check` validates the data; `pnpm build` makes
+the production build.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+The original Squarespace scrapers are kept in `scripts/squarespace_full_migration.py`
+and `scripts/download_ben_squarespace_images.py`. Open questions for Ben are
+logged in `docs/questions-for-ben.md`.

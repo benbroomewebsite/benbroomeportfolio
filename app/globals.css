@@ -21,6 +21,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .identity button span, .identity > a span, .identity p, .filters span, .work-row > span > span, .contact a, .bio-return a { background: var(--white); box-shadow: 2px 0 0 var(--white), -2px 0 0 var(--white); }
 .identity button:hover span, .identity button:focus-visible span, .identity > a:hover span, .identity > a:focus-visible span { text-decoration: underline; text-underline-offset: 2px; }
 .identity p { display: table; margin: 3px 0 0; }
+.identity-bio, .project-return-bottom { display: none; }
 .filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 14px; width: 100%; margin: 0 0 18px; padding: 0; }
 .filters button { min-width: 0; padding: 0; background: transparent; white-space: nowrap; }
 .filters span { text-decoration: none; }
@@ -96,9 +97,16 @@ a.work-row { color: inherit; }
   .archive, .viewer { height: auto; overflow: visible; }
   .archive { padding: var(--top-edge) var(--edge) 56px; }
   .filters { flex-wrap: wrap; justify-content: flex-start; margin-bottom: 18px; }
-  .work-row { grid-template-columns: minmax(0, 1fr) auto; gap: 0 8px; padding: 4px 0; }
-  .work-row > span:nth-child(2), .work-row > span:nth-child(4) { display: none; }
-  .work-row > span:nth-child(3) { grid-column: 2; grid-row: 1; padding: 0; }
+  .identity-bio { display: table; margin-top: 3px; }
+  .filters { gap: 4px 14px; }
+  .filters button { padding: 5px 0; }
+  .work-row { display: block; padding: 0 0 20px; line-height: 1.4; }
+  .work-row > span { display: block; padding: 0; overflow: visible; }
+  .work-row > span:has(> span:empty) { display: none; }
+  .work-row > span > span { display: inline; overflow: visible; white-space: normal; }
+  .work-row > span:nth-child(n+2) { white-space: normal; }
+  .work-row .title > span { text-decoration: underline; text-underline-offset: 2px; }
+  .project-return-bottom { display: block; margin-top: 30px; }
   .contact { margin-top: 54px; }
   .viewer { min-height: 100vh; padding: 22px var(--edge) 70px; }
   .about-copy, .bio-copy, .project-copy { font-size: 14px; }

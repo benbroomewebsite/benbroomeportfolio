@@ -22,7 +22,18 @@ export function Portfolio() {
       if (archiveRef.current) archiveRef.current.scrollTop = Number(window.sessionStorage.getItem('archive-scroll-top') ?? 0)
       window.scrollTo(0, Number(window.sessionStorage.getItem('archive-window-scroll') ?? 0))
     })
-    return () => cancelAnimationFrame(frame)
+    // A saved position belongs to one return trip: it is dropped as soon as the
+    // reader interacts again, so later visits start at the top.
+    const forget = () => {
+      window.sessionStorage.removeItem('archive-scroll-top')
+      window.sessionStorage.removeItem('archive-window-scroll')
+    }
+    const events = ['pointerdown', 'wheel', 'keydown'] as const
+    events.forEach((event) => window.addEventListener(event, forget, { once: true, passive: true }))
+    return () => {
+      cancelAnimationFrame(frame)
+      events.forEach((event) => window.removeEventListener(event, forget))
+    }
   }, [])
 
   const previewWork = (work: Work) => {
@@ -41,6 +52,7 @@ export function Portfolio() {
           <span>Ben Broome</span>
         </Link>
         <p>Curator, writer and organiser</p>
+        <Link href="/bio" className="identity-bio"><span>↳ Bio</span></Link>
       </header>
 
       <nav className="filters" aria-label="Filter selected work">

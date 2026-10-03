@@ -20,6 +20,7 @@ export function ProjectPage({ work }: { work: Work }) {
     </aside>
     <section className="project-content" aria-label={work.title}>
       <Project key={work.slug} work={work} expanded />
+      <nav className="project-return-bottom" aria-label="Return to index"><Link href="/" className="index-return">← Back to index</Link></nav>
     </section>
   </main>
 }
