@@ -53,9 +53,6 @@ a.work-row { color: inherit; }
 .project-media-tabs { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
 .project-media-tabs button { padding: 0; background: var(--white); }
 .project-media-tabs button[aria-pressed="true"], .project-media-tabs button:hover { text-decoration: underline; text-underline-offset: 3px; }
-.viewer:has(.project-reading) { padding-bottom: 26px; }
-.project-reading { display: flex; flex-direction: column; height: calc(100dvh - var(--top-edge) - 26px); }
-.project-reading > header, .project-reading > .project-copy, .project-reading > .project-links, .project-reading > .project-media-tabs { flex-shrink: 0; }
 .pdf-reader { display: flex; flex-direction: column; width: 100%; flex: 1; min-height: 180px; }
 .pdf-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px 14px; padding-bottom: 12px; flex-shrink: 0; }
 .pdf-toolbar a:hover { text-decoration: underline; text-underline-offset: 2px; }
@@ -65,31 +62,33 @@ a.work-row { color: inherit; }
 .pdf-page { flex-shrink: 0; background: white; box-shadow: 0 1px 3px #00000012; }
 .pdf-status { padding: 16px; margin: 0; }
 .pdf-status a { text-decoration: underline; }
-@media (min-width: 801px) {
-  .project-reading .pdf-reader { width: 50vw; margin-left: calc(50vw - 48vw - 30px); }
-  .project-reading .pdf-pages { padding: 0; }
-  .project-reading .pdf-toolbar { padding-right: var(--edge); }
-}
 .project-media { position: relative; width: min(79%, 760px); aspect-ratio: 16 / 10; overflow: hidden; }
 .project-media img { object-fit: contain; object-position: left center; }
 .project-gallery { display: flex; flex-direction: column; gap: 18px; padding-bottom: 40px; }
-.project-gallery img { width: min(79%, 760px); height: auto; }
 .gallery-group { display: flex; flex-direction: column; gap: 18px; }
 .gallery-group h2 { margin: 10px 0 0; font: inherit; }
-.project-video { width: min(79%, 760px); margin: 0 0 18px; }
+.project-video { width: 100%; margin: 0 0 18px; }
 .project-video video { display: block; width: 100%; height: auto; }
 .project-video figcaption { margin-top: 5px; }
 .gallery-controls { display: flex; gap: 8px; align-items: baseline; margin-top: 5px; }
 .gallery-controls button { padding: 0; background: var(--white); }
 .gallery-controls span { background: var(--white); box-shadow: 2px 0 0 var(--white), -2px 0 0 var(--white); }
 .bio-return { margin-top: 18px; }
-.project-page { display: grid; grid-template-columns: var(--split) 1fr; height: 100dvh; }
-.project-navigation { padding: var(--top-edge) var(--edge); }
+.gallery-row { display: flex; align-items: flex-start; gap: 18px; }
+.gallery-row img { flex: var(--ratio) 1 0%; min-width: 0; width: 0; height: auto; }
+.gallery-row-narrow img { flex: none; width: calc(50% - 9px); }
+.gallery-row-narrow:nth-child(even) { justify-content: flex-end; }
+.project-page { display: grid; grid-template-columns: minmax(320px, 34%) 1fr; height: 100dvh; }
+.project-navigation { height: 100dvh; overflow-y: auto; scrollbar-width: none; padding: var(--top-edge) 20px 40px var(--edge); }
+.project-navigation::-webkit-scrollbar { display: none; }
 .index-return { display: inline-block; margin-top: 12px; background: var(--white); }
 .index-return:hover { text-decoration: underline; text-underline-offset: 3px; }
-.project-content { min-width: 0; height: 100dvh; overflow: auto; scrollbar-width: none; padding: var(--top-edge) var(--edge) 26px 30px; }
+.project-info { margin-top: 44px; }
+.project-info .project-copy { max-width: 520px; }
+.project-content { min-width: 0; height: 100dvh; overflow: auto; scrollbar-width: none; padding: var(--top-edge) var(--edge) 26px 10px; }
 .project-content::-webkit-scrollbar { display: none; }
-.project-content .project-gallery img, .project-content .project-video { width: 100%; }
+.project-page-reading .project-content { display: flex; flex-direction: column; overflow: hidden; }
+.project-content .pdf-pages { padding: 0; }
 @media (max-width: 800px) {
   :root { --edge: 14px; --top-edge: 18px; }
   html, body { height: auto; overflow: auto; }
@@ -100,22 +99,28 @@ a.work-row { color: inherit; }
   .identity-bio { display: table; margin-top: 3px; }
   .filters { gap: 4px 14px; }
   .filters button { padding: 5px 0; }
-  .work-row { display: block; padding: 0 0 20px; line-height: 1.4; }
-  .work-row > span { display: block; padding: 0; overflow: visible; }
-  .work-row > span:has(> span:empty) { display: none; }
-  .work-row > span > span { display: inline; overflow: visible; white-space: normal; }
-  .work-row > span:nth-child(n+2) { white-space: normal; }
-  .work-row .title > span { text-decoration: underline; text-underline-offset: 2px; }
+  .work-row { grid-template-columns: minmax(0, 1fr) auto; gap: 0 16px; padding: 7px 0; line-height: 1.3; }
+  .work-row > span { padding: 0; overflow: visible; }
+  .work-row > span:nth-child(2), .work-row > span:nth-child(4) { display: none; }
+  .work-row > span:nth-child(3) { grid-column: 2; grid-row: 1; }
+  .work-row .title > span { display: inline; overflow: visible; white-space: normal; }
+  .bio-shell { display: flex; flex-direction: column; padding: var(--top-edge) var(--edge) 56px; }
+  .bio-shell .archive { display: contents; }
+  .bio-shell .viewer { order: 1; min-height: 0; padding: 26px 0 0; }
+  .bio-shell .contact { order: 2; margin-top: 12px; }
   .project-return-bottom { display: block; margin-top: 30px; }
   .contact { margin-top: 54px; }
   .viewer { min-height: 100vh; padding: 22px var(--edge) 70px; }
   .about-copy, .bio-copy, .project-copy { font-size: 14px; }
-  .project-media, .project-gallery img, .project-video { width: 100%; }
-  .project-reading { height: auto; }
-  .project-reading .pdf-reader { flex: none; height: 75svh; min-height: 360px; }
+  .project-media { width: 100%; }
+  .gallery-row { flex-direction: column; }
+  .gallery-row img, .gallery-row-narrow img { flex: none; width: 100%; }
+  .project-page-reading .project-content { display: block; overflow: visible; }
+  .project-page-reading .pdf-reader { flex: none; height: 75svh; min-height: 360px; }
   .project-page { display: block; height: auto; }
-  .project-navigation { padding: var(--top-edge) var(--edge) 22px; }
+  .project-navigation { height: auto; overflow: visible; padding: var(--top-edge) var(--edge) 0; }
+  .project-info { margin-top: 26px; }
   .project-content { height: auto; overflow: visible; padding: 0 var(--edge) 70px; }
-  .project-content .project h1 { overflow-wrap: anywhere; }
+  .project-info h1 { overflow-wrap: anywhere; }
 }
 @media (prefers-reduced-motion: reduce) { .carousel img { transition: none; } }

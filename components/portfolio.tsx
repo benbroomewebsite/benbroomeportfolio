@@ -98,7 +98,7 @@ export function Portfolio() {
 
     <section className="viewer" aria-live="polite">
       {hovered
-        ? <Project key={hovered.slug} work={hovered} expanded={false} />
+        ? <Project key={hovered.slug} work={hovered} />
         : <About />}
     </section>
   </main>

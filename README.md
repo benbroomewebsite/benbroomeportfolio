@@ -10,7 +10,10 @@ filter. Projects are newest first within each year using supplied and researched
 dates. Year-only records follow the precisely dated records in that year.
 
 The desktop index previews one image on hover or keyboard focus. Clicking opens
-a dedicated project page with its complete gallery, videos, documents and links.
+a dedicated project page: title, full text, links and the Images/Read switch sit
+in a narrow left column, and the gallery, videos or PDF fill the rest. Gallery
+rows pair portraits and alternate landscapes between full width and pairs, using
+the dimensions in `lib/image-sizes.json` (rebuilt by `scripts/record_image_sizes.py`).
 On phones the index stacks each entry (title, venue or publication, date, type)
 and projects open directly with a Back to index link at the top and bottom; the
 index filter and scroll position are restored when returning.

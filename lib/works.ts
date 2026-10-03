@@ -1,6 +1,7 @@
 import data from './works.json'
 import researchedDates from './date-research.json'
 import projectResources from './project-resources.json'
+import recordedImageSizes from './image-sizes.json'
 
 export type WorkCategory = 'Exhibition' | 'Selected Writing' | 'Performance' | 'Talk' | 'Artist Grant' | 'Press'
 
@@ -44,6 +45,8 @@ type RawWork = Work & { sourceSlug?: string; sourceUrl?: string; preserveTitle?:
 type ResearchedDate = { sortDate: string; publication?: string; sources: string[]; note: string }
 const dateResearch = researchedDates as Record<string, ResearchedDate>
 const resources = projectResources as Record<string, { files: WorkFile[]; links: WorkFile[] }>
+// Recorded by scripts/record_image_sizes.py for images the import left unsized.
+const imageSizes = recordedImageSizes as unknown as Record<string, [number, number]>
 
 export const aboutParagraphs = [
   'Ben Broome (b. 1994) is a London-based curator with a focus on artists working at the convergence of mediums: musical performance and performance art, film and video art.',
@@ -179,7 +182,10 @@ function normalize(work: RawWork): Work {
     date: cleanDate(work, sortDate),
     year: sortDate ? Number(sortDate.slice(0, 4)) : work.year,
     description: cleanDescription(work),
-    images: press ? [] : work.images,
+    images: press ? [] : work.images.map((image) => {
+      const size = imageSizes[image.src]
+      return image.width || !size ? image : { ...image, width: size[0], height: size[1] }
+    }),
     videos: work.videos ?? [],
     sortDate,
     files: filesFor(work),
