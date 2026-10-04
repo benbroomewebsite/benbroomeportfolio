@@ -14,6 +14,7 @@ const PdfReader = dynamic(() => import('@/components/pdf-reader'), {
 
 const ratioOf = (image: WorkImage) => (image.width && image.height ? image.width / image.height : 4 / 3)
 const isPortrait = (image: WorkImage) => ratioOf(image) < 0.95
+const GALLERY_GAP = 18
 
 // Lays a gallery out as rows: portraits share a row, and landscapes alternate
 // between a full-width image and a pair, so long galleries keep a rhythm.
@@ -29,6 +30,16 @@ function galleryRows(images: WorkImage[]): WorkImage[][] {
     index += pair ? 2 : 1
   }
   return rows
+}
+
+// The widest a row can be before its smallest image is stretched past its own
+// pixels, which is what makes low-resolution archive photos look blurry.
+function rowMaxWidth(row: WorkImage[]): number | undefined {
+  if (row.some((image) => !image.width || !image.height)) return undefined
+  // A lone portrait takes half the row, so the row may be twice its width.
+  if (row.length === 1 && isPortrait(row[0])) return row[0].width! * 2 + GALLERY_GAP
+  const height = Math.min(...row.map((image) => image.height!))
+  return Math.round(row.reduce((total, image) => total + ratioOf(image) * height, 0) + GALLERY_GAP * (row.length - 1))
 }
 
 export function ProjectPage({ work }: { work: Work }) {
@@ -86,6 +97,7 @@ export function ProjectPage({ work }: { work: Work }) {
           {galleryRows(galleryImages.filter((image) => (image.group ?? '') === group)).map((row) => <div
             key={row[0].src}
             className={`gallery-row${row.length === 1 && isPortrait(row[0]) ? ' gallery-row-narrow' : ''}`}
+            style={{ maxWidth: rowMaxWidth(row) }}
           >
             {row.map((image) => <Image
               key={image.src}

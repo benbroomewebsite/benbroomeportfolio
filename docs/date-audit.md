@@ -4,7 +4,7 @@ Researched 3 October 2026.
 
 44 imported project records lacked a month. 25 now have sourced month or day
 precision; 19 still need confirmation. Evidence URLs and qualifications for each
-added date are stored in [date-research.json](../lib/date-research.json).
+added date are stored in [date-research.json](../scripts/import-data/date-research.json).
 
 The Press filter contains publication directory links, rather than dated project
 records, and is excluded from these totals.
@@ -108,8 +108,8 @@ so it is also left unapplied.
 
 ## Maintaining the dates
 
-Update `lib/date-research.json` with the event date, evidence URL and qualification.
+Update `scripts/import-data/date-research.json` with the event date, evidence URL and qualification.
 Use `YYYY-MM` when only the month is supported, or `YYYY-MM-DD` when a day is
-explicit. These corrections survive rebuilding the imported `lib/works.json`.
+explicit. These corrections survive rebuilding the imported `content/works/`.
 Confirm the two ambiguous performance identities before changing their titles
 or years.

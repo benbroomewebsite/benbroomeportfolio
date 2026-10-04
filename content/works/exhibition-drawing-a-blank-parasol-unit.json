@@ -1,0 +1,457 @@
+{
+  "title": "Drawing A Blank",
+  "category": "Exhibition",
+  "type": "Exhibition",
+  "publication": "Parasol Unit, London",
+  "date": "2022-02-17",
+  "description": "Tucker Van der Wyden - Sara Sadik - Rhea Dillon - Pablo Jomaron - Leon Xu - Jesus Hilario Reyes - Ines Di Folco - Gala Prudent - Ebun Sodipo - Daniel Mebarek - Christelle Oyiri - Aspen Kincaid - Alonso Leon Velarde",
+  "externalHref": "",
+  "links": [],
+  "files": [],
+  "featuredImage": "/work/exhibition-drawing-a-blank-parasol-unit/001.jpg",
+  "images": [
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/001.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 754,
+      "originalName": "1.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/002.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 754,
+      "originalName": "3.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/003.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 754,
+      "originalName": "4.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/004.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1041,
+      "height": 697,
+      "originalName": "9.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/005.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 700,
+      "height": 1046,
+      "originalName": "18.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/006.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-alonso-leon-verlarde-001.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/007.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-aspen-kinclaid-001-sqaure.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/008.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-aspen-kinclaid-002-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/009.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 642,
+      "height": 642,
+      "originalName": "2022-drabl-feb-aspen-kinclaid-003-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/010.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-christelle-oyiri-001.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/011.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-daniel-mebarek-002.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/012.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-daniel-mebarek-003-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/013.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-ebun-sodipo-001-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/014.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-gala-prudent-002-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/015.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-gala-prudent-005.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/016.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 413,
+      "originalName": "2022-drabl-feb-gala-prudent-007.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/017.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-ines-di-folco-001-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/018.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-ines-di-folco-002.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/019.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-jesus-hilario-reyes-001-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/020.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-jesus-hilario-reyes-002.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/021.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-leon-xu-001.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/022.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-leon-xu-002-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/023.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-leon-xu-005.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/024.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-pablo-jomaron-001-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/025.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 413,
+      "height": 620,
+      "originalName": "2022-drabl-feb-pablo-jomaron-004.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/026.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-rhea-dillon-001-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/027.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-rhea-dillon-002-sqaure.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/028.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 930,
+      "height": 620,
+      "originalName": "2022-drabl-feb-rhea-dillon-003.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/029.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-sara-sadik-002-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/030.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-tucker-van-der-wyden-001.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/031.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 620,
+      "originalName": "2022-drabl-feb-zine-001-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/032.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 620,
+      "originalName": "2022-drabl-feb-zine-002-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/033.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 930,
+      "originalName": "2022-drabl-feb-zine-003.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/034.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 654,
+      "height": 980,
+      "originalName": "2022-drabl-feb-zine-006.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/035.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 758,
+      "originalName": "2022-drabl-feb-zine-007-square.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/036.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 413,
+      "height": 620,
+      "originalName": "2022-drabl-install-002.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/037.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 413,
+      "height": 620,
+      "originalName": "2022-drabl-install-006.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/038.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 413,
+      "originalName": "2022-drabl-install-007.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/039.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 620,
+      "height": 413,
+      "originalName": "2022-drabl-install-008.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/040.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 413,
+      "height": 620,
+      "originalName": "2022-drabl-install-010.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/041.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 754,
+      "originalName": "0004595-R1-03-4.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/042.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 754,
+      "originalName": "0004595-R1-26-27.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/043.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 754,
+      "height": 1128,
+      "originalName": "0004882-R1-03-5.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/044.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 754,
+      "height": 1128,
+      "originalName": "0007361-R1-31-32.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/045.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 754,
+      "originalName": "0007361-R1-33-34.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/046.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 674,
+      "height": 943,
+      "originalName": "Aspen.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/047.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 754,
+      "originalName": "Leon!.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/048.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 758,
+      "originalName": "R1-09838-000A.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/049.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 758,
+      "originalName": "R1-09838-001A.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/050.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 758,
+      "originalName": "R1-09839-0004.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/051.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 758,
+      "originalName": "R1-09839-0015.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/052.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 758,
+      "originalName": "R1-09839-0016.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/053.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 758,
+      "originalName": "R1-09839-0018.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/054.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 758,
+      "height": 1128,
+      "originalName": "R1-09839-0027.jpg"
+    },
+    {
+      "src": "/work/exhibition-drawing-a-blank-parasol-unit/055.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1128,
+      "height": 758,
+      "originalName": "R1-09839-0036.jpg"
+    }
+  ],
+  "videos": [],
+  "legacySlug": "",
+  "order": 14
+}

@@ -1,7 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { FontTrial } from '@/components/font-trial'
 import { siteDescription, siteName, siteUrl } from '@/lib/site'
-import './globals.css'
+import '../globals.css'
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -47,6 +48,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
+        <FontTrial />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

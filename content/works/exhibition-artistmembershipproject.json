@@ -1,0 +1,102 @@
+{
+  "title": "Artist Membership Project",
+  "category": "Exhibition",
+  "type": "Exhibition",
+  "publication": "London",
+  "date": "2025",
+  "description": "",
+  "externalHref": "",
+  "links": [
+    {
+      "label": "The Guardian : The guerrilla scheme letting skint artists mass-share gallery membership cards",
+      "href": "https://www.theguardian.com/artanddesign/2025/oct/20/clandestine-guerrilla-scheme-letting-skint-artists-mass-share-gallery-membership-cards"
+    }
+  ],
+  "files": [],
+  "featuredImage": "/work/exhibition-artistmembershipproject/001.png",
+  "images": [
+    {
+      "src": "/work/exhibition-artistmembershipproject/001.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 2594,
+      "originalName": "000075900018.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/002.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 2594,
+      "originalName": "000075900022.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/003.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 2594,
+      "originalName": "000075900019.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/004.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 2594,
+      "originalName": "000075900032.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/005.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 2594,
+      "originalName": "000075900002.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/006.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 2593,
+      "originalName": "000075900015.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/007.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2013,
+      "height": 2516,
+      "originalName": "000075900021.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/008.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 2594,
+      "originalName": "000075900025.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/009.png",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 2594,
+      "originalName": "000075900031.png"
+    },
+    {
+      "src": "/work/exhibition-artistmembershipproject/010.jpg",
+      "alt": "Artist Membership Project",
+      "group": "",
+      "width": 2075,
+      "height": 3130,
+      "originalName": "IMG_0748.jpg"
+    }
+  ],
+  "videos": [],
+  "legacySlug": "",
+  "order": 3
+}

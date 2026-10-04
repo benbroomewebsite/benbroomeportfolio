@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { aboutParagraphs, carouselImages, type Work, type WorkCategory, works } from '@/lib/works'
+import { aboutParagraphs, carouselImages, carouselWork, type Work, type WorkCategory, works } from '@/lib/works'
 import { mediaHref } from '@/lib/media'
 import { Project } from '@/components/project'
 
@@ -66,9 +66,9 @@ export function Portfolio() {
         {visibleWorks.map((work) => {
           const row = <>
             <span className="title"><span>{work.title}</span></span>
+            <span><span>{work.type}</span></span>
             <span><span>{work.publication}</span></span>
             <span><span>{work.date}</span></span>
-            <span><span>{work.type}</span></span>
           </>
 
           if (work.category === 'Press' && work.externalHref) {
@@ -108,6 +108,7 @@ function About() {
   const [slide, setSlide] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
   const nextSlide = carouselImages.length ? (slide + 1) % carouselImages.length : 0
+  const shown = carouselImages.length ? carouselWork(carouselImages[slide]) : undefined
 
   useEffect(() => {
     if (carouselImages.length < 2 || transitioning) return
@@ -148,5 +149,6 @@ function About() {
         aria-hidden="true"
       />}
     </button>}
+    {shown && <p className="carousel-caption"><Link href={`/work/${shown.slug}`}>{[shown.title, shown.publication, shown.date].filter(Boolean).join(' · ')}</Link></p>}
   </article>
 }

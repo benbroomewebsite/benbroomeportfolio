@@ -1,0 +1,73 @@
+{
+  "title": "Daria Blum",
+  "category": "Performance",
+  "type": "Performance",
+  "publication": "Myatt's Fields Bandstand",
+  "date": "2025",
+  "description": "",
+  "externalHref": "",
+  "links": [],
+  "files": [],
+  "featuredImage": "/work/dariablum/001.png",
+  "images": [
+    {
+      "src": "/work/dariablum/001.png",
+      "alt": "Daria Blum",
+      "group": "",
+      "width": 2500,
+      "height": 1657,
+      "originalName": "250528000000020021.png"
+    },
+    {
+      "src": "/work/dariablum/002.png",
+      "alt": "Daria Blum",
+      "group": "",
+      "width": 2500,
+      "height": 1657,
+      "originalName": "250528000000020015.png"
+    },
+    {
+      "src": "/work/dariablum/003.png",
+      "alt": "Daria Blum",
+      "group": "",
+      "width": 2500,
+      "height": 1657,
+      "originalName": "250528000000020023.png"
+    },
+    {
+      "src": "/work/dariablum/004.png",
+      "alt": "Daria Blum",
+      "group": "",
+      "width": 2500,
+      "height": 1658,
+      "originalName": "250528000000020033.png"
+    },
+    {
+      "src": "/work/dariablum/005.png",
+      "alt": "Daria Blum",
+      "group": "",
+      "width": 2500,
+      "height": 1657,
+      "originalName": "250528000000020034.png"
+    },
+    {
+      "src": "/work/dariablum/006.png",
+      "alt": "Daria Blum",
+      "group": "",
+      "width": 2500,
+      "height": 1657,
+      "originalName": "250528000000020035.png"
+    },
+    {
+      "src": "/work/dariablum/007.png",
+      "alt": "Daria Blum",
+      "group": "",
+      "width": 2500,
+      "height": 1657,
+      "originalName": "250528000000020039.png"
+    }
+  ],
+  "videos": [],
+  "legacySlug": "",
+  "order": 25
+}

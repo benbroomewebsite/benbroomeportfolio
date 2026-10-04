@@ -1,0 +1,49 @@
+{
+  "title": "J Words / John Glacier",
+  "category": "Performance",
+  "type": "Performance",
+  "publication": "Gladstone",
+  "date": "2022",
+  "description": "",
+  "externalHref": "",
+  "links": [],
+  "files": [],
+  "featuredImage": "/work/johnglacier/001.png",
+  "images": [
+    {
+      "src": "/work/johnglacier/001.png",
+      "alt": "J Words / John Glacier",
+      "group": "",
+      "width": 1860,
+      "height": 1233,
+      "originalName": "43203_JIZ_DRABL_004_03.png"
+    },
+    {
+      "src": "/work/johnglacier/002.png",
+      "alt": "J Words / John Glacier",
+      "group": "",
+      "width": 1948,
+      "height": 1291,
+      "originalName": "43203_JIZ_DRABL_005_23.png"
+    },
+    {
+      "src": "/work/johnglacier/003.png",
+      "alt": "J Words / John Glacier",
+      "group": "",
+      "width": 2300,
+      "height": 1525,
+      "originalName": "43203_JIZ_DRABL_005_29(1).png"
+    },
+    {
+      "src": "/work/johnglacier/004.png",
+      "alt": "J Words / John Glacier",
+      "group": "",
+      "width": 2300,
+      "height": 1525,
+      "originalName": "43203_JIZ_DRABL_005_33.png"
+    }
+  ],
+  "videos": [],
+  "legacySlug": "",
+  "order": 30
+}

@@ -1,9 +1,32 @@
 # benbroomeportfolio
 
+## Editing projects
+
+Each project is one file in `content/works/`, edited through a form at
+`/keystatic` (titles, medium, venue, dates, text, links, image order). The date
+field takes `2025`, `2025-10` or `2025-10-04`, whichever is known. Run `pnpm dev`
+and open http://localhost:3000/keystatic to edit locally; saving rewrites the
+project's file. `scripts/build-works.mjs` collects the files into
+`lib/generated/works.json` before `dev`, `build` and `check`, so restart `pnpm dev`
+to see a local edit on the site.
+
+Link-only writing entries get a lead image and opening lines from the article's
+own share tags: `python scripts/fetch_article_previews.py` saves the images to
+`public/previews/` and fills in entries that have no PDF or image yet.
+
+On the deployed site the editor is switched off until GitHub sign-in is set up.
+See `docs/editor-setup.md`. Once it is on, each save is a commit to this
+repository, and Vercel redeploys.
+
+The files under `scripts/import-data/` and `scripts/legacy-works.ts` are the
+original Squarespace import and its date research, kept for reference.
+`scripts/export-content.cjs` created `content/works/` from them once; running it
+again would overwrite later edits.
+
 ## Portfolio media
 
 Original project folders are retained in `source-media/` and excluded from Git.
-`lib/works.json` contains the project entries; `lib/media-map.json` maps their
+`content/works/` contains the project entries; `lib/media-map.json` maps their
 media to the existing `benbroome-portfolio-media` R2 bucket. Rooms of Neighbours
 is one exhibition with gallery sections for each artist. Talks have their own
 filter. Projects are newest first within each year using supplied and researched
@@ -18,8 +41,7 @@ On phones the index stacks each entry (title, venue or publication, date, type)
 and projects open directly with a Back to index link at the top and bottom; the
 index filter and scroll position are restored when returning.
 
-`lib/date-research.json` stores verified dates, source URLs and any qualifications
-separately from imported records. `docs/date-audit.md` lists the unresolved dates
+`scripts/import-data/date-research.json` records the sources for researched dates. `docs/date-audit.md` lists the unresolved dates
 and conflicting metadata. `lib/project-resources.json` restores the legacy
 projects' own press releases and links, excluding neighbouring listing content.
 

@@ -11,6 +11,7 @@ Thumbs.db
 
 # Local design references and source media. Production media lives in R2.
 Helvetica Roman/
+MSMINCHO.TTF
 Screenshot 2026-09-14 151955.png
 carouselimages/
 CLAUDE.md
@@ -24,3 +25,6 @@ public/pdfjs/
 public/work/
 public/carousel-hires/
 public/files/
+
+# Collected from content/works by scripts/build-works.mjs.
+lib/generated/

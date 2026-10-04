@@ -1,0 +1,73 @@
+{
+  "title": "Eartheater / Onyx Collective",
+  "category": "Performance",
+  "type": "Performance",
+  "publication": "Gladstone",
+  "date": "2022",
+  "description": "",
+  "externalHref": "",
+  "links": [],
+  "files": [],
+  "featuredImage": "/work/eartheater/001.jpg",
+  "images": [
+    {
+      "src": "/work/eartheater/001.jpg",
+      "alt": "Eartheater / Onyx Collective",
+      "group": "",
+      "width": 763,
+      "height": 1150,
+      "originalName": "44193_JIZ_001_32.jpg"
+    },
+    {
+      "src": "/work/eartheater/002.jpg",
+      "alt": "Eartheater / Onyx Collective",
+      "group": "",
+      "width": 1150,
+      "height": 763,
+      "originalName": "44193_JIZ_004_22.jpg"
+    },
+    {
+      "src": "/work/eartheater/003.jpg",
+      "alt": "Eartheater / Onyx Collective",
+      "group": "",
+      "width": 1150,
+      "height": 763,
+      "originalName": "44193_JIZ_004_29.jpg"
+    },
+    {
+      "src": "/work/eartheater/004.jpg",
+      "alt": "Eartheater / Onyx Collective",
+      "group": "",
+      "width": 1150,
+      "height": 763,
+      "originalName": "44193_JIZ_004_36.jpg"
+    },
+    {
+      "src": "/work/eartheater/005.jpg",
+      "alt": "Eartheater / Onyx Collective",
+      "group": "",
+      "width": 661,
+      "height": 997,
+      "originalName": "44193_JIZ_006_12.jpg"
+    },
+    {
+      "src": "/work/eartheater/006.jpg",
+      "alt": "Eartheater / Onyx Collective",
+      "group": "",
+      "width": 635,
+      "height": 957,
+      "originalName": "44193_JIZ_006_16.jpg"
+    },
+    {
+      "src": "/work/eartheater/007.jpg",
+      "alt": "Eartheater / Onyx Collective",
+      "group": "",
+      "width": 696,
+      "height": 1049,
+      "originalName": "44193_JIZ_006_34.jpg"
+    }
+  ],
+  "videos": [],
+  "legacySlug": "",
+  "order": 27
+}

@@ -4,7 +4,9 @@ const Module = require('node:module')
 const assert = require('node:assert/strict')
 const ts = require('typescript')
 
-// Exercise the actual normalization/sorting, including the imported archive.
+require('node:child_process').execFileSync(process.execPath, [require('node:path').resolve(__dirname, 'build-works.mjs')])
+
+// Exercise the actual normalization/sorting of the files in content/works.
 const filename = path.resolve(__dirname, '../lib/works.ts')
 const compiled = new Module(filename, module)
 compiled.filename = filename
@@ -15,10 +17,11 @@ compiled._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
 
 const { works } = compiled.exports
 const media = require('../lib/media-map.json')
-const dates = require('../lib/date-research.json')
 assert.equal(new Set(works.map((work) => work.slug)).size, works.length, 'Duplicate project URLs')
 
 for (const work of works) {
+  assert.ok(work.title, `Missing title: ${work.slug}`)
+  assert.ok(work.year >= 2000 || work.category === 'Press', `Date must be YYYY, YYYY-MM or YYYY-MM-DD: ${work.slug}`)
   if (work.sortDate) {
     assert.match(work.sortDate, /^\d{4}-\d{2}(?:-\d{2})?$/)
     const date = work.sortDate.length === 7 ? `${work.sortDate}-01` : work.sortDate
@@ -30,7 +33,8 @@ for (const work of works) {
     if (file.href.startsWith('/')) assert.ok(media[file.href], `Unregistered document: ${file.href}`)
   }
   for (const item of [...work.images, ...(work.videos ?? [])]) {
-    assert.ok(media[item.src], `Unregistered media: ${item.src}`)
+    // Article preview images live in public/previews rather than the media bucket.
+    assert.ok(media[item.src] || fs.existsSync(path.resolve(__dirname, '../public', `.${item.src}`)), `Unregistered media: ${item.src}`)
   }
   for (const link of work.links) {
     assert.ok(link.label)
@@ -45,22 +49,8 @@ for (const year of new Set(works.map((work) => work.year))) {
   assert.ok(inYear.slice(0, dated.length).every((work) => work.sortDate), `Year-only entry interrupts ${year}`)
 }
 
-for (const [slug, research] of Object.entries(dates)) {
-  const work = works.find((entry) => entry.slug === slug || entry.legacySlug === slug)
-  assert.equal(work?.sortDate, research.sortDate)
-  assert.ok(research.sources.length > 0 && research.note, `Missing provenance: ${slug}`)
-}
-
-const london = works.find((work) => work.slug === 'drawing-a-blank-parasol-unit-1')
-assert.equal(london.year, 2019)
-assert.equal(london.publication, 'London')
-assert.ok(works.some((work) => work.slug === 'drawing-a-blank-parasol-unit'))
-assert.equal(works.find((work) => work.slug === 'exhibition-lenard-giller-revisions').files[0].href, '/files/Revisions-press-release.pdf')
-assert.equal(works.find((work) => work.slug === 'exhibition-ladjidiaby').files.length, 0)
-
 console.log(JSON.stringify({
   projects: works.length,
-  researchedDates: Object.keys(dates).length,
   unresolved: works.filter((work) => work.category !== 'Press' && !work.sortDate).length,
   assertions: 'passed',
 }))

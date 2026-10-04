@@ -1,0 +1,81 @@
+{
+  "title": "Drawing A Blank",
+  "category": "Performance",
+  "type": "Performance",
+  "publication": "London",
+  "date": "2019",
+  "description": "",
+  "externalHref": "",
+  "links": [],
+  "files": [],
+  "featuredImage": "/work/chassolparis/001.jpg",
+  "images": [
+    {
+      "src": "/work/chassolparis/001.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 2500,
+      "height": 1663,
+      "originalName": "DSCF5912__aaaf4b05.JPG"
+    },
+    {
+      "src": "/work/chassolparis/002.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 2500,
+      "height": 1662,
+      "originalName": "DSCF5921__4820fcc6.JPG"
+    },
+    {
+      "src": "/work/chassolparis/003.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 2500,
+      "height": 1671,
+      "originalName": "L1330893_Y1__639ac984.jpg"
+    },
+    {
+      "src": "/work/chassolparis/004.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 1908,
+      "height": 1272,
+      "originalName": "Photo22_20A.jpg"
+    },
+    {
+      "src": "/work/chassolparis/005.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 2341,
+      "height": 3277,
+      "originalName": "L1330894_Y1__ac12924d.jpg"
+    },
+    {
+      "src": "/work/chassolparis/006.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 2500,
+      "height": 1671,
+      "originalName": "L1330897_Y1.jpg"
+    },
+    {
+      "src": "/work/chassolparis/007.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 2500,
+      "height": 1671,
+      "originalName": "L1330898_Y1.jpg"
+    },
+    {
+      "src": "/work/chassolparis/008.jpg",
+      "alt": "Drawing A Blank",
+      "group": "",
+      "width": 2195,
+      "height": 3073,
+      "originalName": "L1330899_Y1.jpg"
+    }
+  ],
+  "videos": [],
+  "legacySlug": "",
+  "order": 38
+}

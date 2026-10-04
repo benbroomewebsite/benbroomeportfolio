@@ -1,0 +1,95 @@
+{
+  "title": "Zazou Roddam",
+  "category": "Exhibition",
+  "type": "Exhibition",
+  "publication": "Essais, Paris",
+  "date": "2026-05",
+  "description": "",
+  "externalHref": "",
+  "links": [],
+  "files": [],
+  "featuredImage": "/work/zazou-roddam-essais/001-33c8986ecebc.webp",
+  "images": [
+    {
+      "src": "/work/zazou-roddam-essais/001-33c8986ecebc.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 1750,
+      "height": 1312,
+      "originalName": "GEP 2026-Zazou Roddam-001.jpg"
+    },
+    {
+      "src": "/work/zazou-roddam-essais/002-c0719e0a05b4.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 1750,
+      "height": 1313,
+      "originalName": "GEP 2026-Zazou Roddam-003.jpg"
+    },
+    {
+      "src": "/work/zazou-roddam-essais/003-5336465bc67f.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 1750,
+      "height": 1312,
+      "originalName": "GEP 2026-Zazou Roddam-006.jpg"
+    },
+    {
+      "src": "/work/zazou-roddam-essais/004-fb51ee33d851.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 1750,
+      "height": 1311,
+      "originalName": "GEP 2026-Zazou Roddam-007.jpg"
+    },
+    {
+      "src": "/work/zazou-roddam-essais/005-ea366fb50562.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 1750,
+      "height": 1312,
+      "originalName": "GEP 2026-Zazou Roddam-009.jpg"
+    },
+    {
+      "src": "/work/zazou-roddam-essais/006-583cc9c78992.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 1750,
+      "height": 2334,
+      "originalName": "GEP 2026-Zazou Roddam-011.jpg"
+    },
+    {
+      "src": "/work/zazou-roddam-essais/007-3ad9bfd8ffbb.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 1750,
+      "height": 2334,
+      "originalName": "GEP 2026-Zazou Roddam-012.jpg"
+    },
+    {
+      "src": "/work/zazou-roddam-essais/008-61edf7fc469d.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "BrunetteColeman_Ref-9845.JPEG"
+    },
+    {
+      "src": "/work/zazou-roddam-essais/009-aa30e2f98aa3.webp",
+      "alt": "Zazou Roddam",
+      "group": "",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "BrunetteColeman_Ref-9846.JPEG"
+    }
+  ],
+  "videos": [
+    {
+      "src": "/work/zazou-roddam-essais/video-01-44574a4bb8bc.mp4",
+      "label": "Zazou Roddam — video 1",
+      "group": ""
+    }
+  ],
+  "legacySlug": "",
+  "order": 98
+}

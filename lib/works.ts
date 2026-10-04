@@ -1,7 +1,5 @@
-import data from './works.json'
-import researchedDates from './date-research.json'
-import projectResources from './project-resources.json'
-import recordedImageSizes from './image-sizes.json'
+import data from './generated/works.json'
+import mediaMap from './media-map.json'
 
 export type WorkCategory = 'Exhibition' | 'Selected Writing' | 'Performance' | 'Talk' | 'Artist Grant' | 'Press'
 
@@ -41,104 +39,30 @@ export type Work = {
   category: WorkCategory
 }
 
-type RawWork = Work & { sourceSlug?: string; sourceUrl?: string; preserveTitle?: boolean }
-type ResearchedDate = { sortDate: string; publication?: string; sources: string[]; note: string }
-const dateResearch = researchedDates as Record<string, ResearchedDate>
-const resources = projectResources as Record<string, { files: WorkFile[]; links: WorkFile[] }>
-// Recorded by scripts/record_image_sizes.py for images the import left unsized.
-const imageSizes = recordedImageSizes as unknown as Record<string, [number, number]>
+// One entry per file in content/works, edited at /keystatic. `date` is YYYY,
+// YYYY-MM or YYYY-MM-DD depending on how precisely the date is known.
+type ContentWork = {
+  slug: string
+  title: string
+  category: string
+  type?: string
+  publication?: string
+  date?: string
+  description?: string
+  externalHref?: string | null
+  links?: WorkFile[]
+  files?: WorkFile[]
+  featuredImage?: string
+  images?: Array<{ src: string; alt?: string; group?: string; width?: number | null; height?: number | null; originalName?: string }>
+  videos?: Array<{ src: string; label?: string; group?: string }>
+  legacySlug?: string
+  order?: number | null
+}
 
 export const aboutParagraphs = [
   'Ben Broome (b. 1994) is a London-based curator with a focus on artists working at the convergence of mediums: musical performance and performance art, film and video art.',
   'With a human-centric approach to curation and the resulting art viewership, Broome sets out to create a borderless nucleus for artists and viewer alike, creating space for cross-generational exchange and attempting to engage new audiences, often through varied programming.',
 ]
-
-const otherTitles = new Set(
-  (data.works as RawWork[]).map((work) => work.title.trim().toLowerCase()).filter(Boolean),
-)
-
-function cleanDescription(work: RawWork) {
-  // The Squarespace writing/press index exposes listing labels, not article body
-  // copy. Repeating those labels in the detail panel duplicates title and date.
-  if (work.category === 'Selected Writing' || work.category === 'Press') return ''
-  return work.description
-    .split(/\n+/)
-    .map((line) => line.trim())
-    .filter((line) => {
-      if (!line) return false
-      if (/^download /i.test(line)) return false
-      if (resources[work.slug]?.links.some((link) => link.label === line)) return false
-      const lower = line.toLowerCase()
-      if (lower === work.title.toLowerCase()) return false
-      return ![...otherTitles].some((title) => title !== work.title.toLowerCase() && (lower === title || lower.startsWith(`${title},`)))
-    })
-    .join('\n\n')
-}
-
-function filesFor(work: RawWork) {
-  if (resources[work.slug]) return resources[work.slug].files
-  if (work.sortDate) return work.files ?? []
-  if (work.category === 'Selected Writing' || work.category === 'Press') return work.files ?? []
-  const tokens = work.title
-    .toLowerCase()
-    .split(/[^a-z0-9]+/)
-    .filter((token) => token.length > 4)
-  if (!tokens.length) return work.files ?? []
-  return (work.files ?? []).filter((file) => {
-    const haystack = `${file.label} ${file.href}`.toLowerCase()
-    return tokens.some((token) => haystack.includes(token))
-  })
-}
-
-const MONTHS = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-] as const
-const MONTH_PATTERN = MONTHS.join('|')
-const MONTH_YEAR_RE = new RegExp(`(${MONTH_PATTERN})\\s+(\\d{4})`, 'i')
-
-function sortDateFor(work: RawWork): string | undefined {
-  if (dateResearch[work.slug]) return dateResearch[work.slug].sortDate
-  if (work.sortDate) return work.sortDate
-  const match = `${work.date} ${work.title}`.match(MONTH_YEAR_RE)
-  if (!match || Number(match[2]) !== work.year) return undefined
-  const month = MONTHS.findIndex((name) => name.toLowerCase() === match[1].toLowerCase()) + 1
-  return `${work.year}-${String(month).padStart(2, '0')}`
-}
-const DATE_SUFFIX_RE = new RegExp(`\\s+[—–-]\\s+(${MONTH_PATTERN})\\s+(\\d{4})$`, 'i')
-
-// Ensures a space before an opening quote and after a closing quote when they sit
-// directly against a word character — e.g. Artist"Title"Review → Artist "Title" Review.
-// Handles straight quotes (") and curly quotes (" ").
-function fixQuoteSpacing(title: string): string {
-  return title
-    .replace(/(\S)([“"])/g, '$1 $2')
-    .replace(/([”"])(\S)/g, '$1 $2')
-    .replace(/\s+'\s*/g, "'")
-}
-
-function cleanTitle(work: RawWork): string {
-  if (work.category !== 'Selected Writing' && work.category !== 'Press') return work.title
-  const withoutDate = work.title.replace(DATE_SUFFIX_RE, '').trim()
-  return fixQuoteSpacing(withoutDate)
-    .replace(/\s+-\s+/g, ' — ')
-    .replace(/\s+([,.;:!?])/g, '$1')
-}
-
-function cleanDate(work: RawWork, sortDate: string | undefined): string {
-  if (sortDate) return new Date(`${sortDate.length === 7 ? `${sortDate}-01` : sortDate}T12:00:00Z`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' })
-  return work.year ? String(work.year) : ''
-}
-
-function slugify(value: string): string {
-  return value
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[’']/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '')
-}
 
 function interleaveByYear(items: Work[]): Work[] {
   const years = [...new Set(items.map((work) => work.year))].sort((a, b) => b - a)
@@ -149,7 +73,7 @@ function interleaveByYear(items: Work[]): Work[] {
     const dated = inYear.filter((work) => work.sortDate).sort((a, b) =>
       (b.sortDate ?? '').localeCompare(a.sortDate ?? '') || a.order - b.order,
     )
-    const undated = inYear.filter((work) => !work.sortDate)
+    const undated = inYear.filter((work) => !work.sortDate).sort((a, b) => a.order - b.order)
     const queues = new Map(categoryOrder.map((category) => [
       category,
       undated.filter((work) => work.category === category),
@@ -167,42 +91,50 @@ function interleaveByYear(items: Work[]): Work[] {
   })
 }
 
-function normalize(work: RawWork): Work {
-  const writing = work.category === 'Selected Writing'
-  const press = work.category === 'Press'
-  const title = cleanTitle(work)
-  const slug = writing && !work.preserveTitle ? slugify(title) : work.slug
-  const sortDate = sortDateFor(work)
+function normalize(work: ContentWork): Work {
+  const date = (work.date ?? '').trim()
+  // A bare year sorts after the dated entries of that year, so it is not a sortDate.
+  const sortDate = /^\d{4}-\d{2}(-\d{2})?$/.test(date) ? date : undefined
   return {
-    slug,
-    legacySlug: slug !== work.slug ? work.slug : undefined,
-    title,
-    type: writing && !work.preserveTitle ? 'Writing' : work.type,
-    publication: dateResearch[work.slug]?.publication ?? work.publication,
-    date: cleanDate(work, sortDate),
-    year: sortDate ? Number(sortDate.slice(0, 4)) : work.year,
-    description: cleanDescription(work),
-    images: press ? [] : work.images.map((image) => {
-      const size = imageSizes[image.src]
-      return image.width || !size ? image : { ...image, width: size[0], height: size[1] }
-    }),
-    videos: work.videos ?? [],
+    slug: work.slug,
+    legacySlug: work.legacySlug || undefined,
+    title: work.title,
+    type: work.type ?? '',
+    publication: work.publication ?? '',
+    date: sortDate
+      ? new Date(`${sortDate.length === 7 ? `${sortDate}-01` : sortDate}T12:00:00Z`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' })
+      : date,
+    year: Number(date.slice(0, 4)) || 0,
+    description: work.description ?? '',
+    images: (work.images ?? []).map((image) => ({
+      src: image.src,
+      alt: image.alt || work.title,
+      originalName: image.originalName || undefined,
+      width: image.width ?? undefined,
+      height: image.height ?? undefined,
+      group: image.group || undefined,
+    })),
+    videos: (work.videos ?? []).map((video) => ({ src: video.src, label: video.label ?? '', group: video.group || undefined })),
     sortDate,
-    files: filesFor(work),
-    links: resources[work.slug]?.links ?? [],
-    externalHref: work.externalHref,
-    featuredImage: press ? '' : work.featuredImage,
-    order: work.order,
-    category: work.category,
+    files: work.files ?? [],
+    links: work.links ?? [],
+    externalHref: work.externalHref || null,
+    featuredImage: work.featuredImage ?? '',
+    order: work.order ?? 0,
+    category: work.category as WorkCategory,
   }
 }
 
-export const works: Work[] = interleaveByYear(
-  (data.works as RawWork[]).map(normalize),
-)
+export const works: Work[] = interleaveByYear((data as ContentWork[]).map(normalize))
 
 export const getWork = (slug: string) => works.find((work) => work.slug === slug)
 export const getWorkByAnySlug = (slug: string) => works.find((work) => work.slug === slug || work.legacySlug === slug)
+
+// Which project each slideshow image comes from, matched through the media bucket
+// (the same photograph is stored once and used by both).
+const storedAs = (path: string) => (mediaMap as Record<string, string>)[path]?.replace(/__[0-9a-f]{8}(?=\.)/, '')
+const worksByImage = new Map(works.flatMap((work) => work.images.map((image) => [storedAs(image.src), work] as const)))
+export const carouselWork = (src: string) => worksByImage.get(storedAs(src))
 
 // Same curated 52-image sequence, mapped to the full-resolution migration files.
 export const carouselImages = [
