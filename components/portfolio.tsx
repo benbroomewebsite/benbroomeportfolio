@@ -82,6 +82,7 @@ export function Portfolio() {
           const row = <>
             <span className="title"><span>{work.indexTitle}</span></span>
             <span><span>{work.type}</span></span>
+            <span><span>{work.publication}</span></span>
             <span><span>{work.date}</span></span>
           </>
           const preview = {

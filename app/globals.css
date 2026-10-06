@@ -34,10 +34,12 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .filters span { text-decoration: none; }
 .filters button.active span, .filters button:hover span, .filters button:focus-visible span { text-decoration: underline; text-underline-offset: 3px; }
 .work-list { display: flex; flex-direction: column; }
-.work-row { display: grid; grid-template-columns: 50% minmax(0, 1fr) 5.5em; column-gap: var(--gap); width: 100%; padding: 8px 0; background: transparent; text-align: left; }
+.work-row { display: grid; grid-template-columns: minmax(0, 1fr) 8em minmax(0, 1fr) 5.5em; column-gap: 24px; width: 100%; padding: 8px 0; background: transparent; text-align: left; }
 a.work-row { color: inherit; }
 .work-row > span { min-width: 0; overflow: hidden; }
 .work-row > span > span { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top; }
+/* Names wrap rather than being cut off; the venue column truncates. */
+.work-row .title > span { display: inline; overflow: visible; white-space: normal; }
 .work-row:hover .title > span, .work-row:focus-visible .title > span { text-decoration: underline; text-underline-offset: 2px; }
 .contact { margin-top: 72px; line-height: 1.4; }
 .contact a:hover { text-decoration: underline; text-underline-offset: 2px; }
@@ -132,7 +134,7 @@ a.work-row { color: inherit; }
   .filters button { padding: 5px 0; }
   .work-row { grid-template-columns: minmax(0, 1fr) auto; padding: 8px 0; }
   .work-row > span { overflow: visible; }
-  .work-row > span:nth-child(2) { display: none; }
+  .work-row > span:nth-child(2), .work-row > span:nth-child(3) { display: none; }
   .work-row .title > span { display: inline; overflow: visible; white-space: normal; }
   .bio-shell { display: flex; flex-direction: column; padding: var(--top-edge) var(--edge) 56px; }
   .bio-shell .archive { display: contents; }
