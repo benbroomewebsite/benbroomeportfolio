@@ -1,15 +1,29 @@
 {
-  "title": "Racheal Crowther, Gebrauchsmusik",
+  "title": "Racheal Crowther",
+  "indexTitle": "",
   "category": "Exhibition",
   "type": "Exhibition",
   "publication": "Galerie Noah Klink, Berlin",
   "date": "2025-01-24",
   "description": "",
   "externalHref": "",
-  "links": [],
+  "links": [
+    {
+      "label": "Frieze",
+      "href": "https://www.frieze.com/article/racheal-crowther-gebrauchsmusik-2025-review"
+    },
+    {
+      "label": "ArtReview",
+      "href": "https://artreview.com/racheal-crowther-gebrauchsmusik-noah-klink-review-gabriela-acha/"
+    },
+    {
+      "label": "Conversation, Flash Art",
+      "href": "https://flash---art.com/article/racheal-crowther/"
+    }
+  ],
   "files": [
     {
-      "label": "Press release",
+      "label": "Exhibition text",
       "href": "/files/Gebrauchsmusik_PressRelease_eng-2.pdf"
     }
   ],

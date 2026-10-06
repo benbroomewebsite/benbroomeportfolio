@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { aboutParagraphs } from '@/lib/works'
+import { Identity } from '@/components/identity'
 
 export const metadata: Metadata = { title: 'Bio', description: aboutParagraphs.join(' '), alternates: { canonical: '/bio' }, openGraph: { title: 'Ben Broome — Bio', description: aboutParagraphs.join(' '), url: '/bio' } }
 
@@ -8,10 +9,7 @@ export default function BioPage() {
   return <main className="site-shell bio-shell">
     <h1 className="sr-only">Ben Broome — Biography</h1>
     <section className="archive" aria-label="Ben Broome">
-      <header className="identity">
-        <Link href="/"><span>Ben Broome</span></Link>
-        <p>Curator, writer and organiser</p>
-      </header>
+      <Identity />
 
       <nav className="bio-return" aria-label="Portfolio navigation">
         <Link href="/">← Selected work</Link>

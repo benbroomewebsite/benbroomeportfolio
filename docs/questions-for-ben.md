@@ -58,3 +58,16 @@ Logged 3 October 2026. Evidence and reasoning for the date questions are in
   Gladstone performances (Chassol, Eartheater, Gabber Eleganza, Jesus Hilario
   Reyes, Keiyaa, Laraaji, Slauson Malone, TYGAPAW, Space Afrika). Originals
   around 2500px wide would fix them.
+
+## From the 6 October notes
+
+- **Artist Grant 2026** — 2023 and 2024 are now on the site, taken from the
+  Artist Grant site. That site has no 2026 recipients page yet; who are they,
+  and is there text and imagery?
+- **Press** — the venue/publication column is gone from the index. Should the
+  Press filter itself stay?
+- **YHWH Nailgun** — the gallery now opens on the view of the space, one
+  near-duplicate (029) is removed and the rest are shuffled. Which other frames
+  should go?
+- **Same name, several entries** — on phones only the name and date show, so the
+  three Ladji Diaby entries and two Zazou Roddam entries look alike.

@@ -23,6 +23,7 @@ export type Work = {
   slug: string
   legacySlug?: string
   title: string
+  indexTitle: string
   type: string
   publication: string
   date: string
@@ -44,6 +45,7 @@ export type Work = {
 type ContentWork = {
   slug: string
   title: string
+  indexTitle?: string
   category: string
   type?: string
   publication?: string
@@ -99,6 +101,7 @@ function normalize(work: ContentWork): Work {
     slug: work.slug,
     legacySlug: work.legacySlug || undefined,
     title: work.title,
+    indexTitle: work.indexTitle || work.title,
     type: work.type ?? '',
     publication: work.publication ?? '',
     date: sortDate
@@ -125,10 +128,47 @@ function normalize(work: ContentWork): Work {
   }
 }
 
-export const works: Work[] = interleaveByYear((data as ContentWork[]).map(normalize))
+// Press entries stay in content/works but are hidden from the site for now.
+export const works: Work[] = interleaveByYear((data as ContentWork[]).map(normalize)).filter((work) => work.category !== 'Press')
 
 export const getWork = (slug: string) => works.find((work) => work.slug === slug)
 export const getWorkByAnySlug = (slug: string) => works.find((work) => work.slug === slug || work.legacySlug === slug)
+
+const isPdf = (href: string) => /\.pdf(?:$|[?#])/i.test(href)
+
+// Publications that let their pages be shown inside another site. Others
+// (Frieze, Ocula, Lafayette Anticipations, South London Gallery) refuse.
+const EMBEDDABLE_HOSTS = ['flash---art.com', 'curamagazine.com', 'www.sieshoeke.com']
+
+export function canEmbed(href: string): boolean {
+  try {
+    return EMBEDDABLE_HOSTS.includes(new URL(href).hostname)
+  } catch {
+    return false
+  }
+}
+
+// The live page to show beside a project, when it has one and may be embedded.
+export function embedHref(work: Work): string | undefined {
+  if (!work.externalHref || work.files.some((file) => isPdf(file.href))) return undefined
+  return canEmbed(work.externalHref) ? work.externalHref : undefined
+}
+
+// Projects that are nothing but a link go straight to it from the index.
+export function opensExternally(work: Work): boolean {
+  if (!work.externalHref) return false
+  if (work.category === 'Press') return true
+  return !embedHref(work) && !work.images.length && !work.files.length && !work.description
+}
+
+// On phones, writing and talks skip the project page and go straight to the
+// article, or to the PDF when that is all there is.
+export function directHref(work: Work): string | undefined {
+  if (work.externalHref) return work.externalHref
+  const pdf = work.files.find((file) => isPdf(file.href))
+  const reading = work.category === 'Selected Writing' || work.category === 'Talk'
+  return reading && pdf && !work.images.length ? `/api/document?src=${encodeURIComponent(pdf.href)}` : undefined
+}
 
 // Which project each slideshow image comes from, matched through the media bucket
 // (the same photograph is stored once and used by both).

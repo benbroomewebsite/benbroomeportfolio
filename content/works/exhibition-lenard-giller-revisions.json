@@ -1,15 +1,21 @@
 {
   "title": "Lenard Giller, Revisions",
+  "indexTitle": "Lenard Giller",
   "category": "Exhibition",
   "type": "Exhibition",
   "publication": "The Shop at Sadie Coles HQ, London",
   "date": "2023-04-28",
   "description": "",
   "externalHref": "",
-  "links": [],
+  "links": [
+    {
+      "label": "Conversation, CURA Magazine",
+      "href": "https://curamagazine.com/digital/revisions/"
+    }
+  ],
   "files": [
     {
-      "label": "Press release",
+      "label": "Exhibition text",
       "href": "/files/Revisions-press-release.pdf"
     }
   ],

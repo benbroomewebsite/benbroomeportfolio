@@ -1,150 +1,32 @@
 {
   "title": "YHWH Nailgun",
+  "indexTitle": "",
   "category": "Performance",
   "type": "Performance",
   "publication": "Marble Arch Pit, London",
-  "date": "2026-06",
+  "date": "2026-06-14",
   "description": "",
   "externalHref": "",
-  "links": [],
+  "links": [
+    {
+      "label": "NTS",
+      "href": "https://www.nts.live/events/nts-x-yhwh-nailgun-2026"
+    },
+    {
+      "label": "Film",
+      "href": "https://www.youtube.com/watch?v=4RxVG2xt3fU"
+    }
+  ],
   "files": [],
-  "featuredImage": "/work/yhwh-nailgun-marble-arch-pit/001-febbc82419dd.webp",
+  "featuredImage": "/work/yhwh-nailgun-marble-arch-pit/031-577495eca847.webp",
   "images": [
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/001-febbc82419dd.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/031-577495eca847.webp",
       "alt": "YHWH Nailgun",
       "group": "",
       "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-69.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/002-2390a9f554b9.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-70.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/003-5ae45243000b.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-71.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/004-c83dda79016e.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-74.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/005-3777638d747d.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 1590,
-      "height": 2400,
-      "originalName": "IZZY-OFFER-75.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/006-e8c74fb8cea6.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-76.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/007-84a0d153c90b.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1806,
-      "originalName": "IZZY-OFFER-77.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/008-14f54b5134ec.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 1590,
-      "height": 2400,
-      "originalName": "IZZY-OFFER-78.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/009-bfb6f17bdd38.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 1590,
-      "height": 2400,
-      "originalName": "IZZY-OFFER-79.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/010-764d0d999131.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 1590,
-      "height": 2400,
-      "originalName": "IZZY-OFFER-80.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/011-3ab794b1f8c9.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-81.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/012-d7676dd9a41a.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-82.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/013-834a08772be2.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-83.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/014-fe0f321d6e96.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-85.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/015-bc331a30cf2a.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-116.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/016-19600ef6a35f.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1590,
-      "originalName": "IZZY-OFFER-117.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/017-1e064dedfe72.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 1882,
-      "height": 2400,
-      "originalName": "IMG_0179 2.jpg"
+      "height": 1608,
+      "originalName": "YHWH_NAILGUN_IZZYOFFER-43.jpg"
     },
     {
       "src": "/work/yhwh-nailgun-marble-arch-pit/018-b455b48540d5.webp",
@@ -155,44 +37,20 @@
       "originalName": "YHWH_NAILGUN_IZZYOFFER-1.jpg"
     },
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/019-238cfdb6b5c7.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/028-2601675aa994.webp",
       "alt": "YHWH Nailgun",
       "group": "",
       "width": 2400,
       "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-2.jpg"
+      "originalName": "YHWH_NAILGUN_IZZYOFFER-38.jpg"
     },
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/020-ef448e9e2c2b.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/014-fe0f321d6e96.webp",
       "alt": "YHWH Nailgun",
       "group": "",
       "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-4.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/021-18b3748ffb1d.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-5.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/022-f610e5c21783.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-6.jpg"
-    },
-    {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/023-1c62b962e407.webp",
-      "alt": "YHWH Nailgun",
-      "group": "",
-      "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-10.jpg"
+      "height": 1590,
+      "originalName": "IZZY-OFFER-85.jpg"
     },
     {
       "src": "/work/yhwh-nailgun-marble-arch-pit/024-778e8b9858da.webp",
@@ -203,20 +61,20 @@
       "originalName": "YHWH_NAILGUN_IZZYOFFER-12.jpg"
     },
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/025-919368bc0ea6.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/008-14f54b5134ec.webp",
       "alt": "YHWH Nailgun",
       "group": "",
-      "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-19.jpg"
+      "width": 1590,
+      "height": 2400,
+      "originalName": "IZZY-OFFER-78.jpg"
     },
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/026-05bf4126e05a.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/010-764d0d999131.webp",
       "alt": "YHWH Nailgun",
       "group": "",
-      "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-21.jpg"
+      "width": 1590,
+      "height": 2400,
+      "originalName": "IZZY-OFFER-80.jpg"
     },
     {
       "src": "/work/yhwh-nailgun-marble-arch-pit/027-5895bee6fe30.webp",
@@ -227,36 +85,92 @@
       "originalName": "YHWH_NAILGUN_IZZYOFFER-30.jpg"
     },
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/028-2601675aa994.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/012-d7676dd9a41a.webp",
       "alt": "YHWH Nailgun",
       "group": "",
       "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-38.jpg"
+      "height": 1590,
+      "originalName": "IZZY-OFFER-82.jpg"
     },
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/029-7540ffc0d47f.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/004-c83dda79016e.webp",
       "alt": "YHWH Nailgun",
       "group": "",
       "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-39.jpg"
+      "height": 1590,
+      "originalName": "IZZY-OFFER-74.jpg"
     },
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/030-48d84ddda741.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/007-84a0d153c90b.webp",
       "alt": "YHWH Nailgun",
       "group": "",
       "width": 2400,
-      "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-40.jpg"
+      "height": 1806,
+      "originalName": "IZZY-OFFER-77.jpg"
     },
     {
-      "src": "/work/yhwh-nailgun-marble-arch-pit/031-577495eca847.webp",
+      "src": "/work/yhwh-nailgun-marble-arch-pit/021-18b3748ffb1d.webp",
       "alt": "YHWH Nailgun",
       "group": "",
       "width": 2400,
       "height": 1608,
-      "originalName": "YHWH_NAILGUN_IZZYOFFER-43.jpg"
+      "originalName": "YHWH_NAILGUN_IZZYOFFER-5.jpg"
+    },
+    {
+      "src": "/work/yhwh-nailgun-marble-arch-pit/013-834a08772be2.webp",
+      "alt": "YHWH Nailgun",
+      "group": "",
+      "width": 2400,
+      "height": 1590,
+      "originalName": "IZZY-OFFER-83.jpg"
+    },
+    {
+      "src": "/work/yhwh-nailgun-marble-arch-pit/025-919368bc0ea6.webp",
+      "alt": "YHWH Nailgun",
+      "group": "",
+      "width": 2400,
+      "height": 1608,
+      "originalName": "YHWH_NAILGUN_IZZYOFFER-19.jpg"
+    },
+    {
+      "src": "/work/yhwh-nailgun-marble-arch-pit/019-238cfdb6b5c7.webp",
+      "alt": "YHWH Nailgun",
+      "group": "",
+      "width": 2400,
+      "height": 1608,
+      "originalName": "YHWH_NAILGUN_IZZYOFFER-2.jpg"
+    },
+    {
+      "src": "/work/yhwh-nailgun-marble-arch-pit/009-bfb6f17bdd38.webp",
+      "alt": "YHWH Nailgun",
+      "group": "",
+      "width": 1590,
+      "height": 2400,
+      "originalName": "IZZY-OFFER-79.jpg"
+    },
+    {
+      "src": "/work/yhwh-nailgun-marble-arch-pit/020-ef448e9e2c2b.webp",
+      "alt": "YHWH Nailgun",
+      "group": "",
+      "width": 2400,
+      "height": 1608,
+      "originalName": "YHWH_NAILGUN_IZZYOFFER-4.jpg"
+    },
+    {
+      "src": "/work/yhwh-nailgun-marble-arch-pit/022-f610e5c21783.webp",
+      "alt": "YHWH Nailgun",
+      "group": "",
+      "width": 2400,
+      "height": 1608,
+      "originalName": "YHWH_NAILGUN_IZZYOFFER-6.jpg"
+    },
+    {
+      "src": "/work/yhwh-nailgun-marble-arch-pit/017-1e064dedfe72.webp",
+      "alt": "YHWH Nailgun",
+      "group": "",
+      "width": 1882,
+      "height": 2400,
+      "originalName": "IMG_0179 2.jpg"
     }
   ],
   "videos": [],

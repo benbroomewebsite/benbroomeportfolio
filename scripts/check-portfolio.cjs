@@ -34,7 +34,7 @@ for (const work of works) {
   }
   for (const item of [...work.images, ...(work.videos ?? [])]) {
     // Article preview images live in public/previews rather than the media bucket.
-    assert.ok(media[item.src] || fs.existsSync(path.resolve(__dirname, '../public', `.${item.src}`)), `Unregistered media: ${item.src}`)
+    assert.ok(/^https:\/\//.test(item.src) || media[item.src] || fs.existsSync(path.resolve(__dirname, '../public', `.${item.src}`)), `Unregistered media: ${item.src}`)
   }
   for (const link of work.links) {
     assert.ok(link.label)

@@ -1,13 +1,24 @@
 {
   "title": "Zazou Roddam",
+  "indexTitle": "",
   "category": "Exhibition",
   "type": "Exhibition",
   "publication": "Essais, Paris",
   "date": "2026-05",
   "description": "",
   "externalHref": "",
-  "links": [],
-  "files": [],
+  "links": [
+    {
+      "label": "Essay, Flash Art",
+      "href": "https://flash---art.com/article/zazou-roddam/"
+    }
+  ],
+  "files": [
+    {
+      "label": "Exhibition text",
+      "href": "/files/PR-Preconditions-Zazou-Roddam.pdf"
+    }
+  ],
   "featuredImage": "/work/zazou-roddam-essais/001-33c8986ecebc.webp",
   "images": [
     {

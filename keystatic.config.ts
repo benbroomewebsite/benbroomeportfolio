@@ -29,6 +29,7 @@ export default config({
           name: { label: 'Title', validation: { isRequired: true } },
           slug: { label: 'Page address', description: 'The last part of the project URL. Changing it changes the link.' },
         }),
+        indexTitle: fields.text({ label: 'Name in the index', description: 'A short name for the list, usually the artist. Leave empty to use the title.' }),
         category: fields.select({
           label: 'Filter',
           description: 'Which filter the project appears under.',

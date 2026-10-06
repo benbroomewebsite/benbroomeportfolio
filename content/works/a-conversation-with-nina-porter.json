@@ -1,7 +1,8 @@
 {
   "title": "A Conversation with Nina Porter",
+  "indexTitle": "Nina Porter",
   "category": "Selected Writing",
-  "type": "Writing",
+  "type": "Conversation",
   "publication": "Arcane",
   "date": "2024-05",
   "description": "",
@@ -13,7 +14,7 @@
       "href": "/files/Nina-Porter-ITW.pdf"
     }
   ],
-  "featuredImage": "",
+  "featuredImage": "/previews/a-conversation-with-nina-porter.jpg",
   "images": [],
   "videos": [],
   "legacySlug": "writing-arcane-a-conversation-with-nina-porter-may-2024",

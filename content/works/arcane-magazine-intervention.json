@@ -4,8 +4,6 @@
   "type": "Intervention",
   "publication": "Arcane Magazine",
   "date": "2025-01",
-  "description": "",
-  "externalHref": "",
   "links": [],
   "files": [
     {
@@ -18,7 +16,6 @@
     {
       "src": "/work/arcane-magazine-intervention/001-886a2be1ba5a.webp",
       "alt": "Arcane Magazine Intervention",
-      "group": "",
       "width": 1697,
       "height": 2400,
       "originalName": "Intro 2.jpg"
@@ -26,7 +23,6 @@
     {
       "src": "/work/arcane-magazine-intervention/002-709a7185cd53.webp",
       "alt": "Arcane Magazine Intervention",
-      "group": "",
       "width": 2400,
       "height": 1704,
       "originalName": "Arcane Spreads2.jpg"
@@ -34,7 +30,6 @@
     {
       "src": "/work/arcane-magazine-intervention/003-7304d0c385c7.webp",
       "alt": "Arcane Magazine Intervention",
-      "group": "",
       "width": 2400,
       "height": 1704,
       "originalName": "Arcane Spreads3.jpg"
@@ -42,7 +37,6 @@
     {
       "src": "/work/arcane-magazine-intervention/004-eba8bf1d025b.webp",
       "alt": "Arcane Magazine Intervention",
-      "group": "",
       "width": 2400,
       "height": 1704,
       "originalName": "Arcane Spreads4.jpg"
@@ -50,7 +44,6 @@
     {
       "src": "/work/arcane-magazine-intervention/005-e329ecf20abe.webp",
       "alt": "Arcane Magazine Intervention",
-      "group": "",
       "width": 2400,
       "height": 1704,
       "originalName": "Arcane Spreads5.jpg"
@@ -58,13 +51,11 @@
     {
       "src": "/work/arcane-magazine-intervention/006-cbf401ac71c1.webp",
       "alt": "Arcane Magazine Intervention",
-      "group": "",
       "width": 2400,
       "height": 1704,
       "originalName": "Arcane Spreads6.jpg"
     }
   ],
   "videos": [],
-  "legacySlug": "",
   "order": 96
 }

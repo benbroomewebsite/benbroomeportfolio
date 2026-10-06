@@ -3,9 +3,10 @@
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { type CSSProperties, useState } from 'react'
+import { type CSSProperties, Fragment, type ReactNode, useState } from 'react'
 import { mediaHref } from '@/lib/media'
-import type { Work, WorkImage } from '@/lib/works'
+import { canEmbed, embedHref, type Work, type WorkImage } from '@/lib/works'
+import { Identity } from '@/components/identity'
 
 const PdfReader = dynamic(() => import('@/components/pdf-reader'), {
   ssr: false,
@@ -42,10 +43,32 @@ function rowMaxWidth(row: WorkImage[]): number | undefined {
   return Math.round(row.reduce((total, image) => total + ratioOf(image) * height, 0) + GALLERY_GAP * (row.length - 1))
 }
 
+// Names in the text that have a link of their own (grant recipients, judges)
+// become that link, once each, and drop out of the list of links below.
+function linkNames(paragraphs: string[], links: Array<{ label: string; href: string }>) {
+  const unused = [...links].sort((a, b) => b.label.length - a.label.length)
+  const linked = paragraphs.map((paragraph) => {
+    const parts: ReactNode[] = []
+    let rest = paragraph
+    while (rest) {
+      const hits = unused.map((link) => ({ link, at: rest.indexOf(link.label) })).filter((hit) => hit.at >= 0).sort((a, b) => a.at - b.at)
+      if (!hits.length) break
+      const { link, at } = hits[0]
+      parts.push(rest.slice(0, at), <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)
+      rest = rest.slice(at + link.label.length)
+      unused.splice(unused.indexOf(link), 1)
+    }
+    return [...parts, rest]
+  })
+  return { linked, remaining: links.filter((link) => unused.includes(link)) }
+}
+
 export function ProjectPage({ work }: { work: Work }) {
   const pdfs = work.files.filter((file) => /\.pdf(?:$|[?#])/i.test(file.href))
   const galleryImages = work.images.filter((image) => !/\.pdf$/i.test(image.originalName ?? ''))
-  const pdfFirst = pdfs.length > 0 && (work.category === 'Selected Writing' || work.category === 'Talk' || galleryImages.length === 0)
+  // Exhibitions and performances keep their images and show the text beneath them.
+  const textBelow = pdfs.length === 1 && galleryImages.length > 0 && work.category !== 'Selected Writing' && work.category !== 'Talk'
+  const pdfFirst = !textBelow && pdfs.length > 0 && (work.category === 'Selected Writing' || work.category === 'Talk' || galleryImages.length === 0)
   const [documentIndex, setDocumentIndex] = useState<number | null>(pdfFirst ? 0 : null)
   const document = documentIndex !== null ? pdfs[documentIndex] : undefined
   const showImages = galleryImages.length > 0 && !(pdfs.length > 0 && work.category === 'Selected Writing')
@@ -53,22 +76,29 @@ export function ProjectPage({ work }: { work: Work }) {
     ...galleryImages.map((image) => image.group ?? ''),
     ...(work.videos ?? []).filter((video) => video.group).map((video) => video.group!),
   ])]
+  // The first video without a section of its own sits under the opening image; the rest follow the gallery.
+  const looseVideos = (work.videos ?? []).filter((video) => !video.group)
+  const leadVideo = galleryImages.some((image) => !image.group) ? looseVideos[0] : undefined
   const paragraphs = work.description ? work.description.split(/\n\n+/) : []
   const writingHref = work.files[0]?.href ? mediaHref(work.files[0].href) : work.externalHref
   const links = work.category === 'Selected Writing'
     ? (!pdfs.length && writingHref ? [{ label: 'Read', href: writingHref }] : [])
     : [
         ...work.files.filter((file) => !pdfs.includes(file)).map((file) => ({ label: file.label.replace(/\.pdf$/i, '') || 'File', href: mediaHref(file.href) })),
-        ...(work.externalHref ? [{ label: 'Link', href: work.externalHref }] : []),
+        ...(work.externalHref ? [{ label: work.publication.split(',')[0] || 'Link', href: work.externalHref }] : []),
         ...work.links,
       ]
+  const article = embedHref(work)
+  // Related writing that can be shown live follows the images, after any exhibition text.
+  const relatedPages = galleryImages.length > 0 && !article ? work.links.filter((link) => canEmbed(link.href)) : []
+  const { linked, remaining } = linkNames(paragraphs, links)
   const date = work.sortDate?.length === 10
     ? new Date(`${work.sortDate}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
     : work.date
 
-  return <main className={`project-page${document ? ' project-page-reading' : ''}`}>
+  return <main className={`project-page${work.description.length > 900 ? ' project-page-text' : ''}${document ? ' project-page-reading' : ''}${article ? ' project-page-article' : ''}`}>
     <aside className="project-navigation">
-      <header className="identity"><Link href="/"><span>Ben Broome</span></Link><p>Curator, writer and organiser</p></header>
+      <Identity tagline={false} />
       <nav aria-label="Portfolio navigation"><Link href="/" className="index-return">← Back to index</Link></nav>
       <div className="project project-info">
         <header>
@@ -76,12 +106,12 @@ export function ProjectPage({ work }: { work: Work }) {
           <p>{[work.type, work.publication, date].filter(Boolean).join(' · ')}</p>
         </header>
         {paragraphs.length > 0 && <div className="project-copy">
-          {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {linked.map((paragraph, index) => <p key={paragraphs[index]}>{paragraph}</p>)}
         </div>}
-        {links.length > 0 && <div className="project-links">
-          {links.map((link) => <a key={link.href} href={link.href} target={link.href.startsWith('/') ? undefined : '_blank'} rel={link.href.startsWith('/') ? undefined : 'noreferrer'}>↳ {link.label}</a>)}
+        {remaining.length > 0 && <div className="project-links">
+          {remaining.map((link) => <a key={link.href} href={link.href} target={link.href.startsWith('/') ? undefined : '_blank'} rel={link.href.startsWith('/') ? undefined : 'noreferrer'}>↳ {link.label}</a>)}
         </div>}
-        {pdfs.length > 0 && (showImages || pdfs.length > 1) && <nav className="project-media-tabs" aria-label="Project media">
+        {!textBelow && pdfs.length > 0 && (showImages || pdfs.length > 1) && <nav className="project-media-tabs" aria-label="Project media">
           {showImages && <button aria-pressed={documentIndex === null} onClick={() => setDocumentIndex(null)}>Images</button>}
           {pdfs.filter((_, index) => pdfs.length > 1 || documentIndex !== index).map((file) => <button key={file.href} aria-pressed={documentIndex === pdfs.indexOf(file)} onClick={() => setDocumentIndex(pdfs.indexOf(file))}>
             {pdfs.length === 1 ? 'Read' : file.label.replace(/^Download\s+/i, '').replace(/\.pdf$/i, '') || 'Read'}
@@ -91,28 +121,34 @@ export function ProjectPage({ work }: { work: Work }) {
     </aside>
     <section className="project-content" aria-label={`${work.title} media`}>
       {document && <PdfReader key={document.href} source={document.href} label={work.title} />}
+      {article && <iframe className="article-frame" src={article} title={`${work.title} — ${work.publication}`} loading="lazy" referrerPolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" />}
       {!document && galleryGroups.length > 0 && <div className="project-gallery">
         {galleryGroups.map((group) => <section className="gallery-group" key={group}>
           {group && <h2>{group}</h2>}
-          {galleryRows(galleryImages.filter((image) => (image.group ?? '') === group)).map((row) => <div
-            key={row[0].src}
+          {galleryRows(galleryImages.filter((image) => (image.group ?? '') === group)).map((row, rowIndex) => <Fragment key={row[0].src}><div
             className={`gallery-row${row.length === 1 && isPortrait(row[0]) ? ' gallery-row-narrow' : ''}`}
             style={{ maxWidth: rowMaxWidth(row) }}
           >
-            {row.map((image) => <Image
-              key={image.src}
-              src={mediaHref(image.src)}
-              alt={image.alt}
-              width={image.width ?? 1600}
-              height={image.height ?? 1200}
-              sizes="(max-width: 800px) 100vw, 66vw"
-              style={{ '--ratio': ratioOf(image) } as CSSProperties}
-            />)}
-          </div>)}
+            {row.map((image) => {
+              const picture = <Image src={mediaHref(image.src)} alt={image.alt} width={image.width ?? 1600} height={image.height ?? 1200} sizes="(max-width: 800px) 100vw, 66vw" />
+              const style = { '--ratio': ratioOf(image) } as CSSProperties
+              // An image on a project that lives elsewhere leads to it, like the link does.
+              return work.externalHref
+                ? <a key={image.src} className="gallery-item" style={style} href={work.externalHref} target="_blank" rel="noreferrer">{picture}</a>
+                : <div key={image.src} className="gallery-item" style={style}>{picture}</div>
+            })}
+          </div>
+          {!group && rowIndex === 0 && leadVideo && <Video video={leadVideo} />}
+          </Fragment>)}
           {(work.videos ?? []).filter((video) => video.group === group).map((video) => <Video key={video.src} video={video} />)}
         </section>)}
       </div>}
-      {!document && (work.videos ?? []).filter((video) => !video.group).map((video) => <Video key={video.src} video={video} />)}
+      {!document && looseVideos.filter((video) => video !== leadVideo).map((video) => <Video key={video.src} video={video} />)}
+      {textBelow && <div className="project-text-below"><PdfReader source={pdfs[0].href} label={work.title} /></div>}
+      {!document && relatedPages.map((link) => <section key={link.href} className="project-related">
+        <h2><a href={link.href} target="_blank" rel="noreferrer">↳ {link.label}</a></h2>
+        <iframe className="article-frame" src={link.href} title={link.label} loading="lazy" referrerPolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" />
+      </section>)}
       <nav className="project-return-bottom" aria-label="Return to index"><Link href="/" className="index-return">← Back to index</Link></nav>
     </section>
   </main>
@@ -120,7 +156,7 @@ export function ProjectPage({ work }: { work: Work }) {
 
 // The index hover preview: title, details and one image.
 export function Project({ work }: { work: Work }) {
-  const preview = work.images.find((image) => image.src === work.featuredImage) ?? work.images[0]
+  const preview = work.featuredImage || work.images[0]?.src
 
   return <article className="project">
     <header>
@@ -128,7 +164,7 @@ export function Project({ work }: { work: Work }) {
       <p>{[work.type, work.publication, work.date].filter(Boolean).join(' · ')}</p>
     </header>
     {preview && <div className="project-media">
-      <Image src={mediaHref(preview.src)} alt={preview.alt} fill sizes="(max-width: 800px) 100vw, 40vw" priority />
+      <Image src={mediaHref(preview)} alt={work.title} fill sizes="(max-width: 800px) 100vw, 30vw" priority />
     </div>}
   </article>
 }
