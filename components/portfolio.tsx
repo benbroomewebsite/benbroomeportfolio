@@ -33,6 +33,7 @@ const venueOnly = (venue: string) => venue.replace(/,\s*[^,]+$/, '')
 
 export function Portfolio() {
   const archiveRef = useRef<HTMLElement>(null)
+  const listRef = useRef<HTMLDivElement>(null)
   const [hovered, setHovered] = useState<Work | null>(null)
   const [filter, setFilter] = useState<Filter>('All')
   const visibleWorks = filter === 'All' ? works : works.filter((work) => work.category === filter)
@@ -58,6 +59,23 @@ export function Portfolio() {
     }
   }, [])
 
+  // The preview on the right starts level with the first row of the index, wherever
+  // the filters above it put that row (they wrap onto a second line on narrower screens).
+  useLayoutEffect(() => {
+    const archive = archiveRef.current
+    const list = listRef.current
+    if (!archive || !list) return
+    const measure = () => archive.parentElement?.style.setProperty(
+      '--list-top',
+      `${list.getBoundingClientRect().top - archive.getBoundingClientRect().top + archive.scrollTop}px`,
+    )
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(archive)
+    document.fonts?.ready.then(measure)
+    return () => observer.disconnect()
+  }, [])
+
   const previewWork = (work: Work) => {
     if (window.matchMedia('(hover: hover) and (min-width: 801px)').matches) setHovered(work)
   }
@@ -81,7 +99,7 @@ export function Portfolio() {
         }}><span>{item}</span></button>)}
       </nav>
 
-      <div className="work-list">
+      <div ref={listRef} className="work-list">
         {visibleWorks.map((work) => {
           const row = <>
             <span className="title"><span>{work.indexTitle}</span></span>

@@ -27,6 +27,8 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .archive { padding: var(--top-edge) var(--gap) 72px var(--edge); }
 .identity { margin-bottom: 24px; }
 .identity > a:hover span, .identity > a:focus-visible span { text-decoration: underline; text-underline-offset: 2px; }
+/* Ends where the first index row's text begins: the list's top (measured in portfolio.tsx) plus the row's 8px padding. */
+.identity-desktop { box-sizing: border-box; min-height: calc(var(--list-top, 87.6px) - var(--top-edge) + 8px); margin-bottom: 0; }
 .identity p { display: flex; flex-wrap: wrap; gap: 0 1.75em; margin: 4px 0 0; }
 .identity-mobile, .identity-bio, .project-return-bottom { display: none; }
 .filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 44px; width: 100%; margin: 0 0 calc(1.3em + 20px); padding: 0; }
