@@ -1,4 +1,5 @@
 import data from './generated/works.json'
+import site from './generated/site.json'
 import mediaMap from './media-map.json'
 
 export type WorkCategory = 'Exhibition' | 'Selected Writing' | 'Performance' | 'Talk' | 'Artist Grant' | 'Press'
@@ -53,18 +54,18 @@ type ContentWork = {
   description?: string
   externalHref?: string | null
   links?: WorkFile[]
-  files?: WorkFile[]
+  files?: Array<{ label?: string; href?: string; upload?: string | null }>
   featuredImage?: string
-  images?: Array<{ src: string; alt?: string; group?: string; width?: number | null; height?: number | null; originalName?: string }>
+  // `upload` is a file added through the editor; `src` names one already in the media bucket.
+  images?: Array<{ src?: string; upload?: string | null; alt?: string; group?: string; width?: number | null; height?: number | null; originalName?: string }>
   videos?: Array<{ src: string; label?: string; group?: string }>
   legacySlug?: string
   order?: number | null
 }
 
-export const aboutParagraphs = [
-  'Ben Broome (b. 1994) is a London-based curator with a focus on artists working at the convergence of mediums: musical performance and performance art, film and video art.',
-  'With a human-centric approach to curation and the resulting art viewership, Broome sets out to create a borderless nucleus for artists and viewer alike, creating space for cross-generational exchange and attempting to engage new audiences, often through varied programming.',
-]
+// Edited at /keystatic under Bio and contact.
+export const aboutParagraphs = site.bio.split(/\n\n+/).map((paragraph) => paragraph.trim()).filter(Boolean)
+export const contact = { email: site.email, instagram: site.instagram }
 
 function interleaveByYear(items: Work[]): Work[] {
   const years = [...new Set(items.map((work) => work.year))].sort((a, b) => b - a)
@@ -109,8 +110,8 @@ function normalize(work: ContentWork): Work {
       : date,
     year: Number(date.slice(0, 4)) || 0,
     description: work.description ?? '',
-    images: (work.images ?? []).map((image) => ({
-      src: image.src,
+    images: (work.images ?? []).filter((image) => image.upload || image.src).map((image) => ({
+      src: (image.upload || image.src)!,
       alt: image.alt || work.title,
       originalName: image.originalName || undefined,
       width: image.width ?? undefined,
@@ -119,7 +120,7 @@ function normalize(work: ContentWork): Work {
     })),
     videos: (work.videos ?? []).map((video) => ({ src: video.src, label: video.label ?? '', group: video.group || undefined })),
     sortDate,
-    files: work.files ?? [],
+    files: (work.files ?? []).filter((file) => file.upload || file.href).map((file) => ({ label: file.label ?? '', href: (file.upload || file.href)! })),
     links: work.links ?? [],
     externalHref: work.externalHref || null,
     featuredImage: work.featuredImage ?? '',

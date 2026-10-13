@@ -30,10 +30,10 @@ for (const work of works) {
     assert.match(work.date, /^[A-Z][a-z]{2,3} \d{4}$/)
   }
   for (const file of work.files) {
-    if (file.href.startsWith('/')) assert.ok(media[file.href], `Unregistered document: ${file.href}`)
+    if (file.href.startsWith('/')) assert.ok(media[file.href] || fs.existsSync(path.resolve(__dirname, '../public', `.${file.href}`)), `Unregistered document: ${file.href}`)
   }
   for (const item of [...work.images, ...(work.videos ?? [])]) {
-    // Article preview images live in public/previews rather than the media bucket.
+    // Article previews and editor uploads live in public/ rather than the media bucket.
     assert.ok(/^https:\/\//.test(item.src) || media[item.src] || fs.existsSync(path.resolve(__dirname, '../public', `.${item.src}`)), `Unregistered media: ${item.src}`)
   }
   for (const link of work.links) {

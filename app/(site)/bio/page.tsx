@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { aboutParagraphs } from '@/lib/works'
+import { aboutParagraphs, contact } from '@/lib/works'
 import { Identity } from '@/components/identity'
 
 export const metadata: Metadata = { title: 'Bio', description: aboutParagraphs.join(' '), alternates: { canonical: '/bio' }, openGraph: { title: 'Ben Broome — Bio', description: aboutParagraphs.join(' '), url: '/bio' } }
@@ -16,8 +16,8 @@ export default function BioPage() {
       </nav>
 
       <footer className="contact">
-        <a href="mailto:ben@drawingablank.com">ben@drawingablank.com</a><br />
-        <a href="https://www.instagram.com/drabl" target="_blank" rel="noreferrer">↳ Instagram</a>
+        <a href={`mailto:${contact.email}`}>{contact.email}</a><br />
+        <a href={contact.instagram} target="_blank" rel="noreferrer">↳ Instagram</a>
       </footer>
     </section>
 

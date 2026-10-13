@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { type CSSProperties, Fragment, type ReactNode, useState } from 'react'
+import { type CSSProperties, Fragment, type ReactNode, useEffect, useState } from 'react'
 import { mediaHref } from '@/lib/media'
 import { canEmbed, embedHref, type Work, type WorkImage } from '@/lib/works'
 import { Identity } from '@/components/identity'
@@ -71,6 +71,9 @@ export function ProjectPage({ work }: { work: Work }) {
   const pdfFirst = !textBelow && pdfs.length > 0 && (work.category === 'Selected Writing' || work.category === 'Talk' || galleryImages.length === 0)
   const [documentIndex, setDocumentIndex] = useState<number | null>(pdfFirst ? 0 : null)
   const document = documentIndex !== null ? pdfs[documentIndex] : undefined
+  // With ?edit on the address, each image shows its position and name as listed in the editor.
+  const [labelled, setLabelled] = useState(false)
+  useEffect(() => setLabelled(new URLSearchParams(window.location.search).has('edit')), [])
   const showImages = galleryImages.length > 0 && !(pdfs.length > 0 && work.category === 'Selected Writing')
   const galleryGroups = [...new Set([
     ...galleryImages.map((image) => image.group ?? ''),
@@ -79,6 +82,21 @@ export function ProjectPage({ work }: { work: Work }) {
   // The first video without a section of its own sits under the opening image; the rest follow the gallery.
   const looseVideos = (work.videos ?? []).filter((video) => !video.group)
   const leadVideo = galleryImages.some((image) => !image.group) ? looseVideos[0] : undefined
+  // The lead video shares its row with the first portrait after the opening image, so it sits smaller beside a photo.
+  const looseImages = galleryImages.filter((image) => !image.group)
+  const videoPartner = leadVideo ? looseImages.slice(1).find(isPortrait) : undefined
+  const galleryItem = (image: WorkImage) => {
+    const picture = <Image src={mediaHref(image.src)} alt={image.alt} width={image.width ?? 1600} height={image.height ?? 1200} sizes="(max-width: 800px) 100vw, 66vw" />
+    const style = { '--ratio': ratioOf(image) } as CSSProperties
+    const label = labelled && <span className="gallery-label">{work.images.indexOf(image) + 1} · {image.src.split('/').pop()}<br /><small>{image.src}</small></span>
+    // An image on a project that lives elsewhere leads to it, like the link does.
+    return work.externalHref && !labelled
+      ? <a key={image.src} className="gallery-item" style={style} href={work.externalHref} target="_blank" rel="noreferrer">{picture}</a>
+      : <div key={image.src} className="gallery-item" style={style}>{picture}{label}</div>
+  }
+  // The exhibition text follows the opening image, in the flow of the page, so one scroll reads through it.
+  const textAfterLead = textBelow && galleryImages.some((image) => !image.group)
+  const exhibitionText = textBelow ? <div className="project-text-below"><PdfReader source={pdfs[0].href} label={work.title} /></div> : null
   const paragraphs = work.description ? work.description.split(/\n\n+/) : []
   const writingHref = work.files[0]?.href ? mediaHref(work.files[0].href) : work.externalHref
   const links = work.category === 'Selected Writing'
@@ -125,26 +143,22 @@ export function ProjectPage({ work }: { work: Work }) {
       {!document && galleryGroups.length > 0 && <div className="project-gallery">
         {galleryGroups.map((group) => <section className="gallery-group" key={group}>
           {group && <h2>{group}</h2>}
-          {galleryRows(galleryImages.filter((image) => (image.group ?? '') === group)).map((row, rowIndex) => <Fragment key={row[0].src}><div
+          {galleryRows(galleryImages.filter((image) => (image.group ?? '') === group && image !== videoPartner)).map((row, rowIndex) => <Fragment key={row[0].src}><div
             className={`gallery-row${row.length === 1 && isPortrait(row[0]) ? ' gallery-row-narrow' : ''}`}
             style={{ maxWidth: rowMaxWidth(row) }}
           >
-            {row.map((image) => {
-              const picture = <Image src={mediaHref(image.src)} alt={image.alt} width={image.width ?? 1600} height={image.height ?? 1200} sizes="(max-width: 800px) 100vw, 66vw" />
-              const style = { '--ratio': ratioOf(image) } as CSSProperties
-              // An image on a project that lives elsewhere leads to it, like the link does.
-              return work.externalHref
-                ? <a key={image.src} className="gallery-item" style={style} href={work.externalHref} target="_blank" rel="noreferrer">{picture}</a>
-                : <div key={image.src} className="gallery-item" style={style}>{picture}</div>
-            })}
+            {row.map(galleryItem)}
           </div>
-          {!group && rowIndex === 0 && leadVideo && <Video video={leadVideo} />}
+          {!group && rowIndex === 0 && leadVideo && (videoPartner
+            ? <div className="gallery-row">{galleryItem(videoPartner)}<Video video={leadVideo} beside /></div>
+            : <Video video={leadVideo} />)}
+          {!group && rowIndex === 0 && textBelow && exhibitionText}
           </Fragment>)}
           {(work.videos ?? []).filter((video) => video.group === group).map((video) => <Video key={video.src} video={video} />)}
         </section>)}
       </div>}
       {!document && looseVideos.filter((video) => video !== leadVideo).map((video) => <Video key={video.src} video={video} />)}
-      {textBelow && <div className="project-text-below"><PdfReader source={pdfs[0].href} label={work.title} /></div>}
+      {textBelow && !textAfterLead && exhibitionText}
       {!document && relatedPages.map((link) => <section key={link.href} className="project-related">
         <h2><a href={link.href} target="_blank" rel="noreferrer">↳ {link.label}</a></h2>
         <iframe className="article-frame" src={link.href} title={link.label} loading="lazy" referrerPolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" />
@@ -169,12 +183,13 @@ export function Project({ work }: { work: Work }) {
   </article>
 }
 
-function Video({ video }: { video: NonNullable<Work['videos']>[number] }) {
-  return <figure className="project-video">
+// Beside a photo the video takes a share of the row by its shape (the films are 16:9) and drops its caption.
+function Video({ video, beside = false }: { video: NonNullable<Work['videos']>[number]; beside?: boolean }) {
+  return <figure className={`project-video${beside ? ' gallery-item' : ''}`} style={beside ? { '--ratio': 16 / 9 } as CSSProperties : undefined}>
     <video controls playsInline preload="metadata" aria-label={video.label}>
       <source src={mediaHref(video.src)} type="video/mp4" />
       <a href={mediaHref(video.src)}>Download video</a>
     </video>
-    <figcaption>{video.label}</figcaption>
+    {!beside && <figcaption>{video.label}</figcaption>}
   </figure>
 }

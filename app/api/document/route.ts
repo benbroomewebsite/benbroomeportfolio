@@ -7,6 +7,10 @@ import { mediaBaseUrl } from '@/lib/site'
 export async function GET(request: Request) {
   const url = new URL(request.url)
   const source = url.searchParams.get('src') ?? ''
+  // PDFs uploaded through the editor are files of this site, not of the media bucket.
+  if (/^\/uploads\/works\/[^?#\\]+\.pdf$/i.test(source) && !source.includes('..')) {
+    return Response.redirect(new URL(source, url.origin), 307)
+  }
   const originalKey = (mediaMap as Record<string, string>)[source]
   if (!originalKey || !originalKey.toLowerCase().endsWith('.pdf')) {
     return new Response('Document not found', { status: 404 })

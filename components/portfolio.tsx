@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { aboutParagraphs, carouselImages, carouselWork, directHref, opensExternally, type Work, type WorkCategory, works } from '@/lib/works'
+import { carouselImages, carouselWork, contact, directHref, opensExternally, type Work, type WorkCategory, works } from '@/lib/works'
 import { mediaHref } from '@/lib/media'
 import { Identity } from '@/components/identity'
 import { Project } from '@/components/project'
@@ -26,6 +26,10 @@ function slidesFor(filter: Filter): Slide[] {
   })
   return slides.length > 1 ? slides : curated
 }
+
+// The index names the venue without its city ("Goldsmiths CCA, London" → "Goldsmiths CCA");
+// the project page keeps the full form.
+const venueOnly = (venue: string) => venue.replace(/,\s*[^,]+$/, '')
 
 export function Portfolio() {
   const archiveRef = useRef<HTMLElement>(null)
@@ -63,7 +67,7 @@ export function Portfolio() {
   }
 
   return <main className="site-shell">
-    <h1 className="sr-only">Ben Broome — Curator, writer and organiser</h1>
+    <h1 className="sr-only">Ben Broome — Curator, writer and artist</h1>
     <section ref={archiveRef} className="archive" aria-label="Selected work">
       <div className="identity-mobile">
         <Identity />
@@ -82,7 +86,7 @@ export function Portfolio() {
           const row = <>
             <span className="title"><span>{work.indexTitle}</span></span>
             <span><span>{work.type}</span></span>
-            <span><span>{work.publication}</span></span>
+            <span><span>{venueOnly(work.publication)}</span></span>
             <span><span>{work.date}</span></span>
           </>
           const preview = {
@@ -109,8 +113,8 @@ export function Portfolio() {
       </div>
 
       <footer className="contact">
-        <a href="mailto:ben@drawingablank.com">ben@drawingablank.com</a><br />
-        <a href="https://www.instagram.com/drabl" target="_blank" rel="noreferrer">↳ Instagram</a>
+        <a href={`mailto:${contact.email}`}>{contact.email}</a><br />
+        <a href={contact.instagram} target="_blank" rel="noreferrer">↳ Instagram</a>
         <br />
         <Link href="/bio">↳ Bio</Link>
       </footer>
@@ -148,9 +152,6 @@ function About({ filter }: { filter: Filter }) {
   }, [slides.length, transitioning])
 
   return <article className="about">
-    <div className="about-copy">
-      {aboutParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-    </div>
     <div className="about-media">
       <button className="carousel" aria-label="Show next image" onClick={() => setTransitioning(true)}>
         <Image

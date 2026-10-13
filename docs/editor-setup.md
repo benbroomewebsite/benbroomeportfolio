@@ -1,7 +1,7 @@
 # Turning on the editor for Ben
 
 The editor at `/keystatic` saves by committing to the GitHub repository
-`notadev111/benbroomeportfolio`. Ben signs in with his own GitHub account. He
+`benbroomewebsite/benbroomeportfolio`. Ben signs in with his own GitHub account. He
 never needs access to Vercel or to the R2 media bucket: Vercel redeploys on
 every commit, and the images stay where they are.
 

@@ -1,4 +1,4 @@
-import { collection, config, fields } from '@keystatic/core'
+import { collection, config, fields, singleton } from '@keystatic/core'
 
 // Locally the editor writes straight to content/works. With
 // NEXT_PUBLIC_KEYSTATIC_STORAGE=github it signs editors in with GitHub and
@@ -6,16 +6,13 @@ import { collection, config, fields } from '@keystatic/core'
 const github = process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE === 'github'
 export const editorEnabled = github || process.env.NODE_ENV === 'development'
 
-const link = (label: string) => fields.array(
-  fields.object({
-    label: fields.text({ label: 'Label' }),
-    href: fields.text({ label: 'Address', description: 'A web address, or a registered /files/… path for a PDF.' }),
-  }),
-  { label, itemLabel: (props) => props.fields.label.value || props.fields.href.value },
-)
+// Uploads are saved into the repository under public/uploads and served by the
+// site itself; the older archive stays in the media bucket and is named by path.
+const uploads = { directory: 'public/uploads/works', publicPath: '/uploads/works/' }
+const fileName = (path: string) => path.split('/').pop() ?? ''
 
 export default config({
-  storage: github ? { kind: 'github', repo: 'notadev111/benbroomeportfolio' } : { kind: 'local' },
+  storage: github ? { kind: 'github', repo: 'benbroomewebsite/benbroomeportfolio' } : { kind: 'local' },
   ui: { brand: { name: 'Ben Broome' } },
   collections: {
     works: collection({
@@ -45,19 +42,37 @@ export default config({
         }),
         description: fields.text({ label: 'Text', description: 'Leave a blank line between paragraphs.', multiline: true }),
         externalHref: fields.text({ label: 'External link', description: 'For writing and press: where the piece can be read.' }),
-        links: link('Links'),
-        files: link('Documents'),
-        featuredImage: fields.text({ label: 'Preview image', description: 'The image path shown when hovering the project in the index.' }),
+        links: fields.array(
+          fields.object({
+            label: fields.text({ label: 'Label' }),
+            href: fields.text({ label: 'Web address' }),
+          }),
+          { label: 'Links', itemLabel: (props) => props.fields.label.value || props.fields.href.value },
+        ),
+        files: fields.array(
+          fields.object({
+            label: fields.text({ label: 'Label' }),
+            upload: fields.file({ label: 'Upload a PDF', description: 'For a new document. Leave empty for one that is already on the site.', ...uploads }),
+            href: fields.text({ label: 'Existing document path', description: 'Set for documents already on the site. Leave alone.' }),
+          }),
+          { label: 'Documents', itemLabel: (props) => props.fields.label.value || props.fields.href.value || props.fields.upload.value?.filename || 'New document' },
+        ),
+        featuredImage: fields.text({ label: 'Preview image', description: 'The image shown when hovering the project in the index: paste an image path, copied from the project page opened with ?edit on the end of its address. Leave empty to use the first image.' }),
         images: fields.array(
           fields.object({
-            src: fields.text({ label: 'Image path' }),
+            upload: fields.image({ label: 'Upload a new image', description: 'For a new image: a JPEG, PNG or WebP no wider than about 2400 pixels. Leave empty for one that is already on the site.', ...uploads }),
+            src: fields.text({ label: 'Existing image path', description: 'Set for images already on the site. Leave alone.' }),
             alt: fields.text({ label: 'Description' }),
             group: fields.text({ label: 'Section heading' }),
-            width: fields.integer({ label: 'Width' }),
+            width: fields.integer({ label: 'Width', description: 'Worked out automatically for uploads.' }),
             height: fields.integer({ label: 'Height' }),
             originalName: fields.text({ label: 'Original file name' }),
           }),
-          { label: 'Images', description: 'Drag to reorder. New images still need uploading separately.', itemLabel: (props) => props.fields.src.value },
+          {
+            label: 'Images',
+            description: 'Drag to reorder. To see which image is which, open the project page with ?edit on the end of its address: each image is labelled with its position and the name shown here.',
+            itemLabel: (props) => [props.fields.group.value && `[${props.fields.group.value}]`, fileName(props.fields.src.value) || props.fields.upload.value?.filename || 'New image'].filter(Boolean).join(' '),
+          },
         ),
         videos: fields.array(
           fields.object({
@@ -69,6 +84,18 @@ export default config({
         ),
         legacySlug: fields.text({ label: 'Old page address', description: 'Redirects here from a previous URL. Usually left alone.' }),
         order: fields.integer({ label: 'Order', description: 'Breaks ties between projects with the same date. Lower comes first.' }),
+      },
+    }),
+  },
+  singletons: {
+    site: singleton({
+      label: 'Bio and contact',
+      path: 'content/site',
+      format: { data: 'json' },
+      schema: {
+        bio: fields.text({ label: 'Bio', description: 'Shown on the Bio page. Leave a blank line between paragraphs.', multiline: true }),
+        email: fields.text({ label: 'Email address' }),
+        instagram: fields.text({ label: 'Instagram address', description: 'The full address, starting https://' }),
       },
     }),
   },
