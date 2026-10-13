@@ -61,6 +61,8 @@ a.work-row { color: inherit; }
 .carousel img.carousel-next.entering { opacity: 1; }
 .project header { margin-bottom: 24px; }
 .viewer > .project header { margin-bottom: 24px; }
+/* The preview's second line sits level with the second index row: a row is one line plus 16px of padding. */
+.viewer > .project h1 { margin-bottom: 16px; }
 .project h1 { max-width: 820px; margin: 0 0 4px; font: inherit; }
 .project header p, .project-copy p { margin: 0; }
 .project-copy { max-width: 630px; margin: 0 0 24px; font: inherit; }
