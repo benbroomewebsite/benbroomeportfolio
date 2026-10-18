@@ -4643,6 +4643,18 @@
       "sha256": "9e2560ff60e854e99efbc33913e5f60ee3c573cd40a1da32f9ef2434a6487c4d",
       "bytes": 419045,
       "kind": "original"
+    },
+    {
+      "object_key": "originals/olukemi-lijadu-pamela-dayes-slg/615f2278a907064c-olukemi-lijadu-clifton-crescent-4-2048x1365.jpg",
+      "sha256": "615f2278a907064c3488cf2c97e4326b247b19de19c40d640205cb3fa95e9134",
+      "bytes": 283438,
+      "kind": "original"
+    },
+    {
+      "object_key": "work/olukemi-lijadu-pamela-dayes-slg/olukemi-lijadu-clifton-crescent-4-615f2278a907.webp",
+      "sha256": "609ba4ab696721bbd394b9ac985379ca8fa013413426676f67d5d7e7b5215362",
+      "bytes": 233040,
+      "kind": "image"
     }
   ]
 }

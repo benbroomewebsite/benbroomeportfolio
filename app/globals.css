@@ -25,14 +25,15 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .archive, .viewer { min-width: 0; height: 100vh; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
 .archive::-webkit-scrollbar { display: none; }
 .archive { padding: var(--top-edge) var(--gap) 72px var(--edge); }
-.identity { margin-bottom: 24px; }
-.identity > a:hover span, .identity > a:focus-visible span { text-decoration: underline; text-underline-offset: 2px; }
+.identity { display: flex; align-items: baseline; white-space: nowrap; margin-bottom: 24px; font-size: clamp(12px, 1.12vw, var(--site-size)); }
+.identity strong { font-weight: 700; }
+.identity > a:hover strong, .identity > a:focus-visible strong { text-decoration: underline; text-underline-offset: 2px; }
 /* Ends where the first index row's text begins: the list's top (measured in portfolio.tsx) plus the row's 8px padding. */
 .identity-desktop { box-sizing: border-box; min-height: calc(var(--list-top, 87.6px) - var(--top-edge) + 8px); margin-bottom: 0; }
-.identity p { display: flex; flex-wrap: wrap; gap: 0 1.75em; margin: 4px 0 0; }
+.identity p { margin: 0; white-space: pre; }
 .identity-mobile, .identity-bio, .project-return-bottom { display: none; }
 .filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 44px; width: 100%; margin: 0 0 calc(1.3em + 20px); padding: 0; }
-.filters button { min-width: 0; padding: 0; background: transparent; white-space: nowrap; }
+.filters button { min-width: 0; padding: 0; background: transparent; white-space: nowrap; font-weight: 700; }
 .filters span { text-decoration: none; }
 .filters button.active span, .filters button:hover span, .filters button:focus-visible span { text-decoration: underline; text-underline-offset: 3px; }
 .work-list { display: flex; flex-direction: column; }
@@ -40,8 +41,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 a.work-row { color: inherit; }
 .work-row > span { min-width: 0; overflow: hidden; }
 .work-row > span > span { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top; }
-/* Names wrap rather than being cut off; the venue column truncates. */
-.work-row .title > span { display: inline; overflow: visible; white-space: normal; }
+/* Every index cell stays on one line; the full title remains in the link text. */
 .work-row:hover .title > span, .work-row:focus-visible .title > span { text-decoration: underline; text-underline-offset: 2px; }
 .contact { margin-top: 72px; line-height: 1.4; }
 .contact a:hover { text-decoration: underline; text-underline-offset: 2px; }
@@ -92,6 +92,9 @@ a.work-row { color: inherit; }
 .gallery-row > .project-video { width: auto; margin: 0; }
 .project-video figcaption { margin-top: 5px; }
 .bio-return { margin-top: 18px; }
+.bio-portrait { margin: 0 0 24px; }
+.bio-portrait img { display: block; width: 100%; height: auto; }
+.bio-portrait figcaption { margin-top: 8px; }
 .gallery-row { display: flex; align-items: flex-start; gap: 18px; }
 .gallery-item { display: block; flex: var(--ratio) 1 0%; min-width: 0; }
 .gallery-item img { display: block; width: 100%; height: auto; }
@@ -136,17 +139,15 @@ a.work-row { color: inherit; }
   .site-shell { display: block; height: auto; }
   .archive, .viewer { height: auto; overflow: visible; }
   .archive { padding: var(--top-edge) var(--edge) 56px; }
-  .identity { margin-bottom: 0; }
-  .identity p { gap: 0 1.25em; }
+  .identity { margin-bottom: 0; font-size: clamp(12px, 3.7vw, var(--site-size)); }
   .identity-mobile { display: block; margin-bottom: 20px; }
   .identity-desktop { display: none; }
   .identity-bio { display: table; margin-top: 4px; }
   .filters { gap: 4px 18px; margin-bottom: 20px; }
   .filters button { padding: 5px 0; }
   .work-row { grid-template-columns: minmax(0, 1fr) auto; padding: 8px 0; }
-  .work-row > span { overflow: visible; }
+  .work-row > span { overflow: hidden; }
   .work-row > span:nth-child(2), .work-row > span:nth-child(3) { display: none; }
-  .work-row .title > span { display: inline; overflow: visible; white-space: normal; }
   .bio-shell { display: flex; flex-direction: column; padding: var(--top-edge) var(--edge) 56px; }
   .bio-shell .archive { display: contents; }
   .bio-shell .viewer { order: 1; min-height: 0; padding: 26px 0 0; }

@@ -57,7 +57,7 @@ export default config({
           }),
           { label: 'Documents', itemLabel: (props) => props.fields.label.value || props.fields.href.value || props.fields.upload.value?.filename || 'New document' },
         ),
-        featuredImage: fields.text({ label: 'Preview image', description: 'The image shown when hovering the project in the index: paste an image path, copied from the project page opened with ?edit on the end of its address. Leave empty to use the first image.' }),
+        featuredImage: fields.text({ label: 'Preview image', description: 'Fallback when the project has no gallery images. Gallery previews are chosen randomly on each visit.' }),
         images: fields.array(
           fields.object({
             upload: fields.image({ label: 'Upload a new image', description: 'For a new image: a JPEG, PNG or WebP no wider than about 2400 pixels. Leave empty for one that is already on the site.', ...uploads }),
@@ -70,7 +70,7 @@ export default config({
           }),
           {
             label: 'Images',
-            description: 'Drag to reorder. To see which image is which, open the project page with ?edit on the end of its address: each image is labelled with its position and the name shown here.',
+            description: 'The public gallery shuffles on each visit, within each section. Open the project page with ?edit on the end to see the saved order and image labels.',
             itemLabel: (props) => [props.fields.group.value && `[${props.fields.group.value}]`, fileName(props.fields.src.value) || props.fields.upload.value?.filename || 'New image'].filter(Boolean).join(' '),
           },
         ),
@@ -94,6 +94,9 @@ export default config({
       format: { data: 'json' },
       schema: {
         bio: fields.text({ label: 'Bio', description: 'Shown on the Bio page. Leave a blank line between paragraphs.', multiline: true }),
+        portrait: fields.image({ label: 'Portrait', description: 'Optional photo of Ben for the Bio page.', directory: 'public/uploads/bio', publicPath: '/uploads/bio/' }),
+        portraitAlt: fields.text({ label: 'Portrait description', defaultValue: 'Ben Broome' }),
+        portraitCredit: fields.text({ label: 'Photo credit' }),
         email: fields.text({ label: 'Email address' }),
         instagram: fields.text({ label: 'Instagram address', description: 'The full address, starting https://' }),
       },

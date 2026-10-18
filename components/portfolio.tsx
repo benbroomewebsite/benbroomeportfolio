@@ -7,6 +7,7 @@ import { carouselImages, carouselWork, contact, directHref, opensExternally, typ
 import { mediaHref } from '@/lib/media'
 import { Identity } from '@/components/identity'
 import { Project } from '@/components/project'
+import { useRandomOrder } from '@/lib/use-random-order'
 
 type Filter = 'All' | WorkCategory
 type Slide = { src: string; work?: Work }
@@ -102,7 +103,7 @@ export function Portfolio() {
       <div ref={listRef} className="work-list">
         {visibleWorks.map((work) => {
           const row = <>
-            <span className="title"><span>{work.indexTitle}</span></span>
+            <span className="title" title={work.indexTitle}><span>{work.indexTitle}</span></span>
             <span><span>{work.type}</span></span>
             <span><span>{venueOnly(work.publication)}</span></span>
             <span><span>{work.date}</span></span>
@@ -148,7 +149,8 @@ export function Portfolio() {
 }
 
 function About({ filter }: { filter: Filter }) {
-  const slides = useMemo(() => slidesFor(filter), [filter])
+  const sequence = useMemo(() => slidesFor(filter), [filter])
+  const slides = useRandomOrder(sequence)
   const [slide, setSlide] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
   const nextSlide = (slide + 1) % slides.length

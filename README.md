@@ -32,10 +32,12 @@ is one exhibition with gallery sections for each artist. Talks have their own
 filter. Projects are newest first within each year using supplied and researched
 dates. Year-only records follow the precisely dated records in that year.
 
-The desktop index previews one image on hover or keyboard focus. Clicking opens
+The desktop index previews a random project image on hover or keyboard focus. Clicking opens
 a dedicated project page: title, full text, links and the Images/Read switch sit
 in a narrow left column, and the gallery, videos or PDF fill the rest. Gallery
-rows pair portraits and alternate landscapes between full width and pairs, using
+images shuffle on each visit within their saved artist sections. The home slideshow
+also shuffles. Add `?edit` to a project URL to see its saved order and numbered
+image labels. Gallery rows pair portraits and alternate landscapes between full width and pairs, using
 the dimensions in `lib/image-sizes.json` (rebuilt by `scripts/record_image_sizes.py`).
 On phones the index stacks each entry (title, venue or publication, date, type)
 and projects open directly with a Back to index link at the top and bottom; the

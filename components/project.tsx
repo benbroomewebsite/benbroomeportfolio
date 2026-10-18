@@ -7,6 +7,7 @@ import { type CSSProperties, Fragment, type ReactNode, useEffect, useState } fro
 import { mediaHref } from '@/lib/media'
 import { canEmbed, embedHref, type Work, type WorkImage } from '@/lib/works'
 import { Identity } from '@/components/identity'
+import { useRandomOrder } from '@/lib/use-random-order'
 
 const PdfReader = dynamic(() => import('@/components/pdf-reader'), {
   ssr: false,
@@ -65,7 +66,8 @@ function linkNames(paragraphs: string[], links: Array<{ label: string; href: str
 
 export function ProjectPage({ work }: { work: Work }) {
   const pdfs = work.files.filter((file) => /\.pdf(?:$|[?#])/i.test(file.href))
-  const galleryImages = work.images.filter((image) => !/\.pdf$/i.test(image.originalName ?? ''))
+  const shuffledImages = useRandomOrder(work.images)
+  const galleryImages = shuffledImages.filter((image) => !/\.pdf$/i.test(image.originalName ?? ''))
   // Exhibitions and performances keep their images and show the text beneath them.
   const textBelow = pdfs.length === 1 && galleryImages.length > 0 && work.category !== 'Selected Writing' && work.category !== 'Talk'
   const pdfFirst = !textBelow && pdfs.length > 0 && (work.category === 'Selected Writing' || work.category === 'Talk' || galleryImages.length === 0)
@@ -76,7 +78,7 @@ export function ProjectPage({ work }: { work: Work }) {
   useEffect(() => setLabelled(new URLSearchParams(window.location.search).has('edit')), [])
   const showImages = galleryImages.length > 0 && !(pdfs.length > 0 && work.category === 'Selected Writing')
   const galleryGroups = [...new Set([
-    ...galleryImages.map((image) => image.group ?? ''),
+    ...work.images.filter((image) => !/\.pdf$/i.test(image.originalName ?? '')).map((image) => image.group ?? ''),
     ...(work.videos ?? []).filter((video) => video.group).map((video) => video.group!),
   ])]
   // The first video without a section of its own sits under the opening image; the rest follow the gallery.
@@ -170,7 +172,8 @@ export function ProjectPage({ work }: { work: Work }) {
 
 // The index hover preview: title, details and one image.
 export function Project({ work }: { work: Work }) {
-  const preview = work.featuredImage || work.images[0]?.src
+  const images = useRandomOrder(work.images)
+  const preview = images[0]?.src || work.featuredImage
 
   return <article className="project">
     <header>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
-import { aboutParagraphs, contact } from '@/lib/works'
+import { aboutParagraphs, contact, portrait } from '@/lib/works'
 import { Identity } from '@/components/identity'
 
 export const metadata: Metadata = { title: 'Bio', description: aboutParagraphs.join(' '), alternates: { canonical: '/bio' }, openGraph: { title: 'Ben Broome — Bio', description: aboutParagraphs.join(' '), url: '/bio' } }
@@ -23,6 +24,10 @@ export default function BioPage() {
 
     <section className="viewer">
       <article className="bio-copy">
+        {portrait && <figure className="bio-portrait">
+          <Image src={portrait.src} alt={portrait.alt} width={560} height={700} sizes="(max-width: 800px) 100vw, 40vw" />
+          {portrait.credit && <figcaption>{portrait.credit}</figcaption>}
+        </figure>}
         {aboutParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
       </article>
     </section>
