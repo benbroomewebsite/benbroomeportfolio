@@ -1,12 +1,10 @@
 {
   "title": "2022 Grant",
-  "indexTitle": "",
   "category": "Artist Grant",
-  "type": "Artist Grant",
-  "publication": "",
+  "type": "Grant",
+  "publication": "artistgrant.co.uk",
   "date": "2022",
   "description": "The Judging Panel;\n\nDuncan Loudon , Jasper Marsalis , Kesewa Aboah , Lewis Ofman , Maria Osado , MorMor , Octavia Burgel , Orfeo Tagiuri , Tyrone Lebon , Zora Sicher\n\nSophie Kovel (b. 1990) produces work that resides in an extrajudicial space - a space beyond the law (even if it directly addresses various juridical and economic systems) that interferes with systems of oppression, domination, and institutionalised indifference. Kovel centres her practice around undermining iconographies of fascism, profit-motive, and denial that often take banal and overlooked forms. Kovel’s current work, about the 2017 court case: ‘USA v. Reality Leigh Winner’ reckons with the structures that hold up American ideology through her commitment to debunking advertising and the neutrality of information systems, surveillance, and underscoring state control. Kovel uses historical objects and technologies as a means to deregulate the written and visual scripts of US nationalism and authoritarianism.\n\nOde (b. 1999) Is a director, stylist, writer and curator based in São Paulo, Brazil. Her work is constructed on foundations exploring how identity can be discussed without relying on the framework of academia from the Global North, itself a colonising force. Her artistic production explores a wide range of themes including racism, transphobia, the body, saudade - a deep emotional state of nostalgic or profound melancholic longing for something or someone - affective memory, therapy, and transmutation. Ode engages in the study and research of Brazilian iconographies that challenge Western perceptions (which generally ignore the Global South as part of Latin America life).\n\nTaylor Simmons (b. 1990, Atlanta, GA, USA) lives and works in New York. His practice incorporates painting, printmaking and drawing to make predominantly figurative works. He studied printmaking at the Savannah College of Art and Design in Georgia, USA. His work has featured in group exhibitions including Friend Zone curated by Vaughn Spann at Half Gallery, New York, USA (2021) and Frieze New York (2021) with Half Gallery.\n\nSimmons’ process centres on his archive of compulsively collated imagery. He gathers fragments of what is around him to create a reflection of who he is and what he sees: a face, a pose, a moment, weaving them together to form dense multi-dimensional scenarios. Growing up in Atlanta, Georgia, a city renowned for its musical heritage, the artist cites music as a major influence on his practice – he visually samples, riffs and remixes to make new, while retaining a reverence for his sources. Simmons’ output is inherently intimate; clearing his mind of these accumulated images, exorcising them as a means to question why they meant something in the first place.\n\nValentin Noujaïm’s film projects explore the strange and marginal lives of characters in fantasized worlds. Noujaïm was born in 1991 in France to Lebanese and Egyptian parents and began directing films in 2015. His projects include the short films Before She Forgets Heliopolis (2019); The Blue Star ( L’Étoile Bleue , 2019); and Daughters of Destiny ( Les Filles Destinées , 2021). He is currently developing the experimental documentary science fiction film, Heliogabale (2022) with Kometa Films, as well as a film on the Pacific Club . Noujaïm was a co-author and an assistant director of the documentary THF Central Airport by director Karim Aïnouz (Berlinale Panorama, 2018). He currently lives in Marseille, France.",
-  "externalHref": "",
   "links": [
     {
       "label": "Duncan Loudon",
@@ -71,7 +69,6 @@
     {
       "src": "/work/artistgrant-2022grant/001.jpg",
       "alt": "2022 Grant",
-      "group": "",
       "width": 2500,
       "height": 1667,
       "originalName": "11+copy+blured+(1)+2.JPG"
@@ -79,7 +76,6 @@
     {
       "src": "/work/artistgrant-2022grant/002.jpg",
       "alt": "2022 Grant",
-      "group": "",
       "width": 1500,
       "height": 1000,
       "originalName": "Artistgrant-4.jpg"
@@ -87,7 +83,6 @@
     {
       "src": "/work/artistgrant-2022grant/003.jpg",
       "alt": "2022 Grant",
-      "group": "",
       "width": 1500,
       "height": 1000,
       "originalName": "ArtistGrant-1.jpg"
@@ -95,7 +90,6 @@
     {
       "src": "/work/artistgrant-2022grant/004.jpg",
       "alt": "2022 Grant",
-      "group": "",
       "width": 1500,
       "height": 1023,
       "originalName": "ArtistGrant-2.jpg"
@@ -103,13 +97,11 @@
     {
       "src": "/work/artistgrant-2022grant/005.jpg",
       "alt": "2022 Grant",
-      "group": "",
       "width": 1500,
       "height": 938,
       "originalName": "ArtistGrant-3.jpg"
     }
   ],
   "videos": [],
-  "legacySlug": "",
   "order": 42
 }
