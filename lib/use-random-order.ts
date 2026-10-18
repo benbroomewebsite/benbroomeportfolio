@@ -3,10 +3,10 @@
 import { useLayoutEffect, useState } from 'react'
 
 // Shuffle after hydration, once per visit. Never mutate the editor's saved order.
-export function useRandomOrder<T>(items: readonly T[]): readonly T[] {
+export function useRandomOrder<T>(items: readonly T[], enabled = true): readonly T[] {
   const [order, setOrder] = useState(items)
   useLayoutEffect(() => {
-    if (new URLSearchParams(window.location.search).has('edit')) {
+    if (!enabled || new URLSearchParams(window.location.search).has('edit')) {
       setOrder(items)
       return
     }
@@ -16,6 +16,6 @@ export function useRandomOrder<T>(items: readonly T[]): readonly T[] {
       ;[shuffled[index], shuffled[other]] = [shuffled[other], shuffled[index]]
     }
     setOrder(shuffled)
-  }, [items])
-  return order
+  }, [items, enabled])
+  return enabled ? order : items
 }

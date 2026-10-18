@@ -66,7 +66,7 @@ function linkNames(paragraphs: string[], links: Array<{ label: string; href: str
 
 export function ProjectPage({ work }: { work: Work }) {
   const pdfs = work.files.filter((file) => /\.pdf(?:$|[?#])/i.test(file.href))
-  const shuffledImages = useRandomOrder(work.images)
+  const shuffledImages = useRandomOrder(work.images, work.imageOrder !== 'manual')
   const galleryImages = shuffledImages.filter((image) => !/\.pdf$/i.test(image.originalName ?? ''))
   // Exhibitions and performances keep their images and show the text beneath them.
   const textBelow = pdfs.length === 1 && galleryImages.length > 0 && work.category !== 'Selected Writing' && work.category !== 'Talk'

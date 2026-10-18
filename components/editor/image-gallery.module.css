@@ -1,0 +1,29 @@
+.gallery { width: 100%; min-width: 0; font: 14px/1.5 system-ui, sans-serif; }
+.heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.heading h3 { margin: 0; font-size: 16px; }
+.heading h3 span { font-weight: normal; opacity: .65; }
+.gallery button { border: 1px solid #8886; border-radius: 5px; padding: 7px 12px; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.gallery button:hover:not(:disabled) { background: #8882; }
+.gallery button:disabled { opacity: .35; cursor: default; }
+.gallery :is(button, summary, [draggable]):focus-visible { outline: 2px solid #2878cf; outline-offset: 3px; }
+.help { margin: 12px 0; font-size: 13px; line-height: 1.5; opacity: .8; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 16px; align-items: start; margin-top: 20px; }
+.card { min-width: 0; border: 1px solid #8886; border-radius: 8px; overflow: hidden; background: #88808008; }
+.over { outline: 3px solid #2878cf; outline-offset: 2px; }
+.dragArea { position: relative; cursor: grab; }
+.dragArea:active { cursor: grabbing; }
+.thumbnail { display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; background: #8882; }
+.thumbnail img { width: 100%; height: 100%; object-fit: contain; }
+.thumbnail > span { padding: 16px; font-size: 13px; }
+.position { position: absolute; top: 8px; left: 8px; display: flex; gap: 12px; align-items: center; padding: 4px 8px; background: #fff; border: 1px solid #ddd; border-radius: 4px; color: #111; font-size: 13px; }
+.caption { padding: 10px 12px 0; }
+.caption p { margin: 0 0 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+.section { display: block; font-size: 12px; margin-bottom: 8px; font-weight: 600; }
+.actions { display: flex; gap: 6px; padding: 8px 12px 12px; }
+.actions .remove { margin-left: auto; font-size: 12px; }
+.details { border-top: 1px solid #8884; }
+.details summary { padding: 10px 12px; font-size: 13px; cursor: pointer; }
+.fields { display: flex; flex-direction: column; gap: 16px; padding: 12px; }
+.fields > * { min-width: 0; }
+.empty { padding: 24px; text-align: center; border: 1px dashed #8888; }
+.status { min-height: 1.5em; font-size: 13px; }

@@ -2,6 +2,16 @@
 
 ## Editing projects
 
+The Images field shows thumbnail cards for both R2 images and new uploads.
+Drag a photo into position, or use its arrow buttons. Open **Edit image** to
+replace the photo or change its description and section heading. Click
+**Add image** for another photo, then **Save** at the top when finished.
+
+**Gallery order** chooses **Random each visit** (the default) or **Saved order**.
+Saved order uses the thumbnail arrangement on the project page. Images with the
+same section heading stay together, with sections ordered by their first image.
+The index preview and home slideshow continue to choose images randomly.
+
 Each project is one file in `content/works/`, edited through a form at
 `/keystatic` (titles, medium, venue, dates, text, links, image order). The date
 field takes `2025`, `2025-10` or `2025-10-04`, whichever is known. Run `pnpm dev`
@@ -35,7 +45,8 @@ dates. Year-only records follow the precisely dated records in that year.
 The desktop index previews a random project image on hover or keyboard focus. Clicking opens
 a dedicated project page: title, full text, links and the Images/Read switch sit
 in a narrow left column, and the gallery, videos or PDF fill the rest. Gallery
-images shuffle on each visit within their saved artist sections. The home slideshow
+images shuffle by default on each visit within their saved artist sections, or
+follow the editor arrangement when Gallery order is Saved order. The home slideshow
 also shuffles. Add `?edit` to a project URL to see its saved order and numbered
 image labels. Gallery rows pair portraits and alternate landscapes between full width and pairs, using
 the dimensions in `lib/image-sizes.json` (rebuilt by `scripts/record_image_sizes.py`).

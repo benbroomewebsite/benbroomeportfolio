@@ -30,7 +30,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .identity > a:hover strong, .identity > a:focus-visible strong { text-decoration: underline; text-underline-offset: 2px; }
 /* Ends where the first index row's text begins: the list's top (measured in portfolio.tsx) plus the row's 8px padding. */
 .identity-desktop { box-sizing: border-box; min-height: calc(var(--list-top, 87.6px) - var(--top-edge) + 8px); margin-bottom: 0; }
-.identity p { margin: 0; white-space: pre; }
+.identity p { margin: 0; white-space: pre; font-weight: 700; }
 .identity-mobile, .identity-bio, .project-return-bottom { display: none; }
 .filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 44px; width: 100%; margin: 0 0 calc(1.3em + 20px); padding: 0; }
 .filters button { min-width: 0; padding: 0; background: transparent; white-space: nowrap; font-weight: 700; }

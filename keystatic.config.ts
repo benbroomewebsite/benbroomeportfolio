@@ -1,4 +1,5 @@
 import { collection, config, fields, singleton } from '@keystatic/core'
+import { editorImages } from './lib/editor-images'
 
 // Locally the editor writes straight to content/works. With
 // NEXT_PUBLIC_KEYSTATIC_STORAGE=github it signs editors in with GitHub and
@@ -9,7 +10,6 @@ export const editorEnabled = github || process.env.NODE_ENV === 'development'
 // Uploads are saved into the repository under public/uploads and served by the
 // site itself; the older archive stays in the media bucket and is named by path.
 const uploads = { directory: 'public/uploads/works', publicPath: '/uploads/works/' }
-const fileName = (path: string) => path.split('/').pop() ?? ''
 
 export default config({
   storage: github ? { kind: 'github', repo: 'benbroomewebsite/benbroomeportfolio' } : { kind: 'local' },
@@ -58,22 +58,13 @@ export default config({
           { label: 'Documents', itemLabel: (props) => props.fields.label.value || props.fields.href.value || props.fields.upload.value?.filename || 'New document' },
         ),
         featuredImage: fields.text({ label: 'Preview image', description: 'Fallback when the project has no gallery images. Gallery previews are chosen randomly on each visit.' }),
-        images: fields.array(
-          fields.object({
-            upload: fields.image({ label: 'Upload a new image', description: 'For a new image: a JPEG, PNG or WebP no wider than about 2400 pixels. Leave empty for one that is already on the site.', ...uploads }),
-            src: fields.text({ label: 'Existing image path', description: 'Set for images already on the site. Leave alone.' }),
-            alt: fields.text({ label: 'Description' }),
-            group: fields.text({ label: 'Section heading' }),
-            width: fields.integer({ label: 'Width', description: 'Worked out automatically for uploads.' }),
-            height: fields.integer({ label: 'Height' }),
-            originalName: fields.text({ label: 'Original file name' }),
-          }),
-          {
-            label: 'Images',
-            description: 'The public gallery shuffles on each visit, within each section. Open the project page with ?edit on the end to see the saved order and image labels.',
-            itemLabel: (props) => [props.fields.group.value && `[${props.fields.group.value}]`, fileName(props.fields.src.value) || props.fields.upload.value?.filename || 'New image'].filter(Boolean).join(' '),
-          },
-        ),
+        imageOrder: fields.select({
+          label: 'Gallery order',
+          description: 'Choose whether visitors see your saved arrangement or a fresh shuffle.',
+          options: [{ label: 'Random each visit', value: 'random' }, { label: 'Saved order', value: 'manual' }],
+          defaultValue: 'random',
+        }),
+        images: editorImages,
         videos: fields.array(
           fields.object({
             src: fields.text({ label: 'Video path' }),
