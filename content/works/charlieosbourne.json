@@ -1,12 +1,9 @@
 {
   "title": "Charlie Osbourne",
-  "indexTitle": "",
   "category": "Performance",
   "type": "Performance",
   "publication": "Myatt's Fields Bandstand",
-  "date": "2025",
-  "description": "",
-  "externalHref": "",
+  "date": "2025-05",
   "links": [],
   "files": [],
   "featuredImage": "/work/charlieosbourne/001.png",
@@ -14,7 +11,6 @@
     {
       "src": "/work/charlieosbourne/001.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010005.png"
@@ -22,7 +18,6 @@
     {
       "src": "/work/charlieosbourne/002.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010008.png"
@@ -30,7 +25,6 @@
     {
       "src": "/work/charlieosbourne/003.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010011.png"
@@ -38,7 +32,6 @@
     {
       "src": "/work/charlieosbourne/004.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010015.png"
@@ -46,7 +39,6 @@
     {
       "src": "/work/charlieosbourne/005.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010016.png"
@@ -54,7 +46,6 @@
     {
       "src": "/work/charlieosbourne/006.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010017.png"
@@ -62,7 +53,6 @@
     {
       "src": "/work/charlieosbourne/007.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010023.png"
@@ -70,7 +60,6 @@
     {
       "src": "/work/charlieosbourne/008.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1658,
       "originalName": "250528000000010026.png"
@@ -78,7 +67,6 @@
     {
       "src": "/work/charlieosbourne/009.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010029.png"
@@ -86,7 +74,6 @@
     {
       "src": "/work/charlieosbourne/010.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010037.png"
@@ -94,7 +81,6 @@
     {
       "src": "/work/charlieosbourne/011.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000010040.png"
@@ -102,7 +88,6 @@
     {
       "src": "/work/charlieosbourne/012.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000020002.png"
@@ -110,7 +95,6 @@
     {
       "src": "/work/charlieosbourne/013.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000030010.png"
@@ -118,7 +102,6 @@
     {
       "src": "/work/charlieosbourne/014.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000030018.png"
@@ -126,7 +109,6 @@
     {
       "src": "/work/charlieosbourne/015.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000030021.png"
@@ -134,7 +116,6 @@
     {
       "src": "/work/charlieosbourne/016.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000030028.png"
@@ -142,7 +123,6 @@
     {
       "src": "/work/charlieosbourne/017.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1658,
       "originalName": "250528000000030030.png"
@@ -150,7 +130,6 @@
     {
       "src": "/work/charlieosbourne/018.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000030034.png"
@@ -158,13 +137,11 @@
     {
       "src": "/work/charlieosbourne/019.png",
       "alt": "Charlie Osbourne",
-      "group": "",
       "width": 2500,
       "height": 1657,
       "originalName": "250528000000030039.png"
     }
   ],
   "videos": [],
-  "legacySlug": "",
   "order": 24
 }
