@@ -1,0 +1,802 @@
+{
+  "reviewed": "2026-10-19",
+  "projects": 71,
+  "changes": [
+    {
+      "slug": "a-conversation-with-gerrit-frohne-brinkmann",
+      "from": "2024-06",
+      "to": "2024-06-10"
+    },
+    {
+      "slug": "cyprien-gaillards-danse-macabre",
+      "from": "2025-05",
+      "to": "2025-05-05"
+    },
+    {
+      "slug": "i-think-i-dont-want-to-lie-a-conversation-with-elle-perez",
+      "from": "2024-02",
+      "to": "2024-02-20"
+    },
+    {
+      "slug": "jef-geys-you-dont-see-what-you-think-you-see-wiels-brussels",
+      "from": "2024-04",
+      "to": "2024-04-16"
+    },
+    {
+      "slug": "martine-syms",
+      "from": "2023-12",
+      "to": "2023-12-18"
+    },
+    {
+      "slug": "paride-maria-calvia-hubert-duprat-irene-fenara-review-brunette-coleman",
+      "from": "2026-02",
+      "to": "2026-02-10"
+    },
+    {
+      "slug": "show-them-tell-them-dont-explain-a-conversation-with-sara-sadik",
+      "from": "2023-06",
+      "to": "2023-06-28"
+    },
+    {
+      "slug": "the-dark-art-of-sibylle-ruppert",
+      "from": "2024-07",
+      "to": "2024-07-23"
+    },
+    {
+      "slug": "dora-budor-my-energy-comes-from-freedom-review-bonner-kunstverein",
+      "from": "2026-08",
+      "to": "2026-08-12"
+    },
+    {
+      "slug": "olukemi-lijadu-profile",
+      "from": "2026-02",
+      "to": "2026-02-25"
+    },
+    {
+      "slug": "beatrice-bonino-in-the-main-in-the-more-review-fondation-pernod-ricard",
+      "from": "2026-01",
+      "to": "2026-01-07"
+    },
+    {
+      "slug": "critics-guide-the-best-gallery-shows-to-see-in-london",
+      "from": "2024-10",
+      "to": "2024-10-08"
+    },
+    {
+      "slug": "ben-kinmont-goldsmiths-cca",
+      "from": "2026-06",
+      "to": "2026-06-01"
+    },
+    {
+      "slug": "isabella-costabile-gasworks",
+      "from": "2026-04",
+      "to": "2026-04-30"
+    },
+    {
+      "slug": "rooms-of-neighbours",
+      "from": "2026-04",
+      "to": "2025"
+    }
+  ],
+  "entries": [
+    {
+      "slug": "a-conversation-with-gerrit-frohne-brinkmann",
+      "title": "A Conversation with Gerrit Frohne-Brinkmann",
+      "date": "2024-06-10",
+      "status": "sourced",
+      "sources": [
+        "https://curamagazine.com/digital/gerrit-frohne-brinkmann/"
+      ],
+      "note": "Publisher datePublished metadata; confirms the existing month and adds the publication day."
+    },
+    {
+      "slug": "a-conversation-with-ladji-diaby",
+      "title": "A conversation with Ladji Diaby",
+      "date": "2026-06",
+      "status": "author-listed",
+      "sources": [
+        "https://www.benbroome.co.uk/writing"
+      ],
+      "note": "Month matches the author’s original writing index. No independently supported publication day established."
+    },
+    {
+      "slug": "a-conversation-with-nina-porter",
+      "title": "A Conversation with Nina Porter",
+      "date": "2024-05",
+      "status": "author-listed",
+      "sources": [
+        "https://www.benbroome.co.uk/writing"
+      ],
+      "note": "Month matches the author’s original writing index. No independently supported publication day established."
+    },
+    {
+      "slug": "arcane-magazine-intervention",
+      "title": "Arcane Magazine Intervention",
+      "date": "2025-01",
+      "status": "supplied",
+      "sources": [
+        "source-media/"
+      ],
+      "note": "Month supplied in the named source-media folder; preserved. No unsupported event day added."
+    },
+    {
+      "slug": "artistgrant-2021grant",
+      "title": "2021 Artist Grant",
+      "date": "2021",
+      "status": "year-only",
+      "sources": [
+        "https://www.artistgrant.co.uk/previouswinners/2021grant-sbbp8"
+      ],
+      "note": "Award year confirmed by programme winners page; announcement month not established. Application dates are not award dates."
+    },
+    {
+      "slug": "artistgrant-2022grant",
+      "title": "2022 Grant",
+      "date": "2022",
+      "status": "year-only",
+      "sources": [
+        "https://www.artistgrant.co.uk/previouswinners/2022grant-8clt8"
+      ],
+      "note": "Award year confirmed by programme winners page; announcement month not established. Application dates are not award dates."
+    },
+    {
+      "slug": "artistgrant-2023grant",
+      "title": "2023 Grant",
+      "date": "2023",
+      "status": "year-only",
+      "sources": [
+        "https://www.artistgrant.co.uk/previouswinners/2023grant"
+      ],
+      "note": "Award year confirmed by programme winners page; announcement month not established. Application dates are not award dates."
+    },
+    {
+      "slug": "artistgrant-2024grant",
+      "title": "2024 Grant",
+      "date": "2024",
+      "status": "year-only",
+      "sources": [
+        "https://www.artistgrant.co.uk/previouswinners/2024grant-ntd96"
+      ],
+      "note": "Award year confirmed by programme winners page; announcement month not established. Application dates are not award dates."
+    },
+    {
+      "slug": "beatrice-bonino-in-the-main-in-the-more-review-fondation-pernod-ricard",
+      "title": "Beatrice Bonino “In the main in the more” Review — Fondation Pernod Ricard",
+      "date": "2026-01-07",
+      "status": "sourced",
+      "sources": [
+        "https://www.frieze.com/contributor/ben-broome"
+      ],
+      "note": "Publisher's contributor page explicitly gives the publication day."
+    },
+    {
+      "slug": "ben-kinmont-goldsmiths-cca",
+      "title": "Ben Kinmont",
+      "date": "2026-06-01",
+      "status": "sourced",
+      "sources": [
+        "https://www.tickettailor.com/events/goldsmithscentreforcontemporaryart/2227928",
+        "/originals/ben-kinmont-goldsmiths-cca/065e600c68a4b553-ben-kinmont-poster-7.jpg"
+      ],
+      "note": "Supplied Ben_Kinmont_Poster_7.jpg reads Monday 01 June 2026; confirmed by the venue ticket page."
+    },
+    {
+      "slug": "bridgehouse-meadows",
+      "title": "Dynamite, Powerplant, Trash Talk",
+      "date": "2026-08",
+      "status": "supplied",
+      "sources": [
+        "source-media/"
+      ],
+      "note": "Month supplied in the named source-media folder; preserved. No unsupported event day added."
+    },
+    {
+      "slug": "charlieosbourne",
+      "title": "Charlie Osbourne",
+      "date": "2025-05",
+      "status": "editor-confirmed",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/0ea01cc"
+      ],
+      "note": "Direct editor correction retained; no filename dates substituted."
+    },
+    {
+      "slug": "chassol",
+      "title": "Chassol",
+      "date": "2022-09-24",
+      "status": "sourced",
+      "sources": [
+        "https://news.artnet.com/art-world/in-pictures-see-the-visceral-pleasures-of-real-corporeal-debuting-arthur-jafas-newest-work-alongside-art-by-the-next-big-things-2182689"
+      ],
+      "note": "Contemporary report explicitly dates the Gladstone performance to 24 September."
+    },
+    {
+      "slug": "chassolparis",
+      "title": "Drawing A Blank",
+      "date": "2019",
+      "status": "confirm-date",
+      "sources": [
+        "https://www.benbroome.co.uk/"
+      ],
+      "note": "Original year retained. Individual event date or legacy identity remains unconfirmed; not inferred from the exhibition run or image filenames."
+    },
+    {
+      "slug": "cosima-von-bonin-songs-for-gay-dogs-review-mudam-luxembourg",
+      "title": "Cosima Von Bonin “Songs For Gay Dogs” Review — MUDAM, Luxembourg",
+      "date": "2025-01",
+      "status": "author-listed",
+      "sources": [
+        "https://www.benbroome.co.uk/writing"
+      ],
+      "note": "Month matches the author’s original writing index. No independently supported publication day established."
+    },
+    {
+      "slug": "critics-guide-the-best-gallery-shows-to-see-in-london",
+      "title": "Critics guide — The Best Gallery Shows to See in London",
+      "date": "2024-10-08",
+      "status": "sourced",
+      "sources": [
+        "https://www.frieze.com/contributor/ben-broome"
+      ],
+      "note": "Publisher's contributor page explicitly gives the publication day."
+    },
+    {
+      "slug": "cyprien-gaillards-danse-macabre",
+      "title": "Cyprien Gaillard's Danse Macabre",
+      "date": "2025-05-05",
+      "status": "sourced",
+      "sources": [
+        "https://flash---art.com/article/cyprien-gaillard-4/"
+      ],
+      "note": "Publisher datePublished metadata; confirms the existing month and adds the publication day."
+    },
+    {
+      "slug": "dariablum",
+      "title": "Daria Blum",
+      "date": "2025-05",
+      "status": "editor-confirmed",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/1baff82"
+      ],
+      "note": "Direct editor correction retained; no filename dates substituted."
+    },
+    {
+      "slug": "dora-budor-my-energy-comes-from-freedom-review-bonner-kunstverein",
+      "title": "Dora Budor “MY ENERGY COMES FROM FREEDOM” Review — Bonner Kunstverein",
+      "date": "2026-08-12",
+      "status": "sourced",
+      "sources": [
+        "https://www.frieze.com/contributor/ben-broome"
+      ],
+      "note": "Publisher's contributor page explicitly gives the publication day."
+    },
+    {
+      "slug": "eartheater",
+      "title": "Eartheater / Onyx Collective",
+      "date": "2022",
+      "status": "confirm-date",
+      "sources": [
+        "https://www.benbroome.co.uk/"
+      ],
+      "note": "Original year retained. Individual event date or legacy identity remains unconfirmed; not inferred from the exhibition run or image filenames."
+    },
+    {
+      "slug": "exhibition-artistmembershipproject",
+      "title": "Artist Membership Project",
+      "date": "2025-07",
+      "status": "confirm-month",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/ca5226a"
+      ],
+      "note": "July 2025 is consistent with October reporting saying the project had operated for three months, but remains an approximate inference; preserved from the 6 October notes, pending confirmation."
+    },
+    {
+      "slug": "exhibition-aspen-kincaid",
+      "title": "Aspen Kincaid",
+      "date": "2020",
+      "status": "confirm-date",
+      "sources": [
+        "https://www.benbroome.co.uk/"
+      ],
+      "note": "Original year retained. Individual event date or legacy identity remains unconfirmed; not inferred from the exhibition run or image filenames."
+    },
+    {
+      "slug": "exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8",
+      "title": "Ben Broome, After Pheidias",
+      "date": "2025-03-08",
+      "status": "sourced",
+      "sources": [
+        "https://derouillon.com/exhibitions/ben-broome-galerie-derouillon"
+      ],
+      "note": "Gallery exhibition opening, 8 March–5 April 2025."
+    },
+    {
+      "slug": "exhibition-christelle-oyiri-hyperfate",
+      "title": "Christelle Oyiri, HYPERFATE",
+      "date": "2023-05-12",
+      "status": "sourced",
+      "sources": [
+        "https://www.benbroome.co.uk/s/Christelle-Oyiri-HYPERFATE.pdf",
+        "https://www.gathering.london/artists/christelle-oyiri"
+      ],
+      "note": "Press release gives 12–24 May; artist's gallery CV confirms the 2023 London exhibition."
+    },
+    {
+      "slug": "exhibition-claudia-comte-home-sweet-home",
+      "title": "Claudia Comte, Home Sweet Home",
+      "date": "2024-04",
+      "status": "sourced",
+      "sources": [
+        "https://www.frieze.com/event/claudia-comte-home-sweet-home-curated-ben-broome",
+        "https://vistamare.com/cs-claudia-comte-home-sweet-home-vistamare-milano-10-04-2024/?lang=en"
+      ],
+      "note": "April agreed by both sources; preview/public opening differ between 10 and 11 April, so retain month precision."
+    },
+    {
+      "slug": "exhibition-cypriengaillard",
+      "title": "Cyprien Gaillard",
+      "date": "2026-01",
+      "status": "confirm-month",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/ca5226a"
+      ],
+      "note": "Month introduced in the 6 October commit from Ben's notes; preserved, but not independently confirmed. The original source only establishes the year."
+    },
+    {
+      "slug": "exhibition-david-l-johnson-from-the-street-i-can-see-the-moon",
+      "title": "David L. Johnson, From the Street I Can See the Moon",
+      "date": "2024-08-10",
+      "status": "sourced",
+      "sources": [
+        "https://www.benbroome.co.uk/s/David-L-Johnson-From-the-Street-I-Can-See-the-Moon-1.pdf"
+      ],
+      "note": "Original London press release: 10 August–14 September 2024. Do not use the separate Noah Klink presentation."
+    },
+    {
+      "slug": "exhibition-drawing-a-blank-parasol-unit",
+      "title": "Drawing A Blank",
+      "date": "2022-02-17",
+      "status": "sourced",
+      "sources": [
+        "https://www.anothermag.com/design-living/13851/brilliant-things-to-do-in-february-films-exhibitions-food-and-more",
+        "https://novembre.global/magazine/drawing-a-blank-seen-and-told-by-octavia-buergel"
+      ],
+      "note": "Opening on 17 February confirmed by contemporary listing and first-hand report."
+    },
+    {
+      "slug": "exhibition-gala-prudent-concerto-of-the-periphery",
+      "title": "Gala Prudent, Concerto of the periphery in I, III, and V",
+      "date": "2023-11-11",
+      "status": "sourced",
+      "sources": [
+        "https://numeroventi.it/Fall-Residency-Program"
+      ],
+      "note": "Venue dates the culminating exhibition to 11 November. The residency started 15 October; use the exhibition opening."
+    },
+    {
+      "slug": "exhibition-jesus-hilario-reyes-waywardly-in-low-tide",
+      "title": "Jesús Hilario-Reyes, Waywardly In Low Tide",
+      "date": "2023-07-28",
+      "status": "sourced",
+      "sources": [
+        "https://www.frieze.com/event/curated-ben-broome-stephanie-brossard-notre-dame-des-laves-jesus-hilario-reyes-waywardly-low",
+        "https://www.benbroome.co.uk/s/Jesus-Hilario-Reyes-Waywardly-In-Low-Tide-PR.pdf"
+      ],
+      "note": "Dated venue listing and original press release agree on 28 July–12 August. A later Frieze brochure's October caption conflicts; prefer the event listing."
+    },
+    {
+      "slug": "exhibition-ladjidiaby",
+      "title": "Ladji Diaby, Who's Gonna Save the World",
+      "date": "2026-04-01",
+      "status": "sourced",
+      "sources": [
+        "https://www.lafayetteanticipations.com/en/exposition/ladji-diaby"
+      ],
+      "note": "Venue exhibition opening, 1 April–19 July 2026."
+    },
+    {
+      "slug": "exhibition-lenard-giller-revisions",
+      "title": "Lenard Giller, Revisions",
+      "date": "2023-04-28",
+      "status": "sourced",
+      "sources": [
+        "https://www.benbroome.co.uk/s/Revisions-press-release.pdf",
+        "https://curamagazine.com/digital/revisions/"
+      ],
+      "note": "Original press release and curator interview: 28 April–5 May 2023."
+    },
+    {
+      "slug": "exhibition-london2019",
+      "title": "Drawing A Blank",
+      "date": "2019-05-09",
+      "status": "sourced",
+      "sources": [
+        "https://models.com/oftheminute/tonight-in-london-drawing-a-blank-assembles-the-next-wave-of-artists-in-one-place/",
+        "https://10magazine.com/drawing-a-blank-exhibition-ben-broome-london-soho/"
+      ],
+      "note": "Contemporary event listings: 9–12 May 2019, Charing Cross Road."
+    },
+    {
+      "slug": "exhibition-newyork2018",
+      "title": "Drawing A Blank",
+      "date": "2018-06-14",
+      "status": "sourced",
+      "sources": [
+        "https://www.dazeddigital.com/art-photography/article/40277/1/art-exhibitions-to-leave-the-house-for-this-month-june-2018"
+      ],
+      "note": "Contemporary exhibition listing: 14–24 June 2018."
+    },
+    {
+      "slug": "exhibition-newyork2022",
+      "title": "Real Corporeal",
+      "date": "2022-09-10",
+      "status": "sourced",
+      "sources": [
+        "https://gladstonegallery.com/exhibit/real-corporeal/"
+      ],
+      "note": "Gallery public exhibition dates: 10 September–15 October 2022; opening-night coverage mentions 9 September."
+    },
+    {
+      "slug": "exhibition-paris2020",
+      "title": "Drawing A Blank",
+      "date": "2020-09",
+      "status": "sourced",
+      "sources": [
+        "https://purple.fr/diary/purple-night-drawing-a-blank-opening-in-paris/",
+        "https://magazine.032c.com/magazine/drawingablank"
+      ],
+      "note": "Contemporary opening report and first-hand account place the exhibition in September 2020. No verified opening day."
+    },
+    {
+      "slug": "exhibition-racheal-crowthergebrauchsmusik-galerie-noah-klink",
+      "title": "Racheal Crowther",
+      "date": "2025-01-24",
+      "status": "sourced",
+      "sources": [
+        "https://www.benbroome.co.uk/s/Gebrauchsmusik_PressRelease_eng-2.pdf"
+      ],
+      "note": "Original press release: 24 January–1 March 2025."
+    },
+    {
+      "slug": "exhibition-stephanie-brossard-notre-dame-des-laves",
+      "title": "Stéphanie Brossard, Notre Dame Des Laves",
+      "date": "2023-07-28",
+      "status": "sourced",
+      "sources": [
+        "https://www.frieze.com/event/curated-ben-broome-stephanie-brossard-notre-dame-des-laves-jesus-hilario-reyes-waywardly-low"
+      ],
+      "note": "Venue exhibition opening, 28 July–12 August 2023."
+    },
+    {
+      "slug": "exhibition-themagicpencil",
+      "title": "Nihaal Faizal",
+      "date": "2025-10-04",
+      "status": "sourced",
+      "sources": [
+        "https://www.benbroome.co.uk/s/nihaal-faizal-the-magic-pencil-press-release.pdf"
+      ],
+      "note": "Original press release: 4 October–1 November 2025."
+    },
+    {
+      "slug": "gabbereleganza",
+      "title": "Gabber Eleganza",
+      "date": "2022",
+      "status": "confirm-date",
+      "sources": [
+        "https://www.benbroome.co.uk/"
+      ],
+      "note": "Original year retained. Individual event date or legacy identity remains unconfirmed; not inferred from the exhibition run or image filenames."
+    },
+    {
+      "slug": "i-think-i-dont-want-to-lie-a-conversation-with-elle-perez",
+      "title": "I Think I Don't Want to Lie. A Conversation with Elle Pérez",
+      "date": "2024-02-20",
+      "status": "sourced",
+      "sources": [
+        "https://flash---art.com/article/elle-perez/"
+      ],
+      "note": "Publisher datePublished metadata; confirms the existing month and adds the publication day."
+    },
+    {
+      "slug": "isabella-costabile-gasworks",
+      "title": "Isabella Costabile",
+      "date": "2026-04-30",
+      "status": "sourced",
+      "sources": [
+        "/originals/isabella-costabile-gasworks/0a36788c9980249e-img-9729.jpg"
+      ],
+      "note": "Supplied event poster IMG_9729.jpg explicitly reads 30.04.26, 18:30–20:00, Gasworks. Visually verified."
+    },
+    {
+      "slug": "jef-geys-you-dont-see-what-you-think-you-see-wiels-brussels",
+      "title": "Jef Geys “You don't see what you think you see” — Wiels / Brussels",
+      "date": "2024-04-16",
+      "status": "sourced",
+      "sources": [
+        "https://flash---art.com/2024/04/jef-geys/"
+      ],
+      "note": "Publisher datePublished metadata; confirms the existing month and adds the publication day."
+    },
+    {
+      "slug": "jesushilarioreyes",
+      "title": "Jesus Hilario Reyes",
+      "date": "2022",
+      "status": "confirm-date",
+      "sources": [
+        "https://www.benbroome.co.uk/"
+      ],
+      "note": "Original year retained. Individual event date or legacy identity remains unconfirmed; not inferred from the exhibition run or image filenames."
+    },
+    {
+      "slug": "johnglacier",
+      "title": "J Words / John Glacier",
+      "date": "2022",
+      "status": "confirm-date",
+      "sources": [
+        "https://www.benbroome.co.uk/"
+      ],
+      "note": "Original year retained. Individual event date or legacy identity remains unconfirmed; not inferred from the exhibition run or image filenames."
+    },
+    {
+      "slug": "josiane-pozi-yvette-francis-slg",
+      "title": "Josiane M. H. Pozi & Yvette Francis",
+      "date": "2026-05-20",
+      "status": "sourced",
+      "sources": [
+        "https://www.southlondongallery.org/events/rooms-of-neighbours-with-josiane-m-h-pozi-and-yvette-francis/"
+      ],
+      "note": "Event day appears on the venue page and supplied PDF; year matches the supplied source folder and printed capture."
+    },
+    {
+      "slug": "kai-althoff-at-nervi-delle-volpi-genoa-review",
+      "title": "Kai Althoff at nervi delle volpi, Genoa — Review",
+      "date": "2024-12",
+      "status": "author-listed",
+      "sources": [
+        "https://www.benbroome.co.uk/writing"
+      ],
+      "note": "Month matches the author’s original writing index. No independently supported publication day established."
+    },
+    {
+      "slug": "keiyaa",
+      "title": "Keiyaa",
+      "date": "2022",
+      "status": "confirm-date",
+      "sources": [
+        "https://www.benbroome.co.uk/"
+      ],
+      "note": "Original year retained. Individual event date or legacy identity remains unconfirmed; not inferred from the exhibition run or image filenames."
+    },
+    {
+      "slug": "klein",
+      "title": "Klein & The Twins",
+      "date": "2025-10-12",
+      "status": "sourced",
+      "sources": [
+        "https://ra.co/events/2278721"
+      ],
+      "note": "Promoter event listing for Klein & The Twins at Crystal Palace Bowl."
+    },
+    {
+      "slug": "krystel-geerts-at-museum-folkwang-essen",
+      "title": "Krystel Geerts at Museum Folkwang, Essen",
+      "date": "2025-03",
+      "status": "author-listed",
+      "sources": [
+        "https://www.benbroome.co.uk/writing"
+      ],
+      "note": "Month matches the author’s original writing index. No independently supported publication day established."
+    },
+    {
+      "slug": "laraaji",
+      "title": "Laraaji",
+      "date": "2022-10-02",
+      "status": "editor-confirmed",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/b2706ee"
+      ],
+      "note": "Direct editor correction retained; no filename dates substituted."
+    },
+    {
+      "slug": "martine-syms",
+      "title": "Martine Syms",
+      "date": "2023-12-18",
+      "status": "sourced",
+      "sources": [
+        "https://curamagazine.com/digital/martine-syms-3/"
+      ],
+      "note": "Publisher datePublished metadata; confirms the existing month and adds the publication day."
+    },
+    {
+      "slug": "nihaal-faizal-cave",
+      "title": "Nihaal Faizal",
+      "date": "2026-03",
+      "status": "supplied",
+      "sources": [
+        "source-media/"
+      ],
+      "note": "Month supplied in the named source-media folder; preserved. No unsupported event day added."
+    },
+    {
+      "slug": "olukemi-lijadu-pamela-dayes-slg",
+      "title": "Olukemi Lijadu & Pamela Dayes",
+      "date": "2026-06-24",
+      "status": "sourced",
+      "sources": [
+        "https://www.southlondongallery.org/events/rooms-of-neighbours-with-olukemi-lijadu-and-pamela-dayes/"
+      ],
+      "note": "Event day appears on the venue page and supplied PDF; year matches the supplied source folder and printed capture."
+    },
+    {
+      "slug": "olukemi-lijadu-profile",
+      "title": "Olukemi Lijadu Profile",
+      "date": "2026-02-25",
+      "status": "sourced",
+      "sources": [
+        "https://www.frieze.com/contributor/ben-broome"
+      ],
+      "note": "Publisher's contributor page explicitly gives the publication day."
+    },
+    {
+      "slug": "paride-maria-calvia-hubert-duprat-irene-fenara-review-brunette-coleman",
+      "title": "Paride Maria Calvia, Hubert Duprat & Irene Fenara Review — Brunette Coleman",
+      "date": "2026-02-10",
+      "status": "sourced",
+      "sources": [
+        "https://flash---art.com/2026/02/paride-maria-calvia-hubert-duprat-irene-fenara/"
+      ],
+      "note": "Publisher datePublished metadata; confirms the existing month and adds the publication day."
+    },
+    {
+      "slug": "rag-trade-medicis",
+      "title": "Rag-trade Medicis",
+      "date": "2022-01",
+      "status": "author-listed",
+      "sources": [
+        "https://www.benbroome.co.uk/writing"
+      ],
+      "note": "Month matches the author’s original writing index. No independently supported publication day established."
+    },
+    {
+      "slug": "raheel-khan-french-ordinary-court",
+      "title": "Raheel Khan",
+      "date": "2026-07",
+      "status": "supplied",
+      "sources": [
+        "source-media/"
+      ],
+      "note": "Month supplied in the named source-media folder; preserved. No unsupported event day added."
+    },
+    {
+      "slug": "ratsection",
+      "title": "Rat Section",
+      "date": "2025-07-27",
+      "status": "editor-confirmed",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/74840a9"
+      ],
+      "note": "Direct editor correction retained; no filename dates substituted."
+    },
+    {
+      "slug": "rooms-of-neighbours",
+      "title": "Rooms of Neighbours",
+      "date": "2025",
+      "status": "sourced",
+      "sources": [
+        "/originals/rooms-of-neighbours/04850b76214c13e1-rooms-of-neighbours-press-release-2026.pdf",
+        "https://emalin.co.uk/media/pages/artists/jasper-marsalis/6d22b8f0d3-1780152457/marsj_cv.pdf"
+      ],
+      "note": "Supplied press release explicitly states 2025–Ongoing. April 2026 dates the documentation, not the exhibition opening. No project-wide opening month is established."
+    },
+    {
+      "slug": "show-them-tell-them-dont-explain-a-conversation-with-sara-sadik",
+      "title": "Show Them, Tell Them, Don't Explain. A Conversation with Sara Sadik",
+      "date": "2023-06-28",
+      "status": "sourced",
+      "sources": [
+        "https://flash---art.com/article/sara-sadik/"
+      ],
+      "note": "Publisher datePublished metadata; confirms the existing month and adds the publication day."
+    },
+    {
+      "slug": "showmethebody",
+      "title": "Show Me The Body",
+      "date": "2025-08-14",
+      "status": "sourced",
+      "sources": [
+        "https://www.ticketswap.com/event/show-me-the-body/d16d13da-9a9c-49ce-b1a3-f8b4e38086cd"
+      ],
+      "note": "Ticket event listing for Southwark Park Bandstand."
+    },
+    {
+      "slug": "simon-conrad-sies-hoke-dusseldorf",
+      "title": "Simon Conrad — Sies + Höke, Düsseldorf",
+      "date": "2025-05",
+      "status": "author-listed",
+      "sources": [
+        "https://www.benbroome.co.uk/writing"
+      ],
+      "note": "Month matches the author’s original writing index. No independently supported publication day established."
+    },
+    {
+      "slug": "slauson-malone-1-2025",
+      "title": "Slauson Malone 1",
+      "date": "2025-06-15",
+      "status": "editor-confirmed",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/dcc134b"
+      ],
+      "note": "Direct editor correction retained; no filename dates substituted."
+    },
+    {
+      "slug": "slauson-malone",
+      "title": "Slauson Malone 1",
+      "date": "2022-09-26",
+      "status": "sourced",
+      "sources": [
+        "https://news.artnet.com/art-world/in-pictures-see-the-visceral-pleasures-of-real-corporeal-debuting-arthur-jafas-newest-work-alongside-art-by-the-next-big-things-2182689"
+      ],
+      "note": "Contemporary report explicitly dates the Gladstone performance to 26 September."
+    },
+    {
+      "slug": "space-afrika",
+      "title": "Drawing A Blank",
+      "date": "2022",
+      "status": "editor-confirmed",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/da3c791"
+      ],
+      "note": "Direct editor correction retained; no filename dates substituted."
+    },
+    {
+      "slug": "suutoo",
+      "title": "SUUTOO",
+      "date": "2025-06-15",
+      "status": "editor-confirmed",
+      "sources": [
+        "https://github.com/benbroomewebsite/benbroomeportfolio/commit/409db77"
+      ],
+      "note": "Direct editor correction retained; no filename dates substituted."
+    },
+    {
+      "slug": "the-dark-art-of-sibylle-ruppert",
+      "title": "The Dark Art of Sibylle Ruppert",
+      "date": "2024-07-23",
+      "status": "sourced",
+      "sources": [
+        "https://curamagazine.com/digital/sibylle-ruppert/"
+      ],
+      "note": "Publisher datePublished metadata; confirms the existing month and adds the publication day."
+    },
+    {
+      "slug": "tygapaw",
+      "title": "TYGAPAW",
+      "date": "2022",
+      "status": "confirm-date",
+      "sources": [
+        "https://www.benbroome.co.uk/"
+      ],
+      "note": "Original year retained. Individual event date or legacy identity remains unconfirmed; not inferred from the exhibition run or image filenames."
+    },
+    {
+      "slug": "yhwh-nailgun-marble-arch-pit",
+      "title": "YHWH Nailgun",
+      "date": "2026-06-14",
+      "status": "corroborated",
+      "sources": [
+        "https://guestpectacular.com/artists/yhwh-nailgun/events/2026-06-14/united-kingdom/london/marble-arch"
+      ],
+      "note": "June 2026 source folder; independent concert listings agree on 14 June. Existing exact date retained."
+    },
+    {
+      "slug": "zazou-roddam-essais",
+      "title": "Zazou Roddam",
+      "date": "2026-05",
+      "status": "supplied",
+      "sources": [
+        "source-media/"
+      ],
+      "note": "Month supplied in the named source-media folder; preserved. No unsupported event day added."
+    }
+  ]
+}

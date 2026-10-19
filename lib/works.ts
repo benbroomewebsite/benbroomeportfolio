@@ -1,6 +1,7 @@
 import data from './generated/works.json'
 import site from './generated/site.json'
 import mediaMap from './media-map.json'
+import type { ImageLayout } from './gallery-layout'
 
 export type WorkCategory = 'Exhibition' | 'Selected Writing' | 'Performance' | 'Talk' | 'Artist Grant' | 'Press'
 
@@ -11,6 +12,7 @@ export type WorkImage = {
   width?: number
   height?: number
   group?: string
+  layout?: ImageLayout
 }
 
 export type WorkVideo = { src: string; label: string; group?: string }
@@ -59,7 +61,7 @@ type ContentWork = {
   featuredImage?: string
   imageOrder?: 'random' | 'manual'
   // `upload` is a file added through the editor; `src` names one already in the media bucket.
-  images?: Array<{ src?: string; upload?: string | null; alt?: string; group?: string; width?: number | null; height?: number | null; originalName?: string }>
+  images?: Array<{ src?: string; upload?: string | null; alt?: string; group?: string; width?: number | null; height?: number | null; originalName?: string; layout?: ImageLayout }>
   videos?: Array<{ src: string; label?: string; group?: string }>
   legacySlug?: string
   order?: number | null
@@ -120,6 +122,7 @@ function normalize(work: ContentWork): Work {
       width: image.width ?? undefined,
       height: image.height ?? undefined,
       group: image.group || undefined,
+      layout: image.layout || 'auto',
     })),
     imageOrder: work.imageOrder === 'manual' ? 'manual' : 'random',
     videos: (work.videos ?? []).map((video) => ({ src: video.src, label: video.label ?? '', group: video.group || undefined })),

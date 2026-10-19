@@ -25,9 +25,9 @@ CONFIG = [
     ('Performance - RAHEEL', 'raheel-khan-french-ordinary-court', 'Raheel Khan', 'Performance', 'Performance', 'French Ordinary Court, London', '2026-07', ''),
     ('Performance - TRASHTALK', 'trashtalk-bridgehouse', 'Trash Talk', 'Performance', 'Performance', 'Bridgehouse, Meadows', '2026-08', ''),
     ('Performance - YHWH', 'yhwh-nailgun-marble-arch-pit', 'YHWH Nailgun', 'Performance', 'Performance', 'Marble Arch Pit, London', '2026-06', ''),
-    ('Project - Rooms', 'rooms-of-neighbours', 'Rooms of Neighbours', 'Exhibition', 'Exhibition', 'Clifton Crescent, London', '2026-04', 'An ongoing exhibition curated by Ben Broome across twelve households on Clifton Crescent, Peckham. Each participating household was paired with an artist, who collaborated with residents to install work in their home or a communal space.\n\nTaking Jan Hoet’s Chambres d’amis (1986) as a point of departure, the project explores the domestic exhibition as a social process. Supported by Arts Council England. The exhibition began in 2025; this documentation is from April 2026.'),
-    ('Talk - Ben Kinmont', 'ben-kinmont-goldsmiths-cca', 'Ben Kinmont', 'Talk', 'Talk', 'Goldsmiths CCA, London', '2026-06', ''),
-    ('Talk - Isabella', 'isabella-costabile-gasworks', 'Isabella Costabile', 'Talk', 'Talk', 'Gasworks, London', '2026-04', ''),
+    ('Project - Rooms', 'rooms-of-neighbours', 'Rooms of Neighbours', 'Exhibition', 'Exhibition', 'Clifton Crescent, London', '2025', 'An ongoing exhibition curated by Ben Broome across twelve households on Clifton Crescent, Peckham. Each participating household was paired with an artist, who collaborated with residents to install work in their home or a communal space.\n\nTaking Jan Hoet’s Chambres d’amis (1986) as a point of departure, the project explores the domestic exhibition as a social process. Supported by Arts Council England. The exhibition began in 2025; this documentation is from April 2026.'),
+    ('Talk - Ben Kinmont', 'ben-kinmont-goldsmiths-cca', 'Ben Kinmont', 'Talk', 'Talk', 'Goldsmiths CCA, London', '2026-06-01', ''),
+    ('Talk - Isabella', 'isabella-costabile-gasworks', 'Isabella Costabile', 'Talk', 'Talk', 'Gasworks, London', '2026-04-30', ''),
     ('Talk - Josiane', 'josiane-pozi-yvette-francis-slg', 'Josiane M. H. Pozi & Yvette Francis', 'Talk', 'Talk', 'South London Gallery, London', '2026-05-20', 'A conversation about their collaboration for Rooms of Neighbours: drawings charting conversations, visits and messages between people they love.'),
 ]
 

@@ -1,5 +1,61 @@
 # Portfolio date audit
 
+## Current review: 19 October 2026
+
+All **71 visible projects** have been checked for valid dates, chronology and
+provenance. The complete per-project record, including sources, retained editor
+confirmations and unresolved dates, is in
+[date-review-2026-10-19.json](../scripts/import-data/date-review-2026-10-19.json).
+The review makes **15 changes**: one year correction and 14 additions of an
+explicitly supported day. No approximate day has been substituted for a month.
+
+- **Rooms of Neighbours: 2025**, replacing April 2026. The supplied exhibition
+  press release begins “2025–Ongoing”; April 2026 is the documentation folder's
+  date. The [artist's gallery CV](https://emalin.co.uk/media/pages/artists/jasper-marsalis/6d22b8f0d3-1780152457/marsj_cv.pdf)
+  independently confirms 2025. The existing text still identifies the April
+  2026 photographs. Racheal Crowther's own December 2025 installation date is
+  not used as the opening date for the whole evolving project.
+- **Ben Kinmont talk: 1 June 2026**, supported by the supplied poster and
+  [Goldsmiths CCA's ticket page](https://www.tickettailor.com/events/goldsmithscentreforcontemporaryart/2227928).
+- **Isabella Costabile talk: 30 April 2026**, explicitly printed on the supplied
+  Gasworks poster, `IMG_9729.jpg`.
+- **Twelve writing entries** now include the publication day from the publisher's
+  `datePublished` metadata or [Frieze's contributor listing](https://www.frieze.com/contributor/ben-broome).
+  All twelve already had the correct month. Exhibition dates mentioned in an
+  article were not confused with its publication date.
+- The two South London Gallery talks agree with the venue listings and supplied
+  PDFs: 20 May and 24 June 2026. Browser print dates in July are not event dates.
+- The seven dated/identified performance entries changed through the backend
+  are retained, including Laraaji's spelling/date and Space Afrika's corrected
+  year/venue. Their exact editor commits are recorded in the review.
+
+### Precision still requiring confirmation
+
+**Cyprien Gaillard, Camden WC — January 2026:** this month was added in the
+6 October commit from Ben's notes. The original project page and press release
+only support the year. January is preserved pending confirmation.
+
+**Artist Membership Project — July 2025:** July is consistent with October
+coverage saying it had operated for three months, but is still an inference.
+The date from the 6 October notes is preserved, rather than silently claiming a
+verified launch day or substituting the article's October publication date.
+
+Eight legacy records still lack a confirmed event month: Eartheater/Onyx
+Collective, Gabber Eleganza, Jesús Hilario-Reyes, J Words/John Glacier, Keiyaa,
+TYGAPAW, Aspen Kincaid and the ambiguously identified Chassol Paris record.
+They retain their existing years. Individual Gladstone performance dates are
+not assumed from the exhibition's September–October run. The four grants retain
+award years; an application window does not establish a recipient announcement
+date. Rooms of Neighbours and Space Afrika also remain year-only where an
+opening/event month is not established. **14 year-only dates** are therefore
+intentional, rather than fourteen invented months.
+
+The data check now rejects malformed raw date strings as well as invalid calendar
+dates, and verifies chronological sorting. Source records do not freeze future
+editor changes: later corrections can still be saved in the backend.
+
+## Historical review: 3 October 2026
+
 Researched 3 October 2026.
 
 44 imported project records lacked a month. 25 now have sourced month or day

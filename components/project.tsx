@@ -8,41 +8,12 @@ import { mediaHref } from '@/lib/media'
 import { canEmbed, embedHref, type Work, type WorkImage } from '@/lib/works'
 import { Identity } from '@/components/identity'
 import { useRandomOrder } from '@/lib/use-random-order'
+import { galleryRows, isNarrowRow, isPortrait, ratioOf, rowMaxWidth } from '@/lib/gallery-layout'
 
 const PdfReader = dynamic(() => import('@/components/pdf-reader'), {
   ssr: false,
   loading: () => <p className="pdf-status" role="status">Loading document reader…</p>,
 })
-
-const ratioOf = (image: WorkImage) => (image.width && image.height ? image.width / image.height : 4 / 3)
-const isPortrait = (image: WorkImage) => ratioOf(image) < 0.95
-const GALLERY_GAP = 18
-
-// Lays a gallery out as rows: portraits share a row, and landscapes alternate
-// between a full-width image and a pair, so long galleries keep a rhythm.
-function galleryRows(images: WorkImage[]): WorkImage[][] {
-  const rows: WorkImage[][] = []
-  let pairLandscapes = false
-  for (let index = 0; index < images.length;) {
-    const image = images[index]
-    const next = images[index + 1]
-    const pair: boolean = Boolean(next) && (isPortrait(image) || (pairLandscapes && !isPortrait(next)))
-    rows.push(pair ? [image, next] : [image])
-    if (!isPortrait(image)) pairLandscapes = !pair
-    index += pair ? 2 : 1
-  }
-  return rows
-}
-
-// The widest a row can be before its smallest image is stretched past its own
-// pixels, which is what makes low-resolution archive photos look blurry.
-function rowMaxWidth(row: WorkImage[]): number | undefined {
-  if (row.some((image) => !image.width || !image.height)) return undefined
-  // A lone portrait takes half the row, so the row may be twice its width.
-  if (row.length === 1 && isPortrait(row[0])) return row[0].width! * 2 + GALLERY_GAP
-  const height = Math.min(...row.map((image) => image.height!))
-  return Math.round(row.reduce((total, image) => total + ratioOf(image) * height, 0) + GALLERY_GAP * (row.length - 1))
-}
 
 // Names in the text that have a link of their own (grant recipients, judges)
 // become that link, once each, and drop out of the list of links below.
@@ -86,7 +57,7 @@ export function ProjectPage({ work }: { work: Work }) {
   const leadVideo = galleryImages.some((image) => !image.group) ? looseVideos[0] : undefined
   // The lead video shares its row with the first portrait after the opening image, so it sits smaller beside a photo.
   const looseImages = galleryImages.filter((image) => !image.group)
-  const videoPartner = leadVideo ? looseImages.slice(1).find(isPortrait) : undefined
+  const videoPartner = leadVideo ? looseImages.slice(1).find(image => isPortrait(image) && (!image.layout || image.layout === 'auto')) : undefined
   const galleryItem = (image: WorkImage) => {
     const picture = <Image src={mediaHref(image.src)} alt={image.alt} width={image.width ?? 1600} height={image.height ?? 1200} sizes="(max-width: 800px) 100vw, 66vw" />
     const style = { '--ratio': ratioOf(image) } as CSSProperties
@@ -146,7 +117,7 @@ export function ProjectPage({ work }: { work: Work }) {
         {galleryGroups.map((group) => <section className="gallery-group" key={group}>
           {group && <h2>{group}</h2>}
           {galleryRows(galleryImages.filter((image) => (image.group ?? '') === group && image !== videoPartner)).map((row, rowIndex) => <Fragment key={row[0].src}><div
-            className={`gallery-row${row.length === 1 && isPortrait(row[0]) ? ' gallery-row-narrow' : ''}`}
+            className={`gallery-row${isNarrowRow(row) ? ' gallery-row-narrow' : ''}${row[0].layout === 'right' || (isNarrowRow(row) && (!row[0].layout || row[0].layout === 'auto') && rowIndex % 2 === 1) ? ' gallery-row-right' : ''}${row[0].layout === 'left' ? ' gallery-row-left' : ''}`}
             style={{ maxWidth: rowMaxWidth(row) }}
           >
             {row.map(galleryItem)}

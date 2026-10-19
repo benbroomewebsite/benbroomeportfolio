@@ -1,4 +1,5 @@
 .gallery { width: 100%; min-width: 0; font: 14px/1.5 system-ui, sans-serif; }
+.gallery, .gallery * { box-sizing: border-box; }
 .heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .heading h3 { margin: 0; font-size: 16px; }
 .heading h3 span { font-weight: normal; opacity: .65; }
@@ -27,3 +28,18 @@
 .fields > * { min-width: 0; }
 .empty { padding: 24px; text-align: center; border: 1px dashed #8888; }
 .status { min-height: 1.5em; font-size: 13px; }
+.views { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.views button[aria-pressed="true"] { background: #2878cf; color: white; border-color: #2878cf; }
+.site, .group { display: flex; flex-direction: column; gap: 18px; }
+.site { max-width: 900px; }
+.group h4 { margin: 12px 0 0; font-size: 16px; }
+.siteRow { display: flex; align-items: flex-start; gap: 18px; width: 100%; }
+.site .thumbnail { aspect-ratio: var(--image-ratio); }
+.narrow > .card { flex: none !important; width: calc(50% - 9px); }
+.right { justify-content: flex-end; }
+.layoutControl { display: flex; flex-direction: column; gap: 5px; padding: 0 12px 12px; font-size: 12px; }
+.layoutControl select { width: 100%; padding: 6px; background: transparent; color: inherit; border: 1px solid #8886; border-radius: 4px; font: inherit; }
+.actions { flex-wrap: wrap; }
+.phone { max-width: 390px; }
+.phone .siteRow { flex-direction: column; max-width: none !important; }
+.phone .siteRow > .card { flex: none !important; width: 100%; }

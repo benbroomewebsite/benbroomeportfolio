@@ -2,6 +2,11 @@
 
 ## Editing projects
 
+The Images field opens in **Desktop layout**, showing photo proportions and rows
+using the same layout rules as the site. Switch to **Phone layout** to see the
+single-column arrangement, or **Thumbnail grid** for a compact overview.
+Each photo can use Automatic, Full width, Pair with next, Small left or Small
+right. Videos and documents are not shown in this photo preview.
 The Images field shows thumbnail cards for both R2 images and new uploads.
 Drag a photo into position, or use its arrow buttons. Open **Edit image** to
 replace the photo or change its description and section heading. Click

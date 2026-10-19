@@ -7,6 +7,11 @@ const image = fields.object({
   src: fields.text({ label: 'Existing image path', description: 'For images already stored on the site. Keep this when replacing only the caption.' }),
   alt: fields.text({ label: 'Image description' }),
   group: fields.text({ label: 'Section heading', description: 'Images with the same heading appear together on the project page.' }),
+  layout: fields.select({
+    label: 'Photo layout',
+    options: [{ label: 'Automatic', value: 'auto' }, { label: 'Full width', value: 'full' }, { label: 'Pair with next', value: 'pair' }, { label: 'Small, left', value: 'left' }, { label: 'Small, right', value: 'right' }],
+    defaultValue: 'auto',
+  }),
   width: fields.integer({ label: 'Width', description: 'Automatic for new uploads.' }),
   height: fields.integer({ label: 'Height' }),
   originalName: fields.text({ label: 'Original file name' }),

@@ -17,6 +17,14 @@ compiled._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
 
 const { works } = compiled.exports
 const media = require('../lib/media-map.json')
+// Check the actual editor value too: malformed strings must not silently become
+// year-only records during normalization.
+for (const name of fs.readdirSync(path.resolve(__dirname, '../content/works'))) {
+  if (!name.endsWith('.json')) continue
+  const content = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../content/works', name), 'utf8'))
+  if (content.category === 'Press' && !content.date) continue
+  assert.match(content.date, /^\d{4}(?:-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12]\d|3[01]))?)?$/, `Invalid editor date: ${name}`)
+}
 assert.equal(new Set(works.map((work) => work.slug)).size, works.length, 'Duplicate project URLs')
 
 for (const work of works) {
