@@ -34,7 +34,6 @@ const venueOnly = (venue: string) => venue.replace(/,\s*[^,]+$/, '')
 
 export function Portfolio() {
   const archiveRef = useRef<HTMLElement>(null)
-  const listRef = useRef<HTMLDivElement>(null)
   const [hovered, setHovered] = useState<Work | null>(null)
   const [filter, setFilter] = useState<Filter>('All')
   const visibleWorks = filter === 'All' ? works : works.filter((work) => work.category === filter)
@@ -60,23 +59,6 @@ export function Portfolio() {
     }
   }, [])
 
-  // The preview on the right starts level with the first row of the index, wherever
-  // the filters above it put that row (they wrap onto a second line on narrower screens).
-  useLayoutEffect(() => {
-    const archive = archiveRef.current
-    const list = listRef.current
-    if (!archive || !list) return
-    const measure = () => archive.parentElement?.style.setProperty(
-      '--list-top',
-      `${list.getBoundingClientRect().top - archive.getBoundingClientRect().top + archive.scrollTop}px`,
-    )
-    measure()
-    const observer = new ResizeObserver(measure)
-    observer.observe(archive)
-    document.fonts?.ready.then(measure)
-    return () => observer.disconnect()
-  }, [])
-
   const previewWork = (work: Work) => {
     if (window.matchMedia('(hover: hover) and (min-width: 801px)').matches) setHovered(work)
   }
@@ -85,22 +67,23 @@ export function Portfolio() {
     window.sessionStorage.setItem('archive-window-scroll', String(window.scrollY))
   }
 
-  return <main className="site-shell">
+  return <main className="site-shell portfolio-shell">
     <h1 className="sr-only">Ben Broome — Curator, writer and artist</h1>
+    <div className="identity-mobile">
+      <Identity />
+      <Link href="/bio" className="identity-bio"><span>↳ Bio</span></Link>
+    </div>
+
+    <nav className="filters" aria-label="Filter selected work">
+      {filters.map((item) => <button key={item} className={filter === item ? 'active' : ''} aria-pressed={filter === item} onClick={() => {
+        setFilter(item)
+        window.sessionStorage.setItem('archive-filter', item)
+      }}><span>{item}</span></button>)}
+    </nav>
+    <Identity className="identity-desktop" />
+
     <section ref={archiveRef} className="archive" aria-label="Selected work">
-      <div className="identity-mobile">
-        <Identity />
-        <Link href="/bio" className="identity-bio"><span>↳ Bio</span></Link>
-      </div>
-
-      <nav className="filters" aria-label="Filter selected work">
-        {filters.map((item) => <button key={item} className={filter === item ? 'active' : ''} aria-pressed={filter === item} onClick={() => {
-          setFilter(item)
-          window.sessionStorage.setItem('archive-filter', item)
-        }}><span>{item}</span></button>)}
-      </nav>
-
-      <div ref={listRef} className="work-list">
+      <div className="work-list">
         {visibleWorks.map((work) => {
           const row = <>
             <span className="title" title={work.indexTitle}><span>{work.indexTitle}</span></span>
@@ -140,7 +123,6 @@ export function Portfolio() {
     </section>
 
     <section className="viewer" aria-live="polite">
-      <Identity className="identity-desktop" />
       {hovered
         ? <Project key={hovered.slug} work={hovered} />
         : <About key={filter} filter={filter} />}

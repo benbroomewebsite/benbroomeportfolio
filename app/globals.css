@@ -28,8 +28,6 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .identity { display: flex; align-items: baseline; white-space: nowrap; margin-bottom: 24px; font-size: clamp(12px, 1.12vw, var(--site-size)); }
 .identity strong { font-weight: 700; }
 .identity > a:hover strong, .identity > a:focus-visible strong { text-decoration: underline; text-underline-offset: 2px; }
-/* Ends where the first index row's text begins: the list's top (measured in portfolio.tsx) plus the row's 8px padding. */
-.identity-desktop { box-sizing: border-box; min-height: calc(var(--list-top, 62.8px) - var(--top-edge) + 8px); margin-bottom: 0; }
 .identity p { margin: 0; white-space: pre; font-weight: 700; }
 .identity-mobile, .identity-bio, .project-return-bottom { display: none; }
 .filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 44px; width: 100%; margin: 0 0 16px; padding: 0; }
@@ -46,6 +44,16 @@ a.work-row { color: inherit; }
 .contact { margin-top: 72px; line-height: 1.4; }
 .contact a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .viewer { display: flex; flex-direction: column; padding: var(--top-edge) var(--edge) var(--top-edge) var(--gap); }
+/* Both headings share a grid row. The slideshow and index then share a start
+   line without measuring fonts, filter wrapping or scroll positions in JS. */
+.portfolio-shell { grid-template-rows: auto minmax(0, 1fr); height: 100dvh; }
+.portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); }
+.portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
+.portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; padding-top: 0; }
+.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: 8px; overflow: hidden; }
+/* Photos meet the visible capital letters, rather than the font's empty leading.
+   This follows the active typeface and zoom, and applies only to the slideshow. */
+.portfolio-shell > .viewer > .about { padding-top: calc((1lh - 1cap) / 2); }
 /* The slideshow or hover image fills what is left of the screen under the text, so nothing needs scrolling. */
 .about, .viewer > .project { display: flex; flex: 1; flex-direction: column; min-height: 0; }
 .about-copy, .bio-copy { max-width: 560px; font-size: inherit; line-height: inherit; }
@@ -144,6 +152,11 @@ a.work-row { color: inherit; }
   .identity-mobile { display: block; margin-bottom: 20px; }
   .identity-desktop { display: none; }
   .identity-bio { display: table; margin-top: 4px; }
+  .portfolio-shell { height: auto; }
+  .portfolio-shell > .identity-mobile { padding: var(--top-edge) var(--edge) 0; }
+  .portfolio-shell > .filters { margin-bottom: 12px; padding: 0 var(--edge); }
+  .portfolio-shell > .viewer { min-height: 100vh; padding-top: 22px; overflow: visible; }
+  .portfolio-shell > .viewer > .about { padding-top: 0; }
   .filters { gap: 4px 18px; margin-bottom: 12px; }
   .filters button { padding: 5px 0; }
   .work-row { grid-template-columns: minmax(0, 1fr) auto; padding: 8px 0; }
