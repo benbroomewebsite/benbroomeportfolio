@@ -30,7 +30,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .identity > a:hover strong, .identity > a:focus-visible strong { text-decoration: underline; text-underline-offset: 2px; }
 .identity p { margin: 0; white-space: pre; font-weight: 700; }
 .identity-mobile, .project-return-bottom { display: none; }
-.filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 44px; width: 100%; margin: 0 0 16px; padding: 0; }
+.filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 48px; width: 100%; margin: 0 0 16px; padding: 0; }
 .filters button { min-width: 0; padding: 0; background: transparent; white-space: nowrap; font-weight: 700; }
 .filters span { text-decoration: none; }
 .filters button.active span, .filters button:hover span, .filters button:focus-visible span { text-decoration: underline; text-underline-offset: 3px; }
@@ -165,7 +165,7 @@ a.work-row { color: inherit; }
   .portfolio-shell > .filters { margin-bottom: 12px; padding: 0 var(--edge); font-size: clamp(12px, 3.7vw, var(--site-size)); }
   .portfolio-shell > .viewer { min-height: 0; padding: var(--edge) var(--edge) var(--index-bottom-edge); overflow: visible; }
   .portfolio-shell > .viewer > .about { padding-top: 0; }
-  .filters { gap: 4px 18px; margin-bottom: 12px; }
+  .filters { gap: 4px 22px; margin-bottom: 12px; }
   .filters button { padding: 5px 0; }
   .work-row { grid-template-columns: minmax(0, 1fr) auto; padding: 8px 0; }
   .work-row > span { overflow: hidden; }
