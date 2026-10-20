@@ -11,7 +11,7 @@
 :root[data-font="shippori"] { --site-font: 'Shippori Mincho', serif; --site-weight: 600; }
 :root[data-font="arial"] { --site-font: Arial, Helvetica, sans-serif; --site-size: 15px; }
 /* One text size throughout; spacing steps in multiples of 8px (--gap is the gutter between columns). */
-:root { color-scheme: light; --paper: #eeeeeb; --white: #fff; --ink: #111; --edge: 28px; --top-edge: 26px; --split: 58%; --gap: 40px; }
+:root { color-scheme: light; --paper: #eeeeeb; --white: #fff; --ink: #111; --edge: 28px; --top-edge: calc(var(--edge) - (1lh - 1cap) / 2); --split: 58%; --gap: 40px; }
 * { box-sizing: border-box; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 html, body { margin: 0; height: 100%; overflow: hidden; }
@@ -25,7 +25,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .archive, .viewer { min-width: 0; height: 100vh; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
 .archive::-webkit-scrollbar { display: none; }
 .archive { padding: var(--top-edge) var(--gap) 72px var(--edge); }
-.identity { display: flex; align-items: baseline; white-space: nowrap; margin-bottom: 24px; font-size: clamp(12px, 1.12vw, var(--site-size)); }
+.identity { display: flex; align-items: baseline; white-space: nowrap; margin-bottom: 24px; font-size: var(--site-size); }
 .identity strong { font-weight: 700; }
 .identity > a:hover strong, .identity > a:focus-visible strong { text-decoration: underline; text-underline-offset: 2px; }
 .identity p { margin: 0; white-space: pre; font-weight: 700; }
@@ -48,12 +48,12 @@ a.work-row { color: inherit; }
    line without measuring fonts, filter wrapping or scroll positions in JS. */
 /* Keep the visible text edges level with the horizontal page inset, allowing
    for the typeface's empty leading above and below its capital letters. */
-.portfolio-shell { --gap: 24px; --top-edge: calc(var(--edge) - (1lh - 1cap) / 2); grid-template-rows: auto minmax(0, 1fr); height: 100dvh; }
+.portfolio-shell { --gap: 24px; grid-template-rows: auto minmax(0, 1fr); height: 100dvh; }
 .portfolio-shell .work-row { grid-template-columns: minmax(0, 1.2fr) 8em minmax(0, 1fr) 5.5em; }
 .portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); }
 .portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
-.portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; padding-top: 0; }
-.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: 8px; overflow: hidden; }
+.portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; margin-bottom: var(--top-edge); padding-top: 0; clip-path: inset(0 0 var(--caption-lift, 0px) 0); }
+.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: 8px; padding-bottom: calc(var(--top-edge) + var(--caption-lift, 0px)); overflow: hidden; }
 /* Photos meet the visible capital letters, rather than the font's empty leading.
    This follows the active typeface and zoom, and applies only to the slideshow. */
 .portfolio-shell > .viewer > .about { padding-top: calc((1lh - 1cap) / 2); }
@@ -102,7 +102,8 @@ a.work-row { color: inherit; }
 .project-video video { display: block; width: 100%; height: auto; }
 .gallery-row > .project-video { width: auto; margin: 0; }
 .project-video figcaption { margin-top: 5px; }
-.bio-return { margin-top: 18px; }
+.bio-shell .identity { margin-bottom: 4px; }
+.bio-return { margin-top: 0; }
 .bio-portrait { margin: 0 0 24px; }
 .bio-portrait img { display: block; width: 100%; height: auto; }
 .bio-portrait figcaption { margin-top: 8px; }
@@ -146,7 +147,7 @@ a.work-row { color: inherit; }
 .project-page-article .project-gallery { display: none; }
 .article-frame { display: block; width: 100%; height: 100%; border: 0; background: var(--white); }
 @media (max-width: 800px) {
-  :root { --edge: 14px; --top-edge: 18px; --gap: 16px; }
+  :root { --edge: 14px; --gap: 16px; }
   html, body { height: auto; overflow: auto; }
   .site-shell { display: block; height: auto; }
   .archive, .viewer { height: auto; overflow: visible; }
@@ -157,7 +158,7 @@ a.work-row { color: inherit; }
   .identity-bio { display: table; margin-top: 4px; }
   .portfolio-shell { height: auto; }
   .portfolio-shell .work-row { grid-template-columns: minmax(0, 1fr) auto; }
-  .portfolio-shell > .archive { padding-bottom: var(--edge); }
+  .portfolio-shell > .archive { margin-bottom: 0; padding-bottom: var(--edge); clip-path: none; }
   .portfolio-shell .contact { margin-top: 28px; }
   .portfolio-shell > .identity-mobile { padding: var(--top-edge) var(--edge) 0; }
   .portfolio-shell > .filters { margin-bottom: 12px; padding: 0 var(--edge); }
@@ -188,7 +189,7 @@ a.work-row { color: inherit; }
   .project-related { height: auto; margin: 18px 0 0; }
   .project-page { display: block; height: auto; }
   .project-navigation { height: auto; overflow: visible; padding: var(--top-edge) var(--edge) 0; }
-  .project-navigation .identity { margin-bottom: 12px; }
+  .project-navigation .identity { margin-bottom: 4px; }
   .project-info { margin-top: 26px; }
   .project-content { height: auto; overflow: visible; padding: 0 var(--edge) 70px; }
   .project-info h1 { overflow-wrap: anywhere; }
