@@ -46,7 +46,10 @@ a.work-row { color: inherit; }
 .viewer { display: flex; flex-direction: column; padding: var(--top-edge) var(--edge) var(--top-edge) var(--gap); }
 /* Both headings share a grid row. The slideshow and index then share a start
    line without measuring fonts, filter wrapping or scroll positions in JS. */
-.portfolio-shell { grid-template-rows: auto minmax(0, 1fr); height: 100dvh; }
+/* Keep the visible text edges level with the horizontal page inset, allowing
+   for the typeface's empty leading above and below its capital letters. */
+.portfolio-shell { --gap: 24px; --top-edge: calc(var(--edge) - (1lh - 1cap) / 2); grid-template-rows: auto minmax(0, 1fr); height: 100dvh; }
+.portfolio-shell .work-row { grid-template-columns: minmax(0, 1.2fr) 8em minmax(0, 1fr) 5.5em; }
 .portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); }
 .portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
 .portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; padding-top: 0; }
@@ -153,9 +156,12 @@ a.work-row { color: inherit; }
   .identity-desktop { display: none; }
   .identity-bio { display: table; margin-top: 4px; }
   .portfolio-shell { height: auto; }
+  .portfolio-shell .work-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .portfolio-shell > .archive { padding-bottom: var(--edge); }
+  .portfolio-shell .contact { margin-top: 28px; }
   .portfolio-shell > .identity-mobile { padding: var(--top-edge) var(--edge) 0; }
   .portfolio-shell > .filters { margin-bottom: 12px; padding: 0 var(--edge); }
-  .portfolio-shell > .viewer { min-height: 100vh; padding-top: 22px; overflow: visible; }
+  .portfolio-shell > .viewer { min-height: 0; padding: 22px var(--edge) var(--top-edge); overflow: visible; }
   .portfolio-shell > .viewer > .about { padding-top: 0; }
   .filters { gap: 4px 18px; margin-bottom: 12px; }
   .filters button { padding: 5px 0; }
