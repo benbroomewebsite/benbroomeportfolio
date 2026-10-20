@@ -53,7 +53,7 @@ a.work-row { color: inherit; }
 .portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); }
 .portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
 .portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; margin-bottom: var(--index-bottom-edge); padding-top: 0; padding-bottom: 0; }
-.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: var(--index-row-padding); padding-bottom: var(--index-bottom-edge); overflow: hidden; }
+.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: var(--index-row-padding); padding-bottom: var(--edge); overflow: hidden; }
 /* Photos meet the visible capital letters, rather than the font's empty leading.
    This follows the active typeface and zoom, and applies only to the slideshow. */
 .portfolio-shell > .viewer > .about { padding-top: calc((1lh - 1cap) / 2); }
