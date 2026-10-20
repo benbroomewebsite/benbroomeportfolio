@@ -52,8 +52,8 @@ a.work-row { color: inherit; }
 .portfolio-shell .work-row { grid-template-columns: minmax(0, 1.2fr) 8em minmax(0, 1fr) 5.5em; padding: var(--index-row-padding) 0; }
 .portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); }
 .portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
-.portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; margin-bottom: var(--index-bottom-edge); padding-top: 0; padding-bottom: 0; clip-path: inset(0 0 var(--caption-lift, 0px) 0); }
-.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: var(--index-row-padding); padding-bottom: calc(var(--index-bottom-edge) + var(--caption-lift, 0px)); overflow: hidden; }
+.portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; margin-bottom: var(--index-bottom-edge); padding-top: 0; padding-bottom: 0; }
+.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: var(--index-row-padding); padding-bottom: var(--index-bottom-edge); overflow: hidden; }
 /* Photos meet the visible capital letters, rather than the font's empty leading.
    This follows the active typeface and zoom, and applies only to the slideshow. */
 .portfolio-shell > .viewer > .about { padding-top: calc((1lh - 1cap) / 2); }
@@ -159,7 +159,7 @@ a.work-row { color: inherit; }
   .identity-desktop { display: none; }
   .portfolio-shell { --index-row-padding: 8px; height: auto; }
   .portfolio-shell .work-row { grid-template-columns: minmax(0, 1fr) auto; }
-  .portfolio-shell > .archive { margin-bottom: 0; clip-path: none; }
+  .portfolio-shell > .archive { margin-bottom: 0; }
   .portfolio-shell .contact { margin-top: 28px; }
   .portfolio-shell > .identity-mobile { padding: var(--top-edge) var(--edge) 0; }
   .portfolio-shell > .filters { margin-bottom: 12px; padding: 0 var(--edge); font-size: clamp(12px, 3.7vw, var(--site-size)); }

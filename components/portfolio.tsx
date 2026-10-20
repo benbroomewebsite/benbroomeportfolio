@@ -8,7 +8,6 @@ import { mediaHref } from '@/lib/media'
 import { Identity } from '@/components/identity'
 import { Project } from '@/components/project'
 import { useRandomOrder } from '@/lib/use-random-order'
-import { useIndexCaptionAlignment } from '@/lib/use-index-caption-alignment'
 
 type Filter = 'All' | WorkCategory
 type Slide = { src: string; work?: Work }
@@ -38,7 +37,6 @@ export function Portfolio() {
   const [hovered, setHovered] = useState<Work | null>(null)
   const [filter, setFilter] = useState<Filter>('All')
   const visibleWorks = filter === 'All' ? works : works.filter((work) => work.category === filter)
-  useIndexCaptionAlignment(archiveRef, filter, hovered !== null)
 
   useLayoutEffect(() => {
     const savedFilter = window.sessionStorage.getItem('archive-filter')
