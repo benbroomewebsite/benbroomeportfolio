@@ -2,7 +2,7 @@
   "title": "Paride Maria Calvia, Hubert Duprat & Irene Fenara Review — Brunette Coleman",
   "indexTitle": "Paride Maria Calvia, Hubert Duprat & Irene Fenara",
   "category": "Selected Writing",
-  "type": "Review",
+  "type": "Writing",
   "publication": "Flash Art",
   "date": "2026-02-10",
   "description": "In collaboration with Galleria ZERO…, Milan, Brunette's Coleman's CONDO 2026 presentation begins with a slab of stone deposited at the gallery's door. This is the doing of artist Paride…",
@@ -10,14 +10,14 @@
   "links": [],
   "files": [],
   "featuredImage": "/previews/paride-maria-calvia-hubert-duprat-irene-fenara-review-brunette-coleman.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/previews/paride-maria-calvia-hubert-duprat-irene-fenara-review-brunette-coleman.jpg",
       "alt": "Paride Maria Calvia, Hubert Duprat & Irene Fenara Review — Brunette Coleman",
-      "group": "",
+      "layout": "auto",
       "width": 1024,
-      "height": 683,
-      "originalName": ""
+      "height": 683
     }
   ],
   "videos": [],
