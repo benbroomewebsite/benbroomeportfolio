@@ -2,22 +2,21 @@
   "title": "A Conversation with Gerrit Frohne-Brinkmann",
   "indexTitle": "Gerrit Frohne-Brinkmann",
   "category": "Selected Writing",
-  "type": "Conversation",
+  "type": "Writing",
   "publication": "CURA Magazine",
   "date": "2024-06-10",
-  "description": "",
   "externalHref": "https://curamagazine.com/digital/gerrit-frohne-brinkmann/",
   "links": [],
   "files": [],
   "featuredImage": "/previews/a-conversation-with-gerrit-frohne-brinkmann.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/previews/a-conversation-with-gerrit-frohne-brinkmann.jpg",
       "alt": "A Conversation with Gerrit Frohne-Brinkmann",
-      "group": "",
+      "layout": "auto",
       "width": 1500,
-      "height": 1000,
-      "originalName": ""
+      "height": 1000
     }
   ],
   "videos": [],
