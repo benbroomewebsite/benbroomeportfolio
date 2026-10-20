@@ -2,22 +2,21 @@
   "title": "Simon Conrad — Sies + Höke, Düsseldorf",
   "indexTitle": "Simon Conrad",
   "category": "Selected Writing",
-  "type": "Exhibition text",
+  "type": "Writing",
   "publication": "Exhibition Text",
   "date": "2025-05",
-  "description": "",
   "externalHref": "https://www.sieshoeke.com/exhibitions/simon-konrad-covers-up",
   "links": [],
   "files": [],
   "featuredImage": "/previews/simon-conrad-sies-hoke-dusseldorf.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/previews/simon-conrad-sies-hoke-dusseldorf.jpg",
       "alt": "Simon Conrad — Sies + Höke, Düsseldorf",
-      "group": "",
+      "layout": "auto",
       "width": 480,
-      "height": 360,
-      "originalName": ""
+      "height": 360
     }
   ],
   "videos": [],
