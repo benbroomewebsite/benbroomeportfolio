@@ -148,7 +148,7 @@ export function Project({ work }: { work: Work }) {
 
   return <article className="project">
     <header>
-      <h1>{work.title}</h1>
+      <h1>{work.indexTitle}</h1>
       <p>{[work.type, work.publication, work.date].filter(Boolean).join(' · ')}</p>
     </header>
     {preview && <div className="project-media">
