@@ -48,12 +48,12 @@ a.work-row { color: inherit; }
    line without measuring fonts, filter wrapping or scroll positions in JS. */
 /* Keep the visible text edges level with the horizontal page inset, allowing
    for the typeface's empty leading above and below its capital letters. */
-.portfolio-shell { --gap: 24px; grid-template-rows: auto minmax(0, 1fr); height: 100dvh; }
-.portfolio-shell .work-row { grid-template-columns: minmax(0, 1.2fr) 8em minmax(0, 1fr) 5.5em; }
+.portfolio-shell { --gap: 24px; --index-row-padding: 4px; grid-template-rows: auto minmax(0, 1fr); height: 100dvh; }
+.portfolio-shell .work-row { grid-template-columns: minmax(0, 1.2fr) 8em minmax(0, 1fr) 5.5em; padding: var(--index-row-padding) 0; }
 .portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); }
 .portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
 .portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; margin-bottom: var(--top-edge); padding-top: 0; clip-path: inset(0 0 var(--caption-lift, 0px) 0); }
-.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: 8px; padding-bottom: calc(var(--top-edge) + var(--caption-lift, 0px)); overflow: hidden; }
+.portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: var(--index-row-padding); padding-bottom: calc(var(--top-edge) + var(--caption-lift, 0px)); overflow: hidden; }
 /* Photos meet the visible capital letters, rather than the font's empty leading.
    This follows the active typeface and zoom, and applies only to the slideshow. */
 .portfolio-shell > .viewer > .about { padding-top: calc((1lh - 1cap) / 2); }
@@ -71,9 +71,11 @@ a.work-row { color: inherit; }
 .carousel img.carousel-current.leaving { opacity: 0; }
 .carousel img.carousel-next.entering { opacity: 1; }
 .project header { margin-bottom: 24px; }
-.viewer > .project header { margin-bottom: 24px; }
-/* The preview's second line sits level with the second index row: a row is one line plus 16px of padding. */
-.viewer > .project h1 { margin-bottom: 16px; }
+/* Preview text follows the same row spacing as the index. The photo starts
+   at the visible letters of the next row, just like the idle slideshow. */
+.portfolio-shell > .viewer > .project header { margin-bottom: calc(2 * var(--index-row-padding) + (1lh - 1cap) / 2); }
+.portfolio-shell > .viewer > .project h1 { margin-bottom: calc(2 * var(--index-row-padding)); }
+.portfolio-shell > .viewer > .project header :is(h1, p) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .project h1 { max-width: 820px; margin: 0 0 4px; font: inherit; }
 .project header p, .project-copy p { margin: 0; }
 .project-copy { max-width: 630px; margin: 0 0 24px; font: inherit; }
@@ -156,7 +158,7 @@ a.work-row { color: inherit; }
   .identity-mobile { display: block; margin-bottom: 20px; }
   .identity-desktop { display: none; }
   .identity-bio { display: table; margin-top: 4px; }
-  .portfolio-shell { height: auto; }
+  .portfolio-shell { --index-row-padding: 8px; height: auto; }
   .portfolio-shell .work-row { grid-template-columns: minmax(0, 1fr) auto; }
   .portfolio-shell > .archive { margin-bottom: 0; padding-bottom: var(--edge); clip-path: none; }
   .portfolio-shell .contact { margin-top: 28px; }
