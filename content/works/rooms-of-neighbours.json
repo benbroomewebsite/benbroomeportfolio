@@ -1,12 +1,10 @@
 {
   "title": "Rooms of Neighbours",
-  "indexTitle": "",
   "category": "Exhibition",
   "type": "Exhibition",
   "publication": "Clifton Crescent, London",
-  "date": "2025",
+  "date": "2026-04",
   "description": "An ongoing exhibition curated by Ben Broome across twelve households on Clifton Crescent, Peckham. Each participating household was paired with an artist, who collaborated with residents to install work in their home or a communal space.\n\nTaking Jan Hoet’s Chambres d’amis (1986) as a point of departure, the project explores the domestic exhibition as a social process. Supported by Arts Council England. The exhibition began in 2025; this documentation is from April 2026.",
-  "externalHref": "",
   "links": [],
   "files": [
     {
@@ -15,107 +13,85 @@
     }
   ],
   "featuredImage": "/work/rooms-of-neighbours/001-6cae9e9712c5.webp",
+  "imageOrder": "random",
   "images": [
-    {
-      "src": "/work/rooms-of-neighbours/001-6cae9e9712c5.webp",
-      "alt": "Rooms of Neighbours — Ben Kinmont",
-      "group": "Ben Kinmont",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Ben-Kinmont-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/002-5e0c19db2416.webp",
-      "alt": "Rooms of Neighbours — Ben Kinmont",
-      "group": "Ben Kinmont",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Ben-Kinmont-Clifton-Crescent-2.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/003-ca3999c75ca8.webp",
-      "alt": "Rooms of Neighbours — Ben Kinmont",
-      "group": "Ben Kinmont",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Ben-Kinmont-Clifton-Crescent-3.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/004-498816a329ea.webp",
-      "alt": "Rooms of Neighbours — Ben Kinmont",
-      "group": "Ben Kinmont",
-      "width": 2400,
-      "height": 1599,
-      "originalName": "Ben-Kinmont-Clifton-Crescent-4.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/005-adb69369a13c.webp",
-      "alt": "Rooms of Neighbours — Ben Kinmont",
-      "group": "Ben Kinmont",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Ben-Kinmont-Clifton-Crescent-5.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/006-a4e3525a8672.webp",
-      "alt": "Rooms of Neighbours — Ghislaine Leung",
-      "group": "Ghislaine Leung",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Ghislaine-Leung-41-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/007-66d940354f8c.webp",
-      "alt": "Rooms of Neighbours — Ghislaine Leung",
-      "group": "Ghislaine Leung",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Ghislaine-Leung-41-Clifton-Crescent-2.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/009-2ce0a5131b0c.webp",
-      "alt": "Rooms of Neighbours — Ghislaine Leung",
-      "group": "Ghislaine Leung",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Ghislaine-Leung-41-Clifton-Crescent-4.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/010-4d0d6d2f71ca.webp",
-      "alt": "Rooms of Neighbours — Ghislaine Leung",
-      "group": "Ghislaine Leung",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Ghislaine-Leung-41-Clifton-Crescent-5.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/011-b158c6581ef1.webp",
-      "alt": "Rooms of Neighbours — Ghislaine Leung",
-      "group": "Ghislaine Leung",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Ghislaine-Leung-41-Clifton-Crescent-6.jpg"
-    },
     {
       "src": "/work/rooms-of-neighbours/012-b3ddce120b90.webp",
       "alt": "Rooms of Neighbours — Ghislaine Leung",
       "group": "Ghislaine Leung",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Ghislaine-Leung-41-Clifton-Crescent-7.jpg"
     },
     {
+      "src": "/work/rooms-of-neighbours/021-5fa75c2bf1de.webp",
+      "alt": "Rooms of Neighbours — Jasper Marsalis",
+      "group": "Jasper Marsalis",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Jasper-Marsalis-Clifton-Crescent-1.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/002-5e0c19db2416.webp",
+      "alt": "Rooms of Neighbours — Ben Kinmont",
+      "group": "Ben Kinmont",
+      "layout": "auto",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "Ben-Kinmont-Clifton-Crescent-2.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/006-a4e3525a8672.webp",
+      "alt": "Rooms of Neighbours — Ghislaine Leung",
+      "group": "Ghislaine Leung",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Ghislaine-Leung-41-Clifton-Crescent-1.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/004-498816a329ea.webp",
+      "alt": "Rooms of Neighbours — Ben Kinmont",
+      "group": "Ben Kinmont",
+      "layout": "auto",
+      "width": 2400,
+      "height": 1599,
+      "originalName": "Ben-Kinmont-Clifton-Crescent-4.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/007-66d940354f8c.webp",
+      "alt": "Rooms of Neighbours — Ghislaine Leung",
+      "group": "Ghislaine Leung",
+      "layout": "auto",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "Ghislaine-Leung-41-Clifton-Crescent-2.jpg"
+    },
+    {
       "src": "/work/rooms-of-neighbours/014-fd83d8878e77.webp",
       "alt": "Rooms of Neighbours — Isabella Costabile",
       "group": "Isabella Costabile",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Isabella-Costabile-Clifton-Crescent-2.jpg"
     },
     {
+      "src": "/work/rooms-of-neighbours/011-b158c6581ef1.webp",
+      "alt": "Rooms of Neighbours — Ghislaine Leung",
+      "group": "Ghislaine Leung",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Ghislaine-Leung-41-Clifton-Crescent-6.jpg"
+    },
+    {
       "src": "/work/rooms-of-neighbours/015-0476e8254580.webp",
       "alt": "Rooms of Neighbours — Isabella Costabile",
       "group": "Isabella Costabile",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
       "originalName": "Isabella-Costabile-Clifton-Crescent-3.jpg"
@@ -124,54 +100,25 @@
       "src": "/work/rooms-of-neighbours/016-ae3654fffd91.webp",
       "alt": "Rooms of Neighbours — Isabella Costabile",
       "group": "Isabella Costabile",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Isabella-Costabile-Clifton-Crescent-4.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/017-cf86bf617ac9.webp",
-      "alt": "Rooms of Neighbours — Isabella Costabile",
-      "group": "Isabella Costabile",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Isabella-Costabile-Clifton-Crescent-5.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/018-3c48bc612438.webp",
-      "alt": "Rooms of Neighbours — Isabella Costabile",
-      "group": "Isabella Costabile",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Isabella-Costabile-Clifton-Crescent-6.jpg"
-    },
-    {
       "src": "/work/rooms-of-neighbours/019-8dfdecd4ca95.webp",
       "alt": "Rooms of Neighbours — Isabella Costabile",
       "group": "Isabella Costabile",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
       "originalName": "Isabella-Costabile-Clifton-Crescent-7.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/020-a84f98d55c55.webp",
-      "alt": "Rooms of Neighbours — Isabella Costabile",
-      "group": "Isabella Costabile",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Isabella-Costabile-Clifton-Crescent-8.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/021-5fa75c2bf1de.webp",
-      "alt": "Rooms of Neighbours — Jasper Marsalis",
-      "group": "Jasper Marsalis",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Jasper-Marsalis-Clifton-Crescent-1.jpg"
-    },
-    {
       "src": "/work/rooms-of-neighbours/023-13aa1aec806b.webp",
       "alt": "Rooms of Neighbours — Jasper Marsalis",
       "group": "Jasper Marsalis",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
       "originalName": "Jasper-Marsalis-Clifton-Crescent-4.jpg"
@@ -180,6 +127,7 @@
       "src": "/work/rooms-of-neighbours/024-aed2240614e2.webp",
       "alt": "Rooms of Neighbours — Jasper Marsalis",
       "group": "Jasper Marsalis",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
       "originalName": "Jasper-Marsalis-Clifton-Crescent-5.jpg"
@@ -188,6 +136,7 @@
       "src": "/work/rooms-of-neighbours/025-a4a56a48a037.webp",
       "alt": "Rooms of Neighbours — Jessi Reaves",
       "group": "Jessi Reaves",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
       "originalName": "Jessi-Reaves-27-Clifton-Crescent-1.jpg"
@@ -196,414 +145,250 @@
       "src": "/work/rooms-of-neighbours/026-630c25bd30af.webp",
       "alt": "Rooms of Neighbours — Jessi Reaves",
       "group": "Jessi Reaves",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Jessi-Reaves-27-Clifton-Crescent-2.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/031-f120f4dca481.webp",
-      "alt": "Rooms of Neighbours — Jessi Reaves",
-      "group": "Jessi Reaves",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Jessi-Reaves-27-Clifton-Crescent-7.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/028-3c2a42d2eeed.webp",
-      "alt": "Rooms of Neighbours — Jessi Reaves",
-      "group": "Jessi Reaves",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Jessi-Reaves-27-Clifton-Crescent-4.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/029-1242aa56f66d.webp",
-      "alt": "Rooms of Neighbours — Jessi Reaves",
-      "group": "Jessi Reaves",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Jessi-Reaves-27-Clifton-Crescent-5.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/030-e848d631d95d.webp",
-      "alt": "Rooms of Neighbours — Jessi Reaves",
-      "group": "Jessi Reaves",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Jessi-Reaves-27-Clifton-Crescent-6.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/032-24fac7ed206e.webp",
-      "alt": "Rooms of Neighbours — Josiane M. H. Pozi",
-      "group": "Josiane M. H. Pozi",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "ben-broome-clifton-crescent-pt2-005-001-low.jpg"
-    },
-    {
       "src": "/work/rooms-of-neighbours/033-8495c0f25720.webp",
       "alt": "Rooms of Neighbours — Josiane M. H. Pozi",
       "group": "Josiane M. H. Pozi",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Josiane-Pozi-15-Clifton-Crescent.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/034-3cd0ffff78ce.webp",
-      "alt": "Rooms of Neighbours — Josiane M. H. Pozi",
-      "group": "Josiane M. H. Pozi",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Josiane-Pozi-15-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/035-d56543d7c622.webp",
-      "alt": "Rooms of Neighbours — Liam Gillick",
-      "group": "Liam Gillick",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Liam-Gillick-Clifton-Crescent.jpg"
-    },
-    {
       "src": "/work/rooms-of-neighbours/036-c5eb315bf9b2.webp",
       "alt": "Rooms of Neighbours — Liam Gillick",
       "group": "Liam Gillick",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Liam-Gillick-Clifton-Crescent-1.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/037-7735c66d3034.webp",
-      "alt": "Rooms of Neighbours — Liam Gillick",
-      "group": "Liam Gillick",
+      "src": "/work/rooms-of-neighbours/029-1242aa56f66d.webp",
+      "alt": "Rooms of Neighbours — Jessi Reaves",
+      "group": "Jessi Reaves",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
-      "originalName": "Liam-Gillick-Clifton-Crescent-2.jpg"
+      "originalName": "Jessi-Reaves-27-Clifton-Crescent-5.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/038-3afb9ac65fbd.webp",
-      "alt": "Rooms of Neighbours — Liam Gillick",
-      "group": "Liam Gillick",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Liam-Gillick-Clifton-Crescent-3.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/039-4b5f270246ec.webp",
-      "alt": "Rooms of Neighbours — Liam Gillick",
-      "group": "Liam Gillick",
+      "src": "/work/rooms-of-neighbours/032-24fac7ed206e.webp",
+      "alt": "Rooms of Neighbours — Josiane M. H. Pozi",
+      "group": "Josiane M. H. Pozi",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
-      "originalName": "Liam-Gillick-Clifton-Crescent-4.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/040-502bbf9e59de.webp",
-      "alt": "Rooms of Neighbours — Liz Johnson Artur",
-      "group": "Liz Johnson Artur",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "ben-broome-clifton-crescent-009-003-low.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/041-6a36fcea35ef.webp",
-      "alt": "Rooms of Neighbours — Liz Johnson Artur",
-      "group": "Liz Johnson Artur",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "ben-broome-clifton-crescent-009-006-low.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/042-8686430e06cb.webp",
-      "alt": "Rooms of Neighbours — Liz Johnson Artur",
-      "group": "Liz Johnson Artur",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "ben-broome-clifton-crescent-009-008-low (1).jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/046-6f8658c3fe98.webp",
-      "alt": "Rooms of Neighbours — Liz Johnson Artur",
-      "group": "Liz Johnson Artur",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "ben-broome-clifton-crescent-009-015-low.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/045-40998043cfd8.webp",
-      "alt": "Rooms of Neighbours — Liz Johnson Artur",
-      "group": "Liz Johnson Artur",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "ben-broome-clifton-crescent-009-014-low.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/047-ff5b8caed0fb.webp",
-      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
-      "group": "Marietta Mavrokordatou",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/048-7225f9ec81e2.webp",
-      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
-      "group": "Marietta Mavrokordatou",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-2.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/049-03886da0fe65.webp",
-      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
-      "group": "Marietta Mavrokordatou",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-3.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/050-987081f35dac.webp",
-      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
-      "group": "Marietta Mavrokordatou",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-4.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/051-695b40a8f0fb.webp",
-      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
-      "group": "Marietta Mavrokordatou",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-5.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/052-bfee03461af3.webp",
-      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
-      "group": "Marietta Mavrokordatou",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-6.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/053-4b090569964c.webp",
-      "alt": "Rooms of Neighbours — Nina Porter",
-      "group": "Nina Porter",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Nina-Porter-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/054-1c1f12ef6092.webp",
-      "alt": "Rooms of Neighbours — Nina Porter",
-      "group": "Nina Porter",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Nina-Porter-Clifton-Crescent-2.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/055-970ae9a5629d.webp",
-      "alt": "Rooms of Neighbours — Nina Porter",
-      "group": "Nina Porter",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Nina-Porter-Clifton-Crescent-3.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/056-c0374412accf.webp",
-      "alt": "Rooms of Neighbours — Nina Porter",
-      "group": "Nina Porter",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Nina-Porter-Clifton-Crescent-4.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/057-0dc58aebb6a8.webp",
-      "alt": "Rooms of Neighbours — Nina Porter",
-      "group": "Nina Porter",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Nina-Porter-Clifton-Crescent-5.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/058-f920fec9b1dc.webp",
-      "alt": "Rooms of Neighbours — Nina Porter",
-      "group": "Nina Porter",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Nina-Porter-Clifton-Crescent-6.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/059-0e865e4adb51.webp",
-      "alt": "Rooms of Neighbours — Olukemi Lijadu",
-      "group": "Olukemi Lijadu",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Olukemi-Lijadu-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/060-11d3f1020e73.webp",
-      "alt": "Rooms of Neighbours — Olukemi Lijadu",
-      "group": "Olukemi Lijadu",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Olukemi-Lijadu-Clifton-Crescent-2.jpg"
+      "originalName": "ben-broome-clifton-crescent-pt2-005-001-low.jpg"
     },
     {
       "src": "/work/rooms-of-neighbours/061-64e74ad2f761.webp",
       "alt": "Rooms of Neighbours — Olukemi Lijadu",
       "group": "Olukemi Lijadu",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Olukemi-Lijadu-Clifton-Crescent-3.jpg"
     },
     {
+      "src": "/work/rooms-of-neighbours/034-3cd0ffff78ce.webp",
+      "alt": "Rooms of Neighbours — Josiane M. H. Pozi",
+      "group": "Josiane M. H. Pozi",
+      "layout": "auto",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "Josiane-Pozi-15-Clifton-Crescent-1.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/051-695b40a8f0fb.webp",
+      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
+      "group": "Marietta Mavrokordatou",
+      "layout": "auto",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-5.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/037-7735c66d3034.webp",
+      "alt": "Rooms of Neighbours — Liam Gillick",
+      "group": "Liam Gillick",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Liam-Gillick-Clifton-Crescent-2.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/041-6a36fcea35ef.webp",
+      "alt": "Rooms of Neighbours — Liz Johnson Artur",
+      "group": "Liz Johnson Artur",
+      "layout": "auto",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "ben-broome-clifton-crescent-009-006-low.jpg"
+    },
+    {
       "src": "/work/rooms-of-neighbours/062-04b1bd1f67e1.webp",
       "alt": "Rooms of Neighbours — Olukemi Lijadu",
       "group": "Olukemi Lijadu",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Olukemi-Lijadu-Clifton-Crescent-4.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/064-99bae6a08b20.webp",
-      "alt": "Rooms of Neighbours — Olukemi Lijadu",
-      "group": "Olukemi Lijadu",
+      "src": "/work/rooms-of-neighbours/038-3afb9ac65fbd.webp",
+      "alt": "Rooms of Neighbours — Liam Gillick",
+      "group": "Liam Gillick",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
-      "originalName": "Olukemi-Lijadu-Clifton-Crescent-7.jpg"
+      "originalName": "Liam-Gillick-Clifton-Crescent-3.jpg"
     },
     {
       "src": "/work/rooms-of-neighbours/065-b866330b45c9.webp",
       "alt": "Rooms of Neighbours — Olukemi Lijadu",
       "group": "Olukemi Lijadu",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
       "originalName": "Olukemi-Lijadu-Clifton-Crescent-8.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/066-a74dce97ffbd.webp",
+      "src": "/work/rooms-of-neighbours/040-502bbf9e59de.webp",
+      "alt": "Rooms of Neighbours — Liz Johnson Artur",
+      "group": "Liz Johnson Artur",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "ben-broome-clifton-crescent-009-003-low.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/047-ff5b8caed0fb.webp",
+      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
+      "group": "Marietta Mavrokordatou",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-1.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/060-11d3f1020e73.webp",
       "alt": "Rooms of Neighbours — Olukemi Lijadu",
       "group": "Olukemi Lijadu",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Olukemi-Lijadu-Clifton-Crescent-9.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/067-86c712e09692.webp",
-      "alt": "Rooms of Neighbours — Racheal Crowther",
-      "group": "Racheal Crowther",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Racheal-Crowther-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/068-f63cbeb45744.webp",
-      "alt": "Rooms of Neighbours — Racheal Crowther",
-      "group": "Racheal Crowther",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Racheal-Crowther-Clifton-Crescent-2.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/069-464b4f919465.webp",
-      "alt": "Rooms of Neighbours — Racheal Crowther",
-      "group": "Racheal Crowther",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Racheal-Crowther-Clifton-Crescent-3.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/070-373f1af5f8d0.webp",
-      "alt": "Rooms of Neighbours — Racheal Crowther",
-      "group": "Racheal Crowther",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
-      "originalName": "Racheal-Crowther-Clifton-Crescent-4.jpg"
+      "originalName": "Olukemi-Lijadu-Clifton-Crescent-2.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/071-a90bba483692.webp",
-      "alt": "Rooms of Neighbours — Racheal Crowther",
-      "group": "Racheal Crowther",
+      "src": "/work/rooms-of-neighbours/039-4b5f270246ec.webp",
+      "alt": "Rooms of Neighbours — Liam Gillick",
+      "group": "Liam Gillick",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
-      "originalName": "Racheal-Crowther-Clifton-Crescent-5.jpg"
+      "originalName": "Liam-Gillick-Clifton-Crescent-4.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/048-7225f9ec81e2.webp",
+      "alt": "Rooms of Neighbours — Marietta Mavrokordatou",
+      "group": "Marietta Mavrokordatou",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Marietta-Mavrokordatou-Clifton-Crescent-2.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/059-0e865e4adb51.webp",
+      "alt": "Rooms of Neighbours — Olukemi Lijadu",
+      "group": "Olukemi Lijadu",
+      "layout": "auto",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "Olukemi-Lijadu-Clifton-Crescent-1.jpg"
     },
     {
       "src": "/work/rooms-of-neighbours/072-d3491e46f732.webp",
       "alt": "Rooms of Neighbours — Racheal Crowther",
       "group": "Racheal Crowther",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
       "originalName": "Racheal-Crowther-Clifton-Crescent-6.jpg"
     },
     {
-      "src": "/work/rooms-of-neighbours/073-069e02be576d.webp",
-      "alt": "Rooms of Neighbours — Racheal Crowther",
-      "group": "Racheal Crowther",
+      "src": "/work/rooms-of-neighbours/064-99bae6a08b20.webp",
+      "alt": "Rooms of Neighbours — Olukemi Lijadu",
+      "group": "Olukemi Lijadu",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
-      "originalName": "Racheal-Crowther-Clifton-Crescent-7.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/074-9d8ff4459afa.webp",
-      "alt": "Rooms of Neighbours — Raheel Khan",
-      "group": "Raheel Khan",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Raheel-Khan-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/075-66e6645ac349.webp",
-      "alt": "Rooms of Neighbours — Raheel Khan",
-      "group": "Raheel Khan",
-      "width": 2400,
-      "height": 1600,
-      "originalName": "Raheel-Khan-Clifton-Crescent-2.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/076-94774b509624.webp",
-      "alt": "Rooms of Neighbours — Raheel Khan",
-      "group": "Raheel Khan",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Raheel-Khan-Clifton-Crescent-4.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/077-02609b0eedeb.webp",
-      "alt": "Rooms of Neighbours — Rirkrit Tiravanija",
-      "group": "Rirkrit Tiravanija",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Rirkrit-Tiravanija-Clifton-Crescent-1.jpg"
-    },
-    {
-      "src": "/work/rooms-of-neighbours/078-778ac271a4ee.webp",
-      "alt": "Rooms of Neighbours — Rirkrit Tiravanija",
-      "group": "Rirkrit Tiravanija",
-      "width": 1600,
-      "height": 2400,
-      "originalName": "Rirkrit-Tiravanija-Clifton-Crescent-2.jpg"
+      "originalName": "Olukemi-Lijadu-Clifton-Crescent-7.jpg"
     },
     {
       "src": "/work/rooms-of-neighbours/079-be3985b7a204.webp",
       "alt": "Rooms of Neighbours — Rirkrit Tiravanija",
       "group": "Rirkrit Tiravanija",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Rirkrit-Tiravanija-Clifton-Crescent-3.jpg"
     },
     {
+      "src": "/work/rooms-of-neighbours/068-f63cbeb45744.webp",
+      "alt": "Rooms of Neighbours — Racheal Crowther",
+      "group": "Racheal Crowther",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Racheal-Crowther-Clifton-Crescent-2.jpg"
+    },
+    {
       "src": "/work/rooms-of-neighbours/080-dc14685d821c.webp",
       "alt": "Rooms of Neighbours — Rirkrit Tiravanija",
       "group": "Rirkrit Tiravanija",
+      "layout": "auto",
       "width": 1600,
       "height": 2400,
       "originalName": "Rirkrit-Tiravanija-Clifton-Crescent-4.jpg"
     },
     {
+      "src": "/work/rooms-of-neighbours/069-464b4f919465.webp",
+      "alt": "Rooms of Neighbours — Racheal Crowther",
+      "group": "Racheal Crowther",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Racheal-Crowther-Clifton-Crescent-3.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/071-a90bba483692.webp",
+      "alt": "Rooms of Neighbours — Racheal Crowther",
+      "group": "Racheal Crowther",
+      "layout": "auto",
+      "width": 2400,
+      "height": 1600,
+      "originalName": "Racheal-Crowther-Clifton-Crescent-5.jpg"
+    },
+    {
+      "src": "/work/rooms-of-neighbours/076-94774b509624.webp",
+      "alt": "Rooms of Neighbours — Raheel Khan",
+      "group": "Raheel Khan",
+      "layout": "auto",
+      "width": 1600,
+      "height": 2400,
+      "originalName": "Raheel-Khan-Clifton-Crescent-4.jpg"
+    },
+    {
       "src": "/work/rooms-of-neighbours/081-8dcc527f7197.webp",
       "alt": "Rooms of Neighbours — Rirkrit Tiravanija",
       "group": "Rirkrit Tiravanija",
+      "layout": "auto",
       "width": 2400,
       "height": 1600,
       "originalName": "Rirkrit-Tiravanija-Clifton-Crescent-6.jpg"
@@ -616,6 +401,5 @@
       "group": "Raheel Khan"
     }
   ],
-  "legacySlug": "",
   "order": 105
 }
