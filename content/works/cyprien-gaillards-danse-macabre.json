@@ -2,7 +2,7 @@
   "title": "Cyprien Gaillard's Danse Macabre",
   "indexTitle": "Cyprien Gaillard",
   "category": "Selected Writing",
-  "type": "Writing",
+  "type": "Essay",
   "publication": "Flash Art",
   "date": "2025-05-05",
   "description": "Death, the great social equalizer, is the subject of Hans Holbein's The Dance of Death: a collection of forty-one woodcuts illustrated by the German-Swiss master, and carved in Basel between 1523…",
@@ -10,14 +10,14 @@
   "links": [],
   "files": [],
   "featuredImage": "/previews/cyprien-gaillards-danse-macabre.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/previews/cyprien-gaillards-danse-macabre.jpg",
       "alt": "Cyprien Gaillard's Danse Macabre",
-      "group": "",
+      "layout": "auto",
       "width": 1024,
-      "height": 534,
-      "originalName": ""
+      "height": 534
     }
   ],
   "videos": [],
