@@ -73,7 +73,6 @@ export function Portfolio() {
     <h1 className="sr-only">Ben Broome — Curator, writer and artist</h1>
     <div className="identity-mobile">
       <Identity />
-      <Link href="/bio" className="identity-bio"><span>↳ Bio</span></Link>
     </div>
 
     <nav className="filters" aria-label="Filter selected work">
