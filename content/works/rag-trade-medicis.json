@@ -1,20 +1,18 @@
 {
   "title": "Rag-trade Medicis",
-  "indexTitle": "",
   "category": "Selected Writing",
-  "type": "Writing",
+  "type": "Essay",
   "publication": "System Magazine",
   "date": "2022-01",
-  "description": "",
-  "externalHref": "",
   "links": [],
   "files": [],
   "featuredImage": "/work/writing-system-magazine-rag-trade-medicis-january-2022/001.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/work/writing-system-magazine-rag-trade-medicis-january-2022/001.jpg",
       "alt": "Rag-trade Medicis, System Magazine",
-      "group": "",
+      "layout": "auto",
       "width": 1500,
       "height": 2057,
       "originalName": "Rag-Trade-Medicis.jpg"
