@@ -1,20 +1,18 @@
 {
   "title": "Aspen Kincaid",
-  "indexTitle": "",
   "category": "Exhibition",
   "type": "Exhibition",
   "publication": "Late City Final, New York",
-  "date": "2020",
-  "description": "",
-  "externalHref": "",
+  "date": "2020-11-29",
   "links": [],
   "files": [],
   "featuredImage": "/work/exhibition-aspen-kincaid/001.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/work/exhibition-aspen-kincaid/001.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1155,
       "height": 770,
       "originalName": "_DSC4627.jpg"
@@ -22,7 +20,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/002.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1609,
       "height": 1073,
       "originalName": "_DSC4632.jpg"
@@ -30,7 +28,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/003.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 887,
       "height": 591,
       "originalName": "_DSC4657.jpg"
@@ -38,7 +36,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/004.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1981,
       "height": 1321,
       "originalName": "_DSC4671.jpg"
@@ -46,7 +44,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/005.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1794,
       "height": 1196,
       "originalName": "_DSC4677.jpg"
@@ -54,7 +52,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/006.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 837,
       "height": 1255,
       "originalName": "_DSC4698.jpg"
@@ -62,7 +60,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/007.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1697,
       "height": 1131,
       "originalName": "_DSC4712.jpg"
@@ -70,7 +68,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/008.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 756,
       "height": 1135,
       "originalName": "_DSC4790.jpg"
@@ -78,7 +76,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/009.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 786,
       "height": 1179,
       "originalName": "_DSC4860.jpg"
@@ -86,7 +84,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/010.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 902,
       "height": 1353,
       "originalName": "_DSC5088.jpg"
@@ -94,7 +92,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/011.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 883,
       "height": 1325,
       "originalName": "_DSC5135.jpg"
@@ -102,7 +100,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/012.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1210,
       "height": 1694,
       "originalName": "_DSC5198.jpg"
@@ -110,7 +108,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/013.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1321,
       "height": 1981,
       "originalName": "_DSC5232.jpg"
@@ -118,7 +116,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/014.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1178,
       "height": 1751,
       "originalName": "_DSC5240.jpg"
@@ -126,7 +124,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/015.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1981,
       "height": 1321,
       "originalName": "_DSC5432.jpg"
@@ -134,7 +132,7 @@
     {
       "src": "/work/exhibition-aspen-kincaid/016.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1981,
       "height": 1321,
       "originalName": "_DSC5443.jpg"
@@ -142,13 +140,12 @@
     {
       "src": "/work/exhibition-aspen-kincaid/017.jpg",
       "alt": "Aspen Kincaid",
-      "group": "",
+      "layout": "auto",
       "width": 1981,
       "height": 1321,
       "originalName": "_DSC5446.jpg"
     }
   ],
   "videos": [],
-  "legacySlug": "",
   "order": 16
 }
