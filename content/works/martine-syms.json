@@ -1,8 +1,7 @@
 {
   "title": "Martine Syms",
-  "indexTitle": "",
   "category": "Selected Writing",
-  "type": "Writing",
+  "type": "Essay",
   "publication": "CURA Magazine",
   "date": "2023-12-18",
   "description": "Martine Syms’ 2011 diary entry published in Excerpts from “420”, reads “I’m particularly interested in errant strands of popular culture...",
@@ -10,14 +9,14 @@
   "links": [],
   "files": [],
   "featuredImage": "/previews/martine-syms.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/previews/martine-syms.jpg",
       "alt": "Martine Syms",
-      "group": "",
+      "layout": "auto",
       "width": 1500,
-      "height": 1500,
-      "originalName": ""
+      "height": 1500
     }
   ],
   "videos": [],
