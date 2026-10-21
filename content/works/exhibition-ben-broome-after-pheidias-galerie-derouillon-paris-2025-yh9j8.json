@@ -1,12 +1,9 @@
 {
   "title": "Ben Broome, After Pheidias",
-  "indexTitle": "",
   "category": "Exhibition",
-  "type": "Exhibition",
+  "type": "Project",
   "publication": "Galerie Derouillon, Paris",
   "date": "2025-03-08",
-  "description": "",
-  "externalHref": "",
   "links": [
     {
       "label": "Press release",
@@ -15,11 +12,12 @@
   ],
   "files": [],
   "featuredImage": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/001.png",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/001.png",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 1272,
       "height": 1096,
       "originalName": "Screenshot+2025-06-17+at+16.22.53.png"
@@ -27,7 +25,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/002.png",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 1768,
       "height": 1442,
       "originalName": "Screenshot+2025-06-17+at+16.23.04.png"
@@ -35,7 +33,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/003.jpeg",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2250,
       "height": 1760,
       "originalName": "After-Pheidias-at-Galerie-Derouillon-Paris_artwork_16.jpeg"
@@ -43,7 +41,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/004.png",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 1048,
       "height": 1446,
       "originalName": "Screenshot+2025-06-17+at+16.23.12.png"
@@ -51,7 +49,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/005.jpg",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2500,
       "height": 2522,
       "originalName": "80_01+2.JPG"
@@ -59,7 +57,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/006.png",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2166,
       "height": 1440,
       "originalName": "Screenshot+2025-06-17+at+16.23.21.png"
@@ -67,7 +65,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/007.jpeg",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2250,
       "height": 1865,
       "originalName": "After-Pheidias-at-Galerie-Derouillon-Paris_artwork_15.jpeg"
@@ -75,7 +73,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/008.png",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2174,
       "height": 1444,
       "originalName": "Screenshot+2025-06-17+at+16.23.28.png"
@@ -83,7 +81,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/009.jpeg",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 1991,
       "height": 2250,
       "originalName": "After-Pheidias-at-Galerie-Derouillon-Paris_artwork_21.jpeg"
@@ -91,7 +89,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/010.jpg",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2500,
       "height": 2522,
       "originalName": "Derouillon,+Ben+Broome+20+©+Youna+Virus+2.JPG"
@@ -99,7 +97,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/011.png",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2168,
       "height": 1438,
       "originalName": "Screenshot+2025-06-17+at+16.23.35.png"
@@ -107,7 +105,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/012.jpg",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2500,
       "height": 1918,
       "originalName": "IMG_4744.JPG"
@@ -115,7 +113,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/013.png",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 1920,
       "height": 1434,
       "originalName": "Screenshot+2025-06-17+at+16.23.43.png"
@@ -123,7 +121,7 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/014.png",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 1152,
       "height": 1436,
       "originalName": "Screenshot+2025-06-17+at+16.23.50.png"
@@ -131,13 +129,12 @@
     {
       "src": "/work/exhibition-ben-broome-after-pheidias-galerie-derouillon-paris-2025-yh9j8/015.jpg",
       "alt": "Ben Broome, After Pheidias",
-      "group": "",
+      "layout": "auto",
       "width": 2500,
       "height": 2522,
       "originalName": "Derouillon,+Ben+Broome+23+©+Youna+Virus+2.JPG"
     }
   ],
   "videos": [],
-  "legacySlug": "",
   "order": 4
 }
