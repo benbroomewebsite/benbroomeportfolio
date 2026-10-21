@@ -2,7 +2,7 @@
   "title": "The Dark Art of Sibylle Ruppert",
   "indexTitle": "Sibylle Ruppert",
   "category": "Selected Writing",
-  "type": "Writing",
+  "type": "Essay",
   "publication": "CURA Magazine",
   "date": "2024-07-23",
   "description": "Flesh reigns supreme in the carnal paintings, drawings and collages for which Sibylle Ruppert has begun to become known.",
@@ -10,14 +10,14 @@
   "links": [],
   "files": [],
   "featuredImage": "/previews/the-dark-art-of-sibylle-ruppert.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/previews/the-dark-art-of-sibylle-ruppert.jpg",
       "alt": "The Dark Art of Sibylle Ruppert",
-      "group": "",
+      "layout": "auto",
       "width": 1024,
-      "height": 683,
-      "originalName": ""
+      "height": 683
     }
   ],
   "videos": [],
