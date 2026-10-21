@@ -1,20 +1,18 @@
 {
   "title": "Jesus Hilario Reyes",
-  "indexTitle": "",
   "category": "Performance",
   "type": "Performance",
   "publication": "Gladstone Gallery",
-  "date": "2022",
-  "description": "",
-  "externalHref": "",
+  "date": "2022-10",
   "links": [],
   "files": [],
   "featuredImage": "/work/jesushilarioreyes/001.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/work/jesushilarioreyes/001.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1119,
       "height": 742,
       "originalName": "44013_JIZ_001_18.jpg"
@@ -22,7 +20,7 @@
     {
       "src": "/work/jesushilarioreyes/002.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 919,
       "height": 609,
       "originalName": "44013_JIZ_001_20.jpg"
@@ -30,7 +28,7 @@
     {
       "src": "/work/jesushilarioreyes/003.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_001_22.jpg"
@@ -38,7 +36,7 @@
     {
       "src": "/work/jesushilarioreyes/004.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_001_24.jpg"
@@ -46,7 +44,7 @@
     {
       "src": "/work/jesushilarioreyes/005.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_001_27.jpg"
@@ -54,7 +52,7 @@
     {
       "src": "/work/jesushilarioreyes/006.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_001_28.jpg"
@@ -62,7 +60,7 @@
     {
       "src": "/work/jesushilarioreyes/007.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_004_19.jpg"
@@ -70,7 +68,7 @@
     {
       "src": "/work/jesushilarioreyes/008.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 763,
       "height": 1150,
       "originalName": "44013_JIZ_004_26.jpg"
@@ -78,7 +76,7 @@
     {
       "src": "/work/jesushilarioreyes/009.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_004_29.jpg"
@@ -86,7 +84,7 @@
     {
       "src": "/work/jesushilarioreyes/010.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 992,
       "height": 658,
       "originalName": "44013_JIZ_004_35.jpg"
@@ -94,7 +92,7 @@
     {
       "src": "/work/jesushilarioreyes/011.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_004_36.jpg"
@@ -102,7 +100,7 @@
     {
       "src": "/work/jesushilarioreyes/012.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_006_10.jpg"
@@ -110,7 +108,7 @@
     {
       "src": "/work/jesushilarioreyes/013.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 763,
       "height": 1150,
       "originalName": "44013_JIZ_006_11.jpg"
@@ -118,7 +116,7 @@
     {
       "src": "/work/jesushilarioreyes/014.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_006_14.jpg"
@@ -126,7 +124,7 @@
     {
       "src": "/work/jesushilarioreyes/015.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_006_17.jpg"
@@ -134,7 +132,7 @@
     {
       "src": "/work/jesushilarioreyes/016.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 763,
       "height": 1150,
       "originalName": "44013_JIZ_006_21.jpg"
@@ -142,7 +140,7 @@
     {
       "src": "/work/jesushilarioreyes/017.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_007_02.jpg"
@@ -150,7 +148,7 @@
     {
       "src": "/work/jesushilarioreyes/018.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 763,
       "height": 1150,
       "originalName": "44013_JIZ_007_03.jpg"
@@ -158,7 +156,7 @@
     {
       "src": "/work/jesushilarioreyes/019.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_007_07.jpg"
@@ -166,7 +164,7 @@
     {
       "src": "/work/jesushilarioreyes/020.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_007_15.jpg"
@@ -174,7 +172,7 @@
     {
       "src": "/work/jesushilarioreyes/021.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_007_18.jpg"
@@ -182,7 +180,7 @@
     {
       "src": "/work/jesushilarioreyes/022.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 1150,
       "height": 763,
       "originalName": "44013_JIZ_007_27.jpg"
@@ -190,13 +188,12 @@
     {
       "src": "/work/jesushilarioreyes/023.jpg",
       "alt": "Jesus Hilario Reyes",
-      "group": "",
+      "layout": "auto",
       "width": 763,
       "height": 1150,
       "originalName": "44013_JIZ_007_31.jpg"
     }
   ],
   "videos": [],
-  "legacySlug": "",
   "order": 29
 }
