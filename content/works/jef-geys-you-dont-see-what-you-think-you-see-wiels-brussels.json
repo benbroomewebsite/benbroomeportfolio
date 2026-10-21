@@ -2,7 +2,7 @@
   "title": "Jef Geys “You don't see what you think you see” — Wiels / Brussels",
   "indexTitle": "Jef Geys",
   "category": "Selected Writing",
-  "type": "Writing",
+  "type": "Review",
   "publication": "Flash Art",
   "date": "2024-04-16",
   "description": "Belgian artist Jef Geys's retrospective exhibition \"You don't see what you think you see\" at Wiels, Brussels, is dictated by the artist's personal archive: a meticulous index…",
@@ -10,14 +10,14 @@
   "links": [],
   "files": [],
   "featuredImage": "/previews/jef-geys-you-dont-see-what-you-think-you-see-wiels-brussels.jpg",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/previews/jef-geys-you-dont-see-what-you-think-you-see-wiels-brussels.jpg",
       "alt": "Jef Geys “You don't see what you think you see” — Wiels / Brussels",
-      "group": "",
+      "layout": "auto",
       "width": 1024,
-      "height": 683,
-      "originalName": ""
+      "height": 683
     }
   ],
   "videos": [],
