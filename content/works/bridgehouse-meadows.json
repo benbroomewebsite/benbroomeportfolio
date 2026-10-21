@@ -1,20 +1,19 @@
 {
   "title": "Dynamite, Powerplant, Trash Talk",
-  "indexTitle": "",
   "category": "Performance",
   "type": "Performance",
-  "publication": "Bridgehouse, Meadows",
+  "publication": "Bridgehouse Meadows",
   "date": "2026-08",
-  "description": "",
-  "externalHref": "",
   "links": [],
   "files": [],
   "featuredImage": "/work/dynamite-bridgehouse/004-b9e512a8e9f9.webp",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/work/dynamite-bridgehouse/004-b9e512a8e9f9.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Dynamite4.jpg"
@@ -23,6 +22,7 @@
       "src": "/work/dynamite-bridgehouse/001-5cb15f452ca8.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite1.jpg"
@@ -31,6 +31,7 @@
       "src": "/work/dynamite-bridgehouse/002-2ac950993418.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite2.jpg"
@@ -39,6 +40,7 @@
       "src": "/work/dynamite-bridgehouse/003-e475c0bfc81f.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Dynamite3.jpg"
@@ -47,6 +49,7 @@
       "src": "/work/dynamite-bridgehouse/005-e0f409ce0e10.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Dynamite5.jpg"
@@ -55,6 +58,7 @@
       "src": "/work/dynamite-bridgehouse/006-57a716d47b6f.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Dynamite6.jpg"
@@ -63,6 +67,7 @@
       "src": "/work/dynamite-bridgehouse/007-17f829b925b1.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Dynamite7.jpg"
@@ -71,6 +76,7 @@
       "src": "/work/dynamite-bridgehouse/008-9a576edd0a25.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite8.jpg"
@@ -79,6 +85,7 @@
       "src": "/work/dynamite-bridgehouse/009-19f2d3808040.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite9.jpg"
@@ -87,6 +94,7 @@
       "src": "/work/dynamite-bridgehouse/010-e397fd11114b.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite10.jpg"
@@ -95,6 +103,7 @@
       "src": "/work/dynamite-bridgehouse/011-b6e20031b765.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Dynamite11.jpg"
@@ -103,6 +112,7 @@
       "src": "/work/dynamite-bridgehouse/012-1cb9e1a4ed61.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite12.jpg"
@@ -111,6 +121,7 @@
       "src": "/work/dynamite-bridgehouse/013-4808fdd962e4.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite13.jpg"
@@ -119,6 +130,7 @@
       "src": "/work/dynamite-bridgehouse/014-be8c06d98d0a.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1590,
       "originalName": "Dynamite14.jpg"
@@ -127,6 +139,7 @@
       "src": "/work/dynamite-bridgehouse/015-abad656666d6.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Dynamite15.jpg"
@@ -135,6 +148,7 @@
       "src": "/work/dynamite-bridgehouse/016-f589c9037880.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Dynamite16.jpg"
@@ -143,6 +157,7 @@
       "src": "/work/dynamite-bridgehouse/017-211b98afed48.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite17.jpg"
@@ -151,6 +166,7 @@
       "src": "/work/dynamite-bridgehouse/018-1e850cdcaa25.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite18.jpg"
@@ -159,6 +175,7 @@
       "src": "/work/dynamite-bridgehouse/020-1b9787d4e989.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite20.jpg"
@@ -167,6 +184,7 @@
       "src": "/work/dynamite-bridgehouse/021-ab4318280981.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite21.jpg"
@@ -175,6 +193,7 @@
       "src": "/work/dynamite-bridgehouse/022-15c8b07a5fdc.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "Dynamite22.jpg"
@@ -183,6 +202,7 @@
       "src": "/work/dynamite-bridgehouse/023-2c0cf127b184.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "Dynamite23.jpg"
@@ -191,6 +211,7 @@
       "src": "/work/dynamite-bridgehouse/024-928ee0a3cb88.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite24.jpg"
@@ -199,6 +220,7 @@
       "src": "/work/dynamite-bridgehouse/025-3eff8b73ea82.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite25.jpg"
@@ -207,6 +229,7 @@
       "src": "/work/dynamite-bridgehouse/027-76accd0b3aa6.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "Dynamite27.jpg"
@@ -215,6 +238,7 @@
       "src": "/work/dynamite-bridgehouse/028-325a75067fce.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite28.jpg"
@@ -223,6 +247,7 @@
       "src": "/work/dynamite-bridgehouse/030-5114ae04861b.webp",
       "alt": "Dynamite",
       "group": "Dynamite",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Dynamite30.jpg"
@@ -231,6 +256,7 @@
       "src": "/work/powerplant-bridgehouse/001-83433e2622d1.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "Powerplant1.jpg"
@@ -239,6 +265,7 @@
       "src": "/work/powerplant-bridgehouse/003-cb6dac73d49c.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Powerplant3.jpg"
@@ -247,6 +274,7 @@
       "src": "/work/powerplant-bridgehouse/004-858244258986.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Powerplant4.jpg"
@@ -255,6 +283,7 @@
       "src": "/work/powerplant-bridgehouse/005-39f9fd4cfebf.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Powerplant5.jpg"
@@ -263,6 +292,7 @@
       "src": "/work/powerplant-bridgehouse/006-d726809ba7c5.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Powerplant6.jpg"
@@ -271,6 +301,7 @@
       "src": "/work/powerplant-bridgehouse/007-5faf3e1573d4.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Powerplant7.jpg"
@@ -279,6 +310,7 @@
       "src": "/work/powerplant-bridgehouse/009-472048651cd4.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Powerplant9.jpg"
@@ -287,6 +319,7 @@
       "src": "/work/powerplant-bridgehouse/011-58a6e426218d.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "Powerplant11.jpg"
@@ -295,6 +328,7 @@
       "src": "/work/powerplant-bridgehouse/012-a328a7a269fc.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Powerplant12.jpg"
@@ -303,6 +337,7 @@
       "src": "/work/powerplant-bridgehouse/014-65596c3349b9.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "Powerplant14.jpg"
@@ -311,6 +346,7 @@
       "src": "/work/powerplant-bridgehouse/015-59cd7f430e82.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "Powerplant15.jpg"
@@ -319,6 +355,7 @@
       "src": "/work/powerplant-bridgehouse/016-69feead7e4cd.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Powerplant16.jpg"
@@ -327,6 +364,7 @@
       "src": "/work/powerplant-bridgehouse/017-f750a3cac1d5.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "Powerplant17.jpg"
@@ -335,6 +373,7 @@
       "src": "/work/powerplant-bridgehouse/018-d01de3c8f0c4.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Powerplant18.jpg"
@@ -343,6 +382,7 @@
       "src": "/work/powerplant-bridgehouse/019-fa95f1615a62.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Powerplant19.jpg"
@@ -351,6 +391,7 @@
       "src": "/work/powerplant-bridgehouse/020-a2274334d68e.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Powerplant20.jpg"
@@ -359,6 +400,7 @@
       "src": "/work/powerplant-bridgehouse/021-17f139b898f2.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Powerplant21.jpg"
@@ -367,6 +409,7 @@
       "src": "/work/powerplant-bridgehouse/023-3fbcfe14747b.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 1475,
       "height": 2225,
       "originalName": "Powerplant23.jpg"
@@ -375,6 +418,7 @@
       "src": "/work/powerplant-bridgehouse/024-61bdde582cc0.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "Powerplant24.jpg"
@@ -383,6 +427,7 @@
       "src": "/work/powerplant-bridgehouse/026-9f55f9be488e.webp",
       "alt": "Powerplant",
       "group": "Powerplant",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "Powerplant26.jpg"
@@ -391,6 +436,7 @@
       "src": "/work/trashtalk-bridgehouse/001-79250ceef0b5.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "TrashTalk3.jpg"
@@ -399,6 +445,7 @@
       "src": "/work/trashtalk-bridgehouse/002-a95d9dea3778.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "TrashTalk11.jpg"
@@ -407,6 +454,7 @@
       "src": "/work/trashtalk-bridgehouse/003-c2601c97d0b5.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 2400,
       "height": 1608,
       "originalName": "TrashTalk15.jpg"
@@ -415,6 +463,7 @@
       "src": "/work/trashtalk-bridgehouse/004-e8ee7f35783f.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "TrashTalk23.jpg"
@@ -423,6 +472,7 @@
       "src": "/work/trashtalk-bridgehouse/005-da3acd60c1bd.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "TrashTalk31.jpg"
@@ -431,6 +481,7 @@
       "src": "/work/trashtalk-bridgehouse/006-23193a5390af.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 1591,
       "height": 2400,
       "originalName": "TrashTalk34.jpg"
@@ -439,6 +490,7 @@
       "src": "/work/trashtalk-bridgehouse/007-8796e0fb517d.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "TrashTalk47.jpg"
@@ -447,6 +499,7 @@
       "src": "/work/trashtalk-bridgehouse/008-4b77dd8ad800.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "TrashTalk49.jpg"
@@ -455,6 +508,7 @@
       "src": "/work/trashtalk-bridgehouse/009-ebbcfe61c88f.webp",
       "alt": "Trash Talk",
       "group": "Trash Talk",
+      "layout": "auto",
       "width": 2400,
       "height": 1591,
       "originalName": "TrashTalk53.jpg"
