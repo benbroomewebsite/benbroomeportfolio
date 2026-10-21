@@ -1,7 +1,7 @@
 {
   "title": "Rooms of Neighbours",
   "category": "Exhibition",
-  "type": "Exhibition",
+  "type": "Project",
   "publication": "Clifton Crescent, London",
   "date": "2026-04",
   "description": "An ongoing exhibition curated by Ben Broome across twelve households on Clifton Crescent, Peckham. Each participating household was paired with an artist, who collaborated with residents to install work in their home or a communal space.\n\nTaking Jan Hoet’s Chambres d’amis (1986) as a point of departure, the project explores the domestic exhibition as a social process. Supported by Arts Council England. The exhibition began in 2025; this documentation is from April 2026.",
@@ -13,7 +13,7 @@
     }
   ],
   "featuredImage": "/work/rooms-of-neighbours/001-6cae9e9712c5.webp",
-  "imageOrder": "random",
+  "imageOrder": "manual",
   "images": [
     {
       "src": "/work/rooms-of-neighbours/012-b3ddce120b90.webp",
