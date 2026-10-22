@@ -39,7 +39,7 @@ export function Portfolio() {
   const archiveRef = useRef<HTMLElement>(null)
   const [hovered, setHovered] = useState<Work | null>(null)
   const [filter, setFilter] = useState<Filter>('All')
-  const visibleWorks = filter === 'All' ? works : works.filter((work) => inFilter(work, filter))
+  const visibleWorks = works.filter((work) => inFilter(work, filter))
 
   useLayoutEffect(() => {
     const savedFilter = window.sessionStorage.getItem('archive-filter')
@@ -60,6 +60,29 @@ export function Portfolio() {
       cancelAnimationFrame(frame)
       events.forEach((event) => window.removeEventListener(event, forget))
     }
+  }, [])
+
+  // The index snaps to whole rows (globals.css). Top up the space above the
+  // contact lines so the end of the list also falls on a row, keeping the
+  // hover preview level with the rows there too.
+  useLayoutEffect(() => {
+    const archive = archiveRef.current
+    const list = archive?.querySelector('.work-list')
+    const footer = archive?.querySelector<HTMLElement>('.contact')
+    if (!archive || !list || !footer) return
+    const fit = () => {
+      archive.style.setProperty('--end-fill', '0px')
+      const rows = list.children
+      if (rows.length < 2 || getComputedStyle(archive).scrollSnapType === 'none') return
+      const pitch = rows[1].getBoundingClientRect().top - rows[0].getBoundingClientRect().top
+      const travel = footer.getBoundingClientRect().bottom - rows[0].getBoundingClientRect().top - archive.getBoundingClientRect().height
+      if (travel > 0 && pitch > 0) archive.style.setProperty('--end-fill', `${(pitch - (travel % pitch)) % pitch}px`)
+    }
+    fit()
+    const observer = new ResizeObserver(fit)
+    observer.observe(archive)
+    observer.observe(list)
+    return () => observer.disconnect()
   }, [])
 
   const previewWork = (work: Work) => {

@@ -15,7 +15,7 @@
 html, body { margin: 0; height: 100%; overflow: hidden; }
 body { background: var(--paper); color: var(--ink); font: var(--site-weight) var(--site-size)/1.3 'Site Arrows', var(--site-font); }
 ::selection { background: #4a4a46; color: #fff; }
-button, a { color: inherit; font: inherit; cursor: default; }
+button, a { color: inherit; font: inherit; cursor: default; -webkit-tap-highlight-color: transparent; }
 button { border: 0; }
 a { text-decoration: none; }
 button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
@@ -25,34 +25,43 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .archive { padding: var(--top-edge) var(--gap) 72px var(--edge); }
 .identity { display: flex; align-items: baseline; white-space: nowrap; margin-bottom: 24px; font-size: var(--site-size); }
 .identity strong { font-weight: 700; }
-.identity > a:hover strong, .identity > a:focus-visible strong { text-decoration: underline; text-underline-offset: 2px; }
+.identity > a:focus-visible strong { text-decoration: underline; text-underline-offset: 2px; }
 .identity p { margin: 0; white-space: pre; font-weight: 700; }
 .identity-mobile, .project-return-bottom { display: none; }
 .filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 48px; width: 100%; margin: 0 0 16px; padding: 0; }
 .filters button { min-width: 0; padding: 0; background: transparent; white-space: nowrap; font-weight: 700; }
 .filters span { text-decoration: none; }
-.filters button.active span, .filters button:hover span, .filters button:focus-visible span { text-decoration: underline; text-underline-offset: 3px; }
+.filters button.active span, .filters button:focus-visible span { text-decoration: underline; text-underline-offset: 3px; }
 .work-list { display: flex; flex-direction: column; }
 .work-row { display: grid; grid-template-columns: minmax(0, 1fr) 8em minmax(0, 1fr) 5.5em; column-gap: 24px; width: 100%; padding: 8px 0; background: transparent; text-align: left; }
 a.work-row { color: inherit; }
 .work-row > span { min-width: 0; overflow: hidden; }
 .work-row > span > span { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top; }
 /* Every index cell stays on one line; the full title remains in the link text. */
-.work-row:hover .title > span, .work-row:focus-visible .title > span { text-decoration: underline; text-underline-offset: 2px; }
+.work-row:focus-visible .title > span { text-decoration: underline; text-underline-offset: 2px; }
 /* The month has a fixed width so the years line up down the index. */
 .index-date > span { display: inline-block; width: 2.4em; }
 .contact { margin-top: 72px; line-height: 1.4; }
-.contact a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .viewer { display: flex; flex-direction: column; padding: var(--top-edge) var(--edge) var(--top-edge) var(--gap); }
 /* Both headings share a grid row. The slideshow and index then share a start
    line without measuring fonts, filter wrapping or scroll positions in JS. */
 /* Keep the visible text edges level with the horizontal page inset, allowing
    for the typeface's empty leading above and below its capital letters. */
-.portfolio-shell { --gap: 24px; --index-row-padding: 4px; --index-bottom-edge: 4px; grid-template-rows: auto minmax(0, 1fr); height: 100dvh; }
+/* A whole-pixel line (21px) makes each index row exactly 29px with its padding, so
+   scrolling a row at a time lands every row on a whole pixel, level with the
+   hover preview's lines. */
+.portfolio-shell { --gap: 24px; --index-row-padding: 4px; --index-bottom-edge: 4px; grid-template-rows: auto minmax(0, 1fr); height: 100dvh; line-height: 21px; }
 .portfolio-shell .work-row { grid-template-columns: minmax(0, 1.2fr) 8em minmax(0, 1fr) 5.5em; padding: var(--index-row-padding) 0; }
 .portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); }
 .portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
-.portfolio-shell > .archive { grid-area: 2 / 1; height: auto; min-height: 0; margin-bottom: var(--index-bottom-edge); padding-top: 0; padding-bottom: 0; }
+.portfolio-shell > .archive { grid-area: 2 / 1; display: flex; flex-direction: column; height: auto; min-height: 0; margin-bottom: var(--edge); padding-top: 0; padding-bottom: 0; }
+/* The index scrolls a whole row at a time, so the hover preview, which sits level
+   with the first two rows, stays level with the rows wherever the list stops. */
+.portfolio-shell > .archive { scroll-snap-type: y mandatory; }
+.portfolio-shell .work-row { scroll-snap-align: start; }
+/* The contact lines sit at the foot of the index and end level with the slideshow
+   caption. Portfolio sets --end-fill so the end of the list also falls on a row. */
+.portfolio-shell .contact { margin-top: auto; padding-top: calc(72px + var(--end-fill, 0px)); line-height: inherit; scroll-snap-align: end; }
 .portfolio-shell > .viewer { grid-area: 2 / 2; height: auto; min-height: 0; padding-top: var(--index-row-padding); padding-bottom: var(--edge); overflow: hidden; }
 /* Photos meet the visible capital letters, rather than the font's empty leading.
    This follows the active typeface and zoom, and applies only to the slideshow. */
@@ -65,7 +74,6 @@ a.work-row { color: inherit; }
 .about-media { display: flex; flex: 1; flex-direction: column; min-height: 0; }
 .carousel { position: relative; display: block; flex: 1; width: 100%; min-height: 0; padding: 0; background: transparent; overflow: hidden; }
 .carousel-caption { margin: 8px 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.carousel-caption a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .carousel img { object-fit: contain; object-position: left top; opacity: 0; transition: opacity 650ms ease; }
 .carousel img.carousel-current { opacity: 1; }
 .carousel img.carousel-current.leaving { opacity: 0; }
@@ -86,13 +94,22 @@ a.work-row { color: inherit; }
 .project-copy-name { margin: 24px 0 4px; font: inherit; font-weight: 700; }
 .project-copy-heading + .project-copy-name { margin-top: 0; }
 .project-links { display: flex; flex-direction: column; gap: 4px; margin: 0 0 24px; }
-.project-links a:hover { text-decoration: underline; text-underline-offset: 2px; }
+.project-read { padding: 0; background: transparent; text-align: left; }
+/* A scanned text opens full size over the blurred page, with only a close mark. */
+.gallery-item-read { padding: 0; background: transparent; cursor: zoom-in; }
+/* The dialog covers the screen and blurs the page itself; the CSS build drops
+   backdrop-filter on ::backdrop. */
+.image-reader { width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0; background: rgb(238 238 235 / 0.55); backdrop-filter: blur(14px); overflow: hidden; }
+.image-reader::backdrop { background: transparent; }
+.image-reader-pages { display: flex; flex-direction: column; align-items: center; gap: 24px; height: 100%; overflow-y: auto; padding: 56px var(--edge); scrollbar-width: none; }
+.image-reader-pages::-webkit-scrollbar { display: none; }
+.image-reader-pages img { display: block; width: min(900px, 100%); height: auto; }
+.image-reader-close { position: fixed; top: var(--top-edge); right: var(--edge); z-index: 1; padding: 0 4px; background: transparent; font-size: 28px; line-height: 1; cursor: pointer; }
 .project-media-tabs { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
 .project-media-tabs button { padding: 0; background: transparent; }
-.project-media-tabs button[aria-pressed="true"], .project-media-tabs button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.project-media-tabs button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 3px; }
 .pdf-reader { display: flex; flex-direction: column; width: 100%; flex: 1; min-height: 180px; }
 .pdf-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px 14px; padding-bottom: 12px; flex-shrink: 0; }
-.pdf-toolbar a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .pdf-pages { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; background: var(--paper); scrollbar-width: none; padding: 16px; }
 .pdf-pages::-webkit-scrollbar, .viewer::-webkit-scrollbar { display: none; }
 .pdf-pages .react-pdf__Document { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: max-content; min-width: 100%; }
@@ -128,7 +145,6 @@ a.work-row { color: inherit; }
 .project-navigation::-webkit-scrollbar { display: none; }
 .project-navigation .identity { margin-bottom: 4px; }
 .index-return { display: inline-block; }
-.index-return:hover { text-decoration: underline; text-underline-offset: 3px; }
 .project-info { margin-top: 48px; }
 .project-info .project-copy { max-width: 520px; }
 .project-copy a { text-decoration: underline; text-underline-offset: 2px; }
@@ -147,12 +163,17 @@ a.work-row { color: inherit; }
 .project-text-below .pdf-toolbar { justify-content: flex-start; }
 .project-related { display: flex; flex-direction: column; height: calc(100dvh - 2 * var(--top-edge)); margin-bottom: 40px; }
 .project-related h2 { margin: 0 0 12px; font: inherit; }
-.project-related h2 a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .project-related .article-frame { flex: 1; min-height: 0; height: auto; }
 /* A project whose article can be shown live gets the page itself; its image is the phone fallback. */
 .project-page-article .project-content { padding-bottom: var(--top-edge); overflow: hidden; }
 .project-page-article .project-gallery { display: none; }
 .article-frame { display: block; width: 100%; height: 100%; border: 0; background: var(--white); }
+/* Hover underlines only where there is a mouse: on a touchscreen a finger resting
+   on a row to scroll would otherwise leave it underlined. */
+@media (hover: hover) {
+  .identity > a:hover strong, .work-row:hover .title > span, .contact a:hover, .carousel-caption a:hover, .project-links a:hover, .project-read:hover, .pdf-toolbar a:hover, .project-related h2 a:hover { text-decoration: underline; text-underline-offset: 2px; }
+  .filters button:hover span, .project-media-tabs button:hover, .index-return:hover { text-decoration: underline; text-underline-offset: 3px; }
+}
 @media (max-width: 800px) {
   :root { --edge: 14px; --gap: 16px; }
   html, body { height: auto; overflow: auto; }
@@ -162,10 +183,11 @@ a.work-row { color: inherit; }
   .identity { margin-bottom: 0; font-size: clamp(12px, 3.7vw, var(--site-size)); }
   .identity-mobile { display: block; margin-bottom: 12px; }
   .identity-desktop { display: none; }
-  .portfolio-shell { --index-row-padding: 8px; height: auto; }
+  .portfolio-shell { --index-row-padding: 8px; height: auto; line-height: 1.3; }
   .portfolio-shell .work-row { grid-template-columns: minmax(0, 1fr) auto; }
   .portfolio-shell > .archive { margin-bottom: 0; }
-  .portfolio-shell .contact { margin-top: 28px; }
+  .portfolio-shell > .archive { display: block; scroll-snap-type: none; }
+  .portfolio-shell .contact { margin-top: 28px; padding-top: 0; line-height: 1.4; }
   .portfolio-shell > .identity-mobile { padding: var(--top-edge) var(--edge) 0; }
   .portfolio-shell > .filters { margin-bottom: 12px; padding: 0 var(--edge); font-size: clamp(12px, 3.7vw, var(--site-size)); }
   .portfolio-shell > .viewer { min-height: 0; padding: var(--edge) var(--edge) var(--index-bottom-edge); overflow: visible; }

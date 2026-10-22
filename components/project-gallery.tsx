@@ -13,10 +13,12 @@ type GalleryProps = {
   labelled: boolean
   /** Shown after the opening row, such as the exhibition text. */
   afterOpening?: ReactNode
+  /** Makes each image open the reader, for a scanned text. */
+  onOpen?: () => void
 }
 
 // Photos in rows, grouped under their section headings, with the videos.
-export function ProjectGallery({ work, images, labelled, afterOpening }: GalleryProps) {
+export function ProjectGallery({ work, images, labelled, afterOpening, onOpen }: GalleryProps) {
   // Sections follow the saved order of their first image, whatever the shuffle.
   const groups = [...new Set([
     ...work.images.filter((image) => !isPdfPage(image)).map((image) => image.group ?? ''),
@@ -33,6 +35,9 @@ export function ProjectGallery({ work, images, labelled, afterOpening }: Gallery
   const item = (image: WorkImage) => {
     const picture = <Image src={mediaHref(image.src)} alt={image.alt} width={image.width ?? 1600} height={image.height ?? 1200} sizes="(max-width: 800px) 100vw, 66vw" />
     const style = { '--ratio': ratioOf(image) } as CSSProperties
+    if (onOpen && !labelled) {
+      return <button key={image.src} type="button" className="gallery-item gallery-item-read" style={style} aria-label={`Read ${image.alt}`} onClick={onOpen}>{picture}</button>
+    }
     // Images stay on the page; only the "Read on …" link leaves the site.
     return <div key={image.src} className="gallery-item" style={style}>
       {picture}

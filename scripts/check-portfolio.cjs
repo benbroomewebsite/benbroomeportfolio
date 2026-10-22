@@ -6,7 +6,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 require('node:child_process').execFileSync(process.execPath, [path.resolve(__dirname, 'build-works.mjs')], { stdio: 'inherit' })
 require('./lib/register-ts.cjs')
-const { works } = require('../lib/works.ts')
+const { inFilter, typeIn, works } = require('../lib/works.ts')
 const { projectView } = require('../lib/project-view.ts')
 const media = require('../lib/media-map.json')
 
@@ -42,7 +42,7 @@ for (const year of new Set(works.map((work) => work.year))) {
 const project = (overrides) => ({
   slug: 'test', title: 'Test', indexTitle: 'Test', type: '', publication: '', date: '2025', month: '', year: 2025,
   description: '', images: [], imageOrder: 'random', videos: [], files: [], links: [], externalHref: null,
-  featuredImage: '', order: 0, category: 'Exhibition', alsoInWriting: false, ...overrides,
+  featuredImage: '', order: 0, category: 'Exhibition', alsoInWriting: false, hiddenFromAll: false, ...overrides,
 })
 const photo = { src: '/a.jpg', alt: '', width: 1600, height: 1000 }
 const pdf = (label, display = 'inline') => ({ label, href: `/${label}.pdf`, display })
@@ -60,6 +60,13 @@ assert.equal(projectView(article).article, undefined, 'Frieze refuses to be show
 const talk = project({ category: 'Talk', files: [pdf('Transcript')] })
 assert.equal(projectView(talk).opensOnDocument, true)
 assert.deepEqual(labels(talk), [], 'A talk is read on the page, not linked as well')
+
+// Which lists a project appears in.
+const exhibitionText = project({ alsoInWriting: true })
+assert.ok(inFilter(exhibitionText, 'All') && inFilter(exhibitionText, 'Exhibition') && inFilter(exhibitionText, 'Selected Writing'))
+assert.equal(typeIn(exhibitionText, 'Selected Writing'), 'Exhibition text')
+const linkedInterview = project({ category: 'Selected Writing', hiddenFromAll: true })
+assert.ok(!inFilter(linkedInterview, 'All') && inFilter(linkedInterview, 'Selected Writing'), 'A piece left out of All stays under its own filter')
 
 console.log(JSON.stringify({
   projects: works.length,

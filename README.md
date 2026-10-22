@@ -56,10 +56,14 @@ Each project is one file in `content/works/`. The date field takes `2025`,
 dated ones in their year.
 
 - **Filter** sets where a project is listed. **Also list under Selected Writing**
-  adds an exhibition to that filter too, without repeating it under All.
+  adds an exhibition to that filter too (as "Exhibition text"), without repeating
+  it under All. **Leave out of the All list** keeps a piece under its own filter
+  only, e.g. an interview already linked from its exhibition.
 - **Documents** are PDFs. **Show as** chooses **Read on the page** (beside or
   beneath the images, and also linked on the left) or **Link on the left** only,
   for example a press release.
+- Writing whose only form is a scan of the page (Rag-trade Medicis) opens in a
+  full-size reader over the blurred page, from its image or **Read**.
 - **External link** is where writing published elsewhere can be read. The project
   still gets its own page, with its image and a "Read on …" link. Frieze, Ocula
   and most publications refuse to be shown inside another site, so only those

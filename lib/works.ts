@@ -49,6 +49,7 @@ export type Work = {
   order: number
   category: WorkCategory
   alsoInWriting: boolean
+  hiddenFromAll: boolean
 }
 
 // The shape of a file in content/works. `date` is YYYY, YYYY-MM or YYYY-MM-DD,
@@ -59,6 +60,7 @@ type ContentWork = {
   indexTitle?: string
   category: string
   alsoInWriting?: boolean
+  hiddenFromAll?: boolean
   type?: string
   publication?: string
   date?: string
@@ -118,6 +120,7 @@ function normalize(work: ContentWork): Work {
     order: work.order ?? 0,
     category: work.category as WorkCategory,
     alsoInWriting: Boolean(work.alsoInWriting) && work.category !== 'Selected Writing',
+    hiddenFromAll: Boolean(work.hiddenFromAll),
   }
 }
 
@@ -145,9 +148,10 @@ function orderByYear(items: Work[]): Work[] {
 // Press entries stay in content/works but are hidden from the site for now.
 export const works: Work[] = orderByYear((data as ContentWork[]).map(normalize)).filter((work) => work.category !== 'Press')
 
-// An exhibition text can be listed under Selected Writing as well as its own filter.
-export const inFilter = (work: Work, category: WorkCategory) =>
-  work.category === category || (category === 'Selected Writing' && work.alsoInWriting)
+// An exhibition text can be listed under Selected Writing as well as its own filter;
+// a piece already linked from another project can be left out of All.
+export const inFilter = (work: Work, filter: WorkCategory | 'All') =>
+  filter === 'All' ? !work.hiddenFromAll : work.category === filter || (filter === 'Selected Writing' && work.alsoInWriting)
 
 // Under Selected Writing, an exhibition listed there is named for its text.
 export const typeIn = (work: Work, category: WorkCategory | 'All') =>

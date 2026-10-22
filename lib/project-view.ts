@@ -39,6 +39,8 @@ export type ProjectView = {
   opensOnDocument: boolean
   /** Whether there is an Images view to switch back to from a document. */
   hasImages: boolean
+  /** Writing whose only form here is a scan of the page: its images open in the reader. */
+  readsAsImage: boolean
   /** The publication's own page, shown live in place of the gallery. */
   article?: string
   /** Linked pages shown live after the gallery. */
@@ -58,6 +60,7 @@ export function projectView(work: Work): ProjectView {
     textBelow,
     opensOnDocument: !textBelow && documents.length > 0 && (reading || imageCount === 0),
     hasImages: imageCount > 0 && !(documents.length > 0 && work.category === 'Selected Writing'),
+    readsAsImage: work.category === 'Selected Writing' && imageCount > 0 && !work.externalHref && !work.files.length,
     article,
     relatedPages: imageCount > 0 && !article ? work.links.filter((link) => canEmbed(link.href)) : [],
     links: projectLinks(work, documents),

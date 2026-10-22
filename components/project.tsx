@@ -9,6 +9,7 @@ import { isPdfPage, projectView } from '@/lib/project-view'
 import { useRandomOrder } from '@/lib/use-random-order'
 import type { Work } from '@/lib/works'
 import { Identity } from '@/components/identity'
+import { ImageReader } from '@/components/image-reader'
 import { ProjectGallery } from '@/components/project-gallery'
 import { ProjectText } from '@/components/project-text'
 
@@ -36,6 +37,7 @@ export function ProjectPage({ work }: { work: Work }) {
   const document = documentIndex !== null ? documents[documentIndex] : undefined
   // With ?edit on the address, each image shows its position and name as listed in the editor.
   const [labelled, setLabelled] = useState(false)
+  const [reading, setReading] = useState(false)
   useEffect(() => setLabelled(new URLSearchParams(window.location.search).has('edit')), [])
 
   // The exhibition text follows the opening image, in the flow of the page, so one scroll reads through it.
@@ -54,6 +56,7 @@ export function ProjectPage({ work }: { work: Work }) {
           <p>{[work.type, work.publication, longDate(work)].filter(Boolean).join(' · ')}</p>
         </header>
         <ProjectText description={work.description} links={view.links} />
+        {view.readsAsImage && <div className="project-links"><button type="button" className="project-read" onClick={() => setReading(true)}>↳ Read</button></div>}
         {showTabs && <nav className="project-media-tabs" aria-label="Project media">
           {view.hasImages && <button aria-pressed={documentIndex === null} onClick={() => setDocumentIndex(null)}>Images</button>}
           {documents.map((file, index) => (documents.length > 1 || documentIndex !== index) && <button key={file.href} aria-pressed={documentIndex === index} onClick={() => setDocumentIndex(index)}>
@@ -65,7 +68,8 @@ export function ProjectPage({ work }: { work: Work }) {
     <section className="project-content" aria-label={`${work.title} media`}>
       {document && <PdfReader key={document.href} source={document.href} label={work.title} />}
       {view.article && <iframe className="article-frame" src={view.article} title={`${work.title} — ${work.publication}`} loading="lazy" referrerPolicy="no-referrer" sandbox={IFRAME_SANDBOX} />}
-      {!document && <ProjectGallery work={work} images={images} labelled={labelled} afterOpening={textAfterOpening && exhibitionText} />}
+      {!document && <ProjectGallery work={work} images={images} labelled={labelled} afterOpening={textAfterOpening && exhibitionText} onOpen={view.readsAsImage ? () => setReading(true) : undefined} />}
+      {view.readsAsImage && <ImageReader images={images} label={work.title} open={reading} onClose={() => setReading(false)} />}
       {!textAfterOpening && exhibitionText}
       {!document && view.relatedPages.map((link) => <section key={link.href} className="project-related">
         <h2><a href={link.href} target="_blank" rel="noreferrer">↳ {link.label}</a></h2>

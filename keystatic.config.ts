@@ -43,6 +43,10 @@ export default config({
           label: 'Also list under Selected Writing',
           description: 'For an exhibition whose text you wrote. It appears once under All and also under Selected Writing.',
         }),
+        hiddenFromAll: fields.checkbox({
+          label: 'Leave out of the All list',
+          description: 'Listed only under its own filter, e.g. an interview already linked from its exhibition.',
+        }),
         type: fields.text({ label: 'Medium', description: 'Shown next to the title, e.g. Exhibition, Writing, Performance.' }),
         publication: fields.text({ label: 'Venue or publication' }),
         date: fields.text({
