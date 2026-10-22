@@ -88,7 +88,7 @@ export function Portfolio() {
             <span className="title" title={work.indexTitle}><span>{work.indexTitle}</span></span>
             <span><span>{work.type}</span></span>
             <span><span>{venueOnly(work.publication)}</span></span>
-            <span><span>{work.date}</span></span>
+            <span><span className="index-date"><span>{work.date.includes(' ') ? work.date.split(' ')[0] : ''}</span>{work.date.split(' ').pop()}</span></span>
           </>
           const preview = {
             onMouseEnter: () => previewWork(work),

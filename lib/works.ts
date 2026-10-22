@@ -104,6 +104,9 @@ function interleaveByYear(items: Work[]): Work[] {
   })
 }
 
+// Fixed abbreviations: newer runtimes write September as "Sept", which sits out of line.
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
 function normalize(work: ContentWork): Work {
   const date = (work.date ?? '').trim()
   // A bare year sorts after the dated entries of that year, so it is not a sortDate.
@@ -115,9 +118,7 @@ function normalize(work: ContentWork): Work {
     indexTitle: work.indexTitle || work.title,
     type: work.type ?? '',
     publication: work.publication ?? '',
-    date: sortDate
-      ? new Date(`${sortDate.length === 7 ? `${sortDate}-01` : sortDate}T12:00:00Z`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' })
-      : date,
+    date: sortDate ? `${MONTHS[Number(sortDate.slice(5, 7)) - 1]} ${sortDate.slice(0, 4)}` : date,
     year: Number(date.slice(0, 4)) || 0,
     description: work.description ?? '',
     images: (work.images ?? []).filter((image) => image.upload || image.src).map((image) => ({

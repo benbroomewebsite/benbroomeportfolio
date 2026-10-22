@@ -1,4 +1,6 @@
-export const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ben-broome-prototype.vercel.app')
+// Vercel names the production domain itself, so the address follows the project if it moves.
+const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL
+export const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL || (productionHost ? `https://${productionHost}` : 'https://benbroomeportfolio-two.vercel.app'))
 export const siteName = 'Ben Broome'
 export const siteDescription = 'Selected exhibitions, writing, performances, and research by curator Ben Broome.'
 export const absoluteUrl = (path: string) => new URL(path, siteUrl).toString()

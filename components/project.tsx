@@ -35,6 +35,15 @@ function linkNames(paragraphs: string[], links: Array<{ label: string; href: str
   return { linked, remaining: links.filter((link) => unused.includes(link)) }
 }
 
+// Artist grant texts mark their sections with lines like "The Judging Panel:" and
+// "WINNERS:"; these become headings, and each winner's name line a subheading.
+const isSectionLabel = (text: string) => /^[^.!?]{1,40}[:;]$/.test(text)
+const sectionTitle = (text: string) => {
+  const title = text.slice(0, -1).trim()
+  return title === title.toUpperCase() ? title.charAt(0) + title.slice(1).toLowerCase() : title
+}
+const isNameLine = (text: string) => text.split(/\s+/).length <= 5 && !/[.!?:;,]$/.test(text)
+
 export function ProjectPage({ work }: { work: Work }) {
   // PDFs set to "Link on the left" (a press release) join the links instead of the reader.
   const pdfs = work.files.filter((file) => /\.pdf(?:$|[?#])/i.test(file.href) && file.display !== 'link')
@@ -85,6 +94,8 @@ export function ProjectPage({ work }: { work: Work }) {
         ...work.files.filter((file) => !pdfs.includes(file) && file.display !== 'link').map(fileLink),
         ...(work.externalHref ? [{ label: publication || 'Link', href: work.externalHref }] : []),
         ...work.links,
+        // Press releases and exhibition texts read on the page are also linked here.
+        ...(work.category === 'Talk' ? [] : pdfs.map(fileLink)),
         ...linkedFiles,
       ]
   const article = embedHref(work)
@@ -105,7 +116,13 @@ export function ProjectPage({ work }: { work: Work }) {
           <p>{[work.type, work.publication, date].filter(Boolean).join(' · ')}</p>
         </header>
         {paragraphs.length > 0 && <div className="project-copy">
-          {linked.map((paragraph, index) => <p key={paragraphs[index]}>{paragraph}</p>)}
+          {linked.map((paragraph, index) => {
+            const text = paragraphs[index].trim()
+            if (isSectionLabel(text)) return <h2 key={text} className={`project-copy-heading${index > 0 ? ' project-copy-break' : ''}`}>{sectionTitle(text)}</h2>
+            const inWinners = paragraphs.slice(0, index).some((earlier) => /^winners?[:;]?$/i.test(earlier.trim()))
+            if (inWinners && isNameLine(text)) return <h3 key={text} className="project-copy-name">{paragraph}</h3>
+            return <p key={paragraphs[index]}>{paragraph}</p>
+          })}
         </div>}
         {remaining.length > 0 && <div className="project-links">
           {remaining.map((link) => <a key={link.href} href={link.href} target={link.href.startsWith('/') ? undefined : '_blank'} rel={link.href.startsWith('/') ? undefined : 'noreferrer'}>↳ {link.label}</a>)}

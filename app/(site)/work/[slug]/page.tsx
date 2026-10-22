@@ -18,7 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const work = getWorkByAnySlug(slug)
   if (!work) return { title: 'Work not found' }
-  const description = [work.type, work.publication, work.date].filter(Boolean).join(' · ')
+  // The opening of the project's own text, after its type, venue and date.
+  const details = [work.type, work.publication, work.date].filter(Boolean).join(' · ')
+  const opening = work.description.replace(/\s+/g, ' ').trim()
+  const description = opening ? `${details}. ${opening.length > 150 ? `${opening.slice(0, 150).replace(/\s+\S*$/, '')}…` : opening}` : details
   const url = `/work/${work.slug}`
   return {
     title: work.title, description, alternates: { canonical: url },
