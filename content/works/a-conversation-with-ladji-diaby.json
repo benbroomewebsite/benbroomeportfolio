@@ -9,8 +9,18 @@
   "links": [],
   "files": [],
   "imageOrder": "random",
-  "images": [],
+  "images": [
+    {
+      "src": "/work/exhibition-ladjidiaby/001.jpg",
+      "alt": "Ladji Diaby, Who's Gonna Save the World",
+      "group": "",
+      "width": 1550,
+      "height": 2067,
+      "originalName": ""
+    }
+  ],
   "videos": [],
   "legacySlug": "writing-90-antiope-a-conversation-with-ladji-diaby-june-2026",
-  "order": 45
+  "order": 45,
+  "featuredImage": "/work/exhibition-ladjidiaby/001.jpg"
 }

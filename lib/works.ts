@@ -173,17 +173,15 @@ export function embedHref(work: Work): string | undefined {
   return canEmbed(work.externalHref) ? work.externalHref : undefined
 }
 
-// Projects that are nothing but a link go straight to it from the index.
+// Only press mentions go straight to their link from the index. Every other
+// project, including writing published elsewhere, opens its own page with the
+// link beside its image.
 export function opensExternally(work: Work): boolean {
-  if (!work.externalHref) return false
-  if (work.category === 'Press') return true
-  return !embedHref(work) && !work.images.length && !work.files.length && !work.description
+  return Boolean(work.externalHref) && work.category === 'Press'
 }
 
-// On phones, writing and talks skip the project page and go straight to the
-// article, or to the PDF when that is all there is.
+// On phones, writing and talks that are only a PDF open it directly.
 export function directHref(work: Work): string | undefined {
-  if (work.externalHref) return work.externalHref
   const pdf = work.files.find((file) => isPdf(file.href))
   const reading = work.category === 'Selected Writing' || work.category === 'Talk'
   return reading && pdf && !work.images.length ? `/api/document?src=${encodeURIComponent(pdf.href)}` : undefined

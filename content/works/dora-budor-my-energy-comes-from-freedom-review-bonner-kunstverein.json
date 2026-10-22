@@ -5,12 +5,21 @@
   "type": "Review",
   "publication": "Frieze",
   "date": "2026-08-12",
-  "description": "",
+  "description": "The media constituting Dora Budor’s exhibition ‘MY ENERGY COMES FROM FREEDOM’ at Bonner Kunstverein sits ambiguously between architectural intrusion and artistic gesture. As is often the case with Budor’s exhibition making, the parameters that define conventionally usable space are up for negotiation.",
   "externalHref": "https://www.frieze.com/article/dora-budors-hands-everything-architecture",
   "links": [],
   "files": [],
-  "featuredImage": "",
-  "images": [],
+  "featuredImage": "/previews/dora-budor-my-energy-comes-from-freedom-review-bonner-kunstverein.jpg",
+  "images": [
+    {
+      "src": "/previews/dora-budor-my-energy-comes-from-freedom-review-bonner-kunstverein.jpg",
+      "alt": "Dora Budor “MY ENERGY COMES FROM FREEDOM” Review — Bonner Kunstverein",
+      "group": "",
+      "width": 1600,
+      "height": 544,
+      "originalName": ""
+    }
+  ],
   "videos": [],
   "legacySlug": "writing-frieze-dora-budor-my-energy-comes-from-freedom-review-bonner-kunstverein-august-",
   "order": 44

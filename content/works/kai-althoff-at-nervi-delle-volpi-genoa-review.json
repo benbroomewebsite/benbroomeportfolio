@@ -5,12 +5,21 @@
   "type": "Review",
   "publication": "Ocula",
   "date": "2024-12",
-  "description": "",
+  "description": "Ben Broome reviews Kai Althoff's exhibition at nervi delle volpi, set within a 15th-century Genovese palazzo.",
   "externalHref": "https://ocula.com/magazine/insights/kai-althoff-exhibition-in-genoa-is-unmissable/",
   "links": [],
   "files": [],
-  "featuredImage": "",
-  "images": [],
+  "featuredImage": "/previews/kai-althoff-at-nervi-delle-volpi-genoa-review.jpg",
+  "images": [
+    {
+      "src": "/previews/kai-althoff-at-nervi-delle-volpi-genoa-review.jpg",
+      "alt": "Kai Althoff at nervi delle volpi, Genoa — Review",
+      "group": "",
+      "width": 1200,
+      "height": 630,
+      "originalName": ""
+    }
+  ],
   "videos": [],
   "legacySlug": "writing-ocula-kai-althoff-at-nervi-delle-volpi-genoa-review-december-2024",
   "order": 58
