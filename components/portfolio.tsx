@@ -75,7 +75,8 @@ export function Portfolio() {
       const rows = list.children
       if (rows.length < 2 || getComputedStyle(archive).scrollSnapType === 'none') return
       const pitch = rows[1].getBoundingClientRect().top - rows[0].getBoundingClientRect().top
-      const travel = footer.getBoundingClientRect().bottom - rows[0].getBoundingClientRect().top - archive.getBoundingClientRect().height
+      const below = parseFloat(getComputedStyle(archive).paddingBottom)
+      const travel = footer.getBoundingClientRect().bottom + below - rows[0].getBoundingClientRect().top - archive.getBoundingClientRect().height
       if (travel > 0 && pitch > 0) archive.style.setProperty('--end-fill', `${(pitch - (travel % pitch)) % pitch}px`)
     }
     fit()
