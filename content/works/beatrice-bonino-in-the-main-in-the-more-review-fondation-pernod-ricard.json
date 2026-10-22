@@ -9,8 +9,19 @@
   "links": [],
   "files": [],
   "imageOrder": "random",
-  "images": [],
+  "images": [
+    {
+      "src": "/previews/beatrice-bonino-in-the-main-in-the-more-review-fondation-pernod-ricard.jpg",
+      "alt": "Beatrice Bonino “In the main in the more” Review — Fondation Pernod Ricard",
+      "group": "",
+      "width": 1280,
+      "height": 720,
+      "originalName": ""
+    }
+  ],
   "videos": [],
   "legacySlug": "writing-frieze-beatrice-bonino-in-the-main-in-the-more-review-fondation-pernod-ricard-ja",
-  "order": 50
+  "order": 50,
+  "description": "At Fondation Pernod Ricard, Paris, the artist’s sculptures grant everyday detritus improbable permanence as packaging and object converge with relic-like reverence…",
+  "featuredImage": "/previews/beatrice-bonino-in-the-main-in-the-more-review-fondation-pernod-ricard.jpg"
 }

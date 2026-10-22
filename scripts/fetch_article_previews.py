@@ -9,6 +9,7 @@ import html
 import io
 import json
 import re
+import subprocess
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -18,6 +19,13 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 PREVIEWS = ROOT / "public" / "previews"
 AGENT = {"User-Agent": "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"}
+# Some publications (Frieze) turn the share crawler and Python clients away but
+# answer curl presenting itself as a browser.
+BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36"
+
+
+def curl(url):
+    return subprocess.run(["curl", "-sfL", "-A", BROWSER, "-H", "Accept-Language: en-GB", url], capture_output=True, check=True, timeout=60).stdout
 # Pages whose share tags describe the publication rather than the article.
 SKIP = {"a-conversation-with-ladji-diaby", "claudia-comte-vistamare"}
 GENERIC_SUMMARY = {"simon-conrad-sies-hoke-dusseldorf"}
@@ -34,16 +42,16 @@ skipped = []
 for path in sorted((ROOT / "content/works").glob("*.json")):
     work = json.loads(path.read_text(encoding="utf-8"))
     href = work.get("externalHref")
-    if work["category"] != "Selected Writing" or not href or work["files"] or work["images"] or path.stem in SKIP:
+    if work["category"] != "Selected Writing" or not href or work.get("files") or work.get("images") or path.stem in SKIP:
         continue
     try:
         page = requests.get(href, headers=AGENT, timeout=30).text
+        if not meta(page, "image"):
+            page = curl(href).decode("utf-8", "replace")
         image_url = meta(page, "image")
         if not image_url:
             raise ValueError("no share image")
-        raw = requests.get(urljoin(href, image_url), headers=AGENT, timeout=60)
-        raw.raise_for_status()
-        image = Image.open(io.BytesIO(raw.content)).convert("RGB")
+        image = Image.open(io.BytesIO(curl(urljoin(href, image_url)))).convert("RGB")
         image.thumbnail((1600, 1600))
         image.save(PREVIEWS / f"{path.stem}.jpg", quality=86)
     except Exception as error:

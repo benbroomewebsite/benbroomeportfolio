@@ -21,6 +21,15 @@ export function galleryRows<T extends GalleryImage>(images: readonly T[]): T[][]
     if (!isPortrait(image)) pairLandscapes = !pair
     index += pair ? 2 : 1
   }
+  // A portrait left alone at the end would sit at half width beside an empty
+  // half; it joins the row before instead, still at a shared height.
+  const last = rows.at(-1)
+  const before = rows.at(-2)
+  const auto = (image: GalleryImage) => !image.layout || image.layout === 'auto'
+  if (last && before && last.length === 1 && auto(last[0]) && isPortrait(last[0]) && before.length < 3 && before.every(auto)) {
+    before.push(last[0])
+    rows.pop()
+  }
   return rows
 }
 

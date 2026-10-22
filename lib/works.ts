@@ -22,6 +22,9 @@ export type WorkFile = {
   href: string
 }
 
+// A document is read on the project page, or listed with the links (a press release).
+export type WorkDocument = WorkFile & { display: 'inline' | 'link' }
+
 export type Work = {
   slug: string
   legacySlug?: string
@@ -36,12 +39,13 @@ export type Work = {
   imageOrder: 'random' | 'manual'
   videos?: WorkVideo[]
   sortDate?: string
-  files: WorkFile[]
+  files: WorkDocument[]
   links: WorkFile[]
   externalHref: string | null
   featuredImage: string
   order: number
   category: WorkCategory
+  alsoInWriting: boolean
 }
 
 // One entry per file in content/works, edited at /keystatic. `date` is YYYY,
@@ -51,13 +55,14 @@ type ContentWork = {
   title: string
   indexTitle?: string
   category: string
+  alsoInWriting?: boolean
   type?: string
   publication?: string
   date?: string
   description?: string
   externalHref?: string | null
   links?: WorkFile[]
-  files?: Array<{ label?: string; href?: string; upload?: string | null }>
+  files?: Array<{ label?: string; href?: string; upload?: string | null; display?: 'inline' | 'link' }>
   featuredImage?: string
   imageOrder?: 'random' | 'manual'
   // `upload` is a file added through the editor; `src` names one already in the media bucket.
@@ -127,17 +132,22 @@ function normalize(work: ContentWork): Work {
     imageOrder: work.imageOrder === 'manual' ? 'manual' : 'random',
     videos: (work.videos ?? []).map((video) => ({ src: video.src, label: video.label ?? '', group: video.group || undefined })),
     sortDate,
-    files: (work.files ?? []).filter((file) => file.upload || file.href).map((file) => ({ label: file.label ?? '', href: (file.upload || file.href)! })),
+    files: (work.files ?? []).filter((file) => file.upload || file.href).map((file) => ({ label: file.label ?? '', href: (file.upload || file.href)!, display: file.display === 'link' ? 'link' : 'inline' })),
     links: work.links ?? [],
     externalHref: work.externalHref || null,
     featuredImage: work.featuredImage ?? '',
     order: work.order ?? 0,
     category: work.category as WorkCategory,
+    alsoInWriting: Boolean(work.alsoInWriting) && work.category !== 'Selected Writing',
   }
 }
 
 // Press entries stay in content/works but are hidden from the site for now.
 export const works: Work[] = interleaveByYear((data as ContentWork[]).map(normalize)).filter((work) => work.category !== 'Press')
+
+// An exhibition text can be listed under Selected Writing as well as its own filter.
+export const inFilter = (work: Work, category: WorkCategory) =>
+  work.category === category || (category === 'Selected Writing' && work.alsoInWriting)
 
 export const getWork = (slug: string) => works.find((work) => work.slug === slug)
 export const getWorkByAnySlug = (slug: string) => works.find((work) => work.slug === slug || work.legacySlug === slug)

@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { carouselImages, carouselWork, contact, directHref, opensExternally, type Work, type WorkCategory, works } from '@/lib/works'
+import { carouselImages, carouselWork, contact, directHref, inFilter, opensExternally, type Work, type WorkCategory, works } from '@/lib/works'
 import { mediaHref } from '@/lib/media'
 import { Identity } from '@/components/identity'
 import { Project } from '@/components/project'
@@ -20,7 +20,7 @@ const filters: Filter[] = ['All', 'Exhibition', 'Selected Writing', 'Performance
 function slidesFor(filter: Filter): Slide[] {
   const curated = carouselImages.map((src) => ({ src, work: carouselWork(src) }))
   if (filter === 'All') return curated
-  const slides = works.filter((work) => work.category === filter).flatMap((work) => {
+  const slides = works.filter((work) => inFilter(work, filter)).flatMap((work) => {
     const lead = work.featuredImage || work.images[0]?.src
     const sources = filter === 'Artist Grant' ? work.images.map((image) => image.src) : lead ? [lead] : []
     return sources.map((src) => ({ src, work }))
@@ -36,7 +36,7 @@ export function Portfolio() {
   const archiveRef = useRef<HTMLElement>(null)
   const [hovered, setHovered] = useState<Work | null>(null)
   const [filter, setFilter] = useState<Filter>('All')
-  const visibleWorks = filter === 'All' ? works : works.filter((work) => work.category === filter)
+  const visibleWorks = filter === 'All' ? works : works.filter((work) => inFilter(work, filter))
 
   useLayoutEffect(() => {
     const savedFilter = window.sessionStorage.getItem('archive-filter')

@@ -11,8 +11,11 @@ export const editorEnabled = github || process.env.NODE_ENV === 'development'
 // site itself; the older archive stays in the media bucket and is named by path.
 const uploads = { directory: 'public/uploads/works', publicPath: '/uploads/works/' }
 
+// Only the main branch is published. Should a save land on a new branch made in
+// the editor, it is named editor/… and .github/workflows/publish-editor-branches.yml
+// merges it into main, so nothing saved goes missing from the site.
 export default config({
-  storage: github ? { kind: 'github', repo: 'benbroomewebsite/benbroomeportfolio' } : { kind: 'local' },
+  storage: github ? { kind: 'github', repo: 'benbroomewebsite/benbroomeportfolio', branchPrefix: 'editor/' } : { kind: 'local' },
   ui: { brand: { name: 'Ben Broome' } },
   collections: {
     works: collection({
@@ -32,6 +35,10 @@ export default config({
           description: 'Which filter the project appears under.',
           options: ['Exhibition', 'Selected Writing', 'Performance', 'Talk', 'Artist Grant', 'Press'].map((value) => ({ label: value, value })),
           defaultValue: 'Exhibition',
+        }),
+        alsoInWriting: fields.checkbox({
+          label: 'Also list under Selected Writing',
+          description: 'For an exhibition whose text you wrote. It appears once under All and also under Selected Writing.',
         }),
         type: fields.text({ label: 'Medium', description: 'Shown next to the title, e.g. Exhibition, Writing, Performance.' }),
         publication: fields.text({ label: 'Venue or publication' }),
@@ -54,6 +61,12 @@ export default config({
             label: fields.text({ label: 'Label' }),
             upload: fields.file({ label: 'Upload a PDF', description: 'For a new document. Leave empty for one that is already on the site.', ...uploads }),
             href: fields.text({ label: 'Existing document path', description: 'Set for documents already on the site. Leave alone.' }),
+            display: fields.select({
+              label: 'Show as',
+              description: 'Read on the page shows the PDF beside or beneath the images. Link on the left lists it under the other links, e.g. a press release.',
+              options: [{ label: 'Read on the page', value: 'inline' }, { label: 'Link on the left', value: 'link' }],
+              defaultValue: 'inline',
+            }),
           }),
           { label: 'Documents', itemLabel: (props) => props.fields.label.value || props.fields.href.value || props.fields.upload.value?.filename || 'New document' },
         ),

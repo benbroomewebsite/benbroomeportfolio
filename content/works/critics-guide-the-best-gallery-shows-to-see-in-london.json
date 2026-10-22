@@ -9,8 +9,19 @@
   "links": [],
   "files": [],
   "imageOrder": "random",
-  "images": [],
+  "images": [
+    {
+      "src": "/previews/critics-guide-the-best-gallery-shows-to-see-in-london.jpg",
+      "alt": "Critics guide — The Best Gallery Shows to See in London",
+      "group": "",
+      "width": 1280,
+      "height": 720,
+      "originalName": ""
+    }
+  ],
   "videos": [],
   "legacySlug": "writing-frieze-critics-guide-the-best-gallery-shows-to-see-in-london-october-2024",
-  "order": 59
+  "order": 59,
+  "description": "From Tarek Lakhrissi’s exploration of eroticism’s liberating potential at Nicoletti to an exhibition of rarely-seen Jack Whitten works at Hauser & Wirth…",
+  "featuredImage": "/previews/critics-guide-the-best-gallery-shows-to-see-in-london.jpg"
 }

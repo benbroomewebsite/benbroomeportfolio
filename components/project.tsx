@@ -36,7 +36,8 @@ function linkNames(paragraphs: string[], links: Array<{ label: string; href: str
 }
 
 export function ProjectPage({ work }: { work: Work }) {
-  const pdfs = work.files.filter((file) => /\.pdf(?:$|[?#])/i.test(file.href))
+  // PDFs set to "Link on the left" (a press release) join the links instead of the reader.
+  const pdfs = work.files.filter((file) => /\.pdf(?:$|[?#])/i.test(file.href) && file.display !== 'link')
   const shuffledImages = useRandomOrder(work.images, work.imageOrder !== 'manual')
   const galleryImages = shuffledImages.filter((image) => !/\.pdf$/i.test(image.originalName ?? ''))
   // Exhibitions and performances keep their images and show the text beneath them.
@@ -72,12 +73,19 @@ export function ProjectPage({ work }: { work: Work }) {
   const exhibitionText = textBelow ? <div className="project-text-below"><PdfReader source={pdfs[0].href} label={work.title} /></div> : null
   const paragraphs = work.description ? work.description.split(/\n\n+/) : []
   const writingHref = work.files[0]?.href ? mediaHref(work.files[0].href) : work.externalHref
+  const fileLink = (file: Work['files'][number]) => ({ label: file.label.replace(/\.pdf$/i, '') || 'File', href: mediaHref(file.href) })
+  const linkedFiles = work.files.filter((file) => !pdfs.includes(file) && file.display === 'link').map(fileLink)
+  const publication = work.publication.split(',')[0]
   const links = work.category === 'Selected Writing'
-    ? (!pdfs.length && writingHref ? [{ label: 'Read', href: writingHref }] : [])
+    ? [
+        ...(!pdfs.length && writingHref ? [{ label: writingHref === work.externalHref && publication ? `Read on ${publication}` : 'Read', href: writingHref }] : []),
+        ...linkedFiles,
+      ]
     : [
-        ...work.files.filter((file) => !pdfs.includes(file)).map((file) => ({ label: file.label.replace(/\.pdf$/i, '') || 'File', href: mediaHref(file.href) })),
-        ...(work.externalHref ? [{ label: work.publication.split(',')[0] || 'Link', href: work.externalHref }] : []),
+        ...work.files.filter((file) => !pdfs.includes(file) && file.display !== 'link').map(fileLink),
+        ...(work.externalHref ? [{ label: publication || 'Link', href: work.externalHref }] : []),
         ...work.links,
+        ...linkedFiles,
       ]
   const article = embedHref(work)
   // Related writing that can be shown live follows the images, after any exhibition text.

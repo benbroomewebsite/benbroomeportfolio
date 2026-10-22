@@ -9,8 +9,19 @@
   "links": [],
   "files": [],
   "imageOrder": "random",
-  "images": [],
+  "images": [
+    {
+      "src": "/previews/olukemi-lijadu-profile.jpg",
+      "alt": "Olukemi Lijadu Profile",
+      "group": "",
+      "width": 1280,
+      "height": 720,
+      "originalName": ""
+    }
+  ],
   "videos": [],
   "legacySlug": "writing-frieze-olukemi-lijadu-profile-february-2026",
-  "order": 48
+  "order": 48,
+  "description": "For her largest solo exhibition to date, the artist traces her family and diasporic histories to show how music carries memory, knowledge and culture across time…",
+  "featuredImage": "/previews/olukemi-lijadu-profile.jpg"
 }
