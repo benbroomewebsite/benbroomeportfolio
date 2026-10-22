@@ -5,7 +5,7 @@ import shutil
 from pathlib import Path
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 def read(path):
     return json.loads(path.read_text(encoding='utf8'))

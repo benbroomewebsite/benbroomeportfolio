@@ -28,3 +28,6 @@ public/files/
 
 # Collected from content/works by scripts/build-works.mjs.
 lib/generated/
+
+# Browser automation scratch files.
+.playwright-mcp/

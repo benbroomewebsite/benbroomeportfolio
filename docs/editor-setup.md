@@ -14,7 +14,7 @@ every commit, and the images stay where they are.
    `NEXT_PUBLIC_KEYSTATIC_STORAGE=github`, run `pnpm dev`, and open
    http://localhost:3000/keystatic. Follow the prompt to create a GitHub App;
    when asked for the deployed URL, enter
-   `https://ben-broome-prototype.vercel.app`. It writes four values into `.env`:
+   `https://benbroomeportfolio-two.vercel.app`. It writes four values into `.env`:
    `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`,
    `KEYSTATIC_SECRET` and `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`.
 3. **Install the app on the repository** when GitHub offers to, choosing only
@@ -26,13 +26,16 @@ every commit, and the images stay where they are.
 ## Check before relying on it
 
 Vercel's free Hobby plan does not deploy commits to a **private** repository
-when the commit author is not the Vercel account owner. This repository is
-private, so Ben's saves may commit but not deploy. Ways round it: make the
-repository public, move the Vercel project to a paid team with Ben as a member,
-or move the project to Ben's own Vercel account.
+when the commit author is not the Vercel account owner. The repository is now
+public, so Ben's saves deploy.
 
 ## What Ben does
 
-Open `https://ben-broome-prototype.vercel.app/keystatic`, sign in with GitHub,
+Open `https://benbroomeportfolio-two.vercel.app/keystatic`, sign in with GitHub,
 pick a project, change it, press Save. The site updates a minute or two later.
-New images and PDFs still have to be uploaded to R2 by Daniel.
+New images and PDFs uploaded in the editor are stored in the repository under
+`public/uploads/` and need no further step.
+
+If the editor offers a branch menu, stay on **main**. A save made on another
+branch is merged into main automatically (see the README), but main is where
+the current content is.

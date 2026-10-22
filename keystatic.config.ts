@@ -11,6 +11,9 @@ export const editorEnabled = github || process.env.NODE_ENV === 'development'
 // site itself; the older archive stays in the media bucket and is named by path.
 const uploads = { directory: 'public/uploads/works', publicPath: '/uploads/works/' }
 
+const webAddress = { regex: /^https?:\/\/\S+$/, message: 'A full address, starting https://' }
+const optionalWebAddress = { regex: /^(https?:\/\/\S+)?$/, message: webAddress.message }
+
 // Only the main branch is published. Should a save land on a new branch made in
 // the editor, it is named editor/… and .github/workflows/publish-editor-branches.yml
 // merges it into main, so nothing saved goes missing from the site.
@@ -45,14 +48,14 @@ export default config({
         date: fields.text({
           label: 'Date',
           description: 'As precise as you know it: 2025, 2025-10 or 2025-10-04.',
-          validation: { pattern: { regex: /^(\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?)?)?$/, message: 'Use 2025, 2025-10 or 2025-10-04.' } },
+          validation: { isRequired: true, pattern: { regex: /^\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?)?$/, message: 'Use 2025, 2025-10 or 2025-10-04.' } },
         }),
         description: fields.text({ label: 'Text', description: 'Leave a blank line between paragraphs.', multiline: true }),
-        externalHref: fields.text({ label: 'External link', description: 'For writing and press: where the piece can be read.' }),
+        externalHref: fields.text({ label: 'External link', description: 'For writing and press: where the piece can be read.', validation: { pattern: optionalWebAddress } }),
         links: fields.array(
           fields.object({
-            label: fields.text({ label: 'Label' }),
-            href: fields.text({ label: 'Web address' }),
+            label: fields.text({ label: 'Label', validation: { isRequired: true } }),
+            href: fields.text({ label: 'Web address', validation: { isRequired: true, pattern: webAddress } }),
           }),
           { label: 'Links', itemLabel: (props) => props.fields.label.value || props.fields.href.value },
         ),

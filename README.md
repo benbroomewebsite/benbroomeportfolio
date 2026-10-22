@@ -1,70 +1,95 @@
 # benbroomeportfolio
 
+Ben Broome's portfolio: an index of exhibitions, writing, performances, talks and
+artist grants, with a page for each project. Next.js on Vercel, content edited
+by Ben in Keystatic at `/keystatic`, media in the `benbroome-portfolio-media` R2
+bucket.
+
+Live site: https://benbroomeportfolio-two.vercel.app (Vercel deploys every push
+to `main`; other branches get preview deployments).
+
+## How a change reaches the site
+
+1. Ben edits a project at `/keystatic` and presses **Save**. Each save is a commit
+   to `main` on GitHub.
+2. Vercel builds. `scripts/build-works.mjs` collects `content/works/*.json` into
+   `lib/generated/works.json`, then `scripts/check-portfolio.cjs` and
+   `scripts/check-gallery-layout.cjs` run.
+3. The site updates a minute or two later.
+
+Two safeguards keep a save from going missing:
+
+- **Editor branches are published.** Keystatic can save to a new branch from its
+  branch menu. Such branches are named `editor/…` (`branchPrefix` in
+  `keystatic.config.ts`), and `.github/workflows/publish-editor-branches.yml`
+  merges them into `main`.
+- **Content cannot break the build.** A failed build leaves the site on its old
+  version without telling Ben. The editor requires a date and full link
+  addresses, and `build-works.mjs` leaves out anything still broken (a mistyped
+  image path, an incomplete link) with a warning in the Vercel build log. The
+  checks that follow test the code, so a failure there is a bug to fix here.
+
+## Code layout
+
+| Path | What it holds |
+| --- | --- |
+| `app/(site)/` | Pages: the index (`page.tsx`), `bio/`, `work/[slug]/` |
+| `app/api/document/` | Streams registered PDFs from R2, with byte ranges |
+| `app/keystatic/`, `app/api/keystatic/` | The editor |
+| `components/portfolio.tsx` | The index, filters, hover preview and slideshow |
+| `components/project.tsx` | A project page, composed from `project-text.tsx` (text, grant headings, links) and `project-gallery.tsx` (photo rows, videos) |
+| `components/pdf-reader.tsx` | The in-page PDF reader |
+| `components/editor/` | The visual image organiser in the editor |
+| `lib/works.ts` | Project types, normalisation of editor content, ordering |
+| `lib/project-view.ts` | What a project page shows: documents, links, embeds |
+| `lib/gallery-layout.ts` | Photo row rules, shared by the site and the editor |
+| `lib/carousel.ts`, `lib/bio.ts` | Home slideshow; bio and contact |
+| `lib/media.ts`, `lib/media-map.json` | Site paths to R2 objects |
+| `content/works/`, `content/site.json` | The content, one file per project |
+| `scripts/` | Build, checks and media tools in use |
+| `scripts/archive/` | The one-off Squarespace migration, kept for reference |
+
 ## Editing projects
 
-The Images field opens in **Desktop layout**, showing photo proportions and rows
-using the same layout rules as the site. Switch to **Phone layout** to see the
-single-column arrangement, or **Thumbnail grid** for a compact overview.
-Each photo can use Automatic, Full width, Pair with next, Small left or Small
-right. Videos and documents are not shown in this photo preview.
-The Images field shows thumbnail cards for both R2 images and new uploads.
-Drag a photo into position, or use its arrow buttons. Open **Edit image** to
-replace the photo or change its description and section heading. Click
-**Add image** for another photo, then **Save** at the top when finished.
+Each project is one file in `content/works/`. The date field takes `2025`,
+`2025-10` or `2025-10-04`, whichever is known; year-only projects follow the
+dated ones in their year.
 
-**Gallery order** chooses **Random each visit** (the default) or **Saved order**.
-Saved order uses the thumbnail arrangement on the project page. Images with the
-same section heading stay together, with sections ordered by their first image.
-The index preview and home slideshow continue to choose images randomly.
+- **Filter** sets where a project is listed. **Also list under Selected Writing**
+  adds an exhibition to that filter too, without repeating it under All.
+- **Documents** are PDFs. **Show as** chooses **Read on the page** (beside or
+  beneath the images, and also linked on the left) or **Link on the left** only,
+  for example a press release.
+- **External link** is where writing published elsewhere can be read. The project
+  still gets its own page, with its image and a "Read on …" link. Frieze, Ocula
+  and most publications refuse to be shown inside another site, so only those
+  listed in `lib/project-view.ts` are embedded.
+- **Images** opens in **Desktop layout**, showing rows by the site's own rules;
+  **Phone layout** and **Thumbnail grid** are alternatives. Each photo can be
+  Automatic, Full width, Pair with next, Small left or Small right. Drag a photo
+  into place or use its arrows; **Edit image** replaces it or changes its
+  description and section heading.
+- **Gallery order** is **Random each visit** (the default) or **Saved order**.
+  Images with the same section heading stay together, in sections ordered by
+  their first image. Add `?edit` to a project address to see the saved order with
+  numbered labels.
+- Artist grant texts written with lines such as `The Judging Panel:` and
+  `WINNERS:` show those as headings, with each winner's name line in bold.
 
-Each project is one file in `content/works/`, edited through a form at
-`/keystatic` (titles, medium, venue, dates, text, links, image order). The date
-field takes `2025`, `2025-10` or `2025-10-04`, whichever is known. Run `pnpm dev`
-and open http://localhost:3000/keystatic to edit locally; saving rewrites the
-project's file. `scripts/build-works.mjs` collects the files into
-`lib/generated/works.json` before `dev`, `build` and `check`, so restart `pnpm dev`
-to see a local edit on the site.
+Locally, run `pnpm dev` and open http://localhost:3000/keystatic; saving rewrites
+the project's file. Restart `pnpm dev` to see the edit on the site.
 
-Link-only writing entries get a lead image and opening lines from the article's
-own share tags: `python scripts/fetch_article_previews.py` saves the images to
-`public/previews/` and fills in entries that have no PDF or image yet.
+Writing that is only a link gets a lead image and opening lines from the
+article's share tags: `python scripts/fetch_article_previews.py` saves them to
+`public/previews/`.
 
-On the deployed site the editor is switched off until GitHub sign-in is set up.
-See `docs/editor-setup.md`. Once it is on, each save is a commit to this
-repository, and Vercel redeploys.
+## Media
 
-The files under `scripts/import-data/` and `scripts/legacy-works.ts` are the
-original Squarespace import and its date research, kept for reference.
-`scripts/export-content.cjs` created `content/works/` from them once; running it
-again would overwrite later edits.
-
-## Portfolio media
-
-Original project folders are retained in `source-media/` and excluded from Git.
-`content/works/` contains the project entries; `lib/media-map.json` maps their
-media to the existing `benbroome-portfolio-media` R2 bucket. Rooms of Neighbours
-is one exhibition with gallery sections for each artist. Talks have their own
-filter. Projects are newest first within each year using supplied and researched
-dates. Year-only records follow the precisely dated records in that year.
-
-The desktop index previews a random project image on hover or keyboard focus. Clicking opens
-a dedicated project page: title, full text, links and the Images/Read switch sit
-in a narrow left column, and the gallery, videos or PDF fill the rest. Gallery
-images shuffle by default on each visit within their saved artist sections, or
-follow the editor arrangement when Gallery order is Saved order. The home slideshow
-also shuffles. Add `?edit` to a project URL to see its saved order and numbered
-image labels. Gallery rows pair portraits and alternate landscapes between full width and pairs, using
-the dimensions in `lib/image-sizes.json` (rebuilt by `scripts/record_image_sizes.py`).
-On phones the index stacks each entry (title, venue or publication, date, type)
-and projects open directly with a Back to index link at the top and bottom; the
-index filter and scroll position are restored when returning.
-
-`scripts/import-data/date-research.json` records the sources for researched dates. `docs/date-audit.md` lists the unresolved dates
-and conflicting metadata. `lib/project-resources.json` restores the legacy
-projects' own press releases and links, excluding neighbouring listing content.
-
-Run `pnpm check` to validate chronology, date provenance, project URLs and all
-registered media references before deployment.
+Original project folders are kept in `source-media/` (not in Git).
+`lib/media-map.json` maps site paths to the R2 bucket; editor uploads are stored
+in `public/uploads/` and served by the site. Gallery rows use each image's
+dimensions, recorded in the project files (rebuilt by `scripts/record_image_sizes.py`;
+editor uploads are measured by `build-works.mjs`).
 
 To rebuild the new project media (Pillow, PyMuPDF, requests and ffmpeg required):
 
@@ -73,45 +98,33 @@ python scripts/import_new_media.py
 python scripts/prepare_reading_pdf.py
 node node_modules/wrangler/bin/wrangler.js whoami
 python scripts/sync_r2_media.py
-```
-
-The importer leaves source files intact, produces 2400px WebP images and
-H.264/AAC MP4 videos, and retains original photos, videos and PDFs in R2.
-`lib/new-media-manifest.json` records every original source file, object key,
-size and SHA-256 hash. `r2-staging/verification-report.json` records public
-object verification by hash, byte length and Content-Type. The sync is resumable,
-repairs missing or mismatched objects, and does not delete anything from R2.
-
-PDFs open inside the right-hand document reader, with automatically sized pages,
-scrolling, selectable text and downloads. Exhibition entries keep their
-image galleries and offer a document switch for press releases. PDF.js assets
-are prepared automatically on install, before development and before builds;
-`/api/document` streams registered R2 PDFs with byte-range support.
-The oversized Arcane scan has a smaller reading copy recorded in
-`lib/pdf-reading-map.json`; its Download control still returns the original PDF.
-
-```powershell
 python scripts/sync_r2_media.py --verify-only
 ```
 
-If rebuilding the legacy Squarespace archive, run `assemble_portfolio.py` and
-`build_r2_staging.py` **before** `import_new_media.py`; the legacy assembly replaces
-the project data. The uploader excludes manifests and verification files.
+The importer leaves source files intact, produces 2400px WebP images and
+H.264/AAC MP4 videos, and keeps the original photos, videos and PDFs in R2.
+`lib/new-media-manifest.json` records each source file, object key, size and
+SHA-256 hash. The sync is resumable, repairs missing or mismatched objects and
+deletes nothing from R2.
 
-## Prototype deployment
+PDF.js assets are prepared on install and before development and builds. The
+oversized Arcane scan has a smaller reading copy recorded in
+`lib/pdf-reading-map.json`; its Download control still returns the original.
 
-The prototype is hosted at https://ben-broome-prototype.vercel.app on the Vercel project `ben-broome-prototype`. Vercel deploys updates pushed to `main` automatically. Feature branches get preview deployments. The existing benbroome.co.uk domain is not connected to this prototype.
-
-## Local development
+## Development
 
 ```powershell
 pnpm install
-pnpm dev
+pnpm dev     # http://localhost:3000
+pnpm check   # collect content, then run the data and layout checks
+pnpm build
 ```
 
-Open http://localhost:3000. `pnpm check` validates the data; `pnpm build` makes
-the production build.
+Dates and their sources: `scripts/archive/import-data/date-research.json`, with
+open questions in `docs/date-audit.md`. Editor setup: `docs/editor-setup.md`.
+Open questions for Ben: `docs/questions-for-ben.md`.
 
-The original Squarespace scrapers are kept in `scripts/squarespace_full_migration.py`
-and `scripts/download_ben_squarespace_images.py`. Open questions for Ben are
-logged in `docs/questions-for-ben.md`.
+`scripts/archive/export-content.cjs` created `content/works/` from the Squarespace
+import once; running it again would overwrite later edits. If rebuilding the
+legacy archive, run `scripts/archive/assemble_portfolio.py` and
+`scripts/archive/build_r2_staging.py` before `scripts/import_new_media.py`.

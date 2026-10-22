@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { FontTrial } from '@/components/font-trial'
 import { siteDescription, siteName, siteUrl } from '@/lib/site'
-import { contact } from '@/lib/works'
+import { contact } from '@/lib/bio'
 import '../globals.css'
 
 export const metadata: Metadata = {

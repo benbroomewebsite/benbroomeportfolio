@@ -33,6 +33,14 @@ export function galleryRows<T extends GalleryImage>(images: readonly T[]): T[][]
   return rows
 }
 
+// The side a row that does not fill the width sits on: as chosen, or, for small
+// rows laid out automatically, alternating down the page.
+export function rowSide(row: readonly GalleryImage[], rowIndex: number): 'left' | 'right' | undefined {
+  const layout = row[0].layout || 'auto'
+  if (layout === 'left' || layout === 'right') return layout
+  return layout === 'auto' && isNarrowRow(row) && rowIndex % 2 === 1 ? 'right' : undefined
+}
+
 // Avoid enlarging archive photographs beyond their own pixels.
 export function rowMaxWidth(row: readonly GalleryImage[]): number | undefined {
   if (row.some(image => !image.width || !image.height)) return undefined

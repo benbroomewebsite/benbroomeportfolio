@@ -3,7 +3,7 @@
 import { type CSSProperties, useEffect, useRef, useState } from 'react'
 import type { ImageGalleryProps } from '@/lib/editor-images'
 import { mediaHref } from '@/lib/media'
-import { galleryRows, isNarrowRow, ratioOf, rowMaxWidth, type ImageLayout } from '@/lib/gallery-layout'
+import { galleryRows, isNarrowRow, ratioOf, rowMaxWidth, rowSide, type ImageLayout } from '@/lib/gallery-layout'
 import styles from './image-gallery.module.css'
 
 type ImageItem = ImageGalleryProps['elements'][number]
@@ -91,7 +91,7 @@ export function ImageGalleryInput({ elements, onChange, forceValidation = false 
       {groups.map(group => <div key={group} className={styles.group}>
         {group && <h4>{group}</h4>}
         {galleryRows(images.filter(image => image.group === group)).map((row, rowIndex) => <div key={row[0].item.key}
-          className={`${styles.siteRow} ${isNarrowRow(row) ? styles.narrow : ''} ${row[0].layout === 'right' || (isNarrowRow(row) && row[0].layout === 'auto' && rowIndex % 2 === 1) ? styles.right : ''}`}
+          className={`${styles.siteRow} ${isNarrowRow(row) ? styles.narrow : ''} ${rowSide(row, rowIndex) === 'right' ? styles.right : ''}`}
           style={{ maxWidth: rowMaxWidth(row) }}>
           {row.map(image => card(image.item, image.index))}
         </div>)}

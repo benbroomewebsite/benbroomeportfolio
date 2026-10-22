@@ -1,6 +1,4 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
-@import 'shadcn/tailwind.css';
 
 /* Shippori Mincho (SIL Open Font License), Latin subset: a web Mincho close to the MS Mincho Ben has used before. */
 @font-face { font-family: 'Shippori Mincho'; font-weight: 600; font-display: swap; src: url('/fonts/shippori-mincho-600-latin.woff2') format('woff2'); }
@@ -41,6 +39,8 @@ a.work-row { color: inherit; }
 .work-row > span > span { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top; }
 /* Every index cell stays on one line; the full title remains in the link text. */
 .work-row:hover .title > span, .work-row:focus-visible .title > span { text-decoration: underline; text-underline-offset: 2px; }
+/* The month has a fixed width so the years line up down the index. */
+.index-date > span { display: inline-block; width: 2.4em; }
 .contact { margin-top: 72px; line-height: 1.4; }
 .contact a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .viewer { display: flex; flex-direction: column; padding: var(--top-edge) var(--edge) var(--top-edge) var(--gap); }
@@ -80,6 +80,11 @@ a.work-row { color: inherit; }
 .project header p, .project-copy p { margin: 0; }
 .project-copy { max-width: 630px; margin: 0 0 24px; font: inherit; }
 .project-copy p { margin: 0 0 16px; }
+/* Artist grant texts: section headings ("The Judging Panel", "Winners") and winners' names. */
+.project-copy-heading { margin: 0 0 8px; font: inherit; font-weight: 700; }
+.project-copy-break { margin-top: 32px; padding-top: 12px; border-top: 1px solid currentColor; }
+.project-copy-name { margin: 24px 0 4px; font: inherit; font-weight: 700; }
+.project-copy-heading + .project-copy-name { margin-top: 0; }
 .project-links { display: flex; flex-direction: column; gap: 4px; margin: 0 0 24px; }
 .project-links a:hover { text-decoration: underline; text-underline-offset: 2px; }
 .project-media-tabs { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
@@ -127,11 +132,6 @@ a.work-row { color: inherit; }
 .project-info { margin-top: 48px; }
 .project-info .project-copy { max-width: 520px; }
 .project-copy a { text-decoration: underline; text-underline-offset: 2px; }
-.project-copy-heading { margin: 0 0 8px; font: inherit; font-weight: 700; }
-.project-copy-break { margin-top: 32px; padding-top: 12px; border-top: 1px solid currentColor; }
-.project-copy-name { margin: 24px 0 4px; font: inherit; font-weight: 700; }
-.project-copy-heading + .project-copy-name { margin-top: 0; }
-.index-date > span { display: inline-block; width: 2.4em; }
 /* Text-heavy projects split the page in half so the text has room to be read. */
 .project-page-text { grid-template-columns: 1fr 1fr; }
 .project-page-text .project-navigation { padding-right: var(--gap); }

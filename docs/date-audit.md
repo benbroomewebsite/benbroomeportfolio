@@ -5,7 +5,7 @@
 All **71 visible projects** have been checked for valid dates, chronology and
 provenance. The complete per-project record, including sources, retained editor
 confirmations and unresolved dates, is in
-[date-review-2026-10-19.json](../scripts/import-data/date-review-2026-10-19.json).
+[date-review-2026-10-19.json](../scripts/archive/import-data/date-review-2026-10-19.json).
 The review makes **15 changes**: one year correction and 14 additions of an
 explicitly supported day. No approximate day has been substituted for a month.
 
@@ -60,7 +60,7 @@ Researched 3 October 2026.
 
 44 imported project records lacked a month. 25 now have sourced month or day
 precision; 19 still need confirmation. Evidence URLs and qualifications for each
-added date are stored in [date-research.json](../scripts/import-data/date-research.json).
+added date are stored in [date-research.json](../scripts/archive/import-data/date-research.json).
 
 The Press filter contains publication directory links, rather than dated project
 records, and is excluded from these totals.

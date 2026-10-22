@@ -3,11 +3,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { carouselImages, carouselWork, contact, directHref, inFilter, opensExternally, type Work, type WorkCategory, works } from '@/lib/works'
+import { contact } from '@/lib/bio'
+import { carouselImages, carouselWork } from '@/lib/carousel'
 import { mediaHref } from '@/lib/media'
-import { Identity } from '@/components/identity'
-import { Project } from '@/components/project'
+import { directHref } from '@/lib/project-view'
 import { useRandomOrder } from '@/lib/use-random-order'
+import { inFilter, type Work, type WorkCategory, works } from '@/lib/works'
+import { Identity } from '@/components/identity'
+import { ProjectPreview } from '@/components/project'
 
 type Filter = 'All' | WorkCategory
 type Slide = { src: string; work?: Work }
@@ -88,17 +91,14 @@ export function Portfolio() {
             <span className="title" title={work.indexTitle}><span>{work.indexTitle}</span></span>
             <span><span>{work.type}</span></span>
             <span><span>{venueOnly(work.publication)}</span></span>
-            <span><span className="index-date"><span>{work.date.includes(' ') ? work.date.split(' ')[0] : ''}</span>{work.date.split(' ').pop()}</span></span>
+            {/* The month has a fixed width so the years line up. */}
+            <span><span className="index-date"><span>{work.month}</span>{work.month ? work.year : work.date}</span></span>
           </>
           const preview = {
             onMouseEnter: () => previewWork(work),
             onMouseLeave: () => setHovered(null),
             onFocus: () => previewWork(work),
             onBlur: () => setHovered(null),
-          }
-
-          if (opensExternally(work)) {
-            return <a key={work.slug} href={work.externalHref!} target="_blank" rel="noreferrer" className="work-row" {...preview}>{row}</a>
           }
 
           return <Link key={work.slug} href={`/work/${work.slug}`} className="work-row" onClick={(event) => {
@@ -123,7 +123,7 @@ export function Portfolio() {
 
     <section className="viewer" aria-live="polite">
       {hovered
-        ? <Project key={hovered.slug} work={hovered} />
+        ? <ProjectPreview key={hovered.slug} work={hovered} />
         : <About key={filter} filter={filter} />}
     </section>
   </main>

@@ -11,7 +11,7 @@ import shutil
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 MIGRATION = ROOT / "benbroome-squarespace-migration"
 GROUPED = ROOT / "benbroome-squarespace-images"
 CONTENT = json.loads((MIGRATION / "nextjs" / "content.json").read_text(encoding="utf-8"))

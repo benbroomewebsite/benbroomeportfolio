@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
-import { aboutParagraphs, contact, portrait } from '@/lib/works'
+import { aboutParagraphs, contact, portrait } from '@/lib/bio'
 import { Identity } from '@/components/identity'
 
 export const metadata: Metadata = { title: 'Bio', description: aboutParagraphs.join(' '), alternates: { canonical: '/bio' }, openGraph: { title: 'Ben Broome — Bio', description: aboutParagraphs.join(' '), url: '/bio' } }

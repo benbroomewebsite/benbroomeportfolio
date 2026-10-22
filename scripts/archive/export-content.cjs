@@ -7,7 +7,7 @@ const path = require('node:path')
 const Module = require('node:module')
 const ts = require('typescript')
 
-const out = path.resolve(__dirname, '../content/works')
+const out = path.resolve(__dirname, '../../content/works')
 if (fs.existsSync(out) && !process.argv.includes('--force')) {
   console.error('content/works already exists. Pass --force to overwrite it.')
   process.exit(1)

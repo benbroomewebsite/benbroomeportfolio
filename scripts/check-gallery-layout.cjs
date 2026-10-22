@@ -1,25 +1,18 @@
-const fs = require('node:fs')
-const Module = require('node:module')
-const path = require('node:path')
 const assert = require('node:assert/strict')
-const ts = require('typescript')
-const filename = path.resolve(__dirname, '../lib/gallery-layout.ts')
-const compiled = new Module(filename, module)
-compiled.filename = filename
-compiled.paths = module.paths
-compiled._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
-  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
-}).outputText, filename)
-const { galleryRows, isNarrowRow, rowMaxWidth } = compiled.exports
+require('./lib/register-ts.cjs')
+const { galleryRows, isNarrowRow, rowMaxWidth, rowSide } = require('../lib/gallery-layout.ts')
+
 const landscape = id => ({ id, width: 1600, height: 1000 })
 const portrait = id => ({ id, width: 800, height: 1200 })
 const ids = images => galleryRows(images).map(row => row.map(image => image.id))
+
 assert.deepEqual(ids([landscape('a'), landscape('b'), landscape('c'), landscape('d')]), [['a'], ['b', 'c'], ['d']])
 assert.deepEqual(ids([portrait('a'), portrait('b'), landscape('c')]), [['a', 'b'], ['c']])
 assert.deepEqual(ids([{ ...portrait('a'), layout: 'full' }, landscape('b')]), [['a'], ['b']])
 assert.equal(isNarrowRow([{ ...portrait('a'), layout: 'full' }]), false)
 assert.deepEqual(ids([{ ...landscape('a'), layout: 'pair' }, landscape('b'), landscape('c')]), [['a', 'b'], ['c']])
 assert.deepEqual(ids([portrait('a'), { ...landscape('b'), layout: 'pair' }, landscape('c')]), [['a'], ['b', 'c']])
+// A portrait left over at the end joins the row before rather than standing alone.
 assert.deepEqual(ids([portrait('a'), portrait('b'), portrait('c')]), [['a', 'b', 'c']])
 assert.deepEqual(ids([landscape('a'), portrait('b')]), [['a', 'b']])
 assert.deepEqual(ids([portrait('a')]), [['a']])
@@ -27,4 +20,9 @@ assert.equal(isNarrowRow([{ ...landscape('a'), layout: 'right' }]), true)
 assert.deepEqual(ids([{ ...landscape('a'), layout: 'right' }, landscape('b')]), [['a'], ['b']])
 assert.equal(rowMaxWidth([{ ...landscape('a'), layout: 'right' }]), 3218)
 assert.equal(rowMaxWidth([landscape('a'), portrait('b')]), 2285)
-console.log('Gallery layout: automatic rows, explicit pairs, full-width portraits, small images and pixel limits passed.')
+// Small rows sit as chosen, or alternate sides when automatic.
+assert.equal(rowSide([{ ...landscape('a'), layout: 'left' }], 1), 'left')
+assert.equal(rowSide([portrait('a')], 0), undefined)
+assert.equal(rowSide([portrait('a')], 1), 'right')
+assert.equal(rowSide([landscape('a')], 1), undefined)
+console.log('Gallery layout: automatic rows, explicit pairs, full-width portraits, small images, sides and pixel limits passed.')

@@ -10,7 +10,7 @@ import shutil
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 MIGRATION = ROOT / "benbroome-squarespace-migration"
 STAGING = ROOT / "r2-staging"
 
