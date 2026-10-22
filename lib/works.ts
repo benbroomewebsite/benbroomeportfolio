@@ -149,4 +149,8 @@ export const works: Work[] = orderByYear((data as ContentWork[]).map(normalize))
 export const inFilter = (work: Work, category: WorkCategory) =>
   work.category === category || (category === 'Selected Writing' && work.alsoInWriting)
 
+// Under Selected Writing, an exhibition listed there is named for its text.
+export const typeIn = (work: Work, category: WorkCategory | 'All') =>
+  category === 'Selected Writing' && work.alsoInWriting ? 'Exhibition text' : work.type
+
 export const getWorkByAnySlug = (slug: string) => works.find((work) => work.slug === slug || work.legacySlug === slug)

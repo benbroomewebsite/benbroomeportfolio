@@ -33,10 +33,7 @@ export function ProjectGallery({ work, images, labelled, afterOpening }: Gallery
   const item = (image: WorkImage) => {
     const picture = <Image src={mediaHref(image.src)} alt={image.alt} width={image.width ?? 1600} height={image.height ?? 1200} sizes="(max-width: 800px) 100vw, 66vw" />
     const style = { '--ratio': ratioOf(image) } as CSSProperties
-    // An image on a project that lives elsewhere leads to it, like the link does.
-    if (work.externalHref && !labelled) {
-      return <a key={image.src} className="gallery-item" style={style} href={work.externalHref} target="_blank" rel="noreferrer">{picture}</a>
-    }
+    // Images stay on the page; only the "Read on …" link leaves the site.
     return <div key={image.src} className="gallery-item" style={style}>
       {picture}
       {labelled && <span className="gallery-label">{work.images.indexOf(image) + 1} · {image.src.split('/').pop()}<br /><small>{image.src}</small></span>}

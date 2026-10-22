@@ -77,14 +77,14 @@ export function ProjectPage({ work }: { work: Work }) {
 }
 
 // The index hover preview: title, details and one image.
-export function ProjectPreview({ work }: { work: Work }) {
+export function ProjectPreview({ work, type = work.type }: { work: Work; type?: string }) {
   const images = useRandomOrder(work.images)
   const preview = images[0]?.src || work.featuredImage
 
   return <article className="project">
     <header>
       <h1>{work.indexTitle}</h1>
-      <p>{[work.type, work.publication, work.date].filter(Boolean).join(' · ')}</p>
+      <p>{[type, work.publication, work.date].filter(Boolean).join(' · ')}</p>
     </header>
     {preview && <div className="project-media">
       <Image src={mediaHref(preview)} alt={work.title} fill sizes="(max-width: 800px) 100vw, 30vw" priority />

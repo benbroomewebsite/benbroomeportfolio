@@ -8,7 +8,7 @@ import { carouselImages, carouselWork } from '@/lib/carousel'
 import { mediaHref } from '@/lib/media'
 import { directHref } from '@/lib/project-view'
 import { useRandomOrder } from '@/lib/use-random-order'
-import { inFilter, type Work, type WorkCategory, works } from '@/lib/works'
+import { inFilter, typeIn, type Work, type WorkCategory, works } from '@/lib/works'
 import { Identity } from '@/components/identity'
 import { ProjectPreview } from '@/components/project'
 
@@ -89,7 +89,7 @@ export function Portfolio() {
         {visibleWorks.map((work) => {
           const row = <>
             <span className="title" title={work.indexTitle}><span>{work.indexTitle}</span></span>
-            <span><span>{work.type}</span></span>
+            <span><span>{typeIn(work, filter)}</span></span>
             <span><span>{venueOnly(work.publication)}</span></span>
             {/* The month has a fixed width so the years line up. */}
             <span><span className="index-date"><span>{work.month}</span>{work.month ? work.year : work.date}</span></span>
@@ -123,7 +123,7 @@ export function Portfolio() {
 
     <section className="viewer" aria-live="polite">
       {hovered
-        ? <ProjectPreview key={hovered.slug} work={hovered} />
+        ? <ProjectPreview key={hovered.slug} work={hovered} type={typeIn(hovered, filter)} />
         : <About key={filter} filter={filter} />}
     </section>
   </main>
