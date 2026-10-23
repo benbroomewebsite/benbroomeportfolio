@@ -31,18 +31,14 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .identity > a:focus-visible strong { text-decoration: underline; text-underline-offset: 2px; }
 .identity p { margin: 0; white-space: pre; font-weight: 700; }
 .identity-mobile, .project-return-bottom { display: none; }
-.filters { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; width: 100%; margin: 0 0 16px; padding: 0; }
+.filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 48px; width: 100%; margin: 0 0 16px; padding: 0; }
 .filters button { min-width: 0; padding: 0; background: transparent; white-space: nowrap; font-weight: 700; }
-/* Auto margins share spare width equally and keep the final filter right-aligned,
-   including when it wraps onto a line by itself. */
-.filters button + button { margin-left: auto; }
 .filters span { text-decoration: none; }
 .filters button.active span, .filters button:focus-visible span { text-decoration: underline; text-underline-offset: 3px; }
 .work-list { display: flex; flex-direction: column; }
 .work-row { display: grid; grid-template-columns: minmax(0, 1fr) 8em minmax(0, 1fr) 5.5em; column-gap: 24px; width: 100%; padding: 8px 0; background: transparent; text-align: left; }
 a.work-row { color: inherit; }
 .work-row > span { min-width: 0; overflow: hidden; }
-.work-row > span:last-child { text-align: right; }
 .work-row > span > span { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top; }
 /* Every index cell stays on one line; the full title remains in the link text. */
 .work-row:focus-visible .title > span { text-decoration: underline; text-underline-offset: 2px; }
@@ -59,8 +55,8 @@ a.work-row { color: inherit; }
    hover preview's lines. */
 .portfolio-shell { --gap: 24px; --index-row-padding: 4px; --index-bottom-edge: 4px; grid-template-rows: auto minmax(0, 1fr); height: 100dvh; line-height: 21px; }
 .portfolio-shell .work-row { grid-template-columns: minmax(0, 1.2fr) 8em minmax(0, 1fr) 5.5em; padding: var(--index-row-padding) 0; }
-/* Equal gaps fill the index width; the last label and dates share its right edge. */
-.portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); column-gap: 16px; }
+/* --filter-gap is set by Portfolio to line a filter up with an index column it nearly meets. */
+.portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); column-gap: var(--filter-gap, 48px); }
 .portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
 /* The index runs to the foot of the window; the space below its last line sits
    inside the scroll, so the end of the list stops level with the slideshow caption. */
