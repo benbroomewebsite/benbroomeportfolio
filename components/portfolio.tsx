@@ -37,7 +37,6 @@ const venueOnly = (venue: string) => venue.replace(/,\s*[^,]+$/, '')
 
 export function Portfolio() {
   const archiveRef = useRef<HTMLElement>(null)
-  const filtersRef = useRef<HTMLElement>(null)
   const [hovered, setHovered] = useState<Work | null>(null)
   const [filter, setFilter] = useState<Filter>('All')
   const visibleWorks = works.filter((work) => inFilter(work, filter))
@@ -87,45 +86,6 @@ export function Portfolio() {
     return () => observer.disconnect()
   }, [])
 
-  // On some screen widths a filter label lands a few pixels off the start of an
-  // index column, which reads as a near miss. Stretch the space between the
-  // filters just enough to line that label up exactly; otherwise leave it.
-  useLayoutEffect(() => {
-    const nav = filtersRef.current
-    const archive = archiveRef.current
-    if (!nav || !archive) return
-    const NEAR = 12
-    const fit = () => {
-      nav.style.removeProperty('--filter-gap')
-      const row = archive.querySelector('.work-row')
-      const spans = [...nav.querySelectorAll('button span')]
-      if (!row || spans.length < 2 || !window.matchMedia('(min-width: 801px)').matches) return
-      // Filters on the first line, the one that sits above the columns.
-      const onFirstLine = () => spans.filter((span) => Math.abs(span.getBoundingClientRect().top - spans[0].getBoundingClientRect().top) <= 1).length
-      const firstLine = onFirstLine()
-      const labels = spans.slice(0, firstLine).map((label) => label.getBoundingClientRect())
-      const columns = [...row.children].slice(1).map((cell) => cell.getBoundingClientRect().left)
-      let nearest: { index: number; offset: number } | undefined
-      labels.forEach((label, index) => {
-        if (index === 0) return
-        for (const column of columns) {
-          const offset = column - label.left
-          if (Math.abs(offset) <= NEAR && (!nearest || Math.abs(offset) < Math.abs(nearest.offset))) nearest = { index, offset }
-        }
-      })
-      if (!nearest || Math.abs(nearest.offset) < 0.5) return
-      const gap = parseFloat(getComputedStyle(nav).columnGap)
-      nav.style.setProperty('--filter-gap', `${gap + nearest.offset / nearest.index}px`)
-      // The adjustment must not move a filter onto or off the first line.
-      if (onFirstLine() !== firstLine) nav.style.removeProperty('--filter-gap')
-    }
-    fit()
-    document.fonts.ready.then(fit)
-    const observer = new ResizeObserver(fit)
-    observer.observe(archive)
-    return () => observer.disconnect()
-  }, [])
-
   const previewWork = (work: Work) => {
     if (window.matchMedia('(hover: hover) and (min-width: 801px)').matches) setHovered(work)
   }
@@ -140,7 +100,7 @@ export function Portfolio() {
       <Identity />
     </div>
 
-    <nav ref={filtersRef} className="filters" aria-label="Filter selected work">
+    <nav className="filters" aria-label="Filter selected work">
       {filters.map((item) => <button key={item} className={filter === item ? 'active' : ''} aria-pressed={filter === item} onClick={() => {
         setFilter(item)
         window.sessionStorage.setItem('archive-filter', item)
