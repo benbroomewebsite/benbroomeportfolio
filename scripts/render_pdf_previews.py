@@ -21,7 +21,7 @@ for path in sorted((ROOT / "content/works").glob("*.json")):
     pdf = next((file["href"] for file in work["files"] if file["href"].lower().endswith(".pdf")), None)
     if not pdf or work["images"] or pdf not in media:
         continue
-    local = ROOT / "r2-staging" / media[pdf]
+    local = ROOT / "r2-bucket" / media[pdf]
     data = local.read_bytes() if local.exists() else requests.get(f"{MEDIA_BASE}/{quote(media[pdf])}", timeout=120).content
     page = fitz.open(stream=data, filetype="pdf")[0]
     pixmap = page.get_pixmap(matrix=fitz.Matrix(1200 / page.rect.width, 1200 / page.rect.width), alpha=False)

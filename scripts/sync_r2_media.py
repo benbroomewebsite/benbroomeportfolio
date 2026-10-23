@@ -20,7 +20,7 @@ from urllib.parse import quote
 import requests
 
 ROOT = Path(__file__).resolve().parents[1]
-STAGING = ROOT / 'r2-staging'
+DEFAULT_SOURCE = ROOT / 'r2-bucket'
 BASE = os.environ.get('NEXT_PUBLIC_MEDIA_BASE_URL', 'https://pub-77bd6b0eb2e9483f9b0201fc3bb527e7.r2.dev').rstrip('/')
 BUCKET = os.environ.get('R2_BUCKET', 'benbroome-portfolio-media')
 ACCOUNT = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '6e0c36e454fa6e50d978601733ec8932')
@@ -32,6 +32,7 @@ def digest(path, algorithm):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source', type=Path, default=DEFAULT_SOURCE, help='Object-key directory (default: r2-bucket)')
     parser.add_argument('--verify-only', action='store_true')
     parser.add_argument('--new-only', action='store_true')
     parser.add_argument('--staged-new', action='store_true', help='Sync completed new staging files while the importer is still running')
@@ -40,27 +41,30 @@ def main():
     parser.add_argument('--workers', type=int, default=4)
     parser.add_argument('--requests-per-second', type=float, default=2)
     args = parser.parse_args()
+    source_dir = args.source.resolve()
     if args.staged_new:
-        paths = [path for directory in (STAGING / 'work', STAGING / 'originals') for path in directory.rglob('*') if path.is_file() and time.time() - path.stat().st_mtime > 30]
-        new = {'objects': [{'object_key': path.relative_to(STAGING).as_posix(), 'sha256': digest(path, 'sha256')} for path in paths]}
+        paths = [path for directory in (source_dir / 'work', source_dir / 'originals') for path in directory.rglob('*') if path.is_file() and time.time() - path.stat().st_mtime > 30]
+        new = {'objects': [{'object_key': path.relative_to(source_dir).as_posix(), 'sha256': digest(path, 'sha256')} for path in paths]}
     else:
         new = json.loads((ROOT / 'lib/new-media-manifest.json').read_text(encoding='utf8'))
         reading_manifest = ROOT / 'lib/pdf-reading-manifest.json'
         reading = json.loads(reading_manifest.read_text(encoding='utf8')) if reading_manifest.exists() else {'objects': []}
         new['objects'] = reading['objects'] if args.reading_only else new['objects'] + reading['objects']
-    objects = {item['object_key']: STAGING / item['object_key'] for item in new['objects']}
+    objects = {item['object_key']: source_dir / item['object_key'] for item in new['objects']}
     expected_sha = {item['object_key']: item['sha256'] for item in new['objects']}
     if not args.new_only and not args.staged_new and not args.reading_only:
         mapping = json.loads((ROOT / 'lib/media-map.json').read_text(encoding='utf8'))
         for public, key in mapping.items():
-            objects.setdefault(key, STAGING / key if (STAGING / key).is_file() else ROOT / 'public' / public.lstrip('/'))
+            objects.setdefault(key, source_dir / key if (source_dir / key).is_file() else ROOT / 'public' / public.lstrip('/'))
     token = os.environ.get('CLOUDFLARE_API_TOKEN')
     if not args.verify_only and not token:
         config = Path(os.environ['APPDATA']) / 'xdg.config/.wrangler/config/default.toml'
         token = tomllib.loads(config.read_text(encoding='utf8'))['oauth_token']
     local = threading.local()
     completed, results = 0, []
-    report_path = STAGING / ('reading-verification-report.json' if args.reading_only else 'verification-report.json')
+    report_dir = ROOT / 'docs/r2-mirror'
+    report_dir.mkdir(parents=True, exist_ok=True)
+    report_path = report_dir / ('reading-upload-verification.json' if args.reading_only else 'upload-verification.json')
     if args.retry_failures:
         previous = json.loads(report_path.read_text(encoding='utf8'))
         if previous['bucket'] != BUCKET or previous['public_base_url'] != BASE:

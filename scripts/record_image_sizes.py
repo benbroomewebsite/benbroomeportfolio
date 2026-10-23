@@ -1,6 +1,6 @@
 """Record pixel dimensions for project images that the import left unsized.
 
-Reads each image from r2-staging/ (falling back to the public R2 bucket) and
+Reads each image from r2-bucket/ (falling back to the public R2 bucket) and
 writes lib/image-sizes.json, keyed by the image's site path. The project page
 uses these to lay out gallery rows without layout shift.
 """
@@ -37,7 +37,7 @@ for work in works:
         if not key:
             missing.append(src)
             continue
-        local = ROOT / "r2-staging" / key
+        local = ROOT / "r2-bucket" / key
         try:
             if local.exists():
                 with Image.open(local) as opened:

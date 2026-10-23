@@ -90,27 +90,37 @@ article's share tags: `python scripts/fetch_article_previews.py` saves them to
 
 ## Media
 
-Original project folders are kept in `source-media/` (not in Git).
-`lib/media-map.json` maps site paths to the R2 bucket; editor uploads are stored
-in `public/uploads/` and served by the site. Gallery rows use each image's
-dimensions, recorded in the project files (rebuilt by `scripts/record_image_sizes.py`;
-editor uploads are measured by `build-works.mjs`).
+`r2-bucket/` is the local mirror of the live `benbroome-portfolio-media`
+bucket: identical object paths and bytes, with no reports or scratch files inside.
+It is excluded from Git. The inventory, HTTP/custom metadata, SHA-256 checksums,
+and cleanup audit live separately in `docs/r2-mirror/` (also local-only).
+See [R2 migration notes](docs/r2-migration.md) before transferring to another account.
 
-To rebuild the new project media (Pillow, PyMuPDF, requests and ffmpeg required):
+Refresh the mirror from R2 (read-only on Cloudflare):
 
 ```powershell
-python scripts/import_new_media.py
-python scripts/prepare_reading_pdf.py
 node node_modules/wrangler/bin/wrangler.js whoami
-python scripts/sync_r2_media.py
-python scripts/sync_r2_media.py --verify-only
+python scripts/mirror_r2_bucket.py
+python scripts/mirror_r2_bucket.py --verify-only
 ```
 
-The importer leaves source files intact, produces 2400px WebP images and
-H.264/AAC MP4 videos, and keeps the original photos, videos and PDFs in R2.
-`lib/new-media-manifest.json` records each source file, object key, size and
-SHA-256 hash. The sync is resumable, repairs missing or mismatched objects and
-deletes nothing from R2.
+The downloader enumerates the complete live bucket, reuses matching files,
+downloads missing or changed objects, and removes local extras only after all
+objects verify and a second live inventory confirms the bucket has not changed.
+It never uploads or deletes remote objects. Do not put working files inside the
+mirror. SHA-256 checksums are saved for migration verification; object content is
+checked against R2 ETags (multipart objects are downloaded from the authenticated
+API). The old duplicate `source-media/`, `r2-staging/`, extracted Squarespace media,
+and `public/work/` directories were removed after verification.
+
+`lib/media-map.json` maps site paths to R2 object keys. Editor uploads in
+`public/uploads/` and local previews in `public/previews/` are website assets,
+kept in Git and served by Vercel; they are not part of this R2 mirror.
+
+The existing uploader now reads `r2-bucket/` by default and writes its reports
+outside it. `--source <directory>` can select a separate staging directory for
+new media. Historical import/rebuild tools are not a migration procedure and
+may need their original source folders restored; do not run them over the mirror.
 
 PDF.js assets are prepared on install and before development and builds. The
 oversized Arcane scan has a smaller reading copy recorded in
@@ -130,6 +140,6 @@ open questions in `docs/date-audit.md`. Editor setup: `docs/editor-setup.md`.
 Open questions for Ben: `docs/questions-for-ben.md`.
 
 `scripts/archive/export-content.cjs` created `content/works/` from the Squarespace
-import once; running it again would overwrite later edits. If rebuilding the
-legacy archive, run `scripts/archive/assemble_portfolio.py` and
+import once; running it again would overwrite later edits. If deliberately rebuilding the
+legacy archive, restore its source media first and run `scripts/archive/assemble_portfolio.py` and
 `scripts/archive/build_r2_staging.py` before `scripts/import_new_media.py`.
