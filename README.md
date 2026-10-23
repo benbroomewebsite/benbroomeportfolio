@@ -59,6 +59,7 @@ dated ones in their year.
   adds an exhibition to that filter too (as "Exhibition text"), without repeating
   it under All. **Leave out of the All list** keeps a piece under its own filter
   only, e.g. an interview already linked from its exhibition.
+- **Exhibition documents and press** appear as links on the left; the gallery stays for photos and videos. This applies even to older documents saved as inline.
 - **Documents** are PDFs. **Show as** chooses **Read on the page** (beside or
   beneath the images, and also linked on the left) or **Link on the left** only,
   for example a press release.

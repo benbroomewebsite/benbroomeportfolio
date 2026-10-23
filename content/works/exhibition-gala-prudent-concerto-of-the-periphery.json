@@ -8,7 +8,13 @@
   "description": "",
   "externalHref": "",
   "links": [],
-  "files": [],
+  "files": [
+    {
+      "label": "Exhibition text",
+      "href": "/work/exhibition-gala-prudent-concerto-of-the-periphery/010.jpeg",
+      "display": "link"
+    }
+  ],
   "featuredImage": "/work/exhibition-gala-prudent-concerto-of-the-periphery/001.jpeg",
   "images": [
     {
@@ -82,14 +88,6 @@
       "width": 2000,
       "height": 1499,
       "originalName": "welovevermont-35-copy.jpg"
-    },
-    {
-      "src": "/work/exhibition-gala-prudent-concerto-of-the-periphery/010.jpeg",
-      "alt": "Gala Prudent, Concerto of the periphery in I, III, and V",
-      "group": "",
-      "width": 539,
-      "height": 1166,
-      "originalName": "Scan.jpeg"
     }
   ],
   "videos": [],

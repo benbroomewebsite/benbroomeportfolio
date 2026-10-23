@@ -9,6 +9,7 @@ require('./lib/register-ts.cjs')
 const { inFilter, typeIn, works } = require('../lib/works.ts')
 const { projectView } = require('../lib/project-view.ts')
 const media = require('../lib/media-map.json')
+const { mediaHref } = require('../lib/media.ts')
 
 const resolves = (src) => /^https:\/\//.test(src) || media[src] || fs.existsSync(path.resolve(__dirname, '../public', `.${src}`))
 
@@ -49,8 +50,9 @@ const pdf = (label, display = 'inline') => ({ label, href: `/${label}.pdf`, disp
 const labels = (work) => projectView(work).links.map((link) => link.label)
 
 const exhibition = project({ images: [photo], files: [pdf('Exhibition text')], links: [{ label: 'Press: The Guardian', href: 'https://example.com/' }] })
-assert.equal(projectView(exhibition).textBelow, true, 'An exhibition text is read beneath the opening image')
-assert.deepEqual(labels(exhibition), ['Press: The Guardian', 'Exhibition text'], 'and linked after the press')
+assert.equal(projectView(exhibition).textBelow, false, 'Exhibition documents stay out of the photo gallery')
+assert.deepEqual(projectView(exhibition).documents, [])
+assert.deepEqual(labels(exhibition), ['Exhibition text', 'Press: The Guardian'], 'Exhibition documents and press remain linked on the left')
 const pressRelease = project({ images: [photo], files: [pdf('Press release', 'link')] })
 assert.deepEqual(projectView(pressRelease).documents, [], 'A document set to link is not read on the page')
 assert.deepEqual(labels(pressRelease), ['Press release'])
@@ -60,6 +62,27 @@ assert.equal(projectView(article).article, undefined, 'Frieze refuses to be show
 const talk = project({ category: 'Talk', files: [pdf('Transcript')] })
 assert.equal(projectView(talk).opensOnDocument, true)
 assert.deepEqual(labels(talk), [], 'A talk is read on the page, not linked as well')
+
+// Older inline settings and embeddable press must never add documents to exhibitions.
+const press = { label: 'Flash Art', href: 'https://flash---art.com/article/example/' }
+const exhibitionWithPress = project({ images: [photo], files: [pdf('Press release')], links: [press], externalHref: press.href })
+assert.deepEqual(projectView(exhibitionWithPress).documents, [])
+assert.deepEqual(projectView(exhibitionWithPress).relatedPages, [])
+assert.equal(projectView(exhibitionWithPress).article, undefined)
+assert.ok(projectView(exhibitionWithPress).links.some((link) => link.href === press.href))
+assert.ok(labels(exhibitionWithPress).includes('Press release'))
+for (const work of works.filter((work) => work.category === 'Exhibition')) {
+  const view = projectView(work)
+  assert.deepEqual(view.documents, [], `Inline document in exhibition: ${work.slug}`)
+  assert.deepEqual(view.relatedPages, [], `Embedded press in exhibition: ${work.slug}`)
+  assert.equal(view.article, undefined)
+  for (const file of work.files) assert.ok(view.links.some((link) => link.href === mediaHref(file.href)), `Missing document link: ${work.slug}`)
+  for (const link of work.links) assert.ok(view.links.some((listed) => listed.href === link.href), `Missing press link: ${work.slug}`)
+}
+const embeddedWriting = project({ category: 'Selected Writing', images: [photo], externalHref: press.href })
+assert.equal(projectView(embeddedWriting).article, press.href, 'Standalone writing retains its article reader')
+const pdfWriting = project({ category: 'Selected Writing', files: [pdf('Essay')] })
+assert.equal(projectView(pdfWriting).opensOnDocument, true, 'Standalone writing retains its PDF reader')
 
 // Which lists a project appears in.
 const exhibitionText = project({ alsoInWriting: true })

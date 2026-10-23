@@ -50,11 +50,14 @@ export type ProjectView = {
 }
 
 export function projectView(work: Work): ProjectView {
-  const documents = work.files.filter((file) => isPdf(file.href) && file.display !== 'link')
+  // Exhibition documents and press stay in the left-hand links, even when
+  // older content (or an editor save) requests an inline reader.
+  const exhibition = work.category === 'Exhibition'
+  const documents = work.files.filter((file) => !exhibition && isPdf(file.href) && file.display !== 'link')
   const imageCount = work.images.filter((image) => !isPdfPage(image)).length
   const reading = work.category === 'Selected Writing' || work.category === 'Talk'
   const textBelow = documents.length === 1 && imageCount > 0 && !reading
-  const article = work.externalHref && canEmbed(work.externalHref) && !work.files.some((file) => isPdf(file.href)) ? work.externalHref : undefined
+  const article = !exhibition && work.externalHref && canEmbed(work.externalHref) && !work.files.some((file) => isPdf(file.href)) ? work.externalHref : undefined
   return {
     documents,
     textBelow,
@@ -62,7 +65,7 @@ export function projectView(work: Work): ProjectView {
     hasImages: imageCount > 0 && !(documents.length > 0 && work.category === 'Selected Writing'),
     readsAsImage: work.category === 'Selected Writing' && imageCount > 0 && !work.externalHref && !work.files.length,
     article,
-    relatedPages: imageCount > 0 && !article ? work.links.filter((link) => canEmbed(link.href)) : [],
+    relatedPages: !exhibition && imageCount > 0 && !article ? work.links.filter((link) => canEmbed(link.href)) : [],
     links: projectLinks(work, documents),
   }
 }
