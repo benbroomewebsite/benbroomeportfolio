@@ -55,7 +55,8 @@ a.work-row { color: inherit; }
    hover preview's lines. */
 .portfolio-shell { --gap: 24px; --index-row-padding: 4px; --index-bottom-edge: 4px; grid-template-rows: auto minmax(0, 1fr); height: 100dvh; line-height: 21px; }
 .portfolio-shell .work-row { grid-template-columns: minmax(0, 1.2fr) 8em minmax(0, 1fr) 5.5em; padding: var(--index-row-padding) 0; }
-.portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); }
+/* --filter-gap is set by Portfolio to line a filter up with an index column it nearly meets. */
+.portfolio-shell > .filters { grid-area: 1 / 1; width: auto; margin: 0; padding: var(--top-edge) var(--gap) 16px var(--edge); column-gap: var(--filter-gap, 48px); }
 .portfolio-shell > .identity-desktop { grid-area: 1 / 2; align-self: start; min-height: 0; margin: 0; padding: var(--top-edge) var(--edge) 16px var(--gap); }
 /* The index runs to the foot of the window; the space below its last line sits
    inside the scroll, so the end of the list stops level with the slideshow caption. */
