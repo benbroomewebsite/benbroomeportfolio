@@ -1,5 +1,29 @@
 # R2 media migration
 
+## Ben's destination (25 October 2026)
+
+Transfer completed and verified: **1,366 objects / 3,825,618,106 bytes**.
+All destination keys, sizes, MD5 ETags and HTTP/custom metadata match the source;
+there are no failures, mismatches or extra objects. Local source bytes were
+checked against the original SHA-256 manifest before uploading.
+
+- Account: `856d30a7c55ce0475ebcac06e973dc57`.
+- Bucket: `benbroome-portfolio-media` (Western Europe, Standard).
+- Custom media origin: `https://media.benbroome.co.uk` (ownership and TLS active).
+- Copy tool: `python scripts/migrate_r2_account.py`, using Ben's Wrangler login.
+  It verifies every local SHA-256 before writing, preserves Content-Type and
+  Cache-Control, and compares the final destination keys, sizes, MD5 ETags and
+  metadata. It does not delete remote objects. Rerunning skips matching objects.
+- Destination verification report: `docs/r2-mirror/ben-migration-verification.json`.
+  Only a report with no failures, mismatches or extra keys proves completion.
+- The original source inventory and SHA-256 report remain unchanged.
+
+After verification, set Vercel's `NEXT_PUBLIC_MEDIA_BASE_URL` to
+`https://media.benbroome.co.uk` and redeploy (public environment values are
+embedded at build time). Change `NEXT_PUBLIC_SITE_URL` only when the website's
+custom domain is connected. The running website has not been switched by the
+bucket-copy tool. Keep the old bucket until the deployed website is checked.
+
 Verified on 23 October 2026: `r2-bucket/` contains exactly the live
 `benbroome-portfolio-media` bucket's **1,366 objects / 3,825,618,106 bytes**.
 Every object path, size and content was checked, and the live inventory was

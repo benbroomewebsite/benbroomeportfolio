@@ -21,9 +21,9 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = ROOT / 'r2-bucket'
-BASE = os.environ.get('NEXT_PUBLIC_MEDIA_BASE_URL', 'https://pub-77bd6b0eb2e9483f9b0201fc3bb527e7.r2.dev').rstrip('/')
+BASE = os.environ.get('NEXT_PUBLIC_MEDIA_BASE_URL', 'https://media.benbroome.co.uk').rstrip('/')
 BUCKET = os.environ.get('R2_BUCKET', 'benbroome-portfolio-media')
-ACCOUNT = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '6e0c36e454fa6e50d978601733ec8932')
+ACCOUNT = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '856d30a7c55ce0475ebcac06e973dc57')
 TYPES = {'.webp': 'image/webp', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.gif': 'image/gif', '.pdf': 'application/pdf', '.mp4': 'video/mp4', '.mov': 'video/quicktime'}
 
 def digest(path, algorithm):

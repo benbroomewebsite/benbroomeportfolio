@@ -11,7 +11,7 @@ import fitz  # PyMuPDF
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
-MEDIA_BASE = "https://pub-77bd6b0eb2e9483f9b0201fc3bb527e7.r2.dev"
+MEDIA_BASE = "https://media.benbroome.co.uk"
 media = json.loads((ROOT / "lib/media-map.json").read_text(encoding="utf-8"))
 out = ROOT / "public" / "previews"
 out.mkdir(parents=True, exist_ok=True)
