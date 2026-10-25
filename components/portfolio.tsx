@@ -43,9 +43,16 @@ export function Portfolio() {
   const visibleWorks = works.filter((work) => inFilter(work, filter))
 
   useLayoutEffect(() => {
+    // Old category URLs redirect here with an explicit filter, which takes
+    // precedence over the reader's previous selection.
+    const requestedFilter = new URLSearchParams(window.location.search).get('filter')
     const savedFilter = window.sessionStorage.getItem('archive-filter')
-    if (filters.includes(savedFilter as Filter)) setFilter(savedFilter as Filter)
+    if (filters.includes(requestedFilter as Filter)) {
+      setFilter(requestedFilter as Filter)
+      window.sessionStorage.setItem('archive-filter', requestedFilter!)
+    } else if (filters.includes(savedFilter as Filter)) setFilter(savedFilter as Filter)
     const frame = requestAnimationFrame(() => {
+      if (filters.includes(requestedFilter as Filter)) return
       if (archiveRef.current) archiveRef.current.scrollTop = Number(window.sessionStorage.getItem('archive-scroll-top') ?? 0)
       window.scrollTo(0, Number(window.sessionStorage.getItem('archive-window-scroll') ?? 0))
     })
