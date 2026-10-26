@@ -1,20 +1,20 @@
 {
   "title": "Nihaal Faizal",
-  "indexTitle": "",
   "category": "Exhibition",
+  "alsoInWriting": false,
+  "hiddenFromAll": false,
   "type": "Exhibition",
   "publication": "Cave, New York",
   "date": "2026-03",
-  "description": "",
-  "externalHref": "",
   "links": [],
   "files": [],
   "featuredImage": "/work/nihaal-faizal-cave/001-6f61fabf0a41.webp",
+  "imageOrder": "random",
   "images": [
     {
       "src": "/work/nihaal-faizal-cave/001-6f61fabf0a41.webp",
       "alt": "Nihaal Faizal",
-      "group": "",
+      "layout": "auto",
       "width": 2400,
       "height": 1602,
       "originalName": "4c023647-9fc2-403e-81b4-72b513e71e32.JPG"
@@ -22,13 +22,42 @@
     {
       "src": "/work/nihaal-faizal-cave/002-5aa9e2c2debe.webp",
       "alt": "Nihaal Faizal",
-      "group": "",
+      "layout": "auto",
       "width": 1200,
       "height": 1600,
       "originalName": "PHOTO-2026-02-03-21-51-09.jpg"
+    },
+    {
+      "upload": "/uploads/works/nihaal-faizal-cave/images/2/upload.jpg",
+      "layout": "auto",
+      "width": 2235,
+      "height": 3353
+    },
+    {
+      "upload": "/uploads/works/nihaal-faizal-cave/images/3/upload.jpg",
+      "layout": "auto",
+      "width": 2805,
+      "height": 1872
+    },
+    {
+      "upload": "/uploads/works/nihaal-faizal-cave/images/4/upload.jpg",
+      "layout": "auto",
+      "width": 3224,
+      "height": 2152
+    },
+    {
+      "upload": "/uploads/works/nihaal-faizal-cave/images/5/upload.jpg",
+      "layout": "auto",
+      "width": 1325,
+      "height": 1987
+    },
+    {
+      "upload": "/uploads/works/nihaal-faizal-cave/images/6/upload.jpg",
+      "layout": "auto",
+      "width": 3120,
+      "height": 2083
     }
   ],
   "videos": [],
-  "legacySlug": "",
   "order": 97
 }
