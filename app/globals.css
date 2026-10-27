@@ -203,10 +203,7 @@ a.work-row { color: inherit; }
   .work-row { grid-template-columns: minmax(0, 1fr) auto; padding: 8px 0; }
   .work-row > span { overflow: hidden; }
   .work-row > span:nth-child(2), .work-row > span:nth-child(3) { display: none; }
-  .bio-shell { display: flex; flex-direction: column; padding: var(--top-edge) var(--edge) 56px; }
-  .bio-shell .archive { display: contents; }
-  .bio-shell .viewer { order: 1; min-height: 0; padding: 26px 0 0; }
-  .bio-shell .contact { order: 2; margin-top: 12px; }
+  .bio-shell .contact { margin-top: 32px; margin-bottom: 24px; }
   .project-return-bottom { display: block; margin-top: 30px; }
   .contact { margin-top: 54px; }
   .viewer { display: block; min-height: 100vh; padding: 22px var(--edge) 70px; }
