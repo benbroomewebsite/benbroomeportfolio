@@ -134,8 +134,8 @@ a.work-row { color: inherit; }
 .project-video figcaption { margin-top: 5px; }
 .bio-shell .identity { margin-bottom: 4px; }
 .bio-return { margin-top: 0; }
-.bio-portrait { margin: 0 0 24px; }
-.bio-portrait img { display: block; width: 100%; height: auto; }
+.bio-portrait { width: min(560px, 100%); margin: 0 0 0 auto; }
+.bio-portrait img { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - var(--top-edge) - 58px); margin-left: auto; object-fit: contain; }
 .bio-portrait figcaption { margin-top: 8px; }
 .gallery-row { display: flex; align-items: flex-start; gap: 18px; }
 .gallery-item { display: block; flex: var(--ratio) 1 0%; min-width: 0; }
@@ -204,6 +204,7 @@ a.work-row { color: inherit; }
   .work-row > span { overflow: hidden; }
   .work-row > span:nth-child(2), .work-row > span:nth-child(3) { display: none; }
   .bio-shell .contact { margin-top: 32px; margin-bottom: 24px; }
+  .bio-portrait img { max-height: 70svh; }
   .project-return-bottom { display: block; margin-top: 30px; }
   .contact { margin-top: 54px; }
   .viewer { display: block; min-height: 100vh; padding: 22px var(--edge) 70px; }

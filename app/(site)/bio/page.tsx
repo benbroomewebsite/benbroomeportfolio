@@ -28,7 +28,7 @@ export default function BioPage() {
 
     <section className="project-content" aria-label="Portrait of Ben Broome">
       {portrait && <figure className="bio-portrait">
-          <Image src={portrait.src} alt={portrait.alt} width={560} height={700} sizes="(max-width: 800px) 100vw, 75vw" preload />
+          <Image src={portrait.src} alt={portrait.alt} width={560} height={700} sizes="(max-width: 800px) calc(100vw - 56px), 560px" preload />
           {portrait.credit && <figcaption>{portrait.credit}</figcaption>}
       </figure>}
     </section>
