@@ -16,7 +16,8 @@ const optionalWebAddress = { regex: /^(https?:\/\/\S+)?$/, message: webAddress.m
 
 // Only the main branch is published. Should a save land on a new branch made in
 // the editor, it is named editor/… and .github/workflows/publish-editor-branches.yml
-// merges it into main, so nothing saved goes missing from the site.
+// merges it into main. The workflow also supports the older Alice branch and
+// synchronises editor branches after publication to avoid stale snapshots.
 export default config({
   storage: github ? { kind: 'github', repo: 'benbroomewebsite/benbroomeportfolio', branchPrefix: 'editor/' } : { kind: 'local' },
   ui: { brand: { name: 'Ben Broome' } },

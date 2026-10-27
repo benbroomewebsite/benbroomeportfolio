@@ -36,6 +36,10 @@ pick a project, change it, press Save. The site updates a minute or two later.
 New images and PDFs uploaded in the editor are stored in the repository under
 `public/uploads/` and need no further step.
 
-If the editor offers a branch menu, stay on **main**. A save made on another
-branch is merged into main automatically (see the README), but main is where
-the current content is.
+If the editor offers a branch menu, choose **main** for direct publication:
+`/keystatic/branch/main`. Saves on `editor/…` branches or the older
+`Alice-Visentin-Update` branch are merged automatically when their changes are
+limited to content and uploads. Other development branches are not auto-published.
+The publishing workflow synchronises the editor branch with main afterward. If
+both branches edited the same content, publication stops for conflict resolution;
+the saved work remains on its branch.

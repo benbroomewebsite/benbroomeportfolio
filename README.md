@@ -20,14 +20,18 @@ to `main`; other branches get preview deployments).
 Two safeguards keep a save from going missing:
 
 - **Editor branches are published.** Keystatic can save to a new branch from its
-  branch menu. Such branches are named `editor/…` (`branchPrefix` in
-  `keystatic.config.ts`), and `.github/workflows/publish-editor-branches.yml`
-  merges them into `main`.
+  branch menu. New branches are named `editor/…` (`branchPrefix` in
+  `keystatic.config.ts`); the older `Alice-Visentin-Update` branch is supported too.
+  `.github/workflows/publish-editor-branches.yml` merges content and uploaded media
+  into `main` and brings the editor branch up to date. Application-code changes
+  or merge conflicts stop publication and preserve both branches for review.
 - **Content cannot break the build.** A failed build leaves the site on its old
   version without telling Ben. The editor requires a date and full link
   addresses, and `build-works.mjs` leaves out anything still broken (a mistyped
   image path, an incomplete link) with a warning in the Vercel build log. The
   checks that follow test the code, so a failure there is a bug to fix here.
+  Empty optional bio fields, including photo credit, may be omitted by the editor
+  and are explicitly optional in the application's content type.
 
 ## Code layout
 

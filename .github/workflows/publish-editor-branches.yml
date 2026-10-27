@@ -1,11 +1,18 @@
 # The live site deploys from main. When a save in /keystatic lands on a branch
-# made in the editor (named editor/… by branchPrefix in keystatic.config.ts),
-# merge it into main so the change is published like any other save.
+# made in the editor, publish it without discarding newer changes on main.
+# Alice-Visentin-Update predates the editor/ naming rule and is still in use.
 name: Publish editor branches
 
 on:
   push:
-    branches: ['editor/**']
+    branches: ['editor/**', 'Alice-Visentin-Update']
+    paths: ['content/**', 'public/uploads/**']
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Editor branch to publish'
+        required: true
+        default: 'Alice-Visentin-Update'
 
 permissions:
   contents: write
@@ -18,13 +25,32 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: main
           fetch-depth: 0
-      - name: Merge into main
+      - name: Publish saved content into main
+        env:
+          EDITOR_BRANCH: ${{ inputs.branch || github.ref_name }}
         run: |
+          case "$EDITOR_BRANCH" in
+            editor/*|Alice-Visentin-Update) ;;
+            *) echo "Only editor branches can be published"; exit 1 ;;
+          esac
+          git check-ref-format --branch "$EDITOR_BRANCH"
+          git fetch origin main "$EDITOR_BRANCH"
+          git switch --detach origin/main
+          BASE=$(git merge-base origin/main "origin/$EDITOR_BRANCH")
+          # Never use an editor save to publish application or workflow code.
+          # A conflicting save fails visibly and leaves both branches intact.
+          if git diff --name-only "$BASE" "origin/$EDITOR_BRANCH" | grep -Ev '^(content/|public/uploads/)' ; then
+            echo "Branch contains code changes; merge these with review instead."
+            exit 1
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git merge --no-edit "origin/${GITHUB_REF_NAME}" -m "Publish editor changes from ${GITHUB_REF_NAME}"
-          git push origin main
+          git merge --no-ff --no-edit "origin/$EDITOR_BRANCH" -m "Publish editor changes from $EDITOR_BRANCH"
+          git push origin HEAD:main
+          # Bring the editor branch up to date so its next save starts with all
+          # published work, rather than an old snapshot of the site.
+          git push origin "HEAD:refs/heads/$EDITOR_BRANCH" || echo "Editor branch moved during publication; its newer saves are preserved."
