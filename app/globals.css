@@ -28,8 +28,9 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--ink); outline-o
 .archive { padding: var(--top-edge) var(--gap) 72px var(--edge); }
 .identity { display: flex; align-items: baseline; white-space: nowrap; margin-bottom: 24px; font-size: var(--site-size); }
 .identity strong { font-weight: 700; }
-/* Home and return links keep the bio's undecorated style in every state. */
+/* Navigation links are undecorated until a return link is hovered or focused. */
 .identity > a, .identity strong, .index-return, .bio-return a { text-decoration: none; }
+.index-return:focus-visible, .bio-return a:focus-visible { text-decoration: underline; text-underline-offset: 2px; }
 .identity p { margin: 0; white-space: pre; font-weight: 700; }
 .identity-mobile, .project-return-bottom { display: none; }
 .filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 48px; width: 100%; margin: 0 0 16px; padding: 0; }
@@ -179,6 +180,7 @@ a.work-row { color: inherit; }
 /* Hover underlines only where there is a mouse: on a touchscreen a finger resting
    on a row to scroll would otherwise leave it underlined. */
 @media (hover: hover) {
+  .index-return:hover, .bio-return a:hover { text-decoration: underline; text-underline-offset: 2px; }
   .work-row:hover .title > span, .contact a:hover, .carousel-caption a:hover, .project-links a:hover, .project-read:hover, .pdf-toolbar a:hover, .project-related h2 a:hover { text-decoration: underline; text-underline-offset: 2px; }
   .filters button:hover span, .project-media-tabs button:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
