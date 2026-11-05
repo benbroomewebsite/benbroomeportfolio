@@ -5,7 +5,15 @@ const legacyRedirects = JSON.parse(readFileSync(new URL('./lib/legacy-redirects.
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async redirects() {
-    return Object.entries(legacyRedirects).map(([source, destination]) => ({ source, destination, permanent: true }))
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.benbroome.co.uk' }],
+        destination: 'https://benbroome.co.uk/:path*',
+        permanent: true,
+      },
+      ...Object.entries(legacyRedirects).map(([source, destination]) => ({ source, destination, permanent: true })),
+    ]
   },
   // The editor's GitHub sign-in runs on 127.0.0.1 during local setup.
   allowedDevOrigins: ['127.0.0.1'],
