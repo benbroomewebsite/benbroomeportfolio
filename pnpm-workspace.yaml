@@ -7,3 +7,14 @@ minimumReleaseAgeExclude:
 allowBuilds:
   esbuild: false
   workerd: false
+
+# Replace affected transitive versions while allowing newer releases through.
+overrides:
+  'baseline-browser-mapping@>=2 <2.11.0': 2.11.0
+  'browserslist@>=4 <4.28.7': 4.28.7
+  'js-yaml@>=4 <4.3.2': 4.3.2
+  'nanoid@>=3 <3.3.18': 3.3.18
+  'postcss@>=8 <8.5.23': 8.5.23
+  'sharp@>=0.35 <0.35.5': 0.35.5
+  'source-map-js@>=1 <1.2.2': 1.2.2
+  'undici@>=7 <7.30.1': 7.30.1
