@@ -1,0 +1,68 @@
+name: Merge validated dependency updates
+
+on:
+  workflow_run:
+    workflows: [Portfolio CI]
+    types: [completed]
+
+permissions: {}
+
+jobs:
+  merge:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.actor.login == 'dependabot[bot]' &&
+      startsWith(github.event.workflow_run.head_branch, 'dependabot/npm_and_yarn/compatible-updates-')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: merge-validated-dependencies
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pull-requests: read
+    steps:
+      # Read GitHub metadata only. This job never checks out or runs PR code.
+      - name: Merge the tested dependency update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          run=$(jq -c '.workflow_run' "$GITHUB_EVENT_PATH")
+          tested=$(jq -er '.head_sha' <<< "$run")
+          base=$(jq -er --argjson repo "$GITHUB_REPOSITORY_ID" '
+            .pull_requests | select(length == 1) | .[0].base |
+            select(.ref == "main" and .repo.id == $repo) | .sha
+          ' <<< "$run")
+          number=$(jq -er '.pull_requests[0].number' <<< "$run")
+          endpoint="repos/$GITHUB_REPOSITORY/pulls/$number"
+
+          pr=$(gh api "$endpoint")
+          if ! jq -e --arg repo "$GITHUB_REPOSITORY" --arg sha "$tested" '
+            .state == "open" and .draft == false and
+            .user.login == "dependabot[bot]" and .user.type == "Bot" and
+            .base.ref == "main" and .head.repo.full_name == $repo and
+            .head.sha == $sha and
+            (.head.ref | startswith("dependabot/npm_and_yarn/compatible-updates-"))
+          ' <<< "$pr" >/dev/null; then
+            echo "The pull request is no longer eligible."
+            exit 0
+          fi
+
+          if ! gh api --paginate "$endpoint/files" | jq -se '
+            add | length > 0 and
+            all(.[]; .status == "modified" and
+              (.filename == "package.json" or .filename == "pnpm-lock.yaml"))
+          ' >/dev/null; then
+            echo "This pull request changes files outside the dependency manifests."
+            exit 0
+          fi
+
+          if [[ "$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')" != "$base" ]]; then
+            echo "Main moved after validation. Waiting for Dependabot to rebase and run CI again."
+            exit 0
+          fi
+
+          gh api --method PUT "$endpoint/merge" -f sha="$tested" -f merge_method=squash |
+            jq -e '.merged == true'
