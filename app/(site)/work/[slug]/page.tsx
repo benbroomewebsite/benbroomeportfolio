@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound, permanentRedirect } from 'next/navigation'
 import { ProjectPage } from '@/components/project'
 import mediaMap from '@/lib/media-map.json'
-import { absoluteUrl, mediaBaseUrl } from '@/lib/site'
+import { absoluteUrl, mediaBaseUrl, siteName } from '@/lib/site'
 import { getWorkByAnySlug, works } from '@/lib/works'
 
 const mediaUrl = (path: string) => {
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const url = `/work/${work.slug}`
   return {
     title: work.title, description, alternates: { canonical: url },
-    openGraph: { type: 'article', title: work.title, description, url, images: work.images[0] ? [mediaUrl(work.images[0].src)] : ['/opengraph-image'] },
+    openGraph: { type: 'article', title: work.title, description, url, siteName, images: work.images[0] ? [mediaUrl(work.images[0].src)] : ['/opengraph-image'] },
     twitter: { card: 'summary_large_image', title: work.title, description, images: work.images[0] ? [mediaUrl(work.images[0].src)] : ['/opengraph-image'] },
   }
 }

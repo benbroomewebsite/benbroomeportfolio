@@ -7,11 +7,11 @@ import '../globals.css'
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
-  title: { default: 'Ben Broome', template: '%s — Ben Broome' },
+  title: siteName,
   description: siteDescription,
   alternates: { canonical: '/' },
-  openGraph: { type: 'website', url: '/', siteName, title: 'Ben Broome — Curator, Writer, Artist', description: siteDescription, images: ['/opengraph-image'] },
-  twitter: { card: 'summary_large_image', title: 'Ben Broome — Curator, Writer, Artist', description: siteDescription, images: ['/opengraph-image'] },
+  openGraph: { type: 'website', url: '/', siteName, title: siteName, description: siteDescription, images: ['/opengraph-image'] },
+  twitter: { card: 'summary_large_image', title: siteName, description: siteDescription, images: ['/opengraph-image'] },
   icons: {
     icon: [
       {

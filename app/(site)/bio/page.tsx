@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { aboutParagraphs, contact, portrait } from '@/lib/bio'
 import { Identity } from '@/components/identity'
 
-export const metadata: Metadata = { title: 'Bio', description: aboutParagraphs.join(' '), alternates: { canonical: '/bio' }, openGraph: { title: 'Ben Broome — Bio', description: aboutParagraphs.join(' '), url: '/bio' } }
+export const metadata: Metadata = { title: 'Bio', description: aboutParagraphs.join(' '), alternates: { canonical: '/bio' }, openGraph: { title: 'Bio', description: aboutParagraphs.join(' '), url: '/bio', siteName: 'Ben Broome' } }
 
 export default function BioPage() {
   return <main className="project-page bio-shell">
