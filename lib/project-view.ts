@@ -78,7 +78,7 @@ function projectLinks(work: Work, documents: WorkDocument[]): WorkLink[] {
 
   if (work.category === 'Selected Writing') {
     const readHref = work.files[0] ? mediaHref(work.files[0].href) : work.externalHref
-    const read = !documents.length && readHref
+    const read = readHref
       ? [{ label: readHref === work.externalHref && publication ? `Read on ${publication}` : 'Read', href: readHref }]
       : []
     return withoutRepeats([...read, ...listed])
