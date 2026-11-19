@@ -19,7 +19,7 @@
     "next": "16.4.6",
     "react": "^19",
     "react-dom": "^19",
-    "react-pdf": "^11.0.0"
+    "react-pdf": "^11.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.5",
@@ -29,6 +29,6 @@
     "postcss": "^8.5",
     "tailwindcss": "^4.3.5",
     "typescript": "5.7.3",
-    "wrangler": "^4.159.0"
+    "wrangler": "^4.163.0"
   }
 }
